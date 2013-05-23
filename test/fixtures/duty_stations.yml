@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  city: 
+  military_branch: 
+
+two:
+  name: MyString
+  city: 
+  military_branch: 

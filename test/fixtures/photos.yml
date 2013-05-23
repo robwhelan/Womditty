@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image_url: MyString
+  place: 
+  neighborhood: 
+  user: 
+  city: 
+
+two:
+  image_url: MyString
+  place: 
+  neighborhood: 
+  user: 
+  city: 

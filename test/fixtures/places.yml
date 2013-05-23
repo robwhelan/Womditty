@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address_line1: MyString
+  address_line2: MyString
+  neighborhood: 
+  city: 
+  zip_code: 1
+  xgps: 1.5
+  ygps: 1.5
+  type: 
+
+two:
+  name: MyString
+  address_line1: MyString
+  address_line2: MyString
+  neighborhood: 
+  city: 
+  zip_code: 1
+  xgps: 1.5
+  ygps: 1.5
+  type: 

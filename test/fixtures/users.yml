@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  member_rank: MyString
+  neighborhood: 
+  number_of_invites: 1
+  has_kids: false
+  military_branch: 
+  invited_by_user_id: 1
+  role: MyString
+  profile_image_url: MyString
+  city: 
+  duty_station: 
+
+two:
+  firstname: MyString
+  lastname: MyString
+  member_rank: MyString
+  neighborhood: 
+  number_of_invites: 1
+  has_kids: false
+  military_branch: 
+  invited_by_user_id: 1
+  role: MyString
+  profile_image_url: MyString
+  city: 
+  duty_station: 

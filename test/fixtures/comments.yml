@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  body: MyText
+  place: 
+  review: 
+  photo: 
+  user: 
+
+two:
+  body: MyText
+  place: 
+  review: 
+  photo: 
+  user: 
