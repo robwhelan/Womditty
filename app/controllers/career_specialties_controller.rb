@@ -1,4 +1,8 @@
 class CareerSpecialtiesController < ApplicationController
+
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+
   # GET /career_specialties
   # GET /career_specialties.json
   def index

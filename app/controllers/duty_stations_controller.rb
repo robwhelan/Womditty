@@ -1,4 +1,6 @@
 class DutyStationsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /duty_stations
   # GET /duty_stations.json
   def index

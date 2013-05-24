@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /photos
   # GET /photos.json
   def index

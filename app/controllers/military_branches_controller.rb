@@ -1,4 +1,6 @@
 class MilitaryBranchesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /military_branches
   # GET /military_branches.json
   def index
