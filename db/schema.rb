@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523031027) do
+ActiveRecord::Schema.define(:version => 20130528010649) do
 
   create_table "career_specialties", :force => true do |t|
     t.string   "name"
@@ -141,6 +141,8 @@ ActiveRecord::Schema.define(:version => 20130523031027) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["career_specialty_id"], :name => "index_users_on_career_specialty_id"
