@@ -15,7 +15,9 @@ class User < ActiveRecord::Base
   belongs_to :military_branch
   belongs_to :neighborhood
   
-  attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, :lastname, :member_rank, :number_of_invites, :profile_image_url, :role
+  attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
+                  :lastname, :member_rank, :number_of_invites, :profile_image_url, 
+                  :role, :location, :birthday, :gender, :profile_image
 
   has_many :comments
   has_many :reviews
@@ -36,7 +38,13 @@ class User < ActiveRecord::Base
                            provider:auth.provider,
                            uid:auth.uid,
                            email:auth.info.email,
-                           password:Devise.friendly_token[0,20]
+                           password:Devise.friendly_token[0,20],
+                           firstname:auth.extra.raw_info.first_name,
+                           lastname:auth.extra.raw_info.last_name,
+                           location:auth.extra.raw_info.location.name,
+                           birthday:auth.extra.raw_info.birthday,
+                           gender:auth.extra.raw_info.gender,
+                           profile_image:auth.info.image
                            )
     end
     user
