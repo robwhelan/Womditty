@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
   belongs_to :place
   belongs_to :user
-  attr_accessible :body, :rating
+  belongs_to :neighborhood
+  attr_accessible :body, :rating, :place_id, :neighborhood_id, :user_id
 end

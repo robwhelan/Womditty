@@ -4,7 +4,13 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+
+    if params[:neighborhood]
+      @reviews = Review.where(:neighborhood_id => params[:neighborhood])
+      @neighborhood = Neighborhood.find(params[:neighborhood]).name
+    else
+      @reviews = Review.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

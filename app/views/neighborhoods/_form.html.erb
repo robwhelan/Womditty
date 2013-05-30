@@ -8,12 +8,13 @@
   <div class="control-group">
     <%= f.label :city_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :city_id, :class => 'number_field' %>
+      <%= f.collection_select( :city_id, City.all, :id, :name ) %>
     </div>
   </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
+
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 neighborhoods_path, :class => 'btn' %>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528010649) do
+ActiveRecord::Schema.define(:version => 20130529215804) do
 
   create_table "career_specialties", :force => true do |t|
     t.string   "name"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130528010649) do
     t.integer  "city_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "review_id"
   end
 
   add_index "neighborhoods", ["city_id"], :name => "index_neighborhoods_on_city_id"
@@ -108,10 +109,12 @@ ActiveRecord::Schema.define(:version => 20130528010649) do
     t.integer  "rating"
     t.integer  "place_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "neighborhood_id"
   end
 
+  add_index "reviews", ["neighborhood_id"], :name => "index_reviews_on_neighborhood_id"
   add_index "reviews", ["place_id"], :name => "index_reviews_on_place_id"
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
@@ -143,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20130528010649) do
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
+    t.string   "name"
   end
 
   add_index "users", ["career_specialty_id"], :name => "index_users_on_career_specialty_id"

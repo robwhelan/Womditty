@@ -5,9 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th></th>
       <th><%= model_class.human_attribute_name(:country) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -16,9 +15,8 @@
   <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= link_to city.id, city_path(city) %></td>
-        <td><%= city.name %></td>
-        <td><%= city.state %></td>
+        <td><%= link_to city.name, city_path(city) %></td>
+        <td><%= link_to "Neighborhoods ("+ "#{city.neighborhoods.count}" +")", neighborhoods_path(:city => city), :class => 'btn' %></td>
         <td><%= city.country %></td>
         <td><%=l city.created_at %></td>
         <td>

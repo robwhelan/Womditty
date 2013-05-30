@@ -1,24 +1,26 @@
 <%- model_class = Neighborhood -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	<% if @city %>
+		<h1><%= @city %> <%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	<% else %>
+  		<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	<% end %>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+	  <th></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:city_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @neighborhoods.each do |neighborhood| %>
       <tr>
-        <td><%= link_to neighborhood.id, neighborhood_path(neighborhood) %></td>
+		<td><%= link_to "Reviews (#{neighborhood.reviews.count})", reviews_path(:neighborhood => neighborhood), :class => 'btn' %>
         <td><%= neighborhood.name %></td>
-        <td><%= neighborhood.city_id %></td>
-        <td><%=l neighborhood.created_at %></td>
+        <td><%= neighborhood.city.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_neighborhood_path(neighborhood), :class => 'btn btn-mini' %>

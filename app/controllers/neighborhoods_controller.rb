@@ -4,8 +4,14 @@ class NeighborhoodsController < ApplicationController
   # GET /neighborhoods
   # GET /neighborhoods.json
   def index
-    @neighborhoods = Neighborhood.all
 
+    if params[:city]
+      @neighborhoods = Neighborhood.where(:city_id => params[:city])
+      @city = City.find(params[:city]).name
+    else
+      @neighborhoods = Neighborhood.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @neighborhoods }
