@@ -6,8 +6,12 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+	  <th></th>
       <th><%= model_class.human_attribute_name(:firstname) %></th>
       <th><%= model_class.human_attribute_name(:lastname) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:birthday) %></th>
+      <th><%= model_class.human_attribute_name(:gender) %></th>
       <th><%= model_class.human_attribute_name(:member_rank) %></th>
       <th><%= model_class.human_attribute_name(:number_of_invites) %></th>
       <th><%= model_class.human_attribute_name(:has_kids) %></th>
@@ -36,8 +40,12 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
+		<td><img src=<%= user.profile_image %> class="img-rounded"></td>
         <td><%= user.firstname %></td>
         <td><%= user.lastname %></td>
+		<td><%= user.location %></td>
+		<td><%= user.birthday %></td>
+		<td><%= user.gender %></td>
         <td><%= user.member_rank %></td>
         <td><%= user.number_of_invites %></td>
         <td><%= user.has_kids %></td>
