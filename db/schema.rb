@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530023722) do
+ActiveRecord::Schema.define(:version => 20130619233547) do
 
   create_table "career_specialties", :force => true do |t|
     t.string   "name"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(:version => 20130530023722) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "military_discounts", :force => true do |t|
+    t.string   "description"
+    t.integer  "place_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "military_discounts", ["place_id"], :name => "index_military_discounts_on_place_id"
+
   create_table "neighborhoods", :force => true do |t|
     t.string   "name"
     t.integer  "city_id"
@@ -96,7 +105,7 @@ ActiveRecord::Schema.define(:version => 20130530023722) do
     t.integer  "zip_code"
     t.float    "xgps"
     t.float    "ygps"
-    t.string   "type"
+    t.string   "place_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -117,6 +126,23 @@ ActiveRecord::Schema.define(:version => 20130530023722) do
   add_index "reviews", ["neighborhood_id"], :name => "index_reviews_on_neighborhood_id"
   add_index "reviews", ["place_id"], :name => "index_reviews_on_place_id"
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "firstname"
@@ -151,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20130530023722) do
     t.date     "birthday"
     t.string   "profile_image"
     t.string   "gender"
+    t.integer  "drive_time"
   end
 
   add_index "users", ["career_specialty_id"], :name => "index_users_on_career_specialty_id"

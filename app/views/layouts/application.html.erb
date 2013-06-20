@@ -64,6 +64,7 @@
               <li><%= link_to 'Branches', military_branches_path  %></li>
               <li><%= link_to 'Photos', photos_path  %></li>
               <li><%= link_to 'Career Specialties', career_specialties_path  %></li>
+              <li><%= link_to 'Military Discounts', military_discounts_path  %></li>
 			  <% if user_signed_in? %>
 				<li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger" %></li>
 			  <% end %>

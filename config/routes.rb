@@ -1,7 +1,10 @@
 Womditty::Application.routes.draw do
 
+  get 'tags/:tag', to: 'places#index', as: :tag
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  resources :military_discounts
   resources :career_specialties
   resources :users
   resources :military_branches
@@ -13,7 +16,7 @@ Womditty::Application.routes.draw do
   resources :photos
   resources :places
 
-  root :to => "cities#index"
+  root :to => "military_discounts#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

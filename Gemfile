@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails'
 gem 'paperclip'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'acts-as-taggable-on'
 
 # Gems used only for assets and not required
 # in production environments by default.

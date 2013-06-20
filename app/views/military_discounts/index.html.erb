@@ -1,0 +1,90 @@
+<script type="text/javascript">
+(function(document) {
+	'use strict';
+
+	var LightTableFilter = (function(Arr) {
+
+		var _input;
+
+		function _onInputEvent(e) {
+			_input = e.target;
+			var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+			Arr.forEach.call(tables, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, _filter);
+				});
+			});
+		}
+
+		function _filter(row) {
+			var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+
+		return {
+			init: function() {
+				var inputs = document.getElementsByClassName('light-table-filter');
+				Arr.forEach.call(inputs, function(input) {
+					input.oninput = _onInputEvent;
+				});
+			}
+		};
+	})(Array.prototype);
+
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+			LightTableFilter.init();
+		}
+	});
+
+})(document);
+</script>
+
+<%- model_class = MilitaryDiscount -%>
+<div class="page-header">
+  <h1>Military Discounts in Charleston <input type="search" class="light-table-filter" data-table="order-table" placeholder="Search" /></h1>	
+</div>
+
+<% unless user_signed_in? %>
+<h3>Showing <%= @military_discounts.count %> of <%= MilitaryDiscount.all.count %></h3>
+<% end %>
+
+<% if @profile_incomplete %>
+	<%= render 'shared/profile_completer' %>
+<% end %>
+
+<table class="order-table table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Neighborhood</th>
+	  <th>Address</th>
+      <th>Discount</th>
+	  <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @military_discounts.each do |military_discount| %>
+	<% if military_discount.place %>
+      <tr>
+		<td><%= military_discount.place.name %></td>
+		<td><%= military_discount.place.neighborhood.name %></td>
+		<td><%= military_discount.place.address_line1 %></td>
+        <td><%= military_discount.description %></td>
+		<td><%= raw military_discount.place.tag_list.map{|t| t}.join(', ') %></td>
+      </tr>
+	<% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<% unless user_signed_in? %>
+	<h3>Want to see the other <%= MilitaryDiscount.all.count - @military_discounts.count %>?</h3>
+	<%= link_to image_tag('facebook-login-button.png'), omniauth_authorize_path(:user, :facebook) %><br />
+<% end %>
+
+<% if user_signed_in? and current_user.role == "Admin" %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_military_discount_path,
+            :class => 'btn btn-primary' %>
+<% end %>

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]       
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :role
   belongs_to :city
   belongs_to :career_specialty 
   belongs_to :duty_station
@@ -17,14 +17,14 @@ class User < ActiveRecord::Base
   
   attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
                   :lastname, :member_rank, :number_of_invites, :profile_image_url, 
-                  :role, :location, :birthday, :gender, :profile_image
+                  :role, :location, :birthday, :gender, :profile_image, :drive_time
 
   has_many :comments
   has_many :reviews
   has_many :photos
 
   def self.roles
-    ['Member of the military', 'Spouse', 'Significant Other', 'Family member']
+    ['Member of the military', 'Spouse', 'Significant Other', 'Family member', 'Admin']
   end
 
   def self.ranks
