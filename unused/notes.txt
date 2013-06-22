@@ -1,0 +1,32 @@
+/* user has to fill out a form capturing drive time, neighborhood, and base before seeing the military discounts.
+/* need to put in javascript validation to ensure they finish the form before seeing discounts.
+/	* use jquery validate and have the submit button (and window clear button) disabled until
+/		all fields are filled in
+* then need to build the google maps overlay.
+	* have a polygon for Daniel Island
+	* will probably need a more precise polygon for each neighborhood
+	* want to store the coordinate sets somewhere else (probably attach them to the neighborhood model)
+	* 
+* check Hartl's book for making random users
+
+google maps overlay will be this:
+* one overlay of just neighborhoods (this will be a set of polygons)
+* another overlay of bases and their gate locations: blue for in/out, green for in only, red for out only
+	* will need to deselect bases using a check box
+* another overlay of users and their drive times; this will be a "heat map" showing relative density,
+	and then a range of drive times showing the middle 50% of responses from that neighborhood to a specific base
+
+* javascript functions:
+1. build an array of neighborhoods-- they each have a name and a set of borders and maybe a fill color
+2. build an array of bases from the Rails model -- each has a set of borders, fill color, and
+	an array of gate locations by GPS (might need a new model to attach to the bases)
+3. an array of users containing rank, neighborhood, duty station, drive time, and pictures?
+	can only see pictures or other data if logged in
+	
+	
+Finally, a Q&A section.
+* users must have a reputation score, incremented when:
+	1. they ask a question
+	2. they answer a question
+	3. someone likes their question
+	4. someone likes their answer

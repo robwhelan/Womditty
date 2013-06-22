@@ -1,6 +1,6 @@
 Womditty::Application.routes.draw do
 
-  get 'tags/:tag', to: 'places#index', as: :tag
+  get "pages/google_map"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -15,6 +15,8 @@ Womditty::Application.routes.draw do
   resources :comments
   resources :photos
   resources :places
+
+  get 'tags/:tag', to: 'places#index', as: :tag
 
   root :to => "military_discounts#index"
   

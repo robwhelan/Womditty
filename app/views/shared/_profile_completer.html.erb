@@ -1,17 +1,45 @@
+
+
+<div id="myModal" class="modal hide fade"  data-keyboard="false">
+  <div class="modal-header">
+    <h3>Just a couple questions!</h3>
+  </div>
+  <div class="modal-body">
+	<%= form_tag(user_path(current_user), :method => 'PUT', :id => 'profileCompleterForm' )%>
+	  <div class="control-group">
+	    <%= label_tag "What's your or your spouse's military rank?" %>
+	    <div class="controls">
+		  <%= select( :user, :member_rank, User.ranks, {} , { :id => 'memberRankField', :required => 'required' } ) %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= label_tag 'How long do you budget for your drive into work (in minutes)?' %>
+	    <div class="controls">
+	      <%= text_field :user, :drive_time, { :id => 'driveTimeField', :required => 'required', :digits => 'digits'} %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= label_tag "Which neighborhood do you live in?" %>
+	    <div class="controls">
+			<%= collection_select( :user, :neighborhood_id, Neighborhood.all, :id, :name, {}, { :id => 'neighborhoodField', :required => 'required'} ) %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= label_tag "Which is your duty station?" %>
+	    <div class="controls">
+			<%= collection_select( :user, :duty_station_id, DutyStation.all, :id, :name, {}, { :id => 'dutyStationField', :required => 'required' } ) %>
+	    </div>
+	  </div>
+
+	  <div class="modal-footer">
+		<%= submit_tag 'Done', :class => 'btn' %>
+	  </div>
+
+  </div>
+	<script>
+	$("#profileCompleterForm").validate();
+	</script>
+</div>
 <script type="text/javascript">
 	$('#myModal').modal('show')
 </script>
-
-<div id="myModal" class="modal hide fade">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
-  </div>
-</div>

@@ -48,7 +48,7 @@
 <% unless user_signed_in? %>
 <h3>Showing <%= @military_discounts.count %> of <%= MilitaryDiscount.all.count %></h3>
 <% end %>
-
+<%= @profile_incomplete %>
 <% if @profile_incomplete %>
 	<%= render 'shared/profile_completer' %>
 <% end %>
@@ -82,6 +82,7 @@
 	<h3>Want to see the other <%= MilitaryDiscount.all.count - @military_discounts.count %>?</h3>
 	<%= link_to image_tag('facebook-login-button.png'), omniauth_authorize_path(:user, :facebook) %><br />
 <% end %>
+
 
 <% if user_signed_in? and current_user.role == "Admin" %>
 <%= link_to t('.new', :default => t("helpers.links.new")),

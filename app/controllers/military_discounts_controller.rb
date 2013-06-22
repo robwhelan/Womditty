@@ -4,11 +4,12 @@ class MilitaryDiscountsController < ApplicationController
   def index
 
     if user_signed_in?
-      if current_user.neighborhood.nil? && current_user.duty_station.nil? && current_user.drive_time.nil? && current_user.member_rank.nil?
+      if current_user.neighborhood.nil? or current_user.duty_station.nil? or current_user.drive_time.nil? or current_user.member_rank.nil?
         @profile_incomplete = true
       end
       
       @military_discounts = MilitaryDiscount.all
+      @user = current_user
     else
       @military_discounts = MilitaryDiscount.limit(5)
     end

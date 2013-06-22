@@ -8,13 +8,13 @@
   <div class="control-group">
     <%= f.label :city_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :city_id, :class => 'number_field' %>
+		<%= f.collection_select( :city_id, City.all, :id, :name ) %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :military_branch_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :military_branch_id, :class => 'number_field' %>
+		<%= f.collection_select( :military_branch_id, MilitaryBranch.all, :id, :name ) %>
     </div>
   </div>
 
