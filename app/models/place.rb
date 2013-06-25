@@ -6,6 +6,7 @@ class Place < ActiveRecord::Base
 
   has_many :reviews
   has_one :military_discount
+  has_many :coordinates
 
   acts_as_taggable
   acts_as_taggable_on :place_types

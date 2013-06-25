@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619233547) do
+ActiveRecord::Schema.define(:version => 20130624232439) do
 
   create_table "career_specialties", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,25 @@ ActiveRecord::Schema.define(:version => 20130619233547) do
   add_index "comments", ["place_id"], :name => "index_comments_on_place_id"
   add_index "comments", ["review_id"], :name => "index_comments_on_review_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "coordinates", :force => true do |t|
+    t.integer  "neighborhood_id"
+    t.integer  "city_id"
+    t.integer  "place_id"
+    t.integer  "duty_station_id"
+    t.integer  "coordinate_number"
+    t.float    "lat"
+    t.float    "lng"
+    t.float    "lat_center"
+    t.float    "lng_center"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "coordinates", ["city_id"], :name => "index_coordinates_on_city_id"
+  add_index "coordinates", ["duty_station_id"], :name => "index_coordinates_on_duty_station_id"
+  add_index "coordinates", ["neighborhood_id"], :name => "index_coordinates_on_neighborhood_id"
+  add_index "coordinates", ["place_id"], :name => "index_coordinates_on_place_id"
 
   create_table "duty_stations", :force => true do |t|
     t.string   "name"

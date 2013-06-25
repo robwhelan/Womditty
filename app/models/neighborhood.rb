@@ -6,5 +6,7 @@ class Neighborhood < ActiveRecord::Base
   has_many :photos
   has_many :reviews
   has_many :places
+  has_many :coordinates
+  
 
 end

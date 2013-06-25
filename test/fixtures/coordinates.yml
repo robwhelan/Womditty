@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  neighborhood: 
+  city: 
+  place: 
+  coordinate_number: 1
+  lat: 1.5
+  lng: 1.5
+  lat_center: 1.5
+  lng_center: 1.5
+  duty_station: 
+
+two:
+  neighborhood: 
+  city: 
+  place: 
+  coordinate_number: 1
+  lat: 1.5
+  lng: 1.5
+  lat_center: 1.5
+  lng_center: 1.5
+  duty_station: 

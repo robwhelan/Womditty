@@ -6,5 +6,6 @@ class City < ActiveRecord::Base
   has_many :reviews
   has_many :duty_stations
   has_many :neighborhoods
+  has_many :coordinates
 
 end

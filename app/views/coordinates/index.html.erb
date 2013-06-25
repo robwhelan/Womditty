@@ -1,0 +1,39 @@
+<h1>Listing coordinates</h1>
+
+<table>
+  <tr>
+    <th>Neighborhood</th>
+    <th>City</th>
+    <th>Place</th>
+    <th>Coordinate number</th>
+    <th>Lat</th>
+    <th>Lng</th>
+    <th>Lat center</th>
+    <th>Lng center</th>
+    <th>Duty station</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coordinates.each do |coordinate| %>
+  <tr>
+    <td><%= coordinate.neighborhood %></td>
+    <td><%= coordinate.city %></td>
+    <td><%= coordinate.place %></td>
+    <td><%= coordinate.coordinate_number %></td>
+    <td><%= coordinate.lat %></td>
+    <td><%= coordinate.lng %></td>
+    <td><%= coordinate.lat_center %></td>
+    <td><%= coordinate.lng_center %></td>
+    <td><%= coordinate.duty_station %></td>
+    <td><%= link_to 'Show', coordinate %></td>
+    <td><%= link_to 'Edit', edit_coordinate_path(coordinate) %></td>
+    <td><%= link_to 'Destroy', coordinate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coordinate', new_coordinate_path %>

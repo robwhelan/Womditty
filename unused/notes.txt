@@ -3,11 +3,13 @@
 /	* use jquery validate and have the submit button (and window clear button) disabled until
 /		all fields are filled in
 * then need to build the google maps overlay.
-	* have a polygon for Daniel Island
-	* will probably need a more precise polygon for each neighborhood
-	* want to store the coordinate sets somewhere else (probably attach them to the neighborhood model)
-	* 
-* check Hartl's book for making random users
+/	* have a polygon for Daniel Island
+/	* will probably need a more precise polygon for each neighborhood (get it from polygon generator website)
+/	* want to store the coordinate sets somewhere else (probably attach them to the neighborhood model)
+
+/ need to generalize the coordinate sets being built, starting with one city, then mapping each neighborhood, then mapping each duty station
+
+ check Hartl's book for making random users
 
 google maps overlay will be this:
 * one overlay of just neighborhoods (this will be a set of polygons)
