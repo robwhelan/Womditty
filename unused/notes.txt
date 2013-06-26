@@ -12,11 +12,17 @@
  check Hartl's book for making random users
 
 google maps overlay will be this:
-* one overlay of just neighborhoods (this will be a set of polygons)
+/* one overlay of just neighborhoods (this will be a set of polygons)
 * another overlay of bases and their gate locations: blue for in/out, green for in only, red for out only
 	* will need to deselect bases using a check box
-* another overlay of users and their drive times; this will be a "heat map" showing relative density,
-	and then a range of drive times showing the middle 50% of responses from that neighborhood to a specific base
+/* another overlay of users and their drive times; this will be a "heat map" showing relative density,
+/	and then a range of drive times showing the middle 50% of responses from that neighborhood to a specific base
+/* need to create a ruby function that calculates the range of drive times
+/	-- take the array of users who live in that neighborhood
+/	-- build an array of drive times to the first base
+/	-- have a section in the info window for each city's duty station
+
+* add "likes" to neighborhoods, places, etc
 
 * javascript functions:
 1. build an array of neighborhoods-- they each have a name and a set of borders and maybe a fill color
@@ -32,3 +38,8 @@ Finally, a Q&A section.
 	2. they answer a question
 	3. someone likes their question
 	4. someone likes their answer
+	5. sign up
+	
+	
+	daniel island
+	

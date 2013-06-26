@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lat:</b>
+  <%= @center_coordinate.lat %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%= @center_coordinate.lng %>
+</p>
+
+<p>
+  <b>Neighborhood:</b>
+  <%= @center_coordinate.neighborhood %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= @center_coordinate.place %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @center_coordinate.city %>
+</p>
+
+<p>
+  <b>Duty station:</b>
+  <%= @center_coordinate.duty_station %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @center_coordinate.photo %>
+</p>
+
+
+<%= link_to 'Edit', edit_center_coordinate_path(@center_coordinate) %> |
+<%= link_to 'Back', center_coordinates_path %>

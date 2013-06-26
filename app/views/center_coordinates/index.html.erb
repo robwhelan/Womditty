@@ -1,0 +1,35 @@
+<h1>Listing center_coordinates</h1>
+
+<table>
+  <tr>
+    <th>Lat</th>
+    <th>Lng</th>
+    <th>Neighborhood</th>
+    <th>Place</th>
+    <th>City</th>
+    <th>Duty station</th>
+    <th>Photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @center_coordinates.each do |center_coordinate| %>
+  <tr>
+    <td><%= center_coordinate.lat %></td>
+    <td><%= center_coordinate.lng %></td>
+    <td><%= center_coordinate.neighborhood %></td>
+    <td><%= center_coordinate.place %></td>
+    <td><%= center_coordinate.city %></td>
+    <td><%= center_coordinate.duty_station %></td>
+    <td><%= center_coordinate.photo %></td>
+    <td><%= link_to 'Show', center_coordinate %></td>
+    <td><%= link_to 'Edit', edit_center_coordinate_path(center_coordinate) %></td>
+    <td><%= link_to 'Destroy', center_coordinate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Center coordinate', new_center_coordinate_path %>

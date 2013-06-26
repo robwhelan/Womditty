@@ -7,6 +7,8 @@ class Neighborhood < ActiveRecord::Base
   has_many :reviews
   has_many :places
   has_many :coordinates
+  has_one :center_coordinate
   
+  accepts_nested_attributes_for :center_coordinate
 
 end

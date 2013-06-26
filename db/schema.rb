@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624232439) do
+ActiveRecord::Schema.define(:version => 20130625202900) do
 
   create_table "career_specialties", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(:version => 20130624232439) do
   end
 
   add_index "career_specialties", ["military_branch_id"], :name => "index_career_specialties_on_military_branch_id"
+
+  create_table "center_coordinates", :force => true do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "neighborhood_id"
+    t.integer  "place_id"
+    t.integer  "city_id"
+    t.integer  "duty_station_id"
+    t.integer  "photo_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "center_coordinates", ["city_id"], :name => "index_center_coordinates_on_city_id"
+  add_index "center_coordinates", ["duty_station_id"], :name => "index_center_coordinates_on_duty_station_id"
+  add_index "center_coordinates", ["neighborhood_id"], :name => "index_center_coordinates_on_neighborhood_id"
+  add_index "center_coordinates", ["photo_id"], :name => "index_center_coordinates_on_photo_id"
+  add_index "center_coordinates", ["place_id"], :name => "index_center_coordinates_on_place_id"
 
   create_table "cities", :force => true do |t|
     t.string   "name"

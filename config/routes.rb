@@ -1,5 +1,8 @@
 Womditty::Application.routes.draw do
 
+  resources :center_coordinates
+
+
   resources :coordinates
 
 

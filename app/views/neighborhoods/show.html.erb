@@ -21,3 +21,7 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+<% @neighborhood.city.duty_stations.each do |duty_station| %>
+	<p>To <%= duty_station.name %> : <%= duty_station.drive_time_from(@neighborhood) %> minutes</p>
+<% end %>

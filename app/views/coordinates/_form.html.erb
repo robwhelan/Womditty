@@ -16,14 +16,6 @@
 	<%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, {:selected => 4 } )%>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
-	<%= f.collection_select(:city_id, City.all, :id, :name, :selected => 2 )%>
-  </div>
-  <div class="field">
-    <%= f.label :place %><br />
-	<%= f.collection_select(:place_id, Place.all, :id, :name, :selected => 5 )%>
-  </div>
-  <div class="field">
     <%= f.label :coordinate_number %><br />
     <%= f.number_field :coordinate_number %>
   </div>
@@ -34,14 +26,6 @@
   <div class="field">
     <%= f.label :lng %><br />
     <%= f.text_field :lng %>
-  </div>
-  <div class="field">
-    <%= f.label :lat_center %><br />
-    <%= f.text_field :lat_center %>
-  </div>
-  <div class="field">
-    <%= f.label :lng_center %><br />
-    <%= f.text_field :lng_center %>
   </div>
   <div class="actions">
     <%= f.submit %>
