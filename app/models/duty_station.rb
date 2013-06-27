@@ -4,6 +4,7 @@ class DutyStation < ActiveRecord::Base
   attr_accessible :name, :city_id, :military_branch_id
 
   has_many :users
+  has_one :center_coordinate
   
   def drive_time_from(neighborhood)
     average_drive_time = User.where(:neighborhood_id => neighborhood.id, :duty_station_id => self.id).average(:drive_time).to_f    

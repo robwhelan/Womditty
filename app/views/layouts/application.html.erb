@@ -50,6 +50,13 @@
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
+		  <% if user_signed_in? %>
+			<ul class="nav pull-right">
+            	<li><img src=<%= current_user.profile_image %> class="img-rounded"></li>
+				<li><strong> 307 </strong></li>
+				<li><%= current_user.firstname %></li>
+			</ul>
+		<% end %>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -61,7 +68,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to 'Places', places_path  %></li>
+              <li><i class="icon-heart icon-2x icon-border liked"></i><%= link_to 'Places', places_path  %></li>
               <li><%= link_to 'Cities', cities_path  %></li>
               <li><%= link_to 'Duty Stations', duty_stations_path  %></li>
               <li><%= link_to 'Neighborhoods', neighborhoods_path  %></li>
@@ -72,6 +79,7 @@
               <li><%= link_to 'Military Discounts', military_discounts_path  %></li>
 		      <li><%= link_to 'New Coordinates', new_coordinate_path %></li>
 		      <li><%= link_to 'New Center Coordinates', new_center_coordinate_path %></li>
+		      <li><%= link_to 'Posts', posts_path %></li>
 			  <% if user_signed_in? %>
 				<li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger" %></li>
 			  <% end %>

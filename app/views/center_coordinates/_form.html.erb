@@ -13,19 +13,19 @@
 
   <div class="field">
     <%= f.label :neighborhood %><br />
-	<%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, {:selected => 4 } )%>
+	<%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :include_blank => true} )%>
   </div>
   <div class="field">
     <%= f.label :city %><br />
-	<%= f.collection_select(:city_id, City.all, :id, :name, :selected => 2 )%>
+	<%= f.collection_select(:city_id, City.all, :id, :name, { :include_blank => true} )%>
   </div>
   <div class="field">
     <%= f.label :place %><br />
-	<%= f.collection_select(:place_id, Place.all, :id, :name, :selected => 5 )%>
+	<%= f.collection_select(:place_id, Place.all, :id, :name, { :include_blank => true} )%>
   </div>
   <div class="field">
     <%= f.label :duty_station %><br />
-	<%= f.collection_select(:duty_station_id, DutyStation.all, :id, :name )%>
+	<%= f.collection_select(:duty_station_id, DutyStation.all, :id, :name, { :include_blank => true} )%>
   </div>
   <div class="field">
     <%= f.label :lat %><br />

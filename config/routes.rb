@@ -1,16 +1,14 @@
 Womditty::Application.routes.draw do
 
-  resources :center_coordinates
-
-
-  resources :coordinates
-
-
   get "pages/google_map"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :military_discounts
+  resources :answers
+  resources :posts
+  resources :center_coordinates
+  resources :coordinates
   resources :career_specialties
   resources :users
   resources :military_branches

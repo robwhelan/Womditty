@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :reviews
   has_many :photos
+  has_many :posts
+  has_many :answers
 
   def self.roles
     ['Member of the military', 'Spouse', 'Significant Other', 'Family member', 'Admin']
