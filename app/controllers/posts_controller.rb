@@ -80,4 +80,18 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote_up
+    begin
+      #@posts = Post.all
+      current_user.vote_for(@post = Post.find(params[:id]))
+      respond_to do |format|
+        format.js
+      end
+      #render :nothing => true, :status => 200
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+
 end

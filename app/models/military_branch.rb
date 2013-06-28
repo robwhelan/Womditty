@@ -9,4 +9,6 @@ class MilitaryBranch < ActiveRecord::Base
     ['Air Force', 'Army', 'Coast Guard', 'Marines', 'Navy']
   end
 
+  acts_as_voteable
+
 end

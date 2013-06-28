@@ -10,5 +10,7 @@ class DutyStation < ActiveRecord::Base
     average_drive_time = User.where(:neighborhood_id => neighborhood.id, :duty_station_id => self.id).average(:drive_time).to_f    
     return average_drive_time
   end
+
+  acts_as_voteable
   
 end

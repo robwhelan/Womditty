@@ -8,4 +8,6 @@ class City < ActiveRecord::Base
   has_many :neighborhoods
   has_many :coordinates
 
+  acts_as_voteable
+
 end

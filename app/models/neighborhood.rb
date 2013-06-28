@@ -11,4 +11,6 @@ class Neighborhood < ActiveRecord::Base
   
   accepts_nested_attributes_for :center_coordinate
 
+  acts_as_voteable
+
 end

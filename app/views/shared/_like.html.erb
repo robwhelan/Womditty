@@ -1,5 +1,5 @@
-<% if false #current_user.likes(post) %>
-	<i class="icon-heart icon-border liked"></i>
+<% if current_user.voted_for?(post) %>
+	<i id="<%= 'heart'+ post.id.to_s %>" class="icon-heart icon-border liked"></i>
 <% else %>
-	<i class="icon-heart-empty icon-border"></i>
+	<i id="<%= 'heart'+ post.id.to_s %>" class="icon-heart-empty icon-border"></i>
 <% end %>

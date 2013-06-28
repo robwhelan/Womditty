@@ -1,0 +1,2 @@
+$('li#postLikesCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.votes.count}" %>');
+$('i#heart' + '<%= "#{@post.id}" %>').attr("class", "icon-heart icon-border liked");

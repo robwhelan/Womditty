@@ -6,7 +6,11 @@ Womditty::Application.routes.draw do
 
   resources :military_discounts
   resources :answers
-  resources :posts
+  resources :posts do
+    member do
+      post :vote_up
+    end
+  end
   resources :center_coordinates
   resources :coordinates
   resources :career_specialties

@@ -4,5 +4,6 @@ class Answer < ActiveRecord::Base
   attr_accessible :body, :likes, :user_id, :post_id
 
   acts_as_taggable
+  acts_as_voteable
 
 end

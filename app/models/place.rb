@@ -10,6 +10,7 @@ class Place < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_taggable_on :place_types
+  acts_as_voteable
   
   def self.place_types
      ['grocery store', 'playground', 'school', 'restaurant', 'gas station', 'convenience store', 'apartment complex', 'other']

@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'votecount' %>
+
 <%- model_class = Post -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -27,10 +29,12 @@
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
+		<td><%= render 'votecount', :post => post %></td>
 		<td>
 			<ul class="unstyled text-center">
-				<li><%= post.likes %></li>
-				<li><%= render 'shared/like' %></li>
+				<% postLikesCountID = 'postLikesCount'+ post.id.to_s %>
+				<li id= <%= postLikesCountID %> ><%= post.votes.count %></li>
+				<li><%= render 'shared/like', :post => post %></li>
 			</ul>
 		</td>
       </tr>

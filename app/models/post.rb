@@ -4,5 +4,6 @@ class Post < ActiveRecord::Base
   
   attr_accessible :body, :likes, :title, :user_id
   acts_as_taggable
+  acts_as_voteable
 
 end
