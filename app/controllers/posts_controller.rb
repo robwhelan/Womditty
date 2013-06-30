@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,8 +83,19 @@ class PostsController < ApplicationController
 
   def vote_up
     begin
-      #@posts = Post.all
-      current_user.vote_for(@post = Post.find(params[:id]))
+      current_user.vote_exclusively_for(@post = Post.find(params[:id]))
+      respond_to do |format|
+        format.js
+      end
+      #render :nothing => true, :status => 200
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+
+  def vote_down
+    begin
+      current_user.vote_exclusively_against(@post = Post.find(params[:id]))
       respond_to do |format|
         format.js
       end

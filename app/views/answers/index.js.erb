@@ -1,0 +1,20 @@
+$("<%= j render 'inline_form', :post => @post %>").insertAfter('#postID' + '<%= "#{@post.id}" %>');
+
+<% @answers.each do |answer| %>
+$("<tr>" +
+	"<td></td>" +
+	"<td><ul class='unstyled text-center'>" +
+		"<li><img src=<%= answer.user.profile_image %>/></li>" +
+    	"<li><%= answer.user.firstname %></li>" +
+		"<li><%= answer.user.neighborhood.city.name %></li>" +
+	"</ul></td>" +
+	"<td><%= answer.body %></td>" +
+	"<td><%= answer.created_at.to_date.strftime('%-m/%-d/%y') %></td>" +
+	"<td>" +
+		"<ul class='unstyled text-center'>" +
+			"<%= j render 'answers/like_button', :answer => answer %>" +
+		"</ul>" +
+	"</td>" +
+
+"</tr>").insertAfter('#postID' + '<%= "#{@post.id}" %>');
+<% end %>

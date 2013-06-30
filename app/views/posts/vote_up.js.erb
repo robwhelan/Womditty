@@ -1,2 +1,3 @@
-$('li#postLikesCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.votes.count}" %>');
-$('i#heart' + '<%= "#{@post.id}" %>').attr("class", "icon-heart icon-border liked");
+$('li#postLikesCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.votes_for}" %>');
+$('i#heart' + '<%= "#{@post.id}" %>').attr("class", "icon-heart icon-2x icon-border liked");
+$('i#heart' + '<%= "#{@post.id}" %>').parent().attr("href", '<%= vote_down_post_path(@post) %>');

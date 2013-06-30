@@ -1,0 +1,14 @@
+<tr>
+	<td></td>
+	<td><ul class='unstyled text-center'>
+		<li><img src=<%= current_user.profile_image %>/></li>
+		<li><%= current_user.firstname %></li>
+		<li><%= current_user.neighborhood.city.name %></li>
+	</ul></td>
+	<%= form_tag(answers_path) do %>
+		<td><%= text_field_tag(:body) %></td>
+		<%= hidden_field_tag(:user_id, :value => current_user.id) %>
+		<%= hidden_field_tag(:post_id, :value => post.id) %>
+		<td><%= submit_tag %></td>
+	<% end %>
+</tr>

@@ -2,11 +2,11 @@ class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.json
   def index
-    @answers = Answer.all
+    @post = Post.find(params[:post])
+    @answers = @post.answers
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @answers }
+      format.js
     end
   end
 
@@ -80,4 +80,30 @@ class AnswersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def vote_up
+    begin
+      current_user.vote_exclusively_for(@answer = Answer.find(params[:id]))
+      respond_to do |format|
+        format.js
+      end
+      #render :nothing => true, :status => 200
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+
+  def vote_down
+    begin
+      current_user.vote_exclusively_against(@answer = Answer.find(params[:id]))
+      respond_to do |format|
+        format.js
+      end
+      #render :nothing => true, :status => 200
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
+  
 end

@@ -1,0 +1,6 @@
+"<%= form_tag(answers_path) %>" +	
+"<td><%= text_field_tag(:body) %></td>" +
+"<%= hidden_field_tag(:user_id, :value => current_user.id) %>" +
+"<%= hidden_field_tag(:post_id, :value => @post.id) %>" +
+"<td><%= submit_tag %></td>" +
+

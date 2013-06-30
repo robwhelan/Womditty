@@ -1,0 +1,5 @@
+<% chevronID = 'chevronID'+ post.id.to_s %>
+
+<%= link_to answers_path(:post => post), :remote => :true do %>
+	<i id='<%= chevronID %>' class="icon-chevron-down icon-2x"></i>
+<% end %>
