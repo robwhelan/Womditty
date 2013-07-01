@@ -1,7 +1,8 @@
 $("<%= j render 'inline_form', :post => @post %>").insertAfter('#postID' + '<%= "#{@post.id}" %>');
 
 <% @answers.each do |answer| %>
-$("<tr>" +
+var postAnswers = "postAnswers" + "<%= @post.id.to_s %>";
+$("<tr class=" + postAnswers + ">" +
 	"<td></td>" +
 	"<td><ul class='unstyled text-center'>" +
 		"<li><img src=<%= answer.user.profile_image %>/></li>" +
@@ -18,3 +19,6 @@ $("<tr>" +
 
 "</tr>").insertAfter('#postID' + '<%= "#{@post.id}" %>');
 <% end %>
+
+$('i#chevronID' + '<%= "#{@post.id}" %>').attr('class', 'icon-chevron-up icon-2x');
+$('i#chevronID' + '<%= "#{@post.id}" %>').parent().attr("href", "<%= hide_answers_post_path(@post) %>");

@@ -17,6 +17,7 @@ Womditty::Application.routes.draw do
     member do
       post :vote_up
       post :vote_down
+      get :hide_answers
     end
   end
   resources :center_coordinates

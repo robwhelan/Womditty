@@ -105,4 +105,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def hide_answers
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
 end
