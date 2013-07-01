@@ -1,5 +1,7 @@
 <% chevronID = 'chevronID'+ post.id.to_s %>
-
 <%= link_to answers_path(:post => post), :remote => :true do %>
-	<i id='<%= chevronID %>' class="icon-chevron-down icon-2x"></i>
+	<li><i id='<%= chevronID %>' class="icon-chevron-down icon-2x"></i></li>
 <% end %>
+
+<% postAnswersCountID = 'postAnswersCount'+ post.id.to_s %>
+<li id='<%= postAnswersCountID %>' ><%= post.answers.count.to_s %></li>

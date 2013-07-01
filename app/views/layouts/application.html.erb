@@ -43,18 +43,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Womditty</a>
+			<%= link_to 'Womditty', root_path, :class => 'brand' %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Map", pages_google_map_path  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "About", pages_google_map_path  %></li>
             </ul>
 		  <% if user_signed_in? %>
 			<ul class="nav pull-right">
             	<li><img src=<%= current_user.profile_image %> class="img-rounded"></li>
-				<li><strong> 307 </strong></li>
-				<li><%= current_user.firstname %></li>
+				<li><%= current_user.name %></li>
+				<li><strong><%= current_user.votes_for.to_s %></strong></li>
 			</ul>
 		<% end %>
           </div><!--/.nav-collapse -->
@@ -64,29 +62,32 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to 'Places', places_path  %></li>
-              <li><%= link_to 'Cities', cities_path  %></li>
-              <li><%= link_to 'Duty Stations', duty_stations_path  %></li>
-              <li><%= link_to 'Neighborhoods', neighborhoods_path  %></li>
-              <li><%= link_to 'Reviews', reviews_path  %></li>
-              <li><%= link_to 'Branches', military_branches_path  %></li>
-              <li><%= link_to 'Photos', photos_path  %></li>
-              <li><%= link_to 'Career Specialties', career_specialties_path  %></li>
-              <li><%= link_to 'Military Discounts', military_discounts_path  %></li>
-		      <li><%= link_to 'New Coordinates', new_coordinate_path %></li>
-		      <li><%= link_to 'New Center Coordinates', new_center_coordinate_path %></li>
-		      <li><%= link_to 'Posts', posts_path %></li>
-			  <% if user_signed_in? %>
-				<li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger" %></li>
-			  <% end %>
+              <li>
+					<%= link_to posts_path do %>
+						<i class='icon-fixed-width icon-comments'></i> Discussion
+					<% end %>
+			  </li>
+              <li>
+					<%= link_to military_discounts_path do %>
+						<i class='icon-fixed-width icon-star'></i> Discounts
+					<% end %>
+			  </li>
+              <li>
+					<%= link_to pages_google_map_path do %>
+						<i class='icon-fixed-width icon-map-marker'></i> Map
+					<% end %>
+			  </li>
+			 <% if user_signed_in? %>
+							<li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-danger" %></li>
+						  <% end %>			
 			</ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
+        <div class="span10">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>

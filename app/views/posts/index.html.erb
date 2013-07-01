@@ -1,19 +1,29 @@
 
 <%- model_class = Post -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
+<!-- <div class="page-header"> -->
+  <h1 class="pull-left">Discussion...</h1>
+	<div class="pull-right form-inline">
+	<%= search_form_for @search, :class => "pull-right form-inline" do |f| %>
+	    <%= f.text_field :title_or_body_cont, :class => 'form-inline' %>
+		<%= f.submit "Search", :class => 'btn' %>
+	<% end %>
+	</div>
+<!-- </div> -->
+<table class="table">
   <thead>
   </thead>
   <tbody>
     <% @posts.each do |post| %>
+
 	<% postID = 'postID'+post.id.to_s %>
+	<% postUserVoteCount = 'postUserVoteCount' + post.user.id.to_s %>
+
       <tr id='<%= postID %>'>
 		<td>
 			<ul class="unstyled text-center">
 				<li><img src=<%= post.user.profile_image %>/></li>
 		        <li><%= post.user.firstname %></li>
+				<li class='<%= postUserVoteCount %>'><%= post.user.votes_for %></li>
 				<li><%= post.user.neighborhood.city.name %></li>
 			</ul>
 		</td>
@@ -24,7 +34,11 @@
      		</ul>
 		</td>
    		<td><%= post.created_at.to_date.strftime("%-m/%-d/%y") %></td>
-		<td><%= render 'chevron', :post => post %></td>
+		<td>
+			<ul class="unstyled text-center">
+				<%= render 'chevron', :post => post %>
+			</ul>
+		</td>
 		<td>
 			<ul class="unstyled text-center">
 				<%= render 'like_button', :post => post %>

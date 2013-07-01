@@ -41,11 +41,12 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(params[:answer])
-
+    @post = Post.find(params[:answer][:post_id])
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
-        format.json { render json: @answer, status: :created, location: @answer }
+        format.js
+#        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+#        format.json { render json: @answer, status: :created, location: @answer }
       else
         format.html { render action: "new" }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -84,6 +85,7 @@ class AnswersController < ApplicationController
   def vote_up
     begin
       current_user.vote_exclusively_for(@answer = Answer.find(params[:id]))
+      current_user.vote_exclusively_for(@user = @answer.user )
       respond_to do |format|
         format.js
       end
@@ -96,6 +98,7 @@ class AnswersController < ApplicationController
   def vote_down
     begin
       current_user.vote_exclusively_against(@answer = Answer.find(params[:id]))
+      current_user.vote_exclusively_against(@user = @answer.user )
       respond_to do |format|
         format.js
       end

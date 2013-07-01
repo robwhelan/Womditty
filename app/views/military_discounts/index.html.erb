@@ -72,6 +72,11 @@
 		<td><%= military_discount.place.address_line1 %></td>
         <td><%= military_discount.description %></td>
 		<td><%= raw military_discount.place.tag_list.map{|t| t}.join(', ') %></td>
+		<td>
+			<ul class="unstyled text-center">
+				<%= render 'like_button', :military_discount => military_discount %>
+			</ul>
+		</td>
       </tr>
 	<% end %>
     <% end %>

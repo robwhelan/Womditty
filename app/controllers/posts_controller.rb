@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order('created_at DESC')
+
+    @search = Post.search(params[:q])
+    @posts = @search.result
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,6 +86,7 @@ class PostsController < ApplicationController
   def vote_up
     begin
       current_user.vote_exclusively_for(@post = Post.find(params[:id]))
+      #current_user.vote_exclusively_for(@user = @post.user )
       respond_to do |format|
         format.js
       end
@@ -96,6 +99,7 @@ class PostsController < ApplicationController
   def vote_down
     begin
       current_user.vote_exclusively_against(@post = Post.find(params[:id]))
+      #current_user.vote_exclusively_against(@user = @post.user )
       respond_to do |format|
         format.js
       end

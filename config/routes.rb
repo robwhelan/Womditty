@@ -4,7 +4,12 @@ Womditty::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :military_discounts
+  resources :military_discounts do
+    member do
+      post :vote_up
+      post :vote_down
+    end
+  end
 
   resources :answers do
     member do

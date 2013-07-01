@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+<% if current_user.voted_for?(military_discount) %>
+	<%= link_to vote_down_military_discount_path(military_discount), :remote => :true, :method => :post do %>
+		<i id="<%= 'heart'+ military_discount.id.to_s %>" class="icon-heart icon-2x icon-border liked"></i>
+	<% end %>
+<% else %>
+	<%= link_to vote_up_military_discount_path(military_discount), :remote => :true, :method => :post do %>
+		<i id="<%= 'heart'+ military_discount.id.to_s %>" class="icon-heart-empty icon-2x icon-border"></i>
+	<% end %>
+<% end %>
+<% end %>
+<% militaryDiscountLikesCountID = 'militaryDiscountLikesCount'+ military_discount.id.to_s %>
+<li id='<%= militaryDiscountLikesCountID %>' ><%= military_discount.votes_for %></li>

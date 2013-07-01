@@ -2,8 +2,7 @@ $("<%= j render 'inline_form', :post => @post %>").insertAfter('#postID' + '<%= 
 
 <% @answers.each do |answer| %>
 var postAnswers = "postAnswers" + "<%= @post.id.to_s %>";
-$("<tr class=" + postAnswers + ">" +
-	"<td></td>" +
+$("<tr style='background-color:#D3D3D3;' class=" + postAnswers + ">" +
 	"<td><ul class='unstyled text-center'>" +
 		"<li><img src=<%= answer.user.profile_image %>/></li>" +
     	"<li><%= answer.user.firstname %></li>" +
@@ -11,14 +10,14 @@ $("<tr class=" + postAnswers + ">" +
 	"</ul></td>" +
 	"<td><%= answer.body %></td>" +
 	"<td><%= answer.created_at.to_date.strftime('%-m/%-d/%y') %></td>" +
+	"<td></td>" +
 	"<td>" +
 		"<ul class='unstyled text-center'>" +
 			"<%= j render 'answers/like_button', :answer => answer %>" +
 		"</ul>" +
 	"</td>" +
-
 "</tr>").insertAfter('#postID' + '<%= "#{@post.id}" %>');
 <% end %>
 
 $('i#chevronID' + '<%= "#{@post.id}" %>').attr('class', 'icon-chevron-up icon-2x');
-$('i#chevronID' + '<%= "#{@post.id}" %>').parent().attr("href", "<%= hide_answers_post_path(@post) %>");
+$('i#chevronID' + '<%= "#{@post.id}" %>').parent().parent().attr("href", "<%= hide_answers_post_path(@post) %>");
