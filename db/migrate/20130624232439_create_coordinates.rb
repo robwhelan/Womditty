@@ -1,6 +1,6 @@
 class CreateCoordinates < ActiveRecord::Migration
   def change
-    drop_table :coordinates
+    #drop_table :coordinates
     create_table :coordinates do |t|
       t.belongs_to :neighborhood
       t.belongs_to :city
