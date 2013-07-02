@@ -9,7 +9,7 @@ class Ability
             can :manage, :all
           else
             can [:read, :index], MilitaryDiscount
-            can [:create, :read, :index], [Post, Answer, Neighborhood, DutyStation, City]
+            can [:create, :read, :index], [Post, Answer, Neighborhood, DutyStation, City, MilitaryBranch]
             can [:manage], User
           end
        

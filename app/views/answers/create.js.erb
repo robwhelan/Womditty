@@ -5,7 +5,7 @@ var postAnswers = "postAnswers" + "<%= @post.id.to_s %>";
 
 $("<tr style='background-color:#D3D3D3;' class=" + postAnswers + ">" +
 	"<td><ul class='unstyled text-center'>" +
-		"<li><img src=<%= @answer.user.profile_image %>/></li>" +
+		"<li><img width='40' src=<%= @answer.user.profile_image %> class='img-rounded' /></li>" +
     	"<li><%= @answer.user.firstname %></li>" +
 		"<li class='answerUserVoteCount<%= @answer.user.id.to_s %>' >" + "<%= @answer.user.karma %></li>" +
 		"<li><%= @answer.user.neighborhood.city.name %></li>" +
