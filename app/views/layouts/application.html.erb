@@ -50,7 +50,7 @@
             </ul>
 		  <% if user_signed_in? %>
 			<ul class="nav pull-right">
-            	<li><img src=<%= current_user.profile_image %> class="img-rounded"></li>
+            	<li><img width='50' src=<%= current_user.profile_image %> class="img-rounded"></li>
 				<li><%= current_user.name %></li>
 				<li><strong><%= current_user.karma %></strong></li>
 			</ul>

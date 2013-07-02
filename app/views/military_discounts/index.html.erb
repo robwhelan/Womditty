@@ -48,7 +48,7 @@
 <% unless user_signed_in? %>
 <h3>Showing <%= @military_discounts.count %> of <%= MilitaryDiscount.all.count %></h3>
 <% end %>
-<%= @profile_incomplete %>
+
 <% if @profile_incomplete %>
 	<%= render 'shared/profile_completer' %>
 <% end %>
