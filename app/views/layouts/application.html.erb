@@ -52,7 +52,7 @@
 			<ul class="nav pull-right">
             	<li><img src=<%= current_user.profile_image %> class="img-rounded"></li>
 				<li><%= current_user.name %></li>
-				<li><strong><%= current_user.votes_for.to_s %></strong></li>
+				<li><strong><%= current_user.karma %></strong></li>
 			</ul>
 		<% end %>
           </div><!--/.nav-collapse -->

@@ -32,8 +32,8 @@ class User < ActiveRecord::Base
     # Each question has a submitter_id column that tracks the user who submitted it.
     # The option :weight value will be multiplied to any karma from that voteable model (defaults to 1).
     # You can track any voteable model.
-  has_karma(:posts, :as => :submitter, :weight => 1)
-  has_karma(:answers, :as => :submitter, :weight => 1)
+  has_karma :posts
+  has_karma :answers
 
   def self.roles
     ['Member of the military', 'Spouse', 'Significant Other', 'Family member', 'Admin']

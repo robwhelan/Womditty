@@ -85,7 +85,7 @@ class AnswersController < ApplicationController
   def vote_up
     begin
       current_user.vote_exclusively_for(@answer = Answer.find(params[:id]))
-      current_user.vote_exclusively_for(@user = @answer.user )
+      @post = @answer.post
       respond_to do |format|
         format.js
       end
@@ -98,7 +98,7 @@ class AnswersController < ApplicationController
   def vote_down
     begin
       current_user.vote_exclusively_against(@answer = Answer.find(params[:id]))
-      current_user.vote_exclusively_against(@user = @answer.user )
+      @post = @answer.post
       respond_to do |format|
         format.js
       end
