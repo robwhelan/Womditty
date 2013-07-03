@@ -1,4 +1,6 @@
 class CenterCoordinatesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /center_coordinates
   # GET /center_coordinates.json
   def index
