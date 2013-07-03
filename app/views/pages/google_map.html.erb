@@ -3,6 +3,7 @@
     html { height: 100% }
     body { height: 100%; margin: 0; padding: 0 }
     #map-canvas { height: 100% }
+
   </style>
   <script type="text/javascript"
   src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAkmQDcP4u6gG5IULRLAiEjnfpE3vhYUOw&sensor=true">
@@ -44,7 +45,7 @@
 		dutyStationPolygon.setMap(map);
 
 		// create content for an info bubble
-		var contentString = '<h4><%= duty_station.name %></h4>'
+		var contentString = '<h4><i class=icon-asterisk></i> <%= duty_station.name %></h4>'
 
 		var infowindow = new InfoBubble({
 		    content: contentString,
@@ -86,7 +87,7 @@
 		neighborhoodPolygon.setMap(map);
 		
 		// create the info window
-		var contentString = '<h4><%= neighborhood.name %></h4>'
+		var contentString = '<h4><i class=icon-home ></i> <%= neighborhood.name %></h4>'
 			// put loop here for drive time calculations
 			<% neighborhood.city.duty_stations.each do |duty_station| %>
 				// check to see if anyone in the neighborhood commutes to the duty station
@@ -120,6 +121,6 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 
   </script>
-<div style="height:500px;">
-  <div id="map-canvas"/>
+<div>
+  <div id="map-canvas" style="height:500px;"/>
 </div>
