@@ -12,6 +12,8 @@
 	  <th></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:city_id) %></th>
+		<th>Center lat</th>
+		<th>Center long</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,6 +23,8 @@
 		<td><%= link_to "Reviews (#{neighborhood.reviews.count})", reviews_path(:neighborhood => neighborhood), :class => 'btn' %>
         <td><%= neighborhood.name %></td>
         <td><%= neighborhood.city.name %></td>
+		<td><%= neighborhood.center_coordinate.lat unless neighborhood.center_coordinate.nil? %></td>
+		<td><%= neighborhood.center_coordinate.lng unless neighborhood.center_coordinate.nil? %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_neighborhood_path(neighborhood), :class => 'btn btn-mini' %>
