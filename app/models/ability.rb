@@ -8,8 +8,9 @@ class Ability
           if user.role == 'Admin'
             can :manage, :all
           else
-            can [:read, :index], MilitaryDiscount
-            can [:create, :read, :index], [Post, Answer]
+            can [:manage], Vote
+            can [:read, :index, :vote_up, :vote_down], MilitaryDiscount
+            can [:create, :read, :index, :vote_up, :vote_down], [Post, Answer]
             can [:manage], User, :id => user.id
           end
        
