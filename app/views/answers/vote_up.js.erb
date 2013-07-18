@@ -1,4 +1,4 @@
 $('li#answerLikesCount' + '<%= "#{@answer.id}" %>').text('<%= "#{@answer.votes_for}" %>');
-$('i#answerHeart' + '<%= "#{@answer.id}" %>').attr("class", "icon-heart icon-large icon-border liked");
+$('i#answerHeart' + '<%= "#{@answer.id}" %>').parent().parent().attr("class", "btn btn-success");
 $('i#answerHeart' + '<%= "#{@answer.id}" %>').parent().parent().attr("href", '<%= vote_down_answer_path(@answer) %>');
 $('li.answerUserVoteCount' + '<%= "#{@answer.user.id}" %>').text('<%= "#{@answer.user.karma}" %>');

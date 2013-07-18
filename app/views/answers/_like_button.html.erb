@@ -1,10 +1,10 @@
 <% if current_user.voted_for?(answer) %>
-	<%= link_to vote_down_answer_path(answer), :remote => :true, :method => :post do %>
-		<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-heart icon-large icon-border liked"></i></li>
+	<%= link_to vote_down_answer_path(answer), :remote => :true, :method => :post, :class => 'btn btn-success' do %>
+		<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
 	<% end %>
 <% else %>
-	<%= link_to vote_up_answer_path(answer), :remote => :true, :method => :post do %>
-		<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-heart-empty icon-large icon-border"></i></li>
+	<%= link_to vote_up_answer_path(answer), :remote => :true, :method => :post, :class => 'btn' do %>
+		<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
 	<% end %>
 <% end %>
 

@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
 <% if current_user.voted_for?(military_discount) %>
-	<%= link_to vote_down_military_discount_path(military_discount), :remote => :true, :method => :post do %>
-		<i id="<%= 'heart'+ military_discount.id.to_s %>" class="icon-heart icon-2x icon-border liked"></i>
+	<%= link_to vote_down_military_discount_path(military_discount), :remote => :true, :method => :post, :class => 'btn btn-success' do %>
+		<i id="<%= 'heart'+ military_discount.id.to_s %>" class="icon-thumbs-up"></i>
 	<% end %>
 <% else %>
-	<%= link_to vote_up_military_discount_path(military_discount), :remote => :true, :method => :post do %>
-		<i id="<%= 'heart'+ military_discount.id.to_s %>" class="icon-heart-empty icon-2x icon-border"></i>
+	<%= link_to vote_up_military_discount_path(military_discount), :remote => :true, :method => :post, :class => 'btn' do %>
+		<i id="<%= 'heart'+ military_discount.id.to_s %>" class="icon-thumbs-up"></i>
 	<% end %>
 <% end %>
 <% end %>

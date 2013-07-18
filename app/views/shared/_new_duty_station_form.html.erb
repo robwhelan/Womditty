@@ -1,0 +1,20 @@
+<div id="newDutyStationModal" class="modal hide fade" data-keyboard="false" data-backdrop="static">
+  <div class="modal-header">
+    <h3>Enter a new Duty Station</h3>
+  </div>
+  <div class="modal-body">
+	<%= form_for @duty_station, :id => 'newDutyStationForm' do |f| %>
+	  <div class="control-group">
+	    <div class="controls">
+	      <%= f.text_field :name %>
+	    </div>
+	  </div>
+	  <div class="modal-footer">
+		<%= f.submit 'Done', :class => 'btn' %>
+	  </div>
+	<% end %>
+  </div>
+</div>
+<script type="text/javascript">
+	$('#newDutyStationModal').modal('show')
+</script>

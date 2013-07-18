@@ -49,10 +49,10 @@ class NeighborhoodsController < ApplicationController
   # POST /neighborhoods.json
   def create
     @neighborhood = Neighborhood.new(params[:neighborhood])
-
+    
     respond_to do |format|
       if @neighborhood.save
-        format.html { redirect_to @neighborhood, notice: 'Neighborhood was successfully created.' }
+        format.html { redirect_to military_discounts_path, notice: 'Neighborhood was successfully created.' }
         format.json { render json: @neighborhood, status: :created, location: @neighborhood }
       else
         format.html { render action: "new" }
@@ -88,4 +88,5 @@ class NeighborhoodsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 end

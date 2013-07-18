@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   belongs_to :military_branch
   belongs_to :neighborhood
   
+  accepts_nested_attributes_for :neighborhood
+  
   attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
                   :lastname, :member_rank, :number_of_invites, :profile_image_url, 
                   :role, :location, :birthday, :gender, :profile_image, :drive_time,

@@ -9,9 +9,12 @@ class Ability
             can :manage, :all
           else
             can [:manage], Vote
+            can [:create], [Neighborhood, DutyStation]
             can [:read, :index, :vote_up, :vote_down], MilitaryDiscount
             can [:create, :read, :index, :vote_up, :vote_down], [Post, Answer]
             can [:manage], User, :id => user.id
+            cannot [:index], User
+            cannot [:create, :update], MilitaryDiscount
           end
        
     # The first argument to `can` is the action you are giving the user 

@@ -42,9 +42,6 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- end facebook SDK -->
-	
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
 
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
@@ -60,17 +57,9 @@
               <li><%= link_to "About", pages_google_map_path  %></li>
 				<li><div class="fb-like" data-href="http://www.womditty.com" data-send="false" data-width="450" data-show-faces="true"></div></li>
             </ul>
-		  <% if user_signed_in? %>
-			<ul class="nav nav-pills pull-right">
-            	<li><img width='50' src=<%= current_user.profile_image %> class="img-rounded"></li>
-				<li><%= current_user.name %></li>
-				<li><strong><%= current_user.karma %></strong></li>
-				<% if user_signed_in? %>
-					<li><i class='icon-power-off'></i><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-				<% end %>			
-			 
-			</ul>
-		<% end %>
+		  	<% if user_signed_in? %>
+				<%= render 'shared/user_stuff' %>
+			<% end %>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -89,7 +78,7 @@
 			  </li>
               <li>
 					<%= link_to military_discounts_path do %>
-						<i class='icon-fixed-width icon-star'></i> Discounts
+						<i class='icon-fixed-width icon-usd'></i> Discounts
 					<% end %>
 			  </li>
               <li>
@@ -105,6 +94,8 @@
           <%= yield %>
         </div>
       </div><!--/row-->
+
+		<%= debug params %>
 
       <footer>
         <p>&copy; Womditty 2013</p>

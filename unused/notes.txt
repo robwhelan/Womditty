@@ -43,3 +43,12 @@ Finally, a Q&A section.
 	
 	daniel island
 	
+	<concept name="B19013. Median Household Income">
+	<variable name="B19013_001E" concept="B19013. Median Household Income">
+	Median household income in the past 12 months (in 2011 inflation-adjusted dollars)
+	</variable>
+	
+Census API
+1. find a variable
+2. find a place code
+http://api.census.gov/data/2011/acs5?get=NAME,B19013_001E&for=place:*&in=state:45&key=a7ec1f8dd060fc3ae0e08877c47f2fe2805dcba5

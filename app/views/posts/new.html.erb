@@ -1,5 +1,9 @@
-<%- model_class = Post -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
-<%= render :partial => 'form' %>
+<img src=<%= current_user.profile_image %> width='30' />
+
+<%= form_tag(posts_path, :remote => true) do %>
+	<%= text_field(:post, :body) %>
+	<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
+	<%= submit_tag 'Comment', :class => 'btn' %>
+<% end %>
+
+

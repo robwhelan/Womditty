@@ -1,0 +1,8 @@
+<ul class="inline">
+	<li><%= form_tag(posts_path) do %>
+	<img src=<%= current_user.profile_image %> width='50' /></li>
+	<li><%= text_area(:post, :body) %></li>
+	<li><%= text_field(:post, :tag_list, :placeholder => 'Tag list, separated by commas') %></li>
+	<li><%= submit_tag 'Post', :class => 'btn' %></li>
+	<li><%= hidden_field(:post, :user_id, :value => current_user.id ) %><% end %></li>
+</ul>

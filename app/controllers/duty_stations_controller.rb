@@ -46,7 +46,7 @@ class DutyStationsController < ApplicationController
 
     respond_to do |format|
       if @duty_station.save
-        format.html { redirect_to @duty_station, notice: 'Duty station was successfully created.' }
+        format.html { redirect_to military_discounts_path, notice: 'Duty station was successfully created.' }
         format.json { render json: @duty_station, status: :created, location: @duty_station }
       else
         format.html { render action: "new" }

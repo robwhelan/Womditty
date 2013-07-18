@@ -13,10 +13,11 @@ gem 'paperclip'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'acts-as-taggable-on'
-gem 'font-awesome-sass-rails'
+gem 'font-awesome-rails'
 gem 'ransack'
 gem 'thumbs_up'
 gem 'newrelic_rpm'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.

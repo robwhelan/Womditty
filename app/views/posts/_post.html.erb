@@ -1,0 +1,36 @@
+
+	<% postID = 'postID'+post.id.to_s %>
+	<% postUserVoteCount = 'postUserVoteCount' + post.user.id.to_s %>
+
+      <tr id='<%= postID %>' class="post">
+		<td>
+			<ul class="unstyled text-center">
+				<%= render 'chevron', :post => post %>
+			</ul>
+		</td>
+		<td>
+			<ul class="unstyled text-center">
+				<li><img width='30' src=<%= post.user.profile_image %> class='img-rounded'/></li>
+		        <li><%= post.user.firstname %></li>
+				<li class='<%= postUserVoteCount %>'><%= post.user.karma %></li>
+				<li class='userNeighborhoodName'><%= post.user.neighborhood.city.name %></li>
+			</ul>
+		</td>
+        <td>
+			<ul class="unstyled">
+				<li><strong><%= post.title %></strong></li>
+        		<li><%= post.body %></li>
+     		</ul>
+		</td>
+   		<td><%= post.created_at.to_date.strftime("%-m/%-d/%y") %></td>
+		<td>
+			<% post.tag_list.each do |tag| %>
+				<%= link_to tag, posts_path(:q => {:body_cont => tag} )%>
+			<% end %>
+		</td>
+		<td>
+			<ul class="unstyled text-center">
+				<%= render 'like_button', :post => post %>
+			</ul>
+		</td>
+      </tr>

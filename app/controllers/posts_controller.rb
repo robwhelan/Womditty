@@ -8,7 +8,23 @@ class PostsController < ApplicationController
   def index
 
     @search = Post.search(params[:q])
-    @posts = @search.result
+    @posts_from_body_search = @search.result
+
+    if params[:q]
+      @posts_from_tag_search = Post.tagged_with(params[:q][:body_cont])
+      myArray = (@posts_from_body_search + @posts_from_tag_search).uniq.sort{|a, b| b[:created_at] <=> a[:created_at]}
+    else
+      myArray = @posts_from_body_search
+    end
+   
+   @posts = Kaminari.paginate_array(myArray).page params[:page]
+   
+   # .sort{|a, b| b[:created_at] <=> a[:created_at]}
+   
+    # combine the array of posts whose body contains the search field, with
+    # the array of posts whose tags contain the search field,
+    # then only grab the unique ones, then order them in ascending order
+    #@posts = Post.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,7 +66,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }

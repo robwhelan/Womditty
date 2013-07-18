@@ -1,6 +1,4 @@
-
-
-<div id="myModal" class="modal hide fade"  data-keyboard="false">
+<div id="myModal" class="modal hide fade"  data-keyboard="false" data-backdrop="static">
   <div class="modal-header">
     <h3>Just a couple questions!</h3>
   </div>
@@ -22,12 +20,14 @@
 	    <%= label_tag "Which neighborhood do you live in?" %>
 	    <div class="controls">
 			<%= collection_select( :user, :neighborhood_id, Neighborhood.all, :id, :name, {}, { :id => 'neighborhoodField', :required => 'required'} ) %>
+			or, <%= link_to 'add a new one', new_neighborhood_path(:user_generated => true)%>
 	    </div>
 	  </div>
 	  <div class="control-group">
 	    <%= label_tag "Which is your duty station?" %>
 	    <div class="controls">
 			<%= collection_select( :user, :duty_station_id, DutyStation.all, :id, :name, {}, { :id => 'dutyStationField', :required => 'required' } ) %>
+			or, <%= link_to 'add a new one', new_duty_station_path(:user_generated => true)%>
 	    </div>
 	  </div>
 

@@ -1,54 +1,21 @@
+<%= render 'inline_post' %>
 
 <%- model_class = Post -%>
 <!-- <div class="page-header"> -->
-  <h1 class="pull-left">Discussion...</h1>
+  <h3 class="pull-left">Discussion on Charleston...</h3>
 	<div class="pull-right form-inline">
 	<%= search_form_for @search, :class => "pull-right form-inline" do |f| %>
-	    <%= f.text_field :title_or_body_cont, :class => 'form-inline' %>
+	    <%= f.text_field :body_cont, :class => 'form-inline' %>
 		<%= f.submit "Search", :class => 'btn' %>
 	<% end %>
 	</div>
 <!-- </div> -->
-<table class="table">
+<table id="posts" class="table">
   <thead>
   </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-
-	<% postID = 'postID'+post.id.to_s %>
-	<% postUserVoteCount = 'postUserVoteCount' + post.user.id.to_s %>
-
-      <tr id='<%= postID %>'>
-		<td>
-			<ul class="unstyled text-center">
-				<li><img width='40' src=<%= post.user.profile_image %> class='img-rounded'/></li>
-		        <li><%= post.user.firstname %></li>
-				<li class='<%= postUserVoteCount %>'><%= post.user.karma %></li>
-				<li><%= post.user.neighborhood.city.name %></li>
-			</ul>
-		</td>
-        <td>
-			<ul class="unstyled">
-				<li><strong><%= post.title %></strong></li>
-        		<li><%= post.body %></li>
-     		</ul>
-		</td>
-   		<td><%= post.created_at.to_date.strftime("%-m/%-d/%y") %></td>
-		<td>
-			<ul class="unstyled text-center">
-				<%= render 'chevron', :post => post %>
-			</ul>
-		</td>
-		<td>
-			<ul class="unstyled text-center">
-				<%= render 'like_button', :post => post %>
-			</ul>
-		</td>
-      </tr>
-    <% end %>
+  <tbody class="page">
+	<%= render @posts %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_post_path,
-            :class => 'btn btn-primary' %>
+<%= paginate @posts %>
