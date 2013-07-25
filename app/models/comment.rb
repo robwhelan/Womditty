@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   attr_accessible :body, :place_id, :review_id, :photo_id, :user_id
 
+  acts_as_followable
   acts_as_voteable
 
 end

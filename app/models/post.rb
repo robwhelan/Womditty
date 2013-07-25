@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   
   attr_accessible :body, :likes, :title, :user_id, :tag_list
+
+  acts_as_followable
   acts_as_taggable
   acts_as_voteable
 

@@ -87,7 +87,7 @@ function makeClickCallback(theArray, i) {
 			"<p>" + theArray[i].title + "</p>"
 			);
 		// find or create the place and store the id of the place
-		$.get("/places/?place=" + theArray[i].places_id,
+		$.get("/places/?place=" + theArray[i].places_id + "&name=" + theArray[i].title,
 			function(data) {
 				womdittyPlaceID = data.id;
 				currentUserID = $('#currentUserID').html();

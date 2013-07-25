@@ -1,68 +1,18 @@
-<%- model_class = User -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1>Womditty Heroes</h1>
 </div>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-	  <th>Image</th>
-      <th><%= model_class.human_attribute_name(:firstname) %></th>
-      <th><%= model_class.human_attribute_name(:lastname) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:birthday) %></th>
-      <th><%= model_class.human_attribute_name(:gender) %></th>
-      <th><%= model_class.human_attribute_name(:member_rank) %></th>
-      <th><%= model_class.human_attribute_name(:number_of_invites) %></th>
-      <th><%= model_class.human_attribute_name(:has_kids) %></th>
-      <th><%= model_class.human_attribute_name(:invited_by_user_id) %></th>
-      <th><%= model_class.human_attribute_name(:role) %></th>
-      <th><%= model_class.human_attribute_name(:profile_image_url) %></th>
-      <th><%= model_class.human_attribute_name(:city_id) %></th>
-      <th><%= model_class.human_attribute_name(:career_specialty_id) %></th>
-      <th><%= model_class.human_attribute_name(:duty_station_id) %></th>
-      <th><%= model_class.human_attribute_name(:military_branch_id) %></th>
-      <th><%= model_class.human_attribute_name(:neighborhood_id) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.id, user_path(user) %></td>
-		<td><img src=<%= user.profile_image %> class="img-rounded"></td>
-        <td><%= user.firstname %></td>
-        <td><%= user.lastname %></td>
-		<td><%= user.location %></td>
-		<td><%= user.birthday %></td>
-		<td><%= user.gender %></td>
+        <td><%= link_to user_path(user) do %>
+			<img src=<%= user.profile_image %> width='40' class="img-rounded">
+			<% end %></td>
+        <td><%= user.name %></td>
         <td><%= user.member_rank %></td>
-        <td><%= user.number_of_invites %></td>
-        <td><%= user.has_kids %></td>
-        <td><%= user.invited_by_user_id %></td>
-        <td><%= user.role %></td>
-        <td><%= user.profile_image_url %></td>
-        <td><%= user.city_id %></td>
-        <td><%= user.career_specialty_id %></td>
-        <td><%= user.duty_station_id %></td>
-        <td><%= user.military_branch_id %></td>
-        <td><%= user.neighborhood_id %></td>
-        <td><%= user.email %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_user_path(user), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      user_path(user),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <td><%= user.duty_station.name %></td>
+        <td><%= user.neighborhood.name %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_user_path,
-            :class => 'btn btn-primary' %>

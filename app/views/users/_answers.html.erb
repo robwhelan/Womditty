@@ -1,0 +1,14 @@
+<tr>
+	<td><ul class='unstyled text-center'>
+		<li><img src=<%= answer.user.profile_image %> class='img-rounded' width='30' /></li>
+    	<li><%= answer.user.firstname %></li>
+		<li class='answerUserVoteCount<%= answer.user.id.to_s %>' ><%= answer.user.karma %></li>
+	</ul></td>
+	<td><%= answer.body %></td>
+	<td><%= answer.created_at.to_date.strftime('%-m/%-d/%y') %></td>
+	<td>
+		<ul class='unstyled text-center'>
+			<%= render 'answers/like_button', :answer => answer %>
+		</ul>
+	</td>
+</tr>

@@ -4,6 +4,10 @@ Womditty::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  resources :users, :only => [:index, :show] do
+    resources :follows, :only => [:create, :destroy]
+  end
+
   resources :military_discounts do
     member do
       post :vote_up
@@ -25,6 +29,14 @@ Womditty::Application.routes.draw do
       get :hide_answers
     end
   end
+
+  resources :comments do
+    member do
+      post :vote_up
+      post :vote_down
+    end
+  end
+
   resources :center_coordinates
   resources :coordinates
   resources :career_specialties
@@ -34,7 +46,6 @@ Womditty::Application.routes.draw do
   resources :cities
   resources :duty_stations
   resources :reviews
-  resources :comments
   resources :photos
   resources :places
 

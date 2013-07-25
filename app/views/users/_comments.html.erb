@@ -1,0 +1,19 @@
+<tr>
+	<td><ul class='unstyled text-center'>
+		<li><img src=<%= comment.user.profile_image %> class='img-rounded' width='30' /></li>
+    	<li><%= comment.user.firstname %></li>
+		<li class='commentUserVoteCount<%= comment.user.id.to_s %>' ><%= comment.user.karma %></li>
+	</ul></td>
+	<% if comment.place.name.nil? %>
+		<td></td>
+	<% else %>
+		<td><%= comment.place.name %></td>
+	<% end %>
+	<td><%= comment.body %></td>
+	<td><%= comment.created_at.to_date.strftime('%-m/%-d/%y') %></td>
+	<td>
+		<ul class='unstyled text-center'>
+			<%= render 'comments/like_button', :comment => comment %>
+		</ul>
+	</td>
+</tr>

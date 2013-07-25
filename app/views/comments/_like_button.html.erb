@@ -1,0 +1,12 @@
+<% if current_user.voted_for?(comment) %>
+	<%= link_to vote_down_comment_path(comment), :remote => :true, :method => :post, :class => 'btn btn-success' do %>
+		<li><i id="<%= 'commentHeart'+ comment.id.to_s %>" class="icon-thumbs-up"></i></li>
+	<% end %>
+<% else %>
+	<%= link_to vote_up_comment_path(comment), :remote => :true, :method => :post, :class => 'btn' do %>
+		<li><i id="<%= 'commentHeart'+ comment.id.to_s %>" class="icon-thumbs-up"></i></li>
+	<% end %>
+<% end %>
+
+<% commentLikesCountID = 'commentLikesCount'+ comment.id.to_s %>
+<li id='<%= commentLikesCountID %>' ><%= comment.votes_for %></li>

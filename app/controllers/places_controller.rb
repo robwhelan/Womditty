@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
   def index
 
     if params[:place]
-      @places = Place.find_by_google_place_id(params[:place]) || Place.create(:google_place_id => params[:place])
+      @places = Place.find_by_google_place_id(params[:place]) || Place.create(:name => params[:name], :google_place_id => params[:place])
     else
       @places = Place.all      
     end
