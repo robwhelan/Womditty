@@ -11,7 +11,7 @@
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
     <![endif]-->
-
+	<%= include_gon(watch: true)%>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <!-- Javascripts
     ================================================== -->
@@ -67,7 +67,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span2">
+        <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
@@ -88,15 +88,16 @@
 			  </li>
 			</ul>
           </div><!--/.well -->
+		<div id="putPlaceHere"></div>
+		<div id="putFormHere"></div>
+		<div id="putCommentsHere"></div>
+		<div id="putNewCommentHere"></div>
         </div><!--/span-->
-        <div class="span10">
+        <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
-
-		<%= debug params %>
-
       <footer>
         <p>&copy; Womditty 2013</p>
       </footer>

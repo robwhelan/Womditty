@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627210843) do
+ActiveRecord::Schema.define(:version => 20130724103025) do
 
   create_table "answers", :force => true do |t|
     t.integer  "post_id"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20130627210843) do
     t.string   "place_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "google_place_id"
   end
 
   add_index "places", ["city_id"], :name => "index_places_on_city_id"

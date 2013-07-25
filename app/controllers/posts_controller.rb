@@ -7,9 +7,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
 
+    if params[:code]
+      @all_posts = Post.all
+    end
+
     @search = Post.search(params[:q])
     @posts_from_body_search = @search.result
-
+    
     if params[:q]
       @posts_from_tag_search = Post.tagged_with(params[:q][:body_cont])
       myArray = (@posts_from_body_search + @posts_from_tag_search).uniq.sort{|a, b| b[:created_at] <=> a[:created_at]}
@@ -28,7 +32,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @posts }
+      format.json { render json: @all_posts.to_json(:include => :user) }
     end
   end
 

@@ -4,7 +4,12 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+
+    if params[:place]
+      @places = Place.find_by_google_place_id(params[:place]) || Place.create(:google_place_id => params[:place])
+    else
+      @places = Place.all      
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +20,9 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
-    @place = Place.find(params[:id])
 
+    @place = Place.find(params[:id])      
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @place }
