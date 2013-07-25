@@ -74,7 +74,7 @@ function renderCommentForm(placeID, userID) {
 
 function renderComments(comment) {
 	$("#putCommentsHere").append( 
-		'<p><img width="15" src=' + comment.user.profile_image +' />' +
+		'<p><img width="30" src=' + comment.user.profile_image +' />' +
 		comment.body + '</p>'
 	); // end append
 	

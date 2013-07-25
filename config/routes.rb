@@ -40,7 +40,7 @@ Womditty::Application.routes.draw do
 
   get 'tags/:tag', to: 'places#index', as: :tag
 
-  root :to => "military_discounts#index"
+  root :to => "pages#google_map"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

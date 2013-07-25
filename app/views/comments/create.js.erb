@@ -1,4 +1,8 @@
+// put the new comment in the list
 $('#putCommentsHere').prepend(
-	'<p><img width="15" src=<%= @comment.user.profile_image %> />' +
+	'<p><img width="30" src=<%= @comment.user.profile_image %> />' +
 	'<%= @comment.body %></p>'
 );
+
+// clear the text field
+$('input#comment_body').val("");
