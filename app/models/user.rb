@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   end
 
   def self.ranks
-    ['Enlisted - Active Duty', 'Officer - Active Duty', 'Civilian', 'Enlisted - Reserves', 'Officer - Reserves', 'Enlisted - Veteran', 'Officer - Veteran' ]
+    ['Active Duty - Enlisted', 'Active Duty - Officer', 'Civilian', 'Reserves - Enlisted', 'Reserves - Officer', 'Veteran - Enlisted', 'Veteran - Officer' ]
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
