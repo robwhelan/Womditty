@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   end
 
   def self.ranks
-    ['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'O1', 'O2', 'O3', 'O4', 'O5', 'O6', 'O7', 'O8', 'O9', 'O10', 'W1', 'W2', 'W3', 'W4', 'W5']
+    ['Enlisted - Active Duty', 'Officer - Active Duty', 'Civilian', 'Enlisted - Reserves', 'Officer - Reserves', 'Enlisted - Veteran', 'Officer - Veteran' ]
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

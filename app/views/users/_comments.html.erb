@@ -4,7 +4,7 @@
     	<li><%= comment.user.firstname %></li>
 		<li class='commentUserVoteCount<%= comment.user.id.to_s %>' ><%= comment.user.karma %></li>
 	</ul></td>
-	<% if comment.place.name.nil? %>
+	<% if comment.place.nil? or comment.place.name.nil? %>
 		<td></td>
 	<% else %>
 		<td><%= comment.place.name %></td>
