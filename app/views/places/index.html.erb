@@ -8,7 +8,6 @@
       <th></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:address_line1) %></th>
-      <th><%= model_class.human_attribute_name(:neighborhood_id) %></th>
       <th><%= model_class.human_attribute_name(:place_type) %></th>
 	  <th>Tags</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -20,7 +19,6 @@
         <td><%= link_to 'Add Discount', new_military_discount_path(:place => place), :class => 'btn' %></td>
         <td><%= place.name %></td>
         <td><%= place.address_line1 %></td>
-        <td><%= place.neighborhood.name %></td>
         <td><%= place.place_type %></td>
 		<td><%= raw place.tag_list.map{|t| t}.join(', ') %></td>
 		
