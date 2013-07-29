@@ -75,6 +75,8 @@ GEM
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-tablesorter (1.4.1)
+      railties (~> 3.1)
     jquery-ui-rails (4.0.3)
       jquery-rails
       railties (>= 3.1.0)
@@ -205,6 +207,7 @@ DEPENDENCIES
   font-awesome-rails
   gon
   jquery-rails
+  jquery-tablesorter
   jquery-ui-rails
   kaminari
   less-rails

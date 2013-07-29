@@ -20,6 +20,7 @@ gem 'newrelic_rpm'
 gem 'kaminari'
 gem 'gon'
 gem 'acts_as_follower'
+gem 'jquery-tablesorter'
 
 # Gems used only for assets and not required
 # in production environments by default.

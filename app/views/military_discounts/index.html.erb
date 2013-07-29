@@ -53,14 +53,14 @@
 	<%= render 'shared/profile_completer' %>
 <% end %>
 
-<table class="order-table table table-striped">
+<table id="sortableTable" class="order-table table table-striped tablesorter">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Neighborhood</th>
-	  <th>Address</th>
-      <th>Discount</th>
-	  <th>Tags</th>
+      <th>Name <i class="icon-sort"></i></th>
+      <th>Neighborhood <i class="icon-sort"></i></th>
+	  <th>Address <i class="icon-sort"></i></th>
+      <th>Discount <i class="icon-sort"></i></th>
+	  <th>Tags <i class="icon-sort"></i></th>
     </tr>
   </thead>
   <tbody>
@@ -94,3 +94,11 @@
             new_military_discount_path,
             :class => 'btn btn-primary' %>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() 
+    { 
+        $("#sortableTable").tablesorter(); 
+    } 
+); 
+</script>
