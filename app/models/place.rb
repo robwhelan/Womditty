@@ -14,7 +14,7 @@ class Place < ActiveRecord::Base
   acts_as_voteable
   
   def self.place_types
-     ['grocery store', 'playground', 'school', 'restaurant', 'gas station', 'convenience store', 'retail', 'apartment complex', 'other']
+     ['grocery store', 'playground', 'school', 'restaurant', 'gas station', 'convenience store', 'retail', 'apartment complex', 'services', 'lodging', 'other']
   end
 
 end
