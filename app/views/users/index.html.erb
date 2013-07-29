@@ -10,8 +10,17 @@
 			<% end %></td>
         <td><%= user.name %></td>
         <td><%= user.member_rank %></td>
-        <td><%= user.duty_station.name %></td>
-        <td><%= user.neighborhood.name %></td>
+		<% if user.duty_station.nil? %>
+			<td></td>
+		<% else %>
+        	<td><%= user.duty_station.name %></td>
+		<% end %>
+		
+		<% if user.neighborhood.nil? %>
+			<td></td>
+        <% else %>
+			<td><%= user.neighborhood.name %></td>
+		<% end %>
       </tr>
     <% end %>
   </tbody>
