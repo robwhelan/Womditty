@@ -1,4 +1,4 @@
-$('li#postLikesCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.votes_for}" %>');
+$('li#postLikesCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.plusminus}" %>');
 $('i#heart' + '<%= "#{@post.id}" %>').parent().attr("class", "btn");
 $('i#heart' + '<%= "#{@post.id}" %>').parent().attr("href", '<%= vote_up_post_path(@post) %>');
 $('li.postUserVoteCount' + '<%= "#{@post.user.id}" %>').text('<%= "#{@post.user.karma}" %>');

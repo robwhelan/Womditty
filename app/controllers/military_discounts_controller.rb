@@ -104,7 +104,9 @@ class MilitaryDiscountsController < ApplicationController
 
   def vote_up
     begin
-      current_user.vote_exclusively_for(@military_discount = MilitaryDiscount.find(params[:id]))
+      @vote = current_user.vote_for(@military_discount = MilitaryDiscount.find(params[:id]))
+      @vote.create_activity :create, owner: current_user
+      
       respond_to do |format|
         format.js
       end
@@ -116,7 +118,9 @@ class MilitaryDiscountsController < ApplicationController
 
   def vote_down
     begin
-      current_user.vote_exclusively_against(@military_discount = MilitaryDiscount.find(params[:id]))
+      @vote = current_user.vote_against(@military_discount = MilitaryDiscount.find(params[:id]))
+      @vote.create_activity :destroy, owner: current_user
+      
       respond_to do |format|
         format.js
       end

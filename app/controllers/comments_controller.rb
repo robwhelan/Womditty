@@ -54,6 +54,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         #format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        @comment.create_activity :create, owner: current_user
         format.js
       else
         format.html { render action: "new" }
@@ -92,7 +93,9 @@ class CommentsController < ApplicationController
   
   def vote_up
     begin
-      current_user.vote_exclusively_for(@comment = Comment.find(params[:id]))
+      @vote = current_user.vote_for(@comment = Comment.find(params[:id]))
+      @vote.create_activity :create, owner: current_user
+
       respond_to do |format|
         format.js
       end
@@ -104,7 +107,9 @@ class CommentsController < ApplicationController
 
   def vote_down
     begin
-      current_user.vote_exclusively_against(@comment = Comment.find(params[:id]))
+      @vote = current_user.vote_against(@comment = Comment.find(params[:id]))
+      @vote.create_activity :destroy, owner: current_user
+      
       respond_to do |format|
         format.js
       end

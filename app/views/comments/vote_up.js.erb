@@ -1,4 +1,4 @@
-$('li#commentLikesCount' + '<%= "#{@comment.id}" %>').text('<%= "#{@comment.votes_for}" %>');
+$('li#commentLikesCount' + '<%= "#{@comment.id}" %>').text('<%= "#{@comment.plusminus}" %>');
 $('i#commentHeart' + '<%= "#{@comment.id}" %>').parent().parent().attr("class", "btn btn-success");
 $('i#commentHeart' + '<%= "#{@comment.id}" %>').parent().parent().attr("href", '<%= vote_down_comment_path(@comment) %>');
 $('li.commentUserVoteCount' + '<%= "#{@comment.user.id}" %>').text('<%= "#{@comment.user.karma}" %>');

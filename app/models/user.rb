@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   acts_as_follower
   acts_as_followable
   acts_as_voter
-  acts_as_voteable
+  #acts_as_voteable
     # The following line is optional, and tracks karma (up votes) for questions this user has submitted.
     # Each question has a submitter_id column that tracks the user who submitted it.
     # The option :weight value will be multiplied to any karma from that voteable model (defaults to 1).

@@ -21,6 +21,7 @@ gem 'kaminari'
 gem 'gon'
 gem 'acts_as_follower'
 gem 'jquery-tablesorter'
+gem 'public_activity'
 
 # Gems used only for assets and not required
 # in production environments by default.

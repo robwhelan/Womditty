@@ -37,6 +37,7 @@ Womditty::Application.routes.draw do
     end
   end
 
+  resources :activities
   resources :center_coordinates
   resources :coordinates
   resources :career_specialties

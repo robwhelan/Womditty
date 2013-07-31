@@ -16,9 +16,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
-    @comments = @user.comments
-    @answers = @user.answers
+    @activity_array = PublicActivity::Activity.where(:owner_id => @user.id).order('created_at desc')
+
+    @activities = Kaminari.paginate_array(@activity_array).page params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

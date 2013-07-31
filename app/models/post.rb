@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  include PublicActivity::Common
+
   has_many :answers
   belongs_to :user
   

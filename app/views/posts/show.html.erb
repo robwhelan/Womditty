@@ -1,27 +1,37 @@
-<%- model_class = Post -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @post.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
-  <dd><%= @post.body %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:likes) %>:</strong></dt>
-  <dd><%= @post.likes %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @post.user_id %></dd>
-</dl>
+<% postID = 'postID' + @post.id.to_s %>
+<% postUserVoteCount = 'postUserVoteCount' + @post.user.id.to_s %>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              posts_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_post_path(@post), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              post_path(@post),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
+<table class="table">
+  <tr id='<%= postID %>' class="post">
+	<td>
+		<ul class="unstyled text-center">
+			<%= render 'chevron', :post => @post %>
+		</ul>
+	</td>
+	<td>
+		<ul class="unstyled text-center">
+			<li><img width='30' src=<%= @post.user.profile_image %> class='img-rounded'/></li>
+	        <li><%= @post.user.firstname %></li>
+			<li class='<%= postUserVoteCount %>'><%= @post.user.karma %></li>
+		</ul>
+	</td>
+    <td>
+		<ul class="unstyled">
+			<li><strong><%= @post.title %></strong></li>
+    		<li><%= @post.body %></li>
+ 		</ul>
+	</td>
+	<td><%= @post.created_at.to_date.strftime("%-m/%-d/%y") %></td>
+	<td>
+		<% @post.tag_list.each do |tag| %>
+			<%= link_to tag, posts_path(:q => {:body_cont => tag} )%>
+		<% end %>
+	</td>
+	<td>
+		<ul class="unstyled text-center">
+			<%= render 'like_button', :post => @post %>
+		</ul>
+	</td>
+  </tr>
+</table>

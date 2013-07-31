@@ -1,0 +1,10 @@
+<h1>Feed</h1>
+<% @activities.each do |activity| %>
+	<div class="activity">
+		<%= link_to activity.owner do %>
+			<img width='30' src=<%= activity.owner.profile_image %> class='img-rounded'/>
+		<% end %>
+  		<%= link_to activity.owner.name, activity.owner if activity.owner %>
+		<%= render_activity activity %>
+	</div>
+<% end %>

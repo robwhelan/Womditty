@@ -1,0 +1,13 @@
+<% if activity.trackable.voteable_type == "Post" %>
+	<% post = Post.find(activity.trackable.voteable_id) %>
+	liked a post: <%= link_to post.body, post %>
+<% elsif activity.trackable.voteable_type == "Answer" %>
+	<% answer = Answer.find(activity.trackable.voteable_id) %>
+	liked a comment: <%= link_to answer.body, answer %>
+<% elsif activity.trackable.voteable_type == "Comment" %>
+	<% comment = Comment.find(activity.trackable.voteable_id) %>
+	liked a comment about a place: <%= link_to comment.body, comment %>
+<% elsif activity.trackable.voteable_type == "MilitaryDiscount" %>
+	<% military_discount = MilitaryDiscount.find(activity.trackable.voteable_id) %>
+	liked a Military Discount for <%= military_discount.place.name %>: <%= link_to military_discount.description, military_discount %>
+<% end %>

@@ -1,3 +1,3 @@
-$('li#militaryDiscountLikesCount' + '<%= "#{@military_discount.id}" %>').text('<%= "#{@military_discount.votes_for}" %>');
+$('li#militaryDiscountLikesCount' + '<%= "#{@military_discount.id}" %>').text('<%= "#{@military_discount.plusminus}" %>');
 $('i#heart' + '<%= "#{@military_discount.id}" %>').parent().attr("class", "btn btn-success");
 $('i#heart' + '<%= "#{@military_discount.id}" %>').parent().attr("href", '<%= vote_down_military_discount_path(@military_discount) %>');

@@ -70,6 +70,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        @post.create_activity :create, owner: current_user
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
@@ -109,8 +110,9 @@ class PostsController < ApplicationController
 
   def vote_up
     begin
-      current_user.vote_exclusively_for(@post = Post.find(params[:id]))
-      #current_user.vote_exclusively_for(@user = @post.user )
+      @vote = current_user.vote_for(@post = Post.find(params[:id]))
+      @vote.create_activity :create, owner: current_user
+      
       respond_to do |format|
         format.js
       end
@@ -122,8 +124,9 @@ class PostsController < ApplicationController
 
   def vote_down
     begin
-      current_user.vote_exclusively_against(@post = Post.find(params[:id]))
-      #current_user.vote_exclusively_against(@user = @post.user )
+      @vote = current_user.vote_against(@post = Post.find(params[:id]))
+      @vote.create_activity :destroy, owner: current_user
+
       respond_to do |format|
         format.js
       end

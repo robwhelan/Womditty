@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  include PublicActivity::Common
+
   belongs_to :place
   belongs_to :review
   belongs_to :photo

@@ -1,6 +1,12 @@
 <% if current_user.voted_for?(answer) %>
-	<%= link_to vote_down_answer_path(answer), :remote => :true, :method => :post, :class => 'btn btn-success' do %>
-		<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
+	<% if answer.votes.where(:voter_id => current_user.id).last.vote %>
+		<%= link_to vote_down_answer_path(answer), :remote => :true, :method => :post, :class => 'btn btn-success' do %>
+			<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
+		<% end %>
+	<% else %>
+		<%= link_to vote_up_answer_path(answer), :remote => :true, :method => :post, :class => 'btn' do %>
+			<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
+		<% end %>
 	<% end %>
 <% else %>
 	<%= link_to vote_up_answer_path(answer), :remote => :true, :method => :post, :class => 'btn' do %>
@@ -9,4 +15,4 @@
 <% end %>
 
 <% answerLikesCountID = 'answerLikesCount'+ answer.id.to_s %>
-<li id='<%= answerLikesCountID %>' ><%= answer.votes_for %></li>
+<li id='<%= answerLikesCountID %>' ><%= answer.plusminus %></li>

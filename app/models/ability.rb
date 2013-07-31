@@ -8,7 +8,7 @@ class Ability
           if user.role == 'Admin'
             can :manage, :all
           else
-            can [:manage], Vote
+            can [:manage], [Vote, Follow]
             can [:create, :read], [Neighborhood, DutyStation, Place]
             can [:read, :index, :vote_up, :vote_down], MilitaryDiscount
             can [:create, :read, :index, :vote_up, :vote_down], [Post, Answer, Comment]

@@ -44,8 +44,10 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(params[:answer])
     @post = Post.find(params[:answer][:post_id])
+
     respond_to do |format|
       if @answer.save
+        @answer.create_activity :create, owner: current_user
         format.js
 #        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
 #        format.json { render json: @answer, status: :created, location: @answer }
@@ -86,7 +88,9 @@ class AnswersController < ApplicationController
   
   def vote_up
     begin
-      current_user.vote_exclusively_for(@answer = Answer.find(params[:id]))
+      @vote = current_user.vote_for(@answer = Answer.find(params[:id]))
+      @vote.create_activity :create, owner: current_user
+
       @post = @answer.post
       respond_to do |format|
         format.js
@@ -99,7 +103,9 @@ class AnswersController < ApplicationController
 
   def vote_down
     begin
-      current_user.vote_exclusively_against(@answer = Answer.find(params[:id]))
+      @vote = current_user.vote_against(@answer = Answer.find(params[:id]))
+      @vote.create_activity :destroy, owner: current_user
+    
       @post = @answer.post
       respond_to do |format|
         format.js

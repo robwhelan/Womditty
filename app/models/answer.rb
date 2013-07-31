@@ -1,4 +1,6 @@
 class Answer < ActiveRecord::Base
+  include PublicActivity::Common
+
   belongs_to :post
   belongs_to :user
   attr_accessible :body, :likes, :user_id, :post_id

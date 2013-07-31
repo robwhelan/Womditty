@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  include PublicActivity::StoreController
+
   rescue_from CanCan::AccessDenied do |exception|
     if current_user.role == nil
       redirect_to root_path
