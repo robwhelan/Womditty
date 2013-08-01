@@ -11,19 +11,6 @@
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= label_tag 'How long do you budget for your drive into work (in minutes)?' %>
-	    <div class="controls">
-	      <%= text_field :user, :drive_time, { :id => 'driveTimeField', :required => 'required', :digits => 'digits'} %>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <%= label_tag "Which neighborhood do you live in?" %>
-	    <div class="controls">
-			<%= collection_select( :user, :neighborhood_id, Neighborhood.all, :id, :name, {}, { :id => 'neighborhoodField', :required => 'required'} ) %>
-			or, <%= link_to 'add a new one', new_neighborhood_path(:user_generated => true)%>
-	    </div>
-	  </div>
-	  <div class="control-group">
 	    <%= label_tag "Which is your duty station?" %>
 	    <div class="controls">
 			<%= collection_select( :user, :duty_station_id, DutyStation.all, :id, :name, {}, { :id => 'dutyStationField', :required => 'required' } ) %>

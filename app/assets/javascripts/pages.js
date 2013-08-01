@@ -14,6 +14,9 @@ function initialize() {
   var searchBox = new google.maps.places.SearchBox(input);
   var markers = [];
 
+	//renderNeighborhoods(map);
+	//renderDutyStations();
+
   google.maps.event.addListener(searchBox, 'places_changed', function() {
     var places = searchBox.getPlaces();
 
