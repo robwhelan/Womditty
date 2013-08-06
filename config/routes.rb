@@ -1,6 +1,7 @@
 Womditty::Application.routes.draw do
 
   get "pages/google_map"
+  get "pages/census"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

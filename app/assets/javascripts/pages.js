@@ -1,3 +1,4 @@
+var censusData;
 
 function initialize() {
 
@@ -121,3 +122,20 @@ function addSomeListeners(theArray){
 	} // end for-loop to add event listeners to each marker
 	
 } // end addSomeListeners
+
+function getCensusData(){
+	
+	$.get('http://api.census.gov/data/2011/acs5?get=NAME,B19013_001E&for=place:*&in=state:45&key=a7ec1f8dd060fc3ae0e08877c47f2fe2805dcba5',
+		function(data){
+			censusData = data;
+			}, 'json');
+
+}
+
+function printCensusData(){
+
+	for (var i = 1; i < censusData.length; i++){
+		$('body').append(censusData[i]);
+	}
+
+}

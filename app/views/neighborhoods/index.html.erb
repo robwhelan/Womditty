@@ -22,7 +22,6 @@
       <tr>
 		<td><%= link_to "Reviews (#{neighborhood.reviews.count})", reviews_path(:neighborhood => neighborhood), :class => 'btn' %>
         <td><%= neighborhood.name %></td>
-        <td><%= neighborhood.city.name %></td>
 		<td><%= neighborhood.center_coordinate.lat unless neighborhood.center_coordinate.nil? %></td>
 		<td><%= neighborhood.center_coordinate.lng unless neighborhood.center_coordinate.nil? %></td>
         <td>

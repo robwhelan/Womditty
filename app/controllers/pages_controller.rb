@@ -8,4 +8,7 @@ class PagesController < ApplicationController
     gon.users = User.all
   end
   
+  def census
+  end
+  
 end
