@@ -55,11 +55,11 @@ class User < ActiveRecord::Base
                            uid:auth.uid,
                            email:auth.info.email,
                            password:Devise.friendly_token[0,20],
-                           firstname:auth.extra.raw_info.first_name,
-                           lastname:auth.extra.raw_info.last_name,
-                           location:auth.extra.raw_info.location.name,
-                           birthday:auth.extra.raw_info.birthday,
-                           gender:auth.extra.raw_info.gender,
+#                           firstname:auth.extra.raw_info.first_name,
+#                          lastname:auth.extra.raw_info.last_name,
+#                           location:auth.extra.raw_info.location.name,
+#                           birthday:auth.extra.raw_info.birthday,
+#                           gender:auth.extra.raw_info.gender,
                            profile_image:auth.info.image
                            )
     end
