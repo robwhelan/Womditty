@@ -1,3 +1,9 @@
+<h1>Why log in with Facebook?</h1>
+<ul>
+	<li>Get credit for your local knowledge</li>
+	<li>See the growing list of military discounts</li>
+	<li>Follow the best hosts of your next duty station</li>
+</ul>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
 	<%= link_to image_tag('facebook-login-button.png'), omniauth_authorize_path(resource_name, provider) %><br />

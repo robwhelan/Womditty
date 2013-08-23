@@ -1,4 +1,4 @@
-<img src=<%= current_user.profile_image %> width='30' />
+<img width="30" src="#{<%= current_user.profile_image %>}" />
 
 <%= form_tag(posts_path, :remote => true) do %>
 	<%= text_field(:post, :body) %>

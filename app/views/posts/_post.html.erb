@@ -10,7 +10,9 @@
 		</td>
 		<td>
 			<ul class="unstyled text-center">
-				<li><img width='30' src=<%= post.user.profile_image %> class='img-rounded'/></li>
+				<li><%= link_to user_path(:id => post.user.id) do %>					
+					<img width='30' src=<%= post.user.profile_image %> />
+					<% end %></li>
 		        <li><%= post.user.firstname %></li>
 				<li class='<%= postUserVoteCount %>'><%= post.user.karma %></li>
 			</ul>
