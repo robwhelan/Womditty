@@ -72,9 +72,13 @@
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
               <li>
-					<%= link_to posts_path do %>
-						<i class='icon-fixed-width icon-comments'></i> Discussion
-					<% end %>
+				<div class="btn-group">
+				  <button class="btn"><i class='icon-fixed-width icon-comments'></i> Charleston</button>
+				  <button class="btn dropdown-toggle" data-toggle="dropdown">
+				    <span class="caret"></span>
+				  </button>
+						<%= render 'shared/charleston_posts_menu' %>
+				</div>
 			  </li>
               <li>
 					<%= link_to military_discounts_path do %>
@@ -98,6 +102,7 @@
 			  </li>
 			</ul>
           </div><!--/.well -->
+		<%= render 'shared/city_sidebar' %>
 		<div id="putPlaceHere"></div>
 		<div id="putFormHere"></div>
 		<div id="putCommentsHere"></div>

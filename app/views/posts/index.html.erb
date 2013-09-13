@@ -2,7 +2,11 @@
 
 <%- model_class = Post -%>
 <!-- <div class="page-header"> -->
-  <h3 class="pull-left">Discussion on Charleston...</h3>
+	<% if params[:q] %>
+  		<h3 class="pull-left">All about <%= params[:q][:body_cont] %>...</h3>
+	<% else %>
+		<h3 class="pull-left">All about Charleston...</h3>
+	<% end %>
 	<div class="pull-right form-inline">
 	<%= search_form_for @search, :class => "pull-right form-inline" do |f| %>
 	    <%= f.text_field :body_cont, :class => 'form-inline' %>

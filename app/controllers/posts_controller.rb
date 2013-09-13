@@ -71,7 +71,11 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         @post.create_activity :create, owner: current_user
-        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+        if @post.tag_list
+          format.html { redirect_to posts_path('q[body_cont]' => @post.tag_list.first), notice: 'Post was successfully created.' }
+        else
+          format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+        end
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
