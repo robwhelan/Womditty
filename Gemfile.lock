@@ -64,6 +64,8 @@ GEM
       multipart-post (~> 1.1)
     font-awesome-rails (3.2.1.2)
       railties (>= 3.2, < 5.0)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     gon (4.1.1)
       actionpack (>= 2.3.0)
       json
@@ -210,6 +212,7 @@ DEPENDENCIES
   devise
   email_validator
   font-awesome-rails
+  friendly_id
   gon
   jquery-rails
   jquery-tablesorter
