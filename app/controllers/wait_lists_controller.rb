@@ -1,7 +1,10 @@
 class WaitListsController < ApplicationController
+  before_filter :authenticate_user!, :except => :create
+
   # GET /wait_lists
   # GET /wait_lists.json
   def index
+    load_and_authorize_resource
     @wait_lists = WaitList.all
 
     respond_to do |format|

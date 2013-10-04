@@ -16,6 +16,7 @@ class Ability
             can [:index, :show], User
             cannot [:destroy], User
             cannot [:create, :update], MilitaryDiscount
+            cannot [:show, :index], WaitList
           end
        
     # The first argument to `can` is the action you are giving the user 
