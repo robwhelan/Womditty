@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822014818) do
+ActiveRecord::Schema.define(:version => 20131003204614) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -121,6 +121,12 @@ ActiveRecord::Schema.define(:version => 20130822014818) do
 
   add_index "duty_stations", ["city_id"], :name => "index_duty_stations_on_city_id"
   add_index "duty_stations", ["military_branch_id"], :name => "index_duty_stations_on_military_branch_id"
+
+  create_table "email_signups", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
@@ -294,5 +300,11 @@ ActiveRecord::Schema.define(:version => 20130822014818) do
 
   add_index "votes", ["voteable_id", "voteable_type"], :name => "index_votes_on_voteable_id_and_voteable_type"
   add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
+
+  create_table "wait_lists", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

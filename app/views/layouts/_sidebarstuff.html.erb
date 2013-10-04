@@ -1,0 +1,41 @@
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li>
+				<div class="btn-group">
+				  <button class="btn"><i class='icon-fixed-width icon-comments'></i> Charleston</button>
+				  <button class="btn dropdown-toggle" data-toggle="dropdown">
+				    <span class="caret"></span>
+				  </button>
+						<%= render 'shared/charleston_posts_menu' %>
+				</div>
+			  </li>
+              <li>
+					<%= link_to military_discounts_path do %>
+						<i class='icon-fixed-width icon-usd'></i> Discounts
+					<% end %>
+			  </li>
+              <li>
+					<%= link_to pages_google_map_path do %>
+						<i class='icon-fixed-width icon-map-marker'></i> Map
+					<% end %>
+			  </li>
+              <li>
+					<%= link_to users_path do %>
+						<i class='icon-fixed-width icon-smile'></i> People
+					<% end %>
+			  </li>
+              <li>
+					<%= link_to activities_path do %>
+						<i class='icon-fixed-width icon-star'></i> News Feed
+					<% end %>
+			  </li>
+			</ul>
+          </div><!--/.well -->
+		<%= render 'shared/city_sidebar' %>
+		<div id="putPlaceHere"></div>
+		<div id="putFormHere"></div>
+		<div id="putCommentsHere"></div>
+		<div id="putNewCommentHere"></div>
+        </div><!--/span-->

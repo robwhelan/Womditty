@@ -1,9 +1,13 @@
 Womditty::Application.routes.draw do
 
+  resources :wait_lists
+
+
   get "pages/google_map"
   get "pages/census"
   get "pages/about"
-
+  get "pages/email_signup"
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, :only => [:index, :show] do
@@ -51,10 +55,11 @@ Womditty::Application.routes.draw do
   resources :reviews
   resources :photos
   resources :places
+  resources :email_signups
 
   get 'tags/:tag', to: 'places#index', as: :tag
 
-  root :to => "pages#about"
+  root :to => "pages#email_signup"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
