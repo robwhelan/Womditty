@@ -47,7 +47,7 @@ class WaitListsController < ApplicationController
 
     respond_to do |format|
       if @wait_list.save
-        format.html { redirect_to pages_email_signup_path(:signup => 'success'), notice: 'Thanks for signing up! Follow Womditty on Facebook and Instagram to stay tuned.' }
+        format.html { redirect_to pages_email_signup_path(:signup => 'success'), notice: 'Thanks for signing up, ' + params[:wait_list][:email] + '! Follow Womditty on Facebook and Instagram to stay tuned.' }
         #format.js
       else
         format.html { render action: "new" }
