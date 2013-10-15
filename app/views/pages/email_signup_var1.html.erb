@@ -1,0 +1,14 @@
+<div class='hero-unit text-center'>
+<h3>Don't get stuck in a crappy neighborhood at your next duty station.</h3>
+<p>Womditty is a social network lets military families help other military families by sharing local knowledge. Coming soon. Get on the wait list here!</p>
+<br/>
+<div id="form-area">
+<%= form_tag("/wait_lists", method: "post", :class => "form-inline") do %>
+  <fieldset>
+	<%= text_field :wait_list, :email %>
+	<%= submit_tag('Submit', :class => 'btn') %>
+  </fieldset>
+<% end %>
+<%= image_tag('Womditty_final_logo.png') %>
+</div><!-- /form-area -->
+</div><!-- /hero unit -->

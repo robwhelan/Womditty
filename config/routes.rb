@@ -7,6 +7,7 @@ Womditty::Application.routes.draw do
   get "pages/census"
   get "pages/about"
   get "pages/email_signup"
+  get "pages/email_signup_var1"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
