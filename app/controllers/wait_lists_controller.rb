@@ -47,8 +47,8 @@ class WaitListsController < ApplicationController
 
     respond_to do |format|
       if @wait_list.save
-        #format.html { redirect_to @wait_list, notice: 'Wait list was successfully created.' }
-        format.js
+        format.html { redirect_to pages_email_signup_path(:signup => 'success'), notice: 'Thanks for signing up! Follow Womditty on Facebook and Instagram to stay tuned.' }
+        #format.js
       else
         format.html { render action: "new" }
         format.json { render json: @wait_list.errors, status: :unprocessable_entity }
