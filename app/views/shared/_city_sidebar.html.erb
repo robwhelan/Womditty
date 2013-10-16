@@ -17,9 +17,13 @@
 					<% end %>
 			  </li>
               <li>
-					<%= link_to posts_path('q[body_cont]' => "Kings Bay") do %>
-						<i class='icon-fixed-width icon-comments'></i> Kings Bay
-					<% end %>
+					<div class="btn-group">
+					  <button class="btn"><i class='icon-fixed-width icon-comments'></i> Kings Bay</button>
+					  <button class="btn dropdown-toggle" data-toggle="dropdown">
+					    <span class="caret"></span>
+					  </button>
+							<%= render 'shared/kingsbay_posts_menu' %>
+					</div>
 			  </li>
               <li>
 					<%= link_to posts_path('q[body_cont]' => "Pearl Harbor") do %>
