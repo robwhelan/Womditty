@@ -59,8 +59,12 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
+		<% if params[:controller] == "pages" %>
           <%= bootstrap_flash %>
           <%= yield %>
+		<% else %>
+			<%= render 'shared/live' %>
+		<% end %>
       </div><!--/row-->
       <footer>
         <p>&copy; Womditty 2013</p>
