@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131003204614) do
+ActiveRecord::Schema.define(:version => 20131111215011) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -156,6 +156,12 @@ ActiveRecord::Schema.define(:version => 20131003204614) do
 
   add_index "military_discounts", ["place_id"], :name => "index_military_discounts_on_place_id"
 
+  create_table "neighborhood_topics", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "neighborhoods", :force => true do |t|
     t.string   "name"
     t.integer  "city_id"
@@ -202,13 +208,15 @@ ActiveRecord::Schema.define(:version => 20131003204614) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "likes",      :default => 0
+    t.integer  "likes",           :default => 0
     t.integer  "user_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "place_id"
+    t.integer  "neighborhood_id", :default => 0
   end
 
+  add_index "posts", ["neighborhood_id"], :name => "index_posts_on_neighborhood_id"
   add_index "posts", ["place_id"], :name => "index_posts_on_place_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
@@ -278,6 +286,8 @@ ActiveRecord::Schema.define(:version => 20131003204614) do
     t.string   "gender"
     t.integer  "drive_time"
     t.integer  "reputation",             :default => 0
+    t.text     "biography",              :default => ""
+    t.string   "airbnb_link",            :default => ""
   end
 
   add_index "users", ["career_specialty_id"], :name => "index_users_on_career_specialty_id"

@@ -1,0 +1,23 @@
+<h1>Listing neighborhood_topics</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @neighborhood_topics.each do |neighborhood_topic| %>
+  <tr>
+    <td><%= neighborhood_topic.name %></td>
+    <td><%= link_to 'Show', neighborhood_topic %></td>
+    <td><%= link_to 'Edit', edit_neighborhood_topic_path(neighborhood_topic) %></td>
+    <td><%= link_to 'Destroy', neighborhood_topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Neighborhood topic', new_neighborhood_topic_path %>

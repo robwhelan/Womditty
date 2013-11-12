@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-tablesorter
-//= require twitter/bootstrap
 //= require jquery.infinitescroll
 //= require_tree .

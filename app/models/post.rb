@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   has_many :answers
   belongs_to :user
   belongs_to :place
+  belongs_to :neighborhood
+  belongs_to :neighborhood_topic
   
   attr_accessible :body, :likes, :title, :user_id, :tag_list, :place_id
 

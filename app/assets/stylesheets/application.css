@@ -16,4 +16,3 @@
 // added to prevent distortion of map controls
 #mapCanvas label { width: auto; display:inline; }
 #mapCanvas img { max-width: none; }
-

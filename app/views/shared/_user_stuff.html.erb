@@ -1,6 +1,6 @@
 <ul class="pull-right inline">
 	<li><%= image_tag(current_user.profile_image, { :width => '30', :class => 'img-rounded' } )%></li>
-	<li><%= current_user.name %></li>
+	<li><%= link_to current_user.name, user_path(current_user) %></li>
 	<li><strong><%= current_user.karma %></strong></li>
 	<li><i class='icon-power-off'></i><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
 </ul>

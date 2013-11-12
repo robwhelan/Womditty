@@ -1,5 +1,8 @@
 Womditty::Application.routes.draw do
 
+  resources :neighborhood_topics
+
+
   resources :wait_lists
 
 
@@ -8,6 +11,7 @@ Womditty::Application.routes.draw do
   get "pages/about"
   get "pages/email_signup"
   get "pages/email_signup_var1"
+  get "pages/home"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
