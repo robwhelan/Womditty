@@ -1,0 +1,86 @@
+
+<%= form_for(@neighborhood_thought) do |f| %>
+  <% if @neighborhood_thought.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@neighborhood_thought.errors.count, "error") %> prohibited this neighborhood_thought from being saved:</h2>
+
+      <ul>
+      <% @neighborhood_thought.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+	<img src=<%= current_user.profile_image %> width="100" />
+    <%= f.number_field :user_id, :type => "hidden", :value => current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.label :neighborhood %><br />
+	<%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :include_blank => true} )%>
+  </div>
+  <div class="field">
+    <%= f.label :community_amenities %><br />
+    <%= f.text_field :community_amenities, :class => "input-block-level", :id => 'community_amenities' %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_of_living %><br />
+    <%= f.text_field :cost_of_living, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :crime %><br />
+    <%= f.text_field :crime, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :grocery_stores %><br />
+    <%= f.text_field :grocery_stores, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :lifestyle %><br />
+    <%= f.text_field :lifestyle, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :night_life %><br />
+    <%= f.text_field :night_life, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :noise %><br />
+    <%= f.text_field :noise, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :pets %><br />
+    <%= f.text_field :pets, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :shopping %><br />
+    <%= f.text_field :shopping, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :kids %><br />
+    <%= f.text_field :kids, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :schools %><br />
+    <%= f.text_field :schools, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :traffic %><br />
+    <%= f.text_field :traffic, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label :walkability %><br />
+    <%= f.text_field :walkability, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label "What do people not love about this neighborhood?" %><br />
+    <%= f.text_field :not_love, :class => "input-block-level" %>
+  </div>
+  <div class="field">
+    <%= f.label "What will people fall in love with?" %><br />
+    <%= f.text_field :love, :class => "input-block-level" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Done' %>
+  </div>
+<% end %>

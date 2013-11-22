@@ -1,5 +1,11 @@
 Womditty::Application.routes.draw do
 
+  resources :hosts
+
+
+  resources :neighborhood_thoughts
+
+
   resources :neighborhood_topics
 
 

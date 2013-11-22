@@ -9,6 +9,7 @@ class Neighborhood < ActiveRecord::Base
   has_many :coordinates
   has_many :posts
   has_one :center_coordinate
+  has_many  :hosts
   
   accepts_nested_attributes_for :center_coordinate
   accepts_nested_attributes_for :users

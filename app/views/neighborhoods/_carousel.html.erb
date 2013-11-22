@@ -1,0 +1,19 @@
+<% uniqueCarousel = "myCarousel" + sortOrder %>
+<div id=<%= uniqueCarousel %> class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ol class="carousel-indicators">
+	        <li data-target="#<%= uniqueCarousel %>" data-slide-to="0" class=""></li>
+	        <li data-target="#<%= uniqueCarousel %>" data-slide-to="1" class=""></li>
+	        <li data-target="#<%= uniqueCarousel %>" data-slide-to="2" class=""></li>
+	      </ol>
+	      <div class="carousel-inner">
+			<% @hosts.each_with_index do |host, index| %>
+				<%= render 'neighborhoods/carousel_items', 
+						{:host => host, 
+							:index => index,
+							:neighborhood_thought => host.user.neighborhood_thoughts[0].send(topic)} %>
+			<% end %>
+	      </div><!-- /carousel-inner -->
+	      <a class="left carousel-control" href="#<%= uniqueCarousel %>" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	      <a class="right carousel-control" href="#<%= uniqueCarousel %>" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+	    </div><!-- /myCarousel -->

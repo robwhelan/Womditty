@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :posts
   has_many :answers
+  has_many  :neighborhood_thoughts
   
   acts_as_follower
   acts_as_followable

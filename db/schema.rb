@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111215011) do
+ActiveRecord::Schema.define(:version => 20131122201850) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -141,6 +141,16 @@ ActiveRecord::Schema.define(:version => 20131111215011) do
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
 
+  create_table "hosts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "hosts", ["neighborhood_id"], :name => "index_hosts_on_neighborhood_id"
+  add_index "hosts", ["user_id"], :name => "index_hosts_on_user_id"
+
   create_table "military_branches", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -155,6 +165,31 @@ ActiveRecord::Schema.define(:version => 20131111215011) do
   end
 
   add_index "military_discounts", ["place_id"], :name => "index_military_discounts_on_place_id"
+
+  create_table "neighborhood_thoughts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "neighborhood_id"
+    t.string   "community_amenities", :default => ""
+    t.string   "cost_of_living",      :default => ""
+    t.string   "crime",               :default => ""
+    t.string   "grocery_stores",      :default => ""
+    t.string   "lifestyle",           :default => ""
+    t.string   "night_life",          :default => ""
+    t.string   "noise",               :default => ""
+    t.string   "pets",                :default => ""
+    t.string   "shopping",            :default => ""
+    t.string   "kids",                :default => ""
+    t.string   "traffic",             :default => ""
+    t.string   "walkability",         :default => ""
+    t.string   "not_love",            :default => ""
+    t.string   "love",                :default => ""
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "schools",             :default => ""
+  end
+
+  add_index "neighborhood_thoughts", ["neighborhood_id"], :name => "index_neighborhood_thoughts_on_neighborhood_id"
+  add_index "neighborhood_thoughts", ["user_id"], :name => "index_neighborhood_thoughts_on_user_id"
 
   create_table "neighborhood_topics", :force => true do |t|
     t.string   "name"

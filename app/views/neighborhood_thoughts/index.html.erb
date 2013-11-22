@@ -1,0 +1,25 @@
+<h1>Listing neighborhood_thoughts</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Neighborhood</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @neighborhood_thoughts.each do |neighborhood_thought| %>
+  <tr>
+    <td><%= neighborhood_thought.user %></td>
+    <td><%= neighborhood_thought.neighborhood %></td>
+    <td><%= link_to 'Show', neighborhood_thought %></td>
+    <td><%= link_to 'Edit', edit_neighborhood_thought_path(neighborhood_thought) %></td>
+    <td><%= link_to 'Destroy', neighborhood_thought, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Neighborhood thought', new_neighborhood_thought_path %>

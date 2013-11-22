@@ -1,27 +1,116 @@
-<%- model_class = Neighborhood -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
+<div class="jumbotron">
+      <div class="container">
+        <h1><%= @neighborhood.name %></h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" role="button">Learn more »</a></p>
+      </div>
+    </div><!-- jumbotron -->
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @neighborhood.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:city_id) %>:</strong></dt>
-  <dd><%= @neighborhood.city_id %></dd>
-</dl>
+<!-- love -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              neighborhoods_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_neighborhood_path(@neighborhood), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              neighborhood_path(@neighborhood),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
+	<%= render 'neighborhoods/carousel', {:topic => "love", :sortOrder => "a"} %>
+<!-- /love -->
 
-<% @neighborhood.city.duty_stations.each do |duty_station| %>
-	<p>To <%= duty_station.name %> : <%= duty_station.drive_time_from(@neighborhood) %> minutes</p>
-<% end %>
+<!-- lifestyle -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "lifestyle", :sortOrder => "b"} %>
+<!-- /lifestyle -->
+
+<!-- grocery_stores -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "grocery_stores", :sortOrder => "c"} %>
+<!-- /grocery_stores -->
+
+<!-- community_amenities -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "community_amenities", :sortOrder => "d"} %>
+<!-- /community_amenities -->
+
+<!-- noise -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "noise", :sortOrder => "e"} %>
+<!-- /noise -->
+
+<!-- pets -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "pets", :sortOrder => "f"} %>
+<!-- /pets -->
+
+<!-- shopping -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "shopping", :sortOrder => "g"} %>
+<!-- /shopping -->
+
+<!-- kids -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "kids", :sortOrder => "h"}%>
+<!-- /kids -->
+
+<!-- schools -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "schools", :sortOrder => "i"} %>
+<!-- /schools -->
+
+<!-- traffic -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "traffic", :sortOrder => "j"} %>
+<!-- /traffic -->
+
+<!-- walkability -->
+	<div class="jumbotron">
+			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+		</div><!-- /jumbotron -->
+
+	<%= render 'neighborhoods/carousel', {:topic => "walkability", :sortOrder => "k"} %>
+<!-- /walkability -->
+
+<div class="container">
+	      <!-- Example row of columns -->
+	      <div class="row">
+	        <div class="col-md-4">
+	          <h2>Heading</h2>
+	          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+	        </div>
+	        <div class="col-md-4">
+	          <h2>Heading</h2>
+	          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+	       </div>
+	        <div class="col-md-4">
+	          <h2>Heading</h2>
+	          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+	          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+	        </div>
+	      </div>
+	    </div>

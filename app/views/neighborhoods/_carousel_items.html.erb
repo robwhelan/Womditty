@@ -1,0 +1,21 @@
+<% if index == 0 %>
+	<div class="item active">
+	<% else %>
+	<div class="item">
+<% end %>
+
+	<%= image_tag("gray.png", :class => "img-responsive") %>
+	<div class="container">
+	            <div class="carousel-caption">
+					<ul class="list-inline">
+					  	<li><img src='<%= host.user.profile_image %>' class="img-rounded" width="100" /></li>
+						<li>
+							<ul class="list-unstyled">
+								<li><p><%= neighborhood_thought %></p></li>
+								<li><em>-<%= host.user.name %>, <%= @neighborhood.name %></em></li>
+							</ul>
+						</li>
+					</ul>
+	            </div><!-- /carousel-caption -->
+	          </div><!-- /container -->
+	        </div><!-- /item -->

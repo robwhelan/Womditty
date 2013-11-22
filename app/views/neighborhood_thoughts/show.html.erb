@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @neighborhood_thought.user %>
+</p>
+
+<p>
+  <b>Neighborhood:</b>
+  <%= @neighborhood_thought.neighborhood %>
+</p>
+
+
+<%= link_to 'Edit', edit_neighborhood_thought_path(@neighborhood_thought) %> |
+<%= link_to 'Back', neighborhood_thoughts_path %>
