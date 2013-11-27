@@ -1,5 +1,15 @@
 Womditty::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  config.paperclip_defaults = {
+              :storage => :s3,
+              :s3_credentials => {
+                :bucket => 'womditty',
+                :access_key_id => 'AKIAIOYPUPPWIW2QZA5A',
+                :secret_access_key => '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',
+                :region => 'us-standard'
+    }
+  }
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Code is not reloaded between requests

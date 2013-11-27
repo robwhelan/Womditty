@@ -1,4 +1,4 @@
-<%= form_for @neighborhood, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @neighborhood, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -11,6 +11,73 @@
       <%= f.collection_select( :city_id, City.all, :id, :name ) %>
     </div>
   </div>
+
+<%= f.label :community_amenities %>
+  <%= f.file_field :community_amenities %>
+	<% if @neighborhood.community_amenities.url %>
+		<%= image_tag @neighborhood.community_amenities.url(:thumb) %>
+	<% end %><br/>
+
+<%= f.label :grocery_stores %>
+	<%= f.file_field :grocery_stores %>
+	<% if @neighborhood.grocery_stores.url %>
+		<%= image_tag @neighborhood.grocery_stores.url(:thumb) %>
+	<% end %><br/>
+
+	<%= f.label :kids %>
+		<%= f.file_field :kids %>
+		<% if @neighborhood.kids.url %>
+			<%= image_tag @neighborhood.kids.url(:thumb) %>
+		<% end %><br/>
+
+
+<%= f.label :lifestyle %>
+	<%= f.file_field :lifestyle %>
+	<% if @neighborhood.lifestyle.url %>
+		<%= image_tag @neighborhood.lifestyle.url(:thumb) %>
+	<% end %><br/>
+
+	<%= f.label :love %>
+		<%= f.file_field :love %>
+		<% if @neighborhood.love.url %>
+			<%= image_tag @neighborhood.love.url(:thumb) %>
+		<% end %><br/>
+
+		<%= f.label :noise %>
+			<%= f.file_field :noise %>
+			<% if @neighborhood.noise.url %>
+				<%= image_tag @neighborhood.noise.url(:thumb) %>
+			<% end %><br/>
+
+			<%= f.label :pets %>
+				<%= f.file_field :pets %>
+				<% if @neighborhood.pets.url %>
+					<%= image_tag @neighborhood.pets.url(:thumb) %>
+				<% end %><br/>
+
+				<%= f.label :schools %>
+					<%= f.file_field :schools %>
+					<% if @neighborhood.schools.url %>
+						<%= image_tag @neighborhood.schools.url(:thumb) %>
+					<% end %><br/>
+
+					<%= f.label :shopping %>
+						<%= f.file_field :shopping %>
+						<% if @neighborhood.shopping.url %>
+							<%= image_tag @neighborhood.shopping.url(:thumb) %>
+						<% end %><br/>
+
+						<%= f.label :traffic %>
+							<%= f.file_field :traffic %>
+							<% if @neighborhood.traffic.url %>
+								<%= image_tag @neighborhood.traffic.url(:thumb) %>
+							<% end %><br/>
+
+							<%= f.label :walkability %>
+								<%= f.file_field :walkability %>
+								<% if @neighborhood.walkability.url %>
+									<%= image_tag @neighborhood.walkability.url(:thumb) %>
+								<% end %><br/>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

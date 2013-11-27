@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122201850) do
+ActiveRecord::Schema.define(:version => 20131127022957) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -200,9 +200,53 @@ ActiveRecord::Schema.define(:version => 20131122201850) do
   create_table "neighborhoods", :force => true do |t|
     t.string   "name"
     t.integer  "city_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "review_id"
+    t.string   "community_amenities_file_name"
+    t.string   "community_amenities_content_type"
+    t.integer  "community_amenities_file_size"
+    t.datetime "community_amenities_updated_at"
+    t.string   "grocery_stores_file_name"
+    t.string   "grocery_stores_content_type"
+    t.integer  "grocery_stores_file_size"
+    t.datetime "grocery_stores_updated_at"
+    t.string   "kids_file_name"
+    t.string   "kids_content_type"
+    t.integer  "kids_file_size"
+    t.datetime "kids_updated_at"
+    t.string   "lifestyle_file_name"
+    t.string   "lifestyle_content_type"
+    t.integer  "lifestyle_file_size"
+    t.datetime "lifestyle_updated_at"
+    t.string   "love_file_name"
+    t.string   "love_content_type"
+    t.integer  "love_file_size"
+    t.datetime "love_updated_at"
+    t.string   "noise_file_name"
+    t.string   "noise_content_type"
+    t.integer  "noise_file_size"
+    t.datetime "noise_updated_at"
+    t.string   "pets_file_name"
+    t.string   "pets_content_type"
+    t.integer  "pets_file_size"
+    t.datetime "pets_updated_at"
+    t.string   "schools_file_name"
+    t.string   "schools_content_type"
+    t.integer  "schools_file_size"
+    t.datetime "schools_updated_at"
+    t.string   "shopping_file_name"
+    t.string   "shopping_content_type"
+    t.integer  "shopping_file_size"
+    t.datetime "shopping_updated_at"
+    t.string   "traffic_file_name"
+    t.string   "traffic_content_type"
+    t.integer  "traffic_file_size"
+    t.datetime "traffic_updated_at"
+    t.string   "walkability_file_name"
+    t.string   "walkability_content_type"
+    t.integer  "walkability_file_size"
+    t.datetime "walkability_updated_at"
   end
 
   add_index "neighborhoods", ["city_id"], :name => "index_neighborhoods_on_city_id"

@@ -22,7 +22,7 @@ gem 'acts_as_follower'
 gem 'jquery-tablesorter'
 gem 'public_activity'
 gem 'friendly_id'
-
+gem 'aws-sdk', '~> 1.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
