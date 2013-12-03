@@ -4,12 +4,12 @@
 
       <tr id='<%= postID %>' class="post">
 		<td>
-			<ul class="unstyled text-center">
+			<ul class="list-unstyled text-center">
 				<%= render 'chevron', :post => post %>
 			</ul>
 		</td>
 		<td>
-			<ul class="unstyled text-center">
+			<ul class="list-unstyled text-center">
 				<li><%= link_to user_path(:id => post.user.id) do %>					
 					<img width='30' src=<%= post.user.profile_image %> />
 					<% end %></li>
@@ -18,7 +18,7 @@
 			</ul>
 		</td>
         <td>
-			<ul class="unstyled">
+			<ul class="list-unstyled">
 				<li><strong><%= post.title %></strong></li>
         		<li><%= post.body %></li>
      		</ul>
@@ -30,7 +30,7 @@
 			<% end %>
 		</td>
 		<td>
-			<ul class="unstyled text-center">
+			<ul class="list-unstyled text-center">
 				<%= render 'like_button', :post => post %>
 			</ul>
 		</td>

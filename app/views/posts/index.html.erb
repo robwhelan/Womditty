@@ -1,3 +1,4 @@
+<div class="container">
 <%= render 'inline_post' %>
 
 <%- model_class = Post -%>
@@ -14,7 +15,7 @@
 	<% end %>
 	</div>
 <!-- </div> -->
-<table id="posts" class="table">
+<table id="posts" class="table table-responsive table-condensed">
   <thead>
   </thead>
   <tbody class="page">
@@ -23,3 +24,8 @@
 </table>
 
 <%= paginate @posts %>
+
+</div><!-- /container -->
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+<%= render 'inline_post' %>
+</nav>
