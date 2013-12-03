@@ -4,11 +4,13 @@ class Neighborhood < ActiveRecord::Base
   attr_accessible :name, :city_id
   attr_accessible :community_amenities
   attr_accessible :grocery_stores
+  attr_accessible :housing
   attr_accessible :kids
   attr_accessible :lifestyle
   attr_accessible :love
   attr_accessible :noise
   attr_accessible :pets
+  attr_accessible :restaurants
   attr_accessible :schools
   attr_accessible :shopping
   attr_accessible :traffic
@@ -28,16 +30,18 @@ class Neighborhood < ActiveRecord::Base
 
   acts_as_voteable
 
-  has_attached_file :community_amenities, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :grocery_stores, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :kids, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :lifestyle, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :love, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :noise, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :pets, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :schools, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :shopping, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :traffic, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  has_attached_file :walkability, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :community_amenities, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :grocery_stores, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :housing, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :kids, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :lifestyle, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :love, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :noise, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :pets, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :restaurants, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :schools, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :shopping, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :traffic, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :walkability, :styles => { :full => "960x641", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
 end

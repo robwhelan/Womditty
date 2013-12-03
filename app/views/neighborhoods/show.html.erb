@@ -1,99 +1,156 @@
+
 <div class="jumbotron">
       <div class="container">
         <h1><%= @neighborhood.name %></h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn more »</a></p>
-      </div>
+      </div><!-- /container -->
     </div><!-- jumbotron -->
 
+<div class="container"><!-- main container -->
 <!-- love -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+	<div class="row">
+		<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-heart"></span> What you'll love about it</h3>
+			<%= image_tag(@neighborhood.love.url(:full), :class => "img-responsive", :width => '1140' ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "love", :sortOrder => "a"} %>
+	</div>
+	</div>
 
-	<%= render 'neighborhoods/carousel', {:topic => "love", :sortOrder => "a"} %>
 <!-- /love -->
 
+<br/>
 <!-- lifestyle -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
+	<div class="row">
+		<div class="col-lg-12">
+			<h3><i class="fa fa-coffee"></i> The lifestyle</h3>
+			<%= image_tag(@neighborhood.lifestyle.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "lifestyle", :sortOrder => "b"} %>
 		</div><!-- /jumbotron -->
-
-	<%= render 'neighborhoods/carousel', {:topic => "lifestyle", :sortOrder => "b"} %>
+		</div>
+<br />
 <!-- /lifestyle -->
 
 <!-- grocery_stores -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-shopping-cart"></span> Grocery stores</h3>
+			<%= image_tag(@neighborhood.grocery_stores.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "grocery_stores", :sortOrder => "c"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "grocery_stores", :sortOrder => "c"} %>
 <!-- /grocery_stores -->
 
 <!-- community_amenities -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-flag"></span> Community amenities</h3>
+			<%= image_tag(@neighborhood.community_amenities.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "community_amenities", :sortOrder => "d"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "community_amenities", :sortOrder => "d"} %>
 <!-- /community_amenities -->
 
-<!-- noise -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<!-- housing -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-home"></span> Housing</h3>
+			<%= image_tag(@neighborhood.housing.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "housing", :sortOrder => "e"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "noise", :sortOrder => "e"} %>
-<!-- /noise -->
+<!-- /housing -->
+
+<!-- restaurants -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-cutlery"></span> Restaurants</h3>
+			<%= image_tag(@neighborhood.restaurants.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "restaurants", :sortOrder => "f"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
+
+<!-- /restaurants -->
 
 <!-- pets -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><i class="fa fa-bug"></i> Pets</h3>
+			<%= image_tag(@neighborhood.pets.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "pets", :sortOrder => "g"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "pets", :sortOrder => "f"} %>
 <!-- /pets -->
 
 <!-- shopping -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-tags"></span> Shopping</h3>
+			<%= image_tag(@neighborhood.shopping.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "shopping", :sortOrder => "h"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "shopping", :sortOrder => "g"} %>
 <!-- /shopping -->
 
 <!-- kids -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><i class="fa fa-smile-o"></i> Kids</h3>
+			<%= image_tag(@neighborhood.kids.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "kids", :sortOrder => "i"}%>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "kids", :sortOrder => "h"}%>
 <!-- /kids -->
 
 <!-- schools -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-book"></span> Schools</h3>
+			<%= image_tag(@neighborhood.schools.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "schools", :sortOrder => "j"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "schools", :sortOrder => "i"} %>
 <!-- /schools -->
 
 <!-- traffic -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><i class="fa fa-truck"></i> Traffic</h3>
+			<%= image_tag(@neighborhood.traffic.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "traffic", :sortOrder => "k"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "traffic", :sortOrder => "j"} %>
 <!-- /traffic -->
 
 <!-- walkability -->
-	<div class="jumbotron">
-			<%= image_tag("danielisland.jpg", :class => "img-responsive" ) %>
-		</div><!-- /jumbotron -->
+<div class="row">
+	<div class="col-lg-12">
+			<h3><span class="glyphicon glyphicon-user"></span> Walkability</h3>
+			<%= image_tag(@neighborhood.walkability.url(:full), :class => "img-responsive", :width => '1140'  ) %>
+			<%= render 'neighborhoods/carousel', {:topic => "walkability", :sortOrder => "l"} %>
+				</div><!-- /jumbotron -->
+				</div>
+		<br />
 
-	<%= render 'neighborhoods/carousel', {:topic => "walkability", :sortOrder => "k"} %>
 <!-- /walkability -->
-
+</div><!-- /container -->
 <div class="container">
 	      <!-- Example row of columns -->
 	      <div class="row">

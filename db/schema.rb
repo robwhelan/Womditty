@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127022957) do
+ActiveRecord::Schema.define(:version => 20131202181523) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -186,6 +186,8 @@ ActiveRecord::Schema.define(:version => 20131127022957) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "schools",             :default => ""
+    t.string   "housing",             :default => ""
+    t.string   "restaurants",         :default => ""
   end
 
   add_index "neighborhood_thoughts", ["neighborhood_id"], :name => "index_neighborhood_thoughts_on_neighborhood_id"
@@ -247,6 +249,14 @@ ActiveRecord::Schema.define(:version => 20131127022957) do
     t.string   "walkability_content_type"
     t.integer  "walkability_file_size"
     t.datetime "walkability_updated_at"
+    t.string   "housing_file_name"
+    t.string   "housing_content_type"
+    t.integer  "housing_file_size"
+    t.datetime "housing_updated_at"
+    t.string   "restaurants_file_name"
+    t.string   "restaurants_content_type"
+    t.integer  "restaurants_file_size"
+    t.datetime "restaurants_updated_at"
   end
 
   add_index "neighborhoods", ["city_id"], :name => "index_neighborhoods_on_city_id"

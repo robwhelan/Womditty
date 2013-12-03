@@ -1,0 +1,23 @@
+	  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	  <script type="text/javascript"
+	  src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAkmQDcP4u6gG5IULRLAiEjnfpE3vhYUOw&sensor=true">
+	  </script>
+	  <script type="text/javascript"
+		src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble-compiled.js">
+	  </script>
+
+	<!-- initialize google map -->
+	<% content_for :javascript do %>
+	  <script type="text/javascript">
+
+	    google.maps.event.addDomListener(window, 'load', initialize);
+
+	  </script>
+	<% end %>
+
+	<div class="container">
+	    <div id="panel">
+	      <input id="searchBoxTarget" type="text" placeholder="Search Box">
+	    </div>
+	  	<div id="map-canvas" style="height:500px;" /></div>
+	</div><!-- end div for search box and map canvas -->

@@ -1,39 +1,42 @@
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Womditty</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-			<li><div class="fb-like" data-href="https://www.facebook.com/womditty" data-send="false" data-width="450" data-show-faces="false"></div></li>
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-		 </ul>
-		<ul class="nav navbar-nav navbar-right">
-		  	<% if user_signed_in? %>
-				<%= render 'shared/user_stuff' %>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+	<%= link_to 'Womditty', root_path, :class => 'navbar-brand' %>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li>
+      	<%= link_to neighborhoods_path do %>
+			<span class="glyphicon glyphicon-home"></span> Neighborhoods
 			<% end %>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+      </li>
+      <li>
+			<%= link_to pages_google_map_path do %>
+				<span class='glyphicon glyphicon-map-marker'></span> Map
+			<% end %>
+	  </li>
+    </ul>
+		<% @search = Post.search(params[:q]) %>
+		<%= search_form_for @search, :class => "navbar-form navbar-left" do |f| %>
+      	<div class="form-group">
+		<%= f.text_field :body_cont, :class => 'form-control', :placeholder => 'Search posts' %>
+      	</div>
+		<%= f.submit "Search", :class => 'btn btn-default' %>
+		<% end %>
+
+	<% if user_signed_in? %>
+    <ul class="nav navbar-nav navbar-right">
+		<%= render 'shared/user_stuff' %>
+    </ul>
+	<% end %>
+  </div><!-- /.navbar-collapse -->
+</nav>

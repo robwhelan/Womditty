@@ -1,45 +1,24 @@
-<%- model_class = Neighborhood -%>
-<div class="page-header">
-	<% if @city %>
-		<h1><%= @city %> <%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-	<% else %>
-  		<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-	<% end %>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-	  <th></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:city_id) %></th>
-		<th>Center lat</th>
-		<th>Center long</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="jumbotron">
+      <div class="container">
+        <h1>Coming to Charleston?</h1>
+        <p>Get acquainted with the different areas of town, and connect with residents who want to share their local knowledge.</p>
+      </div><!-- /container -->
+    </div><!-- jumbotron -->
+
+<%= render 'google_map' %>
+
+<br/>
+
+<div class="container">
+<div class="row">
     <% @neighborhoods.each do |neighborhood| %>
-      <tr>
-		<td><%= link_to "Reviews (#{neighborhood.reviews.count})", reviews_path(:neighborhood => neighborhood), :class => 'btn' %>
-        <td><%= neighborhood.name %></td>
-		<td><%= neighborhood.center_coordinate.lat unless neighborhood.center_coordinate.nil? %></td>
-		<td><%= neighborhood.center_coordinate.lng unless neighborhood.center_coordinate.nil? %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_neighborhood_path(neighborhood), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      neighborhood_path(neighborhood),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_neighborhood_path,
-            :class => 'btn btn-primary' %>
+	<%= link_to neighborhood_path(neighborhood) do %>
+	<div class="col-sm-6 col-md-4">
+		<%= image_tag(neighborhood.love.url(:medium), :class => "img-responsive") %>
+		<h2><%= neighborhood.name %></h2>
+	</div><!-- /col-md-4 -->
+	<% end %>
+	<% end %>
+</div><!-- /row -->	
+</div><!-- /container -->

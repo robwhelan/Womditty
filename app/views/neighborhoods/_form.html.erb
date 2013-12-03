@@ -24,6 +24,13 @@
 		<%= image_tag @neighborhood.grocery_stores.url(:thumb) %>
 	<% end %><br/>
 
+
+	<%= f.label :housing %>
+		<%= f.file_field :housing %>
+		<% if @neighborhood.housing.url %>
+			<%= image_tag @neighborhood.housing.url(:thumb) %>
+		<% end %><br/>
+
 	<%= f.label :kids %>
 		<%= f.file_field :kids %>
 		<% if @neighborhood.kids.url %>
@@ -54,6 +61,13 @@
 				<% if @neighborhood.pets.url %>
 					<%= image_tag @neighborhood.pets.url(:thumb) %>
 				<% end %><br/>
+
+
+				<%= f.label :restaurants %>
+					<%= f.file_field :restaurants %>
+					<% if @neighborhood.restaurants.url %>
+						<%= image_tag @neighborhood.restaurants.url(:thumb) %>
+					<% end %><br/>
 
 				<%= f.label :schools %>
 					<%= f.file_field :schools %>

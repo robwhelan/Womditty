@@ -1,7 +1,7 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <style type="text/css">
     html { height: 100% }
-    body { height: 100%; margin: 0; padding: 0 }
+    body { height: 100%; margin: 0; padding-top: 70 }
     #map-canvas { height: 100% }
 
   </style>
@@ -13,11 +13,13 @@
   </script>
 
 <!-- initialize google map -->
+<% content_for :javascript do %>
   <script type="text/javascript">
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
   </script>
+<% end %>
 <div>
     <div id="panel">
       <input id="searchBoxTarget" type="text" placeholder="Search Box">

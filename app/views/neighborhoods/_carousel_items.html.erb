@@ -8,11 +8,16 @@
 	<div class="container">
 	            <div class="carousel-caption">
 					<ul class="list-inline">
-					  	<li><img src='<%= host.user.profile_image %>' class="img-rounded" width="100" /></li>
-						<li>
+						<li><%= link_to user_path(:id => host.user.id) do %>					
+							<img src='<%= host.user.profile_image %>' class="img-responsive img-rounded carousel-host" width="100" /></li>
+							<% end %>
+						</li>
 							<ul class="list-unstyled">
 								<li><p><%= neighborhood_thought %></p></li>
-								<li><em>-<%= host.user.name %>, <%= @neighborhood.name %></em></li>
+								<li><%= link_to user_path(:id => host.user.id) do %>
+									<em>-<%= host.user.name %>, <%= @neighborhood.name %></em>
+									<% end %>
+									</li>
 							</ul>
 						</li>
 					</ul>

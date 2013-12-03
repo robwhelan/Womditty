@@ -13,3 +13,4 @@
 //= require jquery-tablesorter
 //= require jquery.infinitescroll
 //= require_tree .
+//= require jquery_ujs
