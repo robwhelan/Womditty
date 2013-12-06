@@ -2,12 +2,27 @@
 <div class="jumbotron">
       <div class="container">
         <h1><%= @neighborhood.name %></h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more »</a></p>
       </div><!-- /container -->
     </div><!-- jumbotron -->
 
 <div class="container"><!-- main container -->
+	<!-- love -->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="list-inline">
+					<li><h3><span class="glyphicon glyphicon-heart"></span> What you'll love about it</h3></li>
+					<li class="pull-right"><p><%= link_to posts_path('q[body_cont]' => @neighborhood.name.to_s), :class => 'btn btn-primary' do %>
+					Learn more
+				<% end %></p></li>
+				</ul>
+				<%= image_tag(@neighborhood.love.url(:full), :class => "img-responsive", :width => '1140' ) %>
+				<%= render 'neighborhoods/carousel', {:topic => "love", :sortOrder => "a"} %>
+		</div>
+		</div>
+
+	<!-- /love -->
+
+	<br/>
 
 	<div class="row">
 		<div class="col-sm-6 col-md-4">
@@ -20,35 +35,16 @@
 			<iframe src=<%= @neighborhood.drive_time %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
 		</div>
 	</div>
-
-	<div class="row">
-		<div class="col-sm-6 col-md-4">
-			<iframe src=<%= @neighborhood.household_income %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
-		</div>
-		<div class="col-sm-6 col-md-4">
-			<iframe src=<%= @neighborhood.education_level %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
-		</div>
-		<div class="col-sm-6 col-md-4">
-			<iframe src=<%= @neighborhood.drive_time %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
-		</div>
-	</div>
 	
-<!-- love -->
-	<div class="row">
-		<div class="col-lg-12">
-			<h3><span class="glyphicon glyphicon-heart"></span> What you'll love about it</h3>
-			<%= image_tag(@neighborhood.love.url(:full), :class => "img-responsive", :width => '1140' ) %>
-			<%= render 'neighborhoods/carousel', {:topic => "love", :sortOrder => "a"} %>
-	</div>
-	</div>
-
-<!-- /love -->
-
-<br/>
 <!-- lifestyle -->
 	<div class="row">
 		<div class="col-lg-12">
-			<h3><i class="fa fa-coffee"></i> The lifestyle</h3>
+			<ul class="list-inline">
+				<li><h3><span class="glyphicon glyphicon-heart"></span> The lifestyle</h3></li>
+				<li class="pull-right"><p><%= link_to posts_path('q[body_cont]' => @neighborhood.name.to_s), :class => 'btn btn-primary' do %>
+				Learn more
+			<% end %></p></li>
+			</ul>
 			<%= image_tag(@neighborhood.lifestyle.url(:full), :class => "img-responsive", :width => '1140'  ) %>
 			<%= render 'neighborhoods/carousel', {:topic => "lifestyle", :sortOrder => "b"} %>
 		</div><!-- /jumbotron -->
@@ -91,6 +87,18 @@
 		<br />
 
 <!-- /housing -->
+
+<div class="row">
+	<div class="col-sm-6 col-md-4">
+		<iframe src=<%= @neighborhood.household_income %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
+	</div>
+	<div class="col-sm-6 col-md-4">
+		<iframe src=<%= @neighborhood.education_level %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
+	</div>
+	<div class="col-sm-6 col-md-4">
+		<iframe src=<%= @neighborhood.house_value %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
+	</div>
+</div>
 
 <!-- restaurants -->
 <div class="row">
@@ -175,24 +183,16 @@
 		<br />
 
 <!-- /walkability -->
+
 </div><!-- /container -->
-<div class="container">
-	      <!-- Example row of columns -->
-	      <div class="row">
-	        <div class="col-md-4">
-	          <h2>Heading</h2>
-	          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-	          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-	        </div>
-	        <div class="col-md-4">
-	          <h2>Heading</h2>
-	          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-	          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-	       </div>
-	        <div class="col-md-4">
-	          <h2>Heading</h2>
-	          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-	          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-	        </div>
-	      </div>
-	    </div>
+<div class="jumbotron">
+      <div class="container">
+		<ul class="list-inline">
+			<li><h3><span class="glyphicon glyphicon-heart"></span> Not bad for an overview.</h3>
+				<p>Now log in to learn more from the <%= User.all.count %> Womditty users who live here.</p></li>
+			<li class="pull-right"><p><%= link_to posts_path('q[body_cont]' => @neighborhood.name.to_s), :class => 'btn btn-primary' do %>
+			Log in
+		<% end %></p></li>
+		</ul>
+      </div><!-- /container -->
+    </div><!-- jumbotron -->
