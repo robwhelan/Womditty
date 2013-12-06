@@ -15,6 +15,12 @@ class Neighborhood < ActiveRecord::Base
   attr_accessible :shopping
   attr_accessible :traffic
   attr_accessible :walkability
+  attr_accessible :population_density
+  attr_accessible :household_income
+  attr_accessible :education_level
+  attr_accessible :drive_time
+  attr_accessible :consumer_price
+  attr_accessible :house_value
   
   has_many :users
   has_many :photos
