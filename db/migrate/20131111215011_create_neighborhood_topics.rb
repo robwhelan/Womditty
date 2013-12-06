@@ -7,7 +7,7 @@ class CreateNeighborhoodTopics < ActiveRecord::Migration
     
     add_column :users, :biography, :text, :default => ""
     add_column :users, :airbnb_link, :string, :default => ""
-    add_column :posts, :neighborhood_id, :integer, :default => ""
+    add_column :posts, :neighborhood_id, :integer
     
     add_index :posts, :neighborhood_id
   end
