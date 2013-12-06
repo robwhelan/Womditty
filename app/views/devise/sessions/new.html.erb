@@ -1,9 +1,5 @@
-<h1>Why log in to Womditty with Facebook?</h1>
-<p><ul>
-	<li>Pay it forward!</li>
-	<li>Share your impressive local knowledge as a military spouse</li>
-	<li>Don't worry -- no weird or annoying emails!</li>
-</ul></p>
+<h1>Log in to Womditty with Facebook</h1>
+<p>We need real pictures and names to keep our community legit.</p>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
 	<%= link_to image_tag('facebook-login-button.png'), omniauth_authorize_path(resource_name, provider) %><br />
@@ -11,6 +7,7 @@
 <% end -%>
 <hr/>
 
+<% if Rails.env == "development" %>
 	<%= form_for(resource, :as => resource_name, :url => new_session_path(resource_name)) do |f| %>
 	  <div><%= f.label :email %><br />
 	  <%= f.email_field :email, :autofocus => true %></div>
@@ -24,6 +21,6 @@
 
 	  <div><%= f.submit "Sign in" %></div>
 	<% end %>
-
 	<br />
 	<%= render "devise/shared/links" %>
+	<% end %>
