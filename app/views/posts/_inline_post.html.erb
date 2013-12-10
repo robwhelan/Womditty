@@ -19,6 +19,7 @@
 		<div class="form-group">
 	<%= fields_for "post[]", :photo_attributes do |post_photo| %>
 			<%= post_photo.file_field :image %>
+			<%= post_photo.hidden_field :user_id, :value => current_user.id %>
 	<% end %>
 		</div>
 				
