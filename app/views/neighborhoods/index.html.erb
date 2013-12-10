@@ -15,8 +15,8 @@
 
 	<%= link_to neighborhood_path(neighborhood) do %>
 	<div class="col-sm-6 col-md-4">
-		<%= image_tag(neighborhood.love.url(:medium), :class => "img-responsive") %>
 		<h2><%= neighborhood.name %></h2>
+		<%= image_tag(neighborhood.love.url(:medium), :class => "img-responsive") %>
 	</div><!-- /col-md-4 -->
 	<% end %>
 	<% end %>

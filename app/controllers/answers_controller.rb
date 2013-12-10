@@ -48,6 +48,7 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         @answer.create_activity :create, owner: current_user
+        format.html
         format.js
 #        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
 #        format.json { render json: @answer, status: :created, location: @answer }

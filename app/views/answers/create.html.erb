@@ -1,0 +1,3 @@
+<%= image_tag(@answer.photo.image.url(:thumb)) if @answer.photo %>
+<%= @answer.body %>
+<%= link_to 'Back to post', posts_path(:anchor => 'postID' + @answer.post.id.to_s ) %>

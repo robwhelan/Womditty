@@ -1,5 +1,5 @@
 <div class="row">
-	<%= form_tag(posts_path, :class => "form-inline") do %>
+	<%= form_tag(posts_path, :multipart => true, :class => 'form-inline' ) do %>
 		<div class="form-group">
 			<img src=<%= current_user.profile_image %> width='50' class="img-rounded" />
 		</div>
@@ -15,8 +15,16 @@
 		<%= text_field(:post, :tag_list, :placeholder => 'Tag list, separated by commas', :class => "form-control" ) %>
 	<% end %>
 		</div>
-
+		
+		<div class="form-group">
+	<%= fields_for "post[]", :photo_attributes do |post_photo| %>
+			<%= post_photo.file_field :image %>
+	<% end %>
+		</div>
+				
 	<%= submit_tag 'Post', :class => 'btn btn-success' %>
 	<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
 	
 	<% end %>
+	
+</div><!--/row -->

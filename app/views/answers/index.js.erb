@@ -1,22 +1,28 @@
-$("<%= j render 'inline_form', :post => @post %>").insertAfter('#postID' + '<%= "#{@post.id}" %>');
+$('#postID' + '<%= "#{@post.id}" %>').after("<%=j (render :partial => 'inline_form', :locals => {:post => @post}) %>");
 
 <% @answers.each do |answer| %>
 
-$("<tr style='background-color:#D3D3D3;' class='postAnswers<%= @post.id.to_s %>'>" +
+$('#postID' + '<%= "#{@post.id}" %>').after("<tr style='background-color:#D3D3D3;' class='postAnswers<%= @post.id.to_s %>'>" +
 	"<td></td>" +
+	<% if answer.photo %>
+		"<td><img src='<%= answer.photo.image.url %>' width='150' /></td>" +
+	<% else %>
+		"<td></td>" +
+	<% end %>
+	"<td><%= answer.body %></td>" +
 	"<td><ul class='list-unstyled text-center'>" +
 		"<li><img src='<%= answer.user.profile_image %>' class='img-rounded' width='30' /></li>" +
     	"<li><%= answer.user.firstname %></li>" +
 		"<li class='answerUserVoteCount<%= answer.user.id.to_s %>' >" + "<%= answer.user.karma %></li>" +
 	"</ul></td>" +
-	"<td><%= answer.body %></td>" +
 	"<td><%= answer.created_at.to_date.strftime('%-m/%-d/%y') %></td>" +
 	"<td>" +
 		"<ul class='list-unstyled text-center'>" +
 			"<%= j render 'answers/like_button', :answer => answer %>" +
 		"</ul>" +
 	"</td>" +
-"</tr>").insertAfter('#postID' + '<%= "#{@post.id}" %>');
+"</tr>");
+
 <% end %>
 
 $('i#chevronID' + '<%= "#{@post.id}" %>').attr('class', 'icon-chevron-up icon-2x');

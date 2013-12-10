@@ -1,4 +1,5 @@
 <div class="container">
+
 <%= render 'inline_post' %>
 
 <%- model_class = Post -%>
@@ -8,12 +9,6 @@
 	<% else %>
 		<h3 class="pull-left">All about Charleston...</h3>
 	<% end %>
-	<div class="pull-right form-inline">
-	<%= search_form_for @search, :class => "pull-right form-inline" do |f| %>
-	    <%= f.text_field :body_cont, :class => 'form-inline' %>
-		<%= f.submit "Search", :class => 'btn' %>
-	<% end %>
-	</div>
 <!-- </div> -->
 <table id="posts" class="table table-responsive table-condensed">
   <thead>
@@ -26,6 +21,3 @@
 <%= paginate @posts %>
 
 </div><!-- /container -->
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-<%= render 'inline_post' %>
-</nav>

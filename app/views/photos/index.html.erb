@@ -1,26 +1,18 @@
-
-        <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkmQDcP4u6gG5IULRLAiEjnfpE3vhYUOw&sensor=false">
-        </script>
-
-        <style type="text/css">
-            html { height: 100% }
-            body { height: 100%; margin: 0; padding: 0 }
-            #map-canvas { height: 100% }
-            </style>
-        
-        <script type="text/javascript">
-            function initialize() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(32.781357,-79.935972),
-                    zoom: 14,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(document.getElementById("map-canvas"),
-                                              mapOptions);
-
-                
-            };
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
-        <div id="map-canvas" style="height:500px;"/>
+<div class="container">
+	<div class="row">
+		<% @photos.each do |photo| %>
+		<div class="col-sm-6 col-md-4 col-lg-3">
+					<%= image_tag(photo.image.url(:medium), :class => 'img-responsive') %>
+					<%= link_to user_path(photo.user) do %>
+						<%= image_tag(photo.user.profile_image, :class => 'img-rounded', :width => '50') %>
+					<% end %>
+					<% if photo.post %>
+						<%= photo.post.body %>
+					<% elsif photo.answer %>
+						<%= photo.answer.body %>
+					<% end %>
+					<br/><br/>
+		</div>
+		<% end %>
+	</div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206165604) do
+ActiveRecord::Schema.define(:version => 20131209193739) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -273,13 +273,21 @@ ActiveRecord::Schema.define(:version => 20131206165604) do
     t.integer  "neighborhood_id"
     t.integer  "user_id"
     t.integer  "city_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "post_id"
+    t.integer  "answer_id"
   end
 
+  add_index "photos", ["answer_id"], :name => "index_photos_on_answer_id"
   add_index "photos", ["city_id"], :name => "index_photos_on_city_id"
   add_index "photos", ["neighborhood_id"], :name => "index_photos_on_neighborhood_id"
   add_index "photos", ["place_id"], :name => "index_photos_on_place_id"
+  add_index "photos", ["post_id"], :name => "index_photos_on_post_id"
   add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
 
   create_table "places", :force => true do |t|
