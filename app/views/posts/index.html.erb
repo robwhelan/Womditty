@@ -1,23 +1,22 @@
 <div class="container">
-
 <%= render 'inline_post' %>
+</div>
 
-<%- model_class = Post -%>
-<!-- <div class="page-header"> -->
-	<% if params[:q] %>
-  		<h3 class="pull-left">All about <%= params[:q][:body_cont] %></h3>
-	<% else %>
-		<h3 class="pull-left">All about Charleston...</h3>
-	<% end %>
-<!-- </div> -->
-<table id="posts" class="table table-responsive table-condensed">
-  <thead>
-  </thead>
-  <tbody class="page">
-	<%= render @posts %>
-  </tbody>
-</table>
+<div id="container">
+<%= render @posts %>
+</div>
 
 <%= paginate @posts %>
 
 </div><!-- /container -->
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+var container = document.querySelector('#container');
+var msnry = new Masonry( container, {
+  // options
+  columnWidth: 200,
+  itemSelector: '.item'
+});
+</script>
+<% end %>

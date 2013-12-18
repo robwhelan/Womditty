@@ -1,18 +1,19 @@
+
+<% answerLikesCountID = 'answerLikesCount'+ answer.id.to_s %>
+<span id='<%= answerLikesCountID %>' class="badge"><%= answer.plusminus %></span>
+
 <% if current_user.voted_for?(answer) %>
 	<% if answer.votes.where(:voter_id => current_user.id).last.vote %>
 		<%= link_to vote_down_answer_path(answer), :remote => :true, :method => :post, :class => 'btn btn-success' do %>
-			<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
+			<span><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></span>
 		<% end %>
 	<% else %>
 		<%= link_to vote_up_answer_path(answer), :remote => :true, :method => :post, :class => 'btn' do %>
-			<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
+			<span><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></span>
 		<% end %>
 	<% end %>
 <% else %>
 	<%= link_to vote_up_answer_path(answer), :remote => :true, :method => :post, :class => 'btn' do %>
-		<li><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></li>
+		<span><i id="<%= 'answerHeart'+ answer.id.to_s %>" class="icon-thumbs-up"></i></span>
 	<% end %>
 <% end %>
-
-<% answerLikesCountID = 'answerLikesCount'+ answer.id.to_s %>
-<li id='<%= answerLikesCountID %>' ><%= answer.plusminus %></li>

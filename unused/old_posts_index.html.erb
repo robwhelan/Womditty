@@ -1,0 +1,15 @@
+<!-- <div class="page-header"> -->
+	<% if params[:q] %>
+  		<h3 class="pull-left">All about <%= params[:q][:body_cont] %></h3>
+	<% else %>
+		<h3 class="pull-left">All about Charleston...</h3>
+	<% end %>
+<!-- </div> -->
+<table id="posts" class="table table-responsive table-condensed">
+  <thead>
+  </thead>
+  <tbody class="page">
+	<%= render @posts %>
+  </tbody>
+</table>
+

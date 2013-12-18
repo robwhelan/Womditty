@@ -2,37 +2,56 @@
 	<% postID = 'postID'+post.id.to_s %>
 	<% postUserVoteCount = 'postUserVoteCount' + post.user.id.to_s %>
 
-      <tr id='<%= postID %>' class="post">
-		<td>
-			<ul class="list-unstyled text-center">
-				<%= render 'chevron', :post => post %>
-			</ul>
-		</td>
-		<td><%= image_tag(post.photo.image.url(:medium)) if post.photo %></td>
-        <td>
-			<ul class="list-unstyled">
-				<li><strong><%= post.title %></strong></li>
-        		<li><%= post.body %></li>
-     		</ul>
-		</td>
-		<td>
-		<ul class="list-unstyled text-center">
-			<li><%= link_to user_path(:id => post.user.id) do %>					
-				<img width='30' src=<%= post.user.profile_image %> />
-				<% end %></li>
-	        <li><%= post.user.firstname %></li>
-			<li class='<%= postUserVoteCount %>'><%= post.user.karma %></li>
-		</ul>
-		</td>
-   		<td><%= post.created_at.to_date.strftime("%-m/%-d/%y") %></td>
-		<td>
-			<% post.tag_list.each do |tag| %>
-				<%= link_to tag, posts_path(:q => {:body_cont => tag} )%>
-			<% end %>
-		</td>
-		<td>
-			<ul class="list-unstyled text-center">
-				<%= render 'like_button', :post => post %>
-			</ul>
-		</td>
-      </tr>
+<div class="item">
+
+	<div class="panel panel-default">
+	<div class="panel-heading">
+		
+	<div><%= image_tag(post.photo.image.url, :class => "img-responsive img-rounded") if post.photo %></div>
+	<div><%= post.body %></div>
+
+	</div><!-- panel-body -->
+	<div class="panel-body">
+		
+	<span><%= link_to user_path(:id => post.user.id) do %>					
+		<img width='30' src=<%= post.user.profile_image %> class="img-rounded" />
+		<% end %></span>
+	<span><%= post.user.name %></span>
+	<span class="pull-right"><%= render 'like_button', :post => post %></span>
+	</div><!-- panel=body -->
+
+	<ul class="list-group">
+		<% if post.answers.any? %>
+	<li class="list-group-item active">
+		<em><%= post.answers.count %> comments:</em>
+		</li>
+	<% post.answers.each do |answer| %>
+	<li class="list-group-item">
+		<div><%= image_tag(answer.photo.image.url, :class => "img-responsive img-rounded") if answer.photo %></div>
+		<div><%= answer.body %></div>
+		<span><%= link_to user_path(:id => answer.user.id) do %>					
+			<img width='30' src=<%= answer.user.profile_image %> class="img-rounded" />
+			<% end %></span>
+		<span><%= link_to user_path(:id => answer.user.id) do %>					
+			<%= answer.user.name %>
+			<% end %></span>
+		<span class="pull-right"><%= render 'answers/like_button', :answer => answer %></span>
+	</li>
+	<% end %>
+	<% end %>
+	<li class="list-group-item"><form accept-charset="UTF-8" action="/answers" data-remote="false" class="form-inline" enctype="multipart/form-data" method="post">
+		<input name="utf8" type="hidden" value="&#x2713;" />
+		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+		<input id="answer_body" name="answer[body]" size="30" type="text" />
+		<input id="answer_photo_attributes_image" name="answer[photo_attributes][image]" type="file" />
+		<input id="answer_photo_attributes_user_id" name="answer[photo_attributes][user_id]" type="hidden" value="<%= current_user.id %>" />
+		<input id="answer_user_id" name="answer[user_id]" type="hidden" value="<%= current_user.id %>" />
+		<input id="answer_post_id" name="answer[post_id]" type="hidden" value="<%= post.id %>" />
+		<input class="btn" name="commit" type="submit" value="Comment" />
+	</form>
+	</li>
+	</ul>
+</div><!--panel panel-default -->
+
+</div><!-- item -->
+

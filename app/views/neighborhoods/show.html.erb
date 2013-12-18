@@ -15,25 +15,25 @@
 					Learn from the locals >>
 				<% end %></p></li>
 				</ul>
-				<%= image_tag(@neighborhood.love.url(:full), :class => "img-responsive", :width => '1140' ) %>
+			</div><!-- /col-lg-12 -->
+		<div class="row">
+			<div class="col-lg-6">
+				<%= image_tag(@neighborhood.love.url(:full), :class => "img-responsive", :width => 500 ) %>
+			</div>
+			<div class="col-lg-6">
 				<%= render 'neighborhoods/carousel', {:topic => "love", :sortOrder => "a"} %>
-		</div>
-		</div>
+			</div><!-- /col-lg-6 -->
+		</div><!--/row -->
+		</div><!--/ container -->
 
 	<!-- /love -->
 
 	<br/>
 
 	<div class="row">
-		<div class="col-sm-6 col-md-4">
-			<iframe src=<%= @neighborhood.population_density %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
-		</div>
-		<div class="col-sm-6 col-md-4">
-			<iframe src=<%= @neighborhood.consumer_price %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
-		</div>
-		<div class="col-sm-6 col-md-4">
-			<iframe src=<%= @neighborhood.drive_time %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
-		</div>
+			<iframe class="col-sm-6 col-md-4" src=<%= @neighborhood.population_density %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
+			<iframe class="col-sm-6 col-md-4" src=<%= @neighborhood.consumer_price %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
+			<iframe class="col-sm-6 col-md-4" src=<%= @neighborhood.drive_time %> width="340" height="630" scrolling="no" frameborder="0" style="border:none;"></iframe>
 	</div>
 	
 <!-- lifestyle -->
