@@ -1,0 +1,10 @@
+// add the new comment to the list of comments
+// update the count of answers to the post
+
+var postID = "postID" + "<%= @post.id.to_s %>";
+
+$('<%=j render 'post', :post => @post %>').insertBefore('#' + postID);
+
+// update the count of answers
+//$('#postAnswersCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.answers.count.to_s}" %>');
+msnry.layout();

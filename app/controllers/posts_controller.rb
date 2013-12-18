@@ -74,7 +74,8 @@ class PostsController < ApplicationController
         if @post.tag_list
           format.html { redirect_to posts_path('q[body_cont]' => @post.tag_list.first), notice: 'Post was successfully created.' }
         else
-          format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+          format.js
+          #format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         end
         format.json { render json: @post, status: :created, location: @post }
       else

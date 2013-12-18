@@ -1,16 +1,12 @@
-"<tr style='background-color:#D3D3D3;' class='postAnswers<%= @post.id.to_s %>'>" +
-	"<td></td>" +
-	"<%= image_tag(answer.photo.image.url(:thumb)) if answer.photo %>" +
-	"<td><%= answer.body %></td>" +
-	"<td><ul class='list-unstyled text-center'>" +
-		"<li><img src='<%= answer.user.profile_image %>' class='img-rounded' width='30' /></li>" +
-    	"<li><%= answer.user.firstname %></li>" +
-		"<li class='answerUserVoteCount<%= answer.user.id.to_s %>' >" + "<%= answer.user.karma %></li>" +
-	"</ul></td>" +
-	"<td><%= answer.created_at.to_date.strftime('%-m/%-d/%y') %></td>" +
-	"<td>" +
-		"<ul class='list-unstyled text-center'>" +
-			"<%= j render 'answers/like_button', :answer => answer %>" +
-		"</ul>" +
-	"</td>" +
-"</tr>");
+<li class="list-group-item">
+	<div><%= image_tag(answer.photo.image.url, :class => "img-responsive img-rounded") if answer.photo %></div>
+	<div><%= answer.body %></div>
+	<div class="pull-right"><%= render 'answers/like_button', :answer => answer %></div>
+	<span><%= link_to user_path(:id => answer.user.id) do %>					
+		<img width='30' src=<%= answer.user.profile_image %> class="img-rounded" />
+		<% end %></span>
+	<span><%= link_to user_path(:id => answer.user.id) do %>					
+		<%= answer.user.name %>
+		<% end %></span>
+	<span class="badge"><%= answer.user.karma %></span>
+</li>

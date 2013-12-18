@@ -37,6 +37,8 @@
 	
     <%= yield %>
 
+	<%= render 'layouts/fixedBottomNavBar' if params[:controller] == "posts" %>
+
     <footer>
         <p>&copy; Womditty 2013</p>
     </footer>

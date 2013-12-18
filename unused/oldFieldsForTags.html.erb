@@ -1,0 +1,8 @@
+		<div class="form-group">
+	<% if params[:q] %>
+		<%= text_field(:post, :tag_list, :placeholder => params[:q][:body_cont], :class => "form-control") %>
+	<% else %>
+		<%= text_field(:post, :tag_list, :placeholder => 'Tag list, separated by commas', :class => "form-control" ) %>
+	<% end %>
+		</div>
+		

@@ -1,31 +1,23 @@
-<div class="row">
-	<%= form_tag(posts_path, :multipart => true, :class => 'form-inline' ) do %>
-		<div class="form-group">
-			<img src=<%= current_user.profile_image %> width='50' class="img-rounded" />
-		</div>
+<div class="container">
+	<div class="row">
 		
-		<div class="form-group">
+	<%= form_tag(posts_path, :multipart => true, :class => 'form-inline' ) do %>
+
+		<div class="col-xs-8 form-group">
 			<%= text_area(:post, :body, :class => "form-control", :rows => '2', :cols => '75', :placeholder => "New post") %>
 		</div>
 
-		<div class="form-group">
-	<% if params[:q] %>
-		<%= text_field(:post, :tag_list, :placeholder => params[:q][:body_cont], :class => "form-control") %>
-	<% else %>
-		<%= text_field(:post, :tag_list, :placeholder => 'Tag list, separated by commas', :class => "form-control" ) %>
-	<% end %>
-		</div>
-		
-		<div class="form-group">
+		<div class="col-xs-1 form-group">
 	<%= fields_for "post[]", :photo_attributes do |post_photo| %>
 			<%= post_photo.file_field :image %>
 			<%= post_photo.hidden_field :user_id, :value => current_user.id %>
 	<% end %>
 		</div>
-				
+
+		<div class="col-xs-2">
 	<%= submit_tag 'Post', :class => 'btn btn-success' %>
 	<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
-	
+		</div>
 	<% end %>
-	
-</div><!--/row -->
+	</div><!-- /row -->
+	</div><!-- /container -->
