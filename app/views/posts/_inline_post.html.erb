@@ -7,17 +7,35 @@
 			<%= text_area(:post, :body, :class => "form-control", :rows => '2', :cols => '75', :placeholder => "New post") %>
 		</div>
 
-		<div class="col-xs-1 form-group">
+		<div class="col-xs-2 form-group">
 	<%= fields_for "post[]", :photo_attributes do |post_photo| %>
-			<%= post_photo.file_field :image %>
+			<%= post_photo.file_field :image, :class => "hidden" %>
+			<button id="browse-click" type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-camera"></span>
+			</button>			
 			<%= post_photo.hidden_field :user_id, :value => current_user.id %>
 	<% end %>
 		</div>
 
-		<div class="col-xs-2">
+		<div class="col-xs-2 form-group">
 	<%= submit_tag 'Post', :class => 'btn btn-success' %>
 	<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
 		</div>
 	<% end %>
 	</div><!-- /row -->
 	</div><!-- /container -->
+	
+	<% content_for :javascript do %>
+	<script type="text/javascript">
+	$(window).load(function () {
+	    var intervalFunc = function () {
+	        $('#file-name').html($('#post_photo_attributes_image').val());
+	    };
+	    $('#browse-click').on('click', function () { // use .live() for older versions of jQuery
+	        $('#post_photo_attributes_image').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	});
+	</script>
+	<% end %>

@@ -23,7 +23,8 @@ gem 'jquery-tablesorter'
 gem 'public_activity'
 gem 'friendly_id'
 gem 'aws-sdk', '~> 1.0'
-gem 'jquery-rails', '~> 2.1'
+gem 'jquery-rails', '~> 2.3'
+gem 'remotipart', '~> 1.2'
 
 # Gems used only for assets and not required
 # in production environments by default.

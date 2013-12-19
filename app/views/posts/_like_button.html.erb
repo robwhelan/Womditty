@@ -1,5 +1,5 @@
 <% postLikesCountID = 'postLikesCount'+ post.id.to_s %>
-<span id='<%= postLikesCountID %>' class="badge"><%= post.plusminus %></span>
+<span id='<%= postLikesCountID %>'><%= post.plusminus %></span>
 
 <% if current_user.voted_for?(post) %>
 	<% if post.votes.where(:voter_id => current_user.id).last.vote %>

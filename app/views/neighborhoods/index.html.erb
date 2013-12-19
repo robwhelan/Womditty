@@ -12,11 +12,16 @@
 <div class="container">
 <div class="row">
     <% @neighborhoods.each do |neighborhood| %>
-
-	<%= link_to neighborhood_path(neighborhood) do %>
 	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+		<div class="panel-heading">
+	<%= link_to neighborhood_path(neighborhood) do %>
 		<h2><%= neighborhood.name %></h2>
-		<%= image_tag(neighborhood.love.url(:medium), :class => "img-responsive") %>
+		</div>
+		<div class="panel-body">
+		<%= image_tag(neighborhood.love.url(:full), :class => "img-responsive") %>
+		</div>
+		</div><!-- /panel -->
 	</div><!-- /col-md-4 -->
 	<% end %>
 	<% end %>
