@@ -19,6 +19,11 @@
 			<span class="glyphicon glyphicon-home"></span> Neighborhoods
 			<% end %>
       </li>
+      <li>
+			<%= link_to photos_path do %>
+				<span class='glyphicon glyphicon-camera'></span> Photos
+			<% end %>
+	  </li>
     </ul>
 		<% @search = Post.search(params[:q]) %>
 		<%= search_form_for @search, :class => "navbar-form navbar-left" do |f| %>

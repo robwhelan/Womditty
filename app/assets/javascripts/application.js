@@ -15,3 +15,4 @@
 //= require_tree .
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require masonry.pkgd.js
