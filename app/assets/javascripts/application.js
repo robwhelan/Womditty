@@ -14,3 +14,4 @@
 //= require jquery.infinitescroll
 //= require_tree .
 //= require jquery_ujs
+//= require jquery.remotipart

@@ -25,6 +25,7 @@ gem 'friendly_id'
 gem 'aws-sdk', '~> 1.0'
 gem 'jquery-rails', '~> 2.3'
 gem 'remotipart', '~> 1.2'
+gem "twitter-text", "~> 1.7.0"
 
 # Gems used only for assets and not required
 # in production environments by default.

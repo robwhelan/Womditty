@@ -2,16 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@media (max-width: 768px) {
-    img.carousel-host {
-		display:none;
-    }
-}
-
 @media (max-width:991px) {
 div.carousel-caption {
 	bottom:-20px;
 }
+
 ol.carousel-indicators {
 	display:none;
 }

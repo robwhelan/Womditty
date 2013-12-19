@@ -1,18 +1,39 @@
-<div class="container">
-	<div class="row">
+<div id="container">
 		<% @photos.each do |photo| %>
-		<div class="col-sm-6 col-md-4 col-lg-3">
-					<%= image_tag(photo.image.url(:medium), :class => 'img-responsive') %>
-					<%= link_to user_path(photo.user) do %>
-						<%= image_tag(photo.user.profile_image, :class => 'img-rounded', :width => '50') %>
-					<% end %>
+
+		<div class="masonryItem">
+		<div class="panel panel-default">
+		<div class="panel-heading">
+
+					<div><%= image_tag(photo.image.url(:medium), :class => 'img-responsive') %></div>
 					<% if photo.post %>
 						<%= photo.post.body %>
 					<% elsif photo.answer %>
 						<%= photo.answer.body %>
 					<% end %>
-					<br/><br/>
-		</div>
+		</div><!-- /panel-heading -->
+		<div class="panel-body">
+			<div>
+				<span><%= link_to user_path(:id => photo.user.id) do %>					
+					<img width='30' src=<%= photo.user.profile_image %> class="img-rounded" />
+					<% end %></span>
+				<span><%= photo.user.name %></span>
+				<span class="badge"><%= photo.user.karma %></span>
+			</div><!-- /div for user image and name -->
+			</div><!-- /div for panel-body -->
+		</div><!-- /panel panel-default -->
+		</div><!-- /item -->
 		<% end %>
-	</div>
-</div>
+</div><!-- /container -->
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+var container = document.querySelector('#container');
+var msnry = new Masonry( container, {
+  // options
+  columnWidth: 200,
+  itemSelector: '.masonryItem'
+});
+
+</script>
+<% end %>
