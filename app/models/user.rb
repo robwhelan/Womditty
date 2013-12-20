@@ -1,3 +1,5 @@
+require 'mailchimp'
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -63,8 +65,15 @@ class User < ActiveRecord::Base
 #                           gender:auth.extra.raw_info.gender,
                            profile_image:auth.info.image
                            )
+      
     end
-    user
+
+    @mc = Mailchimp::API.new('4a46f8edfa1a4822d7d59eec9dd8c6a6-us3')
+    list_id = '50ec604e99'
+    email = user.email
+    @mc.lists.subscribe(list_id, {'email' => email})
+
+    return user
   end
   
   def self.new_with_session(params, session)

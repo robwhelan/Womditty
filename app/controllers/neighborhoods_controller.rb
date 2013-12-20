@@ -5,12 +5,11 @@ class NeighborhoodsController < ApplicationController
   # GET /neighborhoods.json
   def index
 
-    if params[:city]
-      @neighborhoods = Neighborhood.where(:city_id => params[:city])
-      @city = City.find(params[:city]).name
-    else
-      @neighborhoods = Neighborhood.all
-    end
+      if Rails.env == "production"
+        @neighborhoods = Neighborhood.find(12, 11, 2, 5, 1, 3)
+      else
+        @neighborhoods = Neighborhood.all
+      end
     
     respond_to do |format|
       format.html # index.html.erb

@@ -7,19 +7,20 @@
 	<div class="panel panel-default">
 	<div class="panel-heading">
 	
-	<% if post.photo %>	
-	<div><%= image_tag(post.photo.image.url, :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
-	<% end %>
-	<div><%= post.body %></div>
+		<span><%= link_to user_path(:id => post.user.id) do %>					
+			<img width='30' src=<%= post.user.profile_image %> class="img-rounded" />
+			<% end %></span>
+		<span><%= post.user.name %></span>
+		<span class="badge"><%= post.user.karma %></span>
 
 	</div><!-- panel-heading -->
 	<div class="panel-body">
 		
-	<span><%= link_to user_path(:id => post.user.id) do %>					
-		<img width='30' src=<%= post.user.profile_image %> class="img-rounded" />
-		<% end %></span>
-	<span><%= post.user.name %></span>
-	<span class="badge"><%= post.user.karma %></span>
+		<% if post.photo %>	
+		<div><%= image_tag(post.photo.image.url, :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
+		<% end %>
+		<div><%= post.body %></div>
+
 	<div class="pull-right"><%= render 'like_button', :post => post %></div>
 	
 	</div><!-- panel=body -->
