@@ -66,12 +66,13 @@ class User < ActiveRecord::Base
                            profile_image:auth.info.image
                            )
       
-    end
+                           @mc = Mailchimp::API.new('4a46f8edfa1a4822d7d59eec9dd8c6a6-us3')
+                           list_id = '50ec604e99'
+                           email = user.email
+                           @mc.lists.subscribe(list_id, {'email' => email})
 
-    @mc = Mailchimp::API.new('4a46f8edfa1a4822d7d59eec9dd8c6a6-us3')
-    list_id = '50ec604e99'
-    email = user.email
-    @mc.lists.subscribe(list_id, {'email' => email})
+                           return user
+    end
 
     return user
   end
