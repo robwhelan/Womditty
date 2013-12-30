@@ -34,6 +34,8 @@ var msnry = new Masonry( container, {
   columnWidth: 200,
   itemSelector: '.masonryItem'
 });
-
+window.onload = function(){
+	msnry.layout();
+};
 </script>
 <% end %>
