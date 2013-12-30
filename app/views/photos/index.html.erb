@@ -4,15 +4,6 @@
 		<div class="masonryItem">
 		<div class="panel panel-default">
 		<div class="panel-heading">
-
-					<div><%= image_tag(photo.image.url(:medium), :class => 'img-responsive') %></div>
-					<% if photo.post %>
-						<%= photo.post.body %>
-					<% elsif photo.answer %>
-						<%= photo.answer.body %>
-					<% end %>
-		</div><!-- /panel-heading -->
-		<div class="panel-body">
 			<div>
 				<span><%= link_to user_path(:id => photo.user.id) do %>					
 					<img width='30' src=<%= photo.user.profile_image %> class="img-rounded" />
@@ -20,6 +11,15 @@
 				<span><%= photo.user.name %></span>
 				<span class="badge"><%= photo.user.karma %></span>
 			</div><!-- /div for user image and name -->
+
+		</div><!-- /panel-heading -->
+		<div class="panel-body">
+			<div><%= image_tag(photo.image.url(:medium), :class => 'img-responsive') %></div>
+			<% if photo.post %>
+				<%= photo.post.body %>
+			<% elsif photo.answer %>
+				<%= photo.answer.body %>
+			<% end %>
 			</div><!-- /div for panel-body -->
 		</div><!-- /panel panel-default -->
 		</div><!-- /item -->
