@@ -1,6 +1,6 @@
 module Paperclip
   class AutoOrient < Paperclip::Processor 
-    require 'rmagick' # Make sure to update your gem file
+    require 'RMagick' # Make sure to update your gem file
 
     def initialize(file, options = {}, *args)
       @file = file
