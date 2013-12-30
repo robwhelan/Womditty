@@ -17,7 +17,7 @@
 	<div class="panel-body">
 		
 		<% if post.photo %>	
-		<div><%= image_tag(post.photo.image.url, :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
+		<div><%= image_tag(post.photo.image.url(:medium), :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
 		<% end %>
 		<div><%= post.body %></div>
 
