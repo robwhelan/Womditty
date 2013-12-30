@@ -12,7 +12,7 @@ class Photo < ActiveRecord::Base
   acts_as_voteable
 
   has_attached_file :image, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
-                            :processors => [:auto_orient, :thumbnail], 
+                            :processors => [:auto_orient], 
                             :default_url => ""
                             
   validates_attachment :image, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
