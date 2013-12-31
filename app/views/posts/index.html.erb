@@ -19,5 +19,22 @@ window.onload = function(){
 	msnry.layout();
 };
 
+function readURL(input, element) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $(element).html(
+				'<img src=' +
+					e.target.result +
+				 	' width="35" />'
+				)
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 </script>
 <% end %>

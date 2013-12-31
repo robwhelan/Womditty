@@ -46,7 +46,6 @@
 		<input id="answer_user_id" name="answer[user_id]" type="hidden" value="<%= current_user.id %>" />
 		<input id="answer_post_id" name="answer[post_id]" type="hidden" value="<%= post.id %>" />
 		<input style="float:left;" class="btn btn-default" name="commit" type="submit" value="Done" />
-		<img id='imgPreview<%= postID %>' src="#" alt="your image" />
 	</form>
 	</li>
 	</ul>
@@ -67,21 +66,9 @@ $(window).load(function () {
     });
 });
 
-function readURL(input) {
-
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#imgPreview<%= postID %>').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
 
 $('#answer_photo_attributes_image<%= postID %>').change(function(){
-    readURL(this);
+    readURL(this, '#browse-click<%=postID %>');
 });
 
 </script>
