@@ -3,24 +3,17 @@
 		
 	<%= form_tag(posts_path, :multipart => true, :class => 'form-inline' ) do %>
 
-		<div class="col-xs-8 form-group">
-			<%= text_area(:post, :body, :class => "form-control", :rows => '2', :cols => '75', :placeholder => "New post") %>
-		</div>
-
-		<div class="col-xs-2 form-group">
 	<%= fields_for "post[]", :photo_attributes do |post_photo| %>
 			<%= post_photo.file_field :image, :class => "hidden" %>
-			<button id="browse-click" type="button" class="btn btn-default">
+			<button id="browse-click" type="button" class="btn btn-default" style="float:left;">
 				<span class="glyphicon glyphicon-camera"></span>
 			</button>			
 			<%= post_photo.hidden_field :user_id, :value => current_user.id %>
 	<% end %>
-		</div>
-
-		<div class="col-xs-2 form-group">
-	<%= submit_tag 'Post', :class => 'btn btn-success' %>
+	<%= text_field(:post, :body, :class => "form-control", :cols => '75', :style => "float:left;width:60%;", :placeholder => "Ask something about Charleston") %>
+	<%= submit_tag 'Post', :class => 'btn btn-success', :style => "float:left;" %>
 	<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
-		</div>
+
 	<% end %>
 	</div><!-- /row -->
 	</div><!-- /container -->
@@ -37,5 +30,10 @@
 	        return false;
 	    });
 	});
+	
+	$('#post_photo_attributes_image').change(function(){
+	    readURL(this, '#browse-click');
+	});
+	
 	</script>
 	<% end %>

@@ -7,4 +7,6 @@ $('<%=j render 'answer', :answer => @answer %>').insertBefore('#postAnswerForm' 
 
 // update the count of answers
 $('#postAnswersCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.answers.count.to_s}" %>');
+$('#submitpostID<%= @post.id.to_s %>').val('Done');
+$('#browse-clickpost<%= @post.id.to_s %>').html('<span class="glyphicon glyphicon-camera"></span>');
 msnry.layout();

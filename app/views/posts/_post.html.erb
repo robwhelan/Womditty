@@ -17,7 +17,7 @@
 	<div class="panel-body">
 		
 		<% if post.photo %>	
-		<div><%= image_tag(post.photo.image.url(:medium), :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
+		<div><%= image_tag(post.photo.image.url(:full), :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
 		<% end %>
 		<div><%= post.body %></div>
 
@@ -41,11 +41,11 @@
 		<button style="float:left;" id="browse-click<%=postID %>" type="button" class="btn btn-default">
 			<span class="glyphicon glyphicon-camera"></span>
 		</button>
-			<input style="float:left;width:65%;" id="answer_body" name="answer[body]" size="30" type="text" class="form-control" placeholder="Comment" />
+			<input style="float:left;width:60%;" id="answer_body" name="answer[body]" size="30" type="text" class="form-control" placeholder="Comment" />
 		<input id="answer_photo_attributes_user_id" name="answer[photo_attributes][user_id]" type="hidden" value="<%= current_user.id %>" />
 		<input id="answer_user_id" name="answer[user_id]" type="hidden" value="<%= current_user.id %>" />
 		<input id="answer_post_id" name="answer[post_id]" type="hidden" value="<%= post.id %>" />
-		<input style="float:left;" class="btn btn-default" name="commit" type="submit" value="Done" />
+		<input style="float:left;" class="btn btn-default" name="commit" type="submit" value="Done" id="submit<%=postID %>"/>
 	</form>
 	</li>
 	</ul>
@@ -70,6 +70,10 @@ $(window).load(function () {
 $('#answer_photo_attributes_image<%= postID %>').change(function(){
     readURL(this, '#browse-click<%=postID %>');
 });
+
+	$('#submit<%=postID %>').on('click', function() {
+		$('#submit<%=postID %>').val('Loading...');
+	});
 
 </script>
 <% end %>
