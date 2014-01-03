@@ -24,13 +24,18 @@
 				<span class='glyphicon glyphicon-camera'></span> Photos
 			<% end %>
 	  </li>
+      <li>
+			<%= link_to posts_path do %>
+				<span class='glyphicon glyphicon-comment'></span> Posts
+			<% end %>
+	  </li>
     </ul>
 		<% @search = Post.search(params[:q]) %>
 		<%= search_form_for @search, :class => "navbar-form navbar-left" do |f| %>
       	<div class="form-group">
-		<%= f.text_field :body_cont, :class => 'form-control', :placeholder => 'Search posts' %>
+		<%= f.text_field :body_cont, :class => 'form-control', :placeholder => 'Search' %>
       	</div>
-		<%= f.submit "Search", :class => 'btn btn-default' %>
+		<%= f.submit 'Go', :class => 'btn btn-default' %>
 		<% end %>
 
 	<% if user_signed_in? %>
