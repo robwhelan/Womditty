@@ -15,7 +15,7 @@
 	<% else %>
 		<%= text_field(:post, :body, :class => "form-control", :cols => '75', :style => "float:left;width:60%;", :placeholder => "Ask something about Charleston") %>
 	<% end %>
-	<%= submit_tag 'Post', :class => 'btn btn-success', :style => "float:left;" %>
+	<%= submit_tag 'Post', :class => 'btn btn-success', :id => 'inlinePostSubmit', :style => "float:left;" %>
 	<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
 
 	<% end %>
@@ -37,6 +37,10 @@
 	
 	$('#post_photo_attributes_image').change(function(){
 	    readURL(this, '#browse-click');
+	});
+
+	$('#inlinePostSubmit').on('click', function() {
+		$('#inlinePostSubmit').val('Loading...');
 	});
 	
 	</script>

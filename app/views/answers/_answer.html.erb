@@ -1,7 +1,7 @@
 <li class="list-group-item">
 
 	<% if answer.photo %>	
-	<div><%= image_tag(answer.photo.image.url, :class => "img-responsive img-rounded") unless answer.photo.image.url.empty? %></div>
+	<div><%= image_tag(answer.photo.image.url(:full), :class => "img-responsive img-rounded") unless answer.photo.image.url.empty? %></div>
 	<% end %>
 	<div><%= answer.body %></div>
 	<div class="pull-right"><%= render 'answers/like_button', :answer => answer %></div>
