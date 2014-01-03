@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
                   :lastname, :member_rank, :number_of_invites, :profile_image_url, 
                   :role, :location, :birthday, :gender, :profile_image, :drive_time,
-                  :neighborhood_id, :duty_station_id
+                  :neighborhood_id, :duty_station_id, :move_status
 
   has_many :comments
   has_many :reviews
@@ -69,7 +69,9 @@ class User < ActiveRecord::Base
                            @mc = Mailchimp::API.new('4a46f8edfa1a4822d7d59eec9dd8c6a6-us3')
                            list_id = '50ec604e99'
                            email = user.email
-                           @mc.lists.subscribe(list_id, {'email' => email})
+                           @mc.lists.subscribe(list_id, {'email' => email},
+                                  {'groupings' => [{'id'=>6837, 'name'=>"Charleston", 'groups' =>["Moving to Charleston"]}]},
+                                  nil, false)
 
                            return user
     end

@@ -1,3 +1,7 @@
+<% if current_user.move_status.nil? %>
+<%= render 'users/set_move_status' %>
+<% end %>
+
 <div id="container">
 <%= render @posts %>
 </div>
