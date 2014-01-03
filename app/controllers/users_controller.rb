@@ -85,4 +85,14 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def set_move_status
+      @user = User.find(params[:id])
+      @user.update_attributes(params[:user])
+      @user.subscribe_to_mailchimp
+      respond_to do |format|
+        format.js
+      end
+  end
+
 end

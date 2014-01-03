@@ -66,13 +66,6 @@ class User < ActiveRecord::Base
                            profile_image:auth.info.image
                            )
       
-                           @mc = Mailchimp::API.new('4a46f8edfa1a4822d7d59eec9dd8c6a6-us3')
-                           list_id = '50ec604e99'
-                           email = user.email
-                           @mc.lists.subscribe(list_id, {'email' => email},
-                                  {'groupings' => [{'id'=>6837, 'name'=>"Charleston", 'groups' =>["Moving to Charleston"]}]},
-                                  nil, false)
-
                            return user
     end
 
@@ -86,5 +79,22 @@ class User < ActiveRecord::Base
        end
      end
    end
+   
+   def subscribe_to_mailchimp
+     @mc = Mailchimp::API.new('4a46f8edfa1a4822d7d59eec9dd8c6a6-us3')
+     list_id = '50ec604e99'
+     email = self.email
+   
+     if self.move_status == false
+       group = "Knows about Charleston"
+     else
+       group = "Moving to Charleston"
+     end
+   
+     @mc.lists.subscribe(list_id, {'email' => email},
+            {'groupings' => [{'id'=>6837, 'name'=>"Charleston", 'groups' =>[group]}]},
+            nil, false)
+   end
+     
    
 end

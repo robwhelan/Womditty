@@ -51,7 +51,13 @@ Womditty::Application.routes.draw do
   resources :center_coordinates
   resources :coordinates
   resources :career_specialties
-  resources :users
+
+  resources :users do
+    member do
+      put :set_move_status
+    end
+  end
+
   resources :military_branches
   resources :neighborhoods
   resources :cities

@@ -2,20 +2,33 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Modal title</h4>
+        <h4 id="modalTitle" class="modal-title">Hi, <%= current_user.name %>!</h4>
       </div>
-      <div class="modal-body">
-        <p>One fine body&hellip;</p>
+      <div id="modalBody" class="modal-body">
+        <p>Are you moving to Charleston, or do you already know all about it? This lets us know what kind of notifications to send you. It doesn't change what you see or don't see on the site.</p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+	
+      <div id="modalFooter" class="modal-footer">
+		<%= form_tag set_move_status_user_path(current_user), :method => :put, :remote => true do %>
+			<div data-toggle="buttons">
+
+			<label class="btn btn-default btn-lg btn-block">
+			<%= radio_button :user, :move_status, "true" %> I want to learn more about Charleston!
+			</label>
+			<label class="btn btn-primary btn-lg btn-block">
+			<%= radio_button :user, :move_status, "false" %> I want to share what I know!
+			</label>
+			</div>
+		<%= submit_tag "Done", :class => 'btn btn-default' %>
+		<% end %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <%= content_for :javascript do %>
 <script type="text/javascript">
-$('#moveStatusModal').modal();
+$('#moveStatusModal').modal({
+	backdrop: 'static'
+	});
 </script>
 <% end %>
