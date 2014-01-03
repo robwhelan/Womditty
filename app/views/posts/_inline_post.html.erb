@@ -10,7 +10,11 @@
 			</button>			
 			<%= post_photo.hidden_field :user_id, :value => current_user.id %>
 	<% end %>
-	<%= text_field(:post, :body, :class => "form-control", :cols => '75', :style => "float:left;width:60%;", :placeholder => "Ask something about Charleston") %>
+	<% if !current_user.move_status.nil? and current_user.move_status == false %>
+		<%= text_field(:post, :body, :class => "form-control", :cols => '75', :style => "float:left;width:60%;", :placeholder => "Say something about Charleston") %>
+	<% else %>
+		<%= text_field(:post, :body, :class => "form-control", :cols => '75', :style => "float:left;width:60%;", :placeholder => "Ask something about Charleston") %>
+	<% end %>
 	<%= submit_tag 'Post', :class => 'btn btn-success', :style => "float:left;" %>
 	<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
 
