@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140103024406) do
+ActiveRecord::Schema.define(:version => 20140106202341) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -368,10 +368,10 @@ ActiveRecord::Schema.define(:version => 20140103024406) do
     t.integer  "duty_station_id"
     t.integer  "military_branch_id"
     t.integer  "neighborhood_id"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                                                                                        :null => false
+    t.datetime "updated_at",                                                                                        :null => false
+    t.string   "email",                  :default => "",                                                            :null => false
+    t.string   "encrypted_password",     :default => "",                                                            :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -382,10 +382,10 @@ ActiveRecord::Schema.define(:version => 20140103024406) do
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
-    t.string   "name"
+    t.string   "name",                   :default => "My Name"
     t.string   "location"
     t.date     "birthday"
-    t.string   "profile_image"
+    t.string   "profile_image",          :default => "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
     t.string   "gender"
     t.integer  "drive_time"
     t.integer  "reputation",             :default => 0
