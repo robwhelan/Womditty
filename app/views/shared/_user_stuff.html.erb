@@ -7,7 +7,17 @@
 		<%= image_tag(current_user.profile_image, { :width => '30', :class => 'img-rounded' } )%>
 		<% end %>
 		</li>
-	<li><%= link_to current_user.name, user_path(current_user) %></li>
+	<li class="dropdown">
+	  <a class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+	    <%= current_user.name %>
+	    <span class="caret"></span>
+	  </a>
+	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	    <li id="fbShare" role="presentation"><a role="menuitem" tabindex="-1" href="#">Share on my wall</a></li>
+	    <li id="fbFriends" role="presentation"><a role="menuitem" tabindex="-1" href="#">Share with specific friends</a></li>
+	  </ul>
+	</li>
+
 	<li><%= link_to user_path(current_user) do %>
 		<p class="badge"><%= current_user.karma %></p>
 		<% end %>
@@ -16,3 +26,50 @@
 		<span class="glyphicon glyphicon-off"></span> Logout
 		<% end %>
 		</li>
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+$('#fbShare').click(function(){
+	FB.ui({
+	  method: 'feed',
+	  link: 'http://ow.ly/sjYdo',
+	  caption: 'Way-better military moves.',
+	}, function(response){});
+
+	var clientIdCookie = $('.ga-client-id').val();
+	var ecVal = 'share';
+	var eaVal = 'to wall';
+	var elVal = 'facebook';
+	var params="?v=1&tid=UA-42227639-1&t=event&cid=" + clientIdCookie +
+		"&ec=" + ecVal +
+		"&ea=" + eaVal +
+		"&el=" + elVal;
+	var url = 'http://www.google-analytics.com/collect' + params;
+	$.post(url);
+
+});
+
+</script>
+
+<script type="text/javascript">
+$('#fbFriends').click(function(){
+	FB.ui({
+	  method: 'send',
+	  link: 'http://ow.ly/sjYOe',
+	});
+
+	var clientIdCookie = $('.ga-client-id').val();
+	var ecVal = 'share';
+	var eaVal = 'to specific friends';
+	var elVal = 'facebook';
+	var params="?v=1&tid=UA-42227639-1&t=event&cid=" + clientIdCookie +
+		"&ec=" + ecVal +
+		"&ea=" + eaVal +
+		"&el=" + elVal;
+	var url = 'http://www.google-analytics.com/collect' + params;
+	$.post(url);
+
+});
+</script>
+
+<% end %>
