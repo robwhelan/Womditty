@@ -1,5 +1,4 @@
 require 'mailchimp'
-require 'google_analytics_api'
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
@@ -65,8 +64,7 @@ class User < ActiveRecord::Base
 #                           birthday:auth.extra.raw_info.birthday,
 #                           gender:auth.extra.raw_info.gender,
                            profile_image:auth.info.image
-                           );
-      GoogleAnalyticsApi.new.event('account', 'signup', 'facebook', cookies[:clientId])
+                           )
                            return user
     end
 

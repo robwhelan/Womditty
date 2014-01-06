@@ -1,3 +1,5 @@
+require 'google_analytics_api'
+
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
@@ -90,6 +92,10 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @user.update_attributes(params[:user])
       @user.subscribe_to_mailchimp
+
+      GoogleAnalyticsApi.new.event('account', 'signup', 'facebook', cookies[:clientId])
+      GoogleAnalyticsApi.new.event('mail-list', 'subscribe', @user.move_status, cookies[:clientId])
+
       respond_to do |format|
         format.js
       end
