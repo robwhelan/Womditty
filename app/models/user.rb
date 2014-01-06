@@ -1,5 +1,5 @@
 require 'mailchimp'
-require 'googleanalyticsapi'
+require 'google_analytics_api'
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
