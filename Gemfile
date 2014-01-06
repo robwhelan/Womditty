@@ -29,6 +29,7 @@ gem "twitter-text", "~> 1.7.0"
 gem 'mandrill-api'
 gem "mailchimp-api", "~> 2.0.4"
 gem 'rmagick', '2.13.2'
+gem "rest-client", "~> 1.6.7"
 
 # Gems used only for assets and not required
 # in production environments by default.

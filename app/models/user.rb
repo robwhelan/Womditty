@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
 #                           gender:auth.extra.raw_info.gender,
                            profile_image:auth.info.image
                            )
-      
+                           GoogleAnalyticsApi.new.event('account', 'signup', 'facebook', cookies[:clientId])
                            return user
     end
 
