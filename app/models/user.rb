@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
                            profile_image:auth.info.image
                            )
       new_session_pageview = "/user/signup"
-                           return user, new_user
+                           return user, new_session_pageview
     end
       new_session_pageview = "/user/signin"
     return user, new_session_pageview
