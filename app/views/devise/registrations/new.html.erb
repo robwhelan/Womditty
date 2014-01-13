@@ -1,31 +1,63 @@
-<h1>Why log in with Facebook?</h1>
-<ul>
-	<li>Get credit for your local knowledge</li>
-	<li>See the growing list of military discounts</li>
-	<li>Follow the best hosts of your next duty station</li>
-</ul>
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-	<%= link_to image_tag('facebook-login-button.png'), omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-<% end -%>
-<hr/>
-<h4>Or, create an account from scratch:</h4>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<p>Create an account here:</p>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :multipart => true) do |f| %>
   <%= devise_error_messages! %>
+  <div><%= f.label :email %>
+  <%= f.email_field :email, :class => 'form-control', :placeholder => 'Enter email' %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div><%= f.label 'First and Last Name' %>
+  <%= f.text_field :name, :class => 'form-control', :placeholder => 'Enter first and last name' %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.label :password %>
+  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Create password' %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Confirm password' %></div><br/>
 
-<div><%= f.submit "Sign up" %></div>
+	<%= f.file_field :avatar, :class => "hidden" %>
+	<button id="browse-click" type="button" class="btn btn-success btn-block">
+		<span class="glyphicon glyphicon-camera"></span> Add a photo
+	</button>			
+<hr/>
+  <div><%= f.submit "Sign up", :class => 'btn btn-block' %></div>
 <% end %>
 
+<% content_for :javascript do %>
+<script type="text/javascript">
+$(window).load(function () {
+    var intervalFunc = function () {
+        $('#file-name').html($('#user_avatar').val());
+    };
+    $('#browse-click').on('click', function () { // use .live() for older versions of jQuery
+        $('#user_avatar').click();
+        setInterval(intervalFunc, 1);
+        return false;
+    });
+});
 
-<%= render "devise/shared/links" %>
+function readURL(input, element) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $(element).html(
+				'<img src=' +
+					e.target.result +
+				 	' width="35" />'
+				)
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$('#user_avatar').change(function(){
+    readURL(this, '#browse-click');
+});
+
+$('#inlinePostSubmit').on('click', function() {
+	$('#inlinePostSubmit').val('Loading...');
+});
+
+</script>
+<% end %>

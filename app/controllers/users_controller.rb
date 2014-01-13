@@ -48,7 +48,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -91,6 +90,7 @@ class UsersController < ApplicationController
   def set_move_status
       @user = User.find(params[:id])
       @user.update_attributes(params[:user])
+      @user.update_attributes(:profile_image => @user.avatar.url)
       @user.subscribe_to_mailchimp
 
       GoogleAnalyticsApi.new.event('account', 'signup', 'facebook', cookies[:clientId])

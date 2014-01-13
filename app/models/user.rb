@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
                   :lastname, :member_rank, :number_of_invites, :profile_image_url, 
                   :role, :location, :birthday, :gender, :profile_image, :drive_time,
-                  :neighborhood_id, :duty_station_id, :move_status
+                  :neighborhood_id, :duty_station_id, :move_status, :avatar
 
   has_many :comments
   has_many :reviews
@@ -41,6 +41,11 @@ class User < ActiveRecord::Base
     # You can track any voteable model.
   has_karma :posts
   has_karma :answers
+
+  has_attached_file :avatar, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+                            
+  validates_attachment :avatar, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
 
   def self.roles
     ['Member of the military', 'Spouse', 'Significant Other', 'Family member', 'Admin']

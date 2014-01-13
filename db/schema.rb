@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140106202341) do
+ActiveRecord::Schema.define(:version => 20140113213258) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -382,7 +382,7 @@ ActiveRecord::Schema.define(:version => 20140106202341) do
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
-    t.string   "name",                   :default => "My Name"
+    t.string   "name",                   :default => ""
     t.string   "location"
     t.date     "birthday"
     t.string   "profile_image",          :default => "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
@@ -392,6 +392,10 @@ ActiveRecord::Schema.define(:version => 20140106202341) do
     t.text     "biography",              :default => ""
     t.string   "airbnb_link",            :default => ""
     t.boolean  "move_status"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["career_specialty_id"], :name => "index_users_on_career_specialty_id"
