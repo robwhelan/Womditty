@@ -1,3 +1,5 @@
+require 'google_analytics_api'
+
 class PostsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
@@ -71,6 +73,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         @post.create_activity :create, owner: current_user
+        GoogleAnalyticsApi.new.pageview('/post/create', cookies[:clientId])
         if @post.tag_list
           format.html { redirect_to posts_path('q[body_cont]' => @post.tag_list.first), notice: 'Post was successfully created.' }
         else

@@ -1,3 +1,5 @@
+require 'google_analytics_api'
+
 class AnswersController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
@@ -48,6 +50,8 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         @answer.create_activity :create, owner: current_user
+        GoogleAnalyticsApi.new.pageview('/answer/create', cookies[:clientId])
+        
         #format.html
         format.js
 #        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
