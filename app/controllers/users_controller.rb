@@ -90,12 +90,14 @@ class UsersController < ApplicationController
   def set_move_status
       @user = User.find(params[:id])
       @user.update_attributes(params[:user])
-      @user.update_attributes(:profile_image => @user.avatar.url)
+      unless @user.provider == "facebook"
+        @user.update_attributes(:profile_image => @user.avatar.url)
+        flash[:analytics] = "/user/signup"
+      end
       @user.subscribe_to_mailchimp
 
       GoogleAnalyticsApi.new.event('account', 'signup', 'facebook', cookies[:clientId])
       GoogleAnalyticsApi.new.event('mail-list', 'subscribe', @user.move_status, cookies[:clientId])
-      flash[:analytics] = "/new_user_account"
 
       respond_to do |format|
         format.js
