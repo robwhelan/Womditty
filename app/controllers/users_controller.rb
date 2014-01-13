@@ -95,6 +95,7 @@ class UsersController < ApplicationController
 
       GoogleAnalyticsApi.new.event('account', 'signup', 'facebook', cookies[:clientId])
       GoogleAnalyticsApi.new.event('mail-list', 'subscribe', @user.move_status, cookies[:clientId])
+      flash[:analytics] = "/new_user_account"
 
       respond_to do |format|
         format.js

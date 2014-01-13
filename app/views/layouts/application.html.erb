@@ -27,6 +27,10 @@
 	  ga('create', 'UA-42227639-1', 'womditty.com');
 	  ga('send', 'pageview');
 
+	<% if flash[:analytics] %>
+	  ga('send', 'pageview', "<%=flash[:analytics]%>");
+	<% end %>
+
 	</script>
   </head>
   <body>

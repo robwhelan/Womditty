@@ -1,7 +1,7 @@
 
 <div class="jumbotron">
       <div class="container">
-        <h1><%= @neighborhood.name %></h1>
+        <h1><%= @neighborhood.name %></h1><p class="pull-right"><%= link_to 'Log in to see more', posts_path, :class => 'btn btn-primary btn-large' %></p>
       </div><!-- /container -->
     </div><!-- jumbotron -->
 
@@ -180,3 +180,21 @@
 		</ul>
       </div><!-- /container -->
     </div><!-- jumbotron -->
+
+<%= render 'shared/email_collector', :neighborhood => @neighborhood %>
+
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		if ($.cookie('womditty_visitor')){
+			setTimeout(function(){
+				$('#emailCollectionModal').modal({
+					});		
+			}, 15000);
+		}; // end if
+	});
+	$('#emailCollectionModal').on('hidden.bs.modal', function (e) {
+		$.removeCookie('womditty_visitor', { path: '/' });
+	});
+	</script>
+<% end %>

@@ -13,6 +13,7 @@
 //= require jquery-tablesorter
 //= require jquery.infinitescroll
 //= require masonry.pkgd.js
+//= require jquery.cookie.js
 //= require_tree .
 //= require jquery_ujs
 //= require jquery.remotipart

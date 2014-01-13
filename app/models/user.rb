@@ -65,10 +65,11 @@ class User < ActiveRecord::Base
 #                           gender:auth.extra.raw_info.gender,
                            profile_image:auth.info.image
                            )
-                           return user
+      new_session_pageview = "/user/signup"
+                           return user, new_user
     end
-
-    return user
+      new_session_pageview = "/user/signin"
+    return user, new_session_pageview
   end
   
   def self.new_with_session(params, session)
