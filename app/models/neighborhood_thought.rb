@@ -3,7 +3,7 @@ class NeighborhoodThought < ActiveRecord::Base
   belongs_to :neighborhood
 
   attr_accessible :user_id, :neighborhood_id, :community_amenities, :cost_of_living, :crime, :grocery_stores, :lifestyle,
-                  :night_life, :noise, :pets, :shopping, :kids, :traffic, :walkability, :not_love, :love, :schools
+                  :night_life, :noise, :pets, :shopping, :kids, :traffic, :walkability, :not_love, :love, :schools, :housing, :restaurants
 
   def process_posts(user_id)
     neighborhood = self.neighborhood

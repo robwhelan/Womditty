@@ -181,7 +181,9 @@
       </div><!-- /container -->
     </div><!-- jumbotron -->
 
+<% unless user_signed_in? %>
 <%= render 'shared/email_collector', :neighborhood => @neighborhood %>
+<% end %>
 
 <%= content_for :javascript do %>
 	<script type="text/javascript">
