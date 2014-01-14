@@ -1,5 +1,5 @@
-<h2>Log in to Womditty with Facebook:</h2>
-<p>Easiest!</p>
+<h2>There's way more insider knowledge behind the curtain.</h2>
+<p>Easiest! Log in to Womditty with Facebook:</p>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
 	<%= link_to image_tag('facebook-login-button.png'), omniauth_authorize_path(resource_name, provider) %><br />
@@ -8,7 +8,7 @@
 <hr/>
 
 <h2>Or, sign in with your email:</h2>
-	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	<%= form_for(resource, :as => resource_name, :url => new_session_path(resource_name)) do |f| %>
 	  <%= devise_error_messages! %>
 	  <div><%= f.label :email %><br />
 	  <%= f.email_field :email, :class => 'form-control', :placeholder => 'Enter email' %></div>

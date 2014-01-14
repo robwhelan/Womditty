@@ -1,3 +1,5 @@
+require 'google_analytics_api'
+
 class NeighborhoodThoughtsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
@@ -43,10 +45,13 @@ class NeighborhoodThoughtsController < ApplicationController
   # POST /neighborhood_thoughts.json
   def create
     @neighborhood_thought = NeighborhoodThought.new(params[:neighborhood_thought])
+    
+    @neighborhood_thought.process_posts(current_user.id)
+    GoogleAnalyticsApi.new.pageview('/host/create', cookies[:clientId])
 
     respond_to do |format|
       if @neighborhood_thought.save
-        format.html { redirect_to @neighborhood_thought, notice: 'Neighborhood thought was successfully created.' }
+        format.html { redirect_to neighborhood_path(@neighborhood_thought.neighborhood), notice: 'Neighborhood thought was successfully created.' }
         format.json { render json: @neighborhood_thought, status: :created, location: @neighborhood_thought }
       else
         format.html { render action: "new" }

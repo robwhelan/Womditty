@@ -12,75 +12,69 @@
     </div>
   <% end %>
 
-  <div class="field">
 	<img src=<%= current_user.profile_image %> width="100" />
-    <%= f.number_field :user_id, :type => "hidden", :value => current_user.id %>
-  </div>
-  <div class="field">
-    <%= f.label :neighborhood %><br />
-	<%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :include_blank => true} )%>
-  </div>
-  <div class="field">
+    <%= f.number_field :user_id, :type => "hidden", :value => current_user.id %><br/>
+    <%= f.label :neighborhood %>
+	<%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, { :include_blank => true}, :class => 'form-control') %>
     <%= f.label :community_amenities %><br />
-    <%= f.text_field :community_amenities, :class => "input-block-level", :id => 'community_amenities' %>
-  </div>
-  <div class="field">
+    <%= f.text_field :community_amenities, :id => 'community_amenities', :class => 'form-control', :placeholder => 'Community amenities' %>
     <%= f.label :cost_of_living %><br />
-    <%= f.text_field :cost_of_living, :class => "input-block-level" %>
+    <%= f.text_field :cost_of_living, :class => 'form-control', :placeholder => 'Cost of living' %>
   </div>
   <div class="field">
     <%= f.label :crime %><br />
-    <%= f.text_field :crime, :class => "input-block-level" %>
+    <%= f.text_field :crime, :class => 'form-control', :placeholder => 'Crime' %>
   </div>
   <div class="field">
     <%= f.label :grocery_stores %><br />
-    <%= f.text_field :grocery_stores, :class => "input-block-level" %>
+    <%= f.text_field :grocery_stores, :class => 'form-control', :placeholder => 'Grocery stores' %>
   </div>
   <div class="field">
     <%= f.label :lifestyle %><br />
-    <%= f.text_field :lifestyle, :class => "input-block-level" %>
+    <%= f.text_field :lifestyle, :class => 'form-control', :placeholder => 'Lifestyle' %>
   </div>
   <div class="field">
     <%= f.label :night_life %><br />
-    <%= f.text_field :night_life, :class => "input-block-level" %>
+    <%= f.text_field :night_life, :class => 'form-control', :placeholder => 'Night life' %>
   </div>
   <div class="field">
     <%= f.label :noise %><br />
-    <%= f.text_field :noise, :class => "input-block-level" %>
+    <%= f.text_field :noise, :class => 'form-control', :placeholder => 'Noise' %>
   </div>
   <div class="field">
     <%= f.label :pets %><br />
-    <%= f.text_field :pets, :class => "input-block-level" %>
+    <%= f.text_field :pets, :class => 'form-control', :placeholder => 'Pets' %>
   </div>
   <div class="field">
     <%= f.label :shopping %><br />
-    <%= f.text_field :shopping, :class => "input-block-level" %>
+    <%= f.text_field :shopping, :class => 'form-control', :placeholder => 'Shopping' %>
   </div>
   <div class="field">
     <%= f.label :kids %><br />
-    <%= f.text_field :kids, :class => "input-block-level" %>
+    <%= f.text_field :kids, :class => 'form-control', :placeholder => 'Kids' %>
   </div>
   <div class="field">
     <%= f.label :schools %><br />
-    <%= f.text_field :schools, :class => "input-block-level" %>
+    <%= f.text_field :schools, :class => 'form-control', :placeholder => 'Schools' %>
   </div>
   <div class="field">
     <%= f.label :traffic %><br />
-    <%= f.text_field :traffic, :class => "input-block-level" %>
+    <%= f.text_field :traffic, :class => 'form-control', :placeholder => 'Traffic' %>
   </div>
   <div class="field">
     <%= f.label :walkability %><br />
-    <%= f.text_field :walkability, :class => "input-block-level" %>
+    <%= f.text_field :walkability, :class => 'form-control', :placeholder => 'Walkability' %>
   </div>
   <div class="field">
     <%= f.label "What do people not love about this neighborhood?" %><br />
-    <%= f.text_field :not_love, :class => "input-block-level" %>
+    <%= f.text_field :not_love, :class => 'form-control' %>
   </div>
   <div class="field">
     <%= f.label "What will people fall in love with?" %><br />
-    <%= f.text_field :love, :class => "input-block-level" %>
+    <%= f.text_field :love, :class => 'form-control' %>
   </div>
+<hr/>
   <div class="actions">
-    <%= f.submit 'Done' %>
+    <%= f.submit 'Done', :class => 'btn btn-primary btn-block' %>
   </div>
 <% end %>

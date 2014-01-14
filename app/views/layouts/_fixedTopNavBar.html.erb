@@ -29,6 +29,11 @@
 				<span class='glyphicon glyphicon-comment'></span> Posts
 			<% end %>
 	  </li>
+      <li>
+			<%= link_to new_neighborhood_thought_path do %>
+				<span class='glyphicon glyphicon-heart'></span> Be a Host!
+			<% end %>
+	  </li>
     </ul>
 		<% @search = Post.search(params[:q]) %>
 		<%= search_form_for @search, :class => "navbar-form navbar-left" do |f| %>
