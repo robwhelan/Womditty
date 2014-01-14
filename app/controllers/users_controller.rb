@@ -93,7 +93,9 @@ class UsersController < ApplicationController
       if @user.provider == "facebook"
         GoogleAnalyticsApi.new.event('account', 'signup', 'facebook', cookies[:clientId])
       else
-        @user.update_attributes(:profile_image => @user.avatar.url)
+        if @user.avatar.exists?
+          @user.update_attributes(:profile_image => @user.avatar.url)
+        end
         GoogleAnalyticsApi.new.pageview('/user/signup', cookies[:clientId])
       end
       @user.subscribe_to_mailchimp
