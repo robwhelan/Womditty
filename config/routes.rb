@@ -5,6 +5,7 @@ Womditty::Application.routes.draw do
   resources :neighborhood_topics
   resources :wait_lists
 
+  get "pages/pcs_move_to_charleston"
   get "pages/google_map"
   get "pages/census"
   get "pages/about"

@@ -17,5 +17,8 @@ class PagesController < ApplicationController
   
   def home
   end
-    
+  
+  def pcs_move_to_charleston
+  end
+      
 end
