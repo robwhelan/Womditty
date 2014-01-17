@@ -1,5 +1,48 @@
 var censusData;
 
+var tour = new Tour({
+	backdrop: false,
+	template: "<div class='popover tour'>" +
+	  "<div class='arrow'></div>" +
+	  "<h3 class='popover-title' style='background-color:#3333CC;color:#FFF;'></h3>" +
+	  "<div class='popover-content'></div>" +
+	  "<div class='popover-navigation'>" +
+	    "<button class='btn btn-default' data-role='prev'>« Prev</button>" +
+	    "<span data-role='separator'> </span>" +
+	    "<button class='btn btn-default' data-role='next'>Next »</button>" +
+	    "<button class='btn btn-default' data-role='end'>End tour</button>" +
+	  "</div>" +
+	"</div>"
+});
+
+var thumbsUpElement = "#" + $('i')[0].id;
+
+tour.addSteps([
+  {
+    element: "#q_body_cont", // string (jQuery selector) - html element next to which the step popover should be shown
+    title: "Search Local Tips", // string - title of the popover
+    content: "Check out past conversations for word of mouth knowledge that can't be found anywhere else. (1 of 3)" // string - content of the popover
+  },
+  {
+    element: "#post_body",
+    title: "Ask Anything!",
+	placement: "top",
+    content: "Questions are seen by dozens of local residents who want to help incoming military families. You'll get an email when there's an answer. (2 of 3)"
+  },
+  {
+    element: thumbsUpElement,
+    title: "Get Involved",
+    content: "Like what you see? Give it a thumbs up. That way everyone knows what the best advice is. (3 of 3)"
+  }
+]);
+
+// Initialize the tour
+tour.init();
+
+// Start the tour
+tour.start();
+
+
 function initialize() {
 
 	var map = new google.maps.Map(document.getElementById('map-canvas'), {

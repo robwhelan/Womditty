@@ -14,6 +14,7 @@
 //= require jquery.infinitescroll
 //= require masonry.pkgd.js
 //= require jquery.cookie.js
+//= require bootstrap-tour.min.js
 //= require_tree .
 //= require jquery_ujs
 //= require jquery.remotipart

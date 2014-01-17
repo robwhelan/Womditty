@@ -22,11 +22,6 @@
 			<% end %>
       </li>
       <li>
-			<%= link_to photos_path do %>
-				<span class='glyphicon glyphicon-camera'></span> Photos
-			<% end %>
-	  </li>
-      <li>
 			<%= link_to posts_path do %>
 				<span class='glyphicon glyphicon-comment'></span> Posts
 			<% end %>
@@ -39,7 +34,7 @@
     </ul>
 		<% @search = Post.search(params[:q]) %>
 		<%= search_form_for @search, :class => "navbar-form navbar-left" do |f| %>
-      	<div class="form-group">
+      	<div class="form-group" id="post_search_div">
 		<%= f.text_field :body_cont, :class => 'form-control', :placeholder => 'Search' %>
       	</div>
 		<%= f.submit 'Go', :class => 'btn btn-default' %>
@@ -51,5 +46,16 @@
     </ul>
 	<% end %>
   </div><!-- /.navbar-collapse -->
+	<% else %>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li>
+			<%= link_to posts_path do %>
+				<span class='glyphicon glyphicon-comment'></span> Posts
+			<% end %>
+	  </li>
+    </ul>
 	<% end %>
+  </div><!-- /.navbar-collapse -->
+  
 </nav>
