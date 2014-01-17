@@ -5,8 +5,6 @@ class PagesController < ApplicationController
   def google_map
     authenticate_user!
     @coordinates = Coordinate.where(:neighborhood_id => 4).order(:coordinate_number)
-
-    gon.users = User.all
   end
   
   def census
