@@ -1,0 +1,24 @@
+//neighborhoods#index
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+	// set a cookie for new visitors
+	$.cookie('womditty_visitor', 'true', { expires: 15, path: '/' });
+	</script>
+	<% end %>
+	
+//neighborhoods#show
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		if ($.cookie('womditty_visitor')){
+			setTimeout(function(){
+				$('#emailCollectionModal').modal({
+					});		
+			}, 15000);
+		}; // end if
+	});
+	$('#emailCollectionModal').on('hidden.bs.modal', function (e) {
+		$.removeCookie('womditty_visitor', { path: '/' });
+	});
+	</script>
+<% end %>

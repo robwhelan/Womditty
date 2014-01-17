@@ -184,19 +184,3 @@
 <% unless user_signed_in? %>
 <%= render 'shared/email_collector', :neighborhood => @neighborhood %>
 <% end %>
-
-<%= content_for :javascript do %>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		if ($.cookie('womditty_visitor')){
-			setTimeout(function(){
-				$('#emailCollectionModal').modal({
-					});		
-			}, 15000);
-		}; // end if
-	});
-	$('#emailCollectionModal').on('hidden.bs.modal', function (e) {
-		$.removeCookie('womditty_visitor', { path: '/' });
-	});
-	</script>
-<% end %>
