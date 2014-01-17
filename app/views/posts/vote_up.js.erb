@@ -2,3 +2,4 @@ $('li#postLikesCount' + '<%= "#{@post.id}" %>').text('<%= "#{@post.plusminus}" %
 $('i#heart' + '<%= "#{@post.id}" %>').parent().attr("class", "btn btn-success");
 $('i#heart' + '<%= "#{@post.id}" %>').parent().attr("href", '<%= vote_down_post_path(@post) %>');
 $('li.postUserVoteCount' + '<%= "#{@post.user.id}" %>').text('<%= "#{@post.user.karma}" %>');
+ga('send', 'event', 'Post Vote', 'Vote Up');

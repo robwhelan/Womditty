@@ -5,7 +5,7 @@
         <h4 id="modalTitle" class="modal-title">Hi, <%= current_user.name %>!</h4>
       </div>
       <div id="modalBody" class="modal-body">
-        <p>Are you moving to Charleston, or do you already know all about it? This lets us know what kind of notifications to send you. It doesn't change what you see or don't see on the site.</p>
+        <p>Are you moving to Charleston, or do you already live here and can talk about it? This lets us know what kind of notifications to send you. It doesn't change what you see or don't see on the site.</p>
       </div>
 	
       <div id="modalFooter" class="modal-footer">
@@ -13,10 +13,10 @@
 			<div data-toggle="buttons">
 
 			<label class="btn btn-default btn-lg btn-block">
-			<%= radio_button :user, :move_status, "true" %> I want to learn more!
+			<%= radio_button :user, :move_status, "true" %> I'm moving to Charleston!
 			</label>
 			<label class="btn btn-primary btn-lg btn-block">
-			<%= radio_button :user, :move_status, "false" %> I want to share what I know!
+			<%= radio_button :user, :move_status, "false" %> I already live here!
 			</label>
 			</div>
 		<%= submit_tag "Done", :class => 'btn btn-default' %>

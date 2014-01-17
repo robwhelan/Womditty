@@ -68,10 +68,7 @@ tour.addSteps([
   	onNext: function(tour) {
 		ga('send', 'event', 'Tour', 'Next Button Pressed', 'From Step 1');
 	},
-	onHide: function(tour) {
-		ga('send', 'event', 'Tour', 'Aborted', 'At Step 1');
-	}
-  },
+  }
   {
     element: "#post_body",
     title: "Ask Anything!",
@@ -82,9 +79,6 @@ tour.addSteps([
 	},
   	onPrev: function(tour) {
 		ga('send', 'event', 'Tour', 'Prev Button Pressed', 'From Step 2');
-	},
-	onHide: function(tour) {
-		ga('send', 'event', 'Tour', 'Aborted', 'At Step 2');
 	}
   },
   {
