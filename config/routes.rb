@@ -6,6 +6,7 @@ Womditty::Application.routes.draw do
   resources :wait_lists
 
   get "pages/pcs_move_to_charleston"
+  get "pages/instagram"
   get "pages/google_map"
   get "pages/census"
   get "pages/about"

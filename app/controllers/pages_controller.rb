@@ -16,6 +16,12 @@ class PagesController < ApplicationController
   def home
   end
   
+  def instagram
+    @headline = "Hey Instagrammers!"
+    @title = "Womditty - word of mouth, do it yourself"
+    @count = User.where(:move_status => true).count
+  end
+  
   def pcs_move_to_charleston
     session[:content] = params[:content]
     @user = User.new
