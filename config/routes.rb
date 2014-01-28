@@ -1,5 +1,10 @@
 Womditty::Application.routes.draw do
 
+  resources :inquiries
+
+
+  devise_for :vendors
+
   resources :hosts
   resources :neighborhood_thoughts
   resources :neighborhood_topics

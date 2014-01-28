@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113213258) do
+ActiveRecord::Schema.define(:version => 20140124221745) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -150,6 +150,25 @@ ActiveRecord::Schema.define(:version => 20140113213258) do
 
   add_index "hosts", ["neighborhood_id"], :name => "index_hosts_on_neighborhood_id"
   add_index "hosts", ["user_id"], :name => "index_hosts_on_user_id"
+
+  create_table "inquiries", :force => true do |t|
+    t.string   "rank"
+    t.string   "command"
+    t.integer  "number_of_people"
+    t.integer  "number_of_bedrooms"
+    t.date     "move_date"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.integer  "user_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "inquiries", ["user_id"], :name => "index_inquiries_on_user_id"
+  add_index "inquiries", ["vendor_id"], :name => "index_inquiries_on_vendor_id"
 
   create_table "military_branches", :force => true do |t|
     t.string   "name"
@@ -405,6 +424,32 @@ ActiveRecord::Schema.define(:version => 20140113213258) do
   add_index "users", ["military_branch_id"], :name => "index_users_on_military_branch_id"
   add_index "users", ["neighborhood_id"], :name => "index_users_on_neighborhood_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "vendors", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "first_name",             :default => ""
+    t.string   "last_name",              :default => ""
+    t.string   "profession",             :default => ""
+    t.string   "company",                :default => ""
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  add_index "vendors", ["email"], :name => "index_vendors_on_email", :unique => true
+  add_index "vendors", ["reset_password_token"], :name => "index_vendors_on_reset_password_token", :unique => true
 
   create_table "votes", :force => true do |t|
     t.boolean  "vote",          :default => false, :null => false

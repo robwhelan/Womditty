@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Rank:</b>
+  <%= @inquiry.rank %>
+</p>
+
+<p>
+  <b>Command:</b>
+  <%= @inquiry.command %>
+</p>
+
+<p>
+  <b>Number of people:</b>
+  <%= @inquiry.number_of_people %>
+</p>
+
+<p>
+  <b>Number of bedrooms:</b>
+  <%= @inquiry.number_of_bedrooms %>
+</p>
+
+<p>
+  <b>Move date:</b>
+  <%= @inquiry.move_date %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @inquiry.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @inquiry.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @inquiry.email %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @inquiry.phone_number %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @inquiry.user %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @inquiry.vendor %>
+</p>
+
+
+<%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
+<%= link_to 'Back', inquiries_path %>

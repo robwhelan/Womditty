@@ -30,6 +30,7 @@ gem 'mandrill-api'
 gem "mailchimp-api", "~> 2.0.4"
 gem 'rmagick', '2.13.2'
 gem "rest-client", "~> 1.6.7"
+gem 'phone'
 
 # Gems used only for assets and not required
 # in production environments by default.

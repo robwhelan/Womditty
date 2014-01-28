@@ -1,4 +1,5 @@
 require 'mailchimp'
+require 'mandrill'
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
@@ -29,7 +30,8 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :posts
   has_many :answers
-  has_many  :neighborhood_thoughts
+  has_many :neighborhood_thoughts
+  has_many :inquiries
   
   acts_as_follower
   acts_as_followable
@@ -99,7 +101,65 @@ class User < ActiveRecord::Base
      @mc.lists.subscribe(list_id, {'email' => email},
             {'groupings' => [{'id'=>6837, 'name'=>"Charleston", 'groups' =>[group]}]},
             nil, false)
+    
+      self.get_welcome_email
    end
-     
    
+   def get_welcome_email
+     if self.move_status == true
+       template_name = "Welcome email - moving to Charleston"
+       campaign = "New signup email - moving to Charleston"
+       subject = "Welcome! Switch cities with Womditty"
+     else
+       template_name = "Welcome email - already living in Charleston"
+       campaign = "New signup email - already in Charleston"
+       subject = "Welcome! Switch cities with Womditty"
+     end
+       
+       begin
+           mandrill = Mandrill::API.new 'Ut9NXkhKFDLJVBTqMRGV7Q'
+           template_content = []
+           message = {"subaccount"=>"Womditty",
+            "preserve_recipients"=>nil,
+            "images"=>[],
+            "merge"=>true,
+            "inline_css"=>nil,
+            "auto_html"=>nil,
+            "from_name"=>"Womditty",
+            "text"=>"",
+            "return_path_domain"=>nil,
+            "view_content_link"=>nil,
+            "google_analytics_domains"=>["womditty.com"],
+            "tags"=>["welcome-emails"],
+            "html"=>"<p>Example HTML content</p>",
+            "tracking_domain"=>nil,
+            "important"=>false,
+            "google_analytics_campaign"=> campaign,
+            "signing_domain"=>nil,
+            "bcc_address"=>"message.bcc_address@example.com",
+            "track_opens"=>true,
+            "from_email"=>"rob@womditty.com",
+            "subject"=> subject,
+            "metadata"=>{"website"=>"www.womditty.com"},
+            "track_clicks"=>true,
+            "headers"=>{"Reply-To"=>"rob@womditty.com"},
+            "attachments"=>[],
+            "global_merge_vars"=>[],
+            "url_strip_qs"=>nil,
+            "auto_text"=>nil,
+            "recipient_metadata"=>[],
+            "to"=>[{"email"=> self.email,"type"=>"to","name"=>self.name}]}
+           async = false
+           ip_pool = "Main Pool"
+           send_at = ""
+           result = mandrill.messages.send_template template_name, template_content, message, async, ip_pool, send_at
+
+       rescue Mandrill::Error => e
+           # Mandrill errors are thrown as exceptions
+           puts "A mandrill error occurred: #{e.class} - #{e.message}"
+           # A mandrill error occurred: Mandrill::UnknownSubaccountError - No subaccount exists with the id 'customer-123'    
+           raise
+       end
+   end
+        
 end

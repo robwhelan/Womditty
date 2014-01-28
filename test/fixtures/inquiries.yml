@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rank: MyString
+  command: MyString
+  number_of_people: 1
+  number_of_bedrooms: 1
+  move_date: 2014-01-24
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  phone_number: MyString
+  user: 
+  vendor: 
+
+two:
+  rank: MyString
+  command: MyString
+  number_of_people: 1
+  number_of_bedrooms: 1
+  move_date: 2014-01-24
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  phone_number: MyString
+  user: 
+  vendor: 
