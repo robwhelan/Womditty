@@ -46,7 +46,7 @@ class InquiriesController < ApplicationController
       if @inquiry.save
         
         # send SMS to realtor
-        if Phoner::Phone.valid? @inquiry.phone_number
+        if Phoner::Phone.valid? "+1#{@inquiry.phone_number}"
           the_message = "Hello from Womditty. You have a new inquiry from #{@inquiry.first_name} #{@inquiry.last_name} at #{@inquiry.phone_number}."
           blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
           blowerio['/messages'].post :to => '8439915656', :message => the_message          
