@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140124221745) do
+ActiveRecord::Schema.define(:version => 20140210195836) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -140,6 +140,21 @@ ActiveRecord::Schema.define(:version => 20140124221745) do
 
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
+
+  create_table "forums", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "forum_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "groups", ["forum_id"], :name => "index_groups_on_forum_id"
 
   create_table "hosts", :force => true do |t|
     t.integer  "user_id"
@@ -336,8 +351,10 @@ ActiveRecord::Schema.define(:version => 20140124221745) do
     t.datetime "updated_at",                     :null => false
     t.integer  "place_id"
     t.integer  "neighborhood_id", :default => 0
+    t.integer  "group_id"
   end
 
+  add_index "posts", ["group_id"], :name => "index_posts_on_group_id"
   add_index "posts", ["neighborhood_id"], :name => "index_posts_on_neighborhood_id"
   add_index "posts", ["place_id"], :name => "index_posts_on_place_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"

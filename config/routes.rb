@@ -1,5 +1,11 @@
 Womditty::Application.routes.draw do
 
+  resources :groups
+
+
+  resources :forums
+
+
   resources :inquiries
 
 

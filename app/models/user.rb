@@ -12,19 +12,20 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :role
-  belongs_to :city
-  belongs_to :career_specialty 
-  belongs_to :duty_station
-  belongs_to :military_branch
-  belongs_to :neighborhood
-  
-  accepts_nested_attributes_for :neighborhood
-  
   attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
                   :lastname, :member_rank, :number_of_invites, :profile_image_url, 
                   :role, :location, :birthday, :gender, :profile_image, :drive_time,
                   :neighborhood_id, :duty_station_id, :move_status, :avatar
 
+  belongs_to :city
+  belongs_to :career_specialty 
+  belongs_to :duty_station
+  belongs_to :military_branch
+  belongs_to :neighborhood
+  has_many :groups
+  
+  accepts_nested_attributes_for :neighborhood
+  
   has_many :comments
   has_many :reviews
   has_many :photos
@@ -54,7 +55,7 @@ class User < ActiveRecord::Base
   end
 
   def self.ranks
-    ['Active Duty - Enlisted', 'Active Duty - Officer', 'Civilian', 'Reserves - Enlisted', 'Reserves - Officer', 'Veteran - Enlisted', 'Veteran - Officer' ]
+    ['Officer', 'Enlisted']
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
