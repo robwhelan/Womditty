@@ -13,11 +13,18 @@ class PostsController < ApplicationController
       @all_posts = Post.all
     end
 
-    @search = Post.search(params[:q])
+    @forum = Forum.find(1)
+    @group = @forum.groups[0]
+    @groups = @forum.groups
+    
+    session[:forum_id] = @forum.id
+    session[:group_id] = @group.id
+    
+    @search = Post.where(:group_id => @group.id).search(params[:q])
     @posts_from_body_search = @search.result
     
     if params[:q]
-      @posts_from_tag_search = Post.tagged_with(params[:q][:body_cont])
+      @posts_from_tag_search = Post.where(:group_id => @group.id).tagged_with(params[:q][:body_cont])
       myArray = (@posts_from_body_search + @posts_from_tag_search).uniq.sort{|a, b| b[:created_at] <=> a[:created_at]}
     else
       myArray = @posts_from_body_search
@@ -69,23 +76,31 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
-    respond_to do |format|
-      if @post.save
-        @post.create_activity :create, owner: current_user
-        GoogleAnalyticsApi.new.pageview('/post/create', cookies[:clientId])
-        if @post.tag_list
-          format.html { redirect_to posts_path('q[body_cont]' => @post.tag_list.first), notice: 'Post was successfully created.' }
-        else
-          format.js
+    Pusher[@post.group.unique_identifier].trigger('new-post', {
+      message: @post.body,
+      user_id: @post.user.id,
+      user_name: @post.user.name,
+      user_image: @post.user.profile_image,
+      time: @post.created_at
+    })
+    GoogleAnalyticsApi.new.pageview('/post/create', cookies[:clientId])
+    @post.save
+#    @post = Post.new(params[:post])
+#    respond_to do |format|
+#      if @post.save
+#        @post.create_activity :create, owner: current_user
+#        if @post.tag_list
+#          format.html { redirect_to posts_path('q[body_cont]' => @post.tag_list.first), notice: 'Post was successfully created.' }
+#        else
+#          format.js
           #format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
-        end
-        format.json { render json: @post, status: :created, location: @post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+#        end
+#        format.json { render json: @post, status: :created, location: @post }
+#      else
+#        format.html { render action: "new" }
+#        format.json { render json: @post.errors, status: :unprocessable_entity }
+#     end
+#    end
   end
 
   # PUT /posts/1
@@ -150,5 +165,12 @@ class PostsController < ApplicationController
       format.js
     end
   end
-
+  
+  def render_post
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+  
 end

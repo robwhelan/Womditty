@@ -13,6 +13,10 @@ class PagesController < ApplicationController
   def about
   end
   
+  def chat
+    @groups = Group.all
+  end
+  
   def home
   end
   

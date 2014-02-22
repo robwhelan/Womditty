@@ -80,4 +80,14 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def update_posts_by_group
+    @group = Group.find(params[:id])
+    session[:group_id] = @group.id
+    @posts = @group.posts
+    respond_to do |format|
+      format.js
+    end
+  end
+  
 end

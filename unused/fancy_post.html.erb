@@ -1,0 +1,79 @@
+
+	<% postID = 'postID'+post.id.to_s %>
+	<% postUserVoteCount = 'postUserVoteCount' + post.user.id.to_s %>
+
+<div id=<%= postID %> >
+
+	<div class="panel panel-default">
+	<div class="panel-heading">
+	
+		<span><%= link_to user_path(:id => post.user.id) do %>					
+			<img width='30' src=<%= post.user.profile_image %> class="img-rounded" />
+			<% end %></span>
+		<span><%= post.user.name %></span>
+		<span class="badge"><%= post.user.karma %></span>
+
+	</div><!-- panel-heading -->
+	<div class="panel-body">
+		
+		<% if post.photo %>	
+		<div><%= image_tag(post.photo.image.url(:full), :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
+		<% end %>
+		<div><%= post.body %></div>
+
+	<div class="pull-right"><%= render 'like_button', :post => post %></div>
+	
+	</div><!-- panel=body -->
+
+	<ul class="list-group">
+		<% if post.answers.any? %>
+	<li class="list-group-item active">
+		<em><%= post.answers.count %> comments:</em>
+		</li>
+	<% post.answers.each do |answer| %>
+		<%= render 'answers/answer', :answer => answer %>
+	<% end %>
+	<% end %>
+	<li class="list-group-item" style="display:inline-block;" id="postAnswerForm<%= "#{post.id}" %>"><form accept-charset="UTF-8" action="/answers" data-remote="true" class="form-inline" enctype="multipart/form-data" method="post">
+		<input name="utf8" type="hidden" value="&#x2713;" />
+		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+		<input id='answer_photo_attributes_image<%=postID %>' name="answer[photo_attributes][image]" type="file" class="hidden" />
+		<button style="float:left;" id="browse-click<%=postID %>" type="button" class="btn btn-default">
+			<span class="glyphicon glyphicon-camera"></span>
+		</button>
+			<input style="float:left;width:60%;" id="answer_body" name="answer[body]" size="30" type="text" class="form-control" placeholder="Comment" />
+		<input id="answer_photo_attributes_user_id" name="answer[photo_attributes][user_id]" type="hidden" value="<%= current_user.id %>" />
+		<input id="answer_user_id" name="answer[user_id]" type="hidden" value="<%= current_user.id %>" />
+		<input id="answer_post_id" name="answer[post_id]" type="hidden" value="<%= post.id %>" />
+		<input style="float:left;" class="btn btn-default" name="commit" type="submit" value="Done" id="submit<%=postID %>"/>
+	</form>
+	</li>
+	</ul>
+</div><!--panel panel-default -->
+
+</div><!-- item -->
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+$(window).load(function () {
+    var intervalFunc = function () {
+        $('#file-name<%= postID %>').html($('#answer_photo_attributes_image<%= postID %>').val());
+    };
+    $('#browse-click<%= postID %>').on('click', function () { // use .live() for older versions of jQuery
+        $('#answer_photo_attributes_image<%= postID %>').click();
+        setInterval(intervalFunc, 1);
+        return false;
+    });
+});
+
+
+$('#answer_photo_attributes_image<%= postID %>').change(function(){
+    readURL(this, '#browse-click<%=postID %>');
+});
+
+	$('#submit<%=postID %>').on('click', function() {
+		$('#submit<%=postID %>').val('Loading...');
+	});
+
+</script>
+<% end %>

@@ -1,0 +1,38 @@
+<script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  // Enable pusher logging - don't include this in production
+ 	var pusher = new Pusher('<%= Pusher.key %>'); // uses your APP KEY
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
+
+  var channel = pusher.subscribe('charleston-general');
+  channel.bind('new-post', function(data) {
+	//alert(data.message);
+	
+	$('#chat').append(
+		'<div class="panel panel-default">' +
+		'<div class="panel-heading">' +
+		'<img width=30 src=' + data.user_image + ' class="img-rounded" />' +
+		'<span>' + data.user_name + '</span>' +
+		'</div>' +
+		'<div class="panel-body">' +
+		'<div>' + data.message + '</div>' +
+		'</div>' +
+		'</div>')
+	});
+
+</script>
+<div id="chat"></div>
+
+<div id="postForm">
+<%= form_for Post.new, remote: true do |f| %>
+	<p>Say something</p>
+	<%= f.text_field :body %>
+	<%= f.hidden_field :group_id, :value => 1 %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.submit "Send" %>
+	<% end %>
+	</div>

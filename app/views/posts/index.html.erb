@@ -3,7 +3,15 @@
 <% end %>
 
 <div id="container">
-<%= render @posts %>
+	<div class="col-xs-2">
+		<%= render 'posts/group_menu' %>
+	</div>
+	<div class="col-xs-3" id='postList'>
+		<%= render 'posts/post_list', :posts => @posts %>
+	</div>
+	<div class="col-xs-7" id='postShow'>
+		<%= render 'posts/current_post' %>
+	</div>
 </div>
 
 <%= paginate @posts %>
@@ -12,16 +20,6 @@
 
 <% content_for :javascript do %>
 <script type="text/javascript">
-var container = document.querySelector('#container');
-var msnry = new Masonry( container, {
-  // options
-  columnWidth: 20,
-  itemSelector: '.masonryItem'
-});
-
-window.onload = function(){
-	msnry.layout();
-};
 
 function readURL(input, element) {
 

@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
   belongs_to :duty_station
   belongs_to :military_branch
   belongs_to :neighborhood
-  has_many :groups
+  has_many :groups, :through => :group_membership
+  has_many :group_memberships
   
   accepts_nested_attributes_for :neighborhood
   

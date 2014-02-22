@@ -3,6 +3,6 @@ class Group < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :users
   
-  attr_accessible :name, :forum_id
+  attr_accessible :name, :forum_id, :unique_identifier
 
 end

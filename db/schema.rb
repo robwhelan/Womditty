@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210195836) do
+ActiveRecord::Schema.define(:version => 20140222011436) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -147,11 +147,22 @@ ActiveRecord::Schema.define(:version => 20140210195836) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "group_memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "group_memberships", ["group_id"], :name => "index_group_memberships_on_group_id"
+  add_index "group_memberships", ["user_id"], :name => "index_group_memberships_on_user_id"
+
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.integer  "forum_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "unique_identifier"
   end
 
   add_index "groups", ["forum_id"], :name => "index_groups_on_forum_id"

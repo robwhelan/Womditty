@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label 'Display Name' %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :forum %><br />
-	<%= f.collection_select(:forum_id, Forum.all, :id, :name, { :include_blank => true} )%>
+    <%= f.label :unique_identifier %><br />
+    <%= f.text_field :unique_identifier %>
   </div>
   <div class="actions">
     <%= f.submit %>
