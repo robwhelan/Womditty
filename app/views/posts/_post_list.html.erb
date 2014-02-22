@@ -1,3 +1,10 @@
+<% posts.each do |post| %>
+	<% postID = 'postID'+post.id.to_s %>
+	<% postUserVoteCount = 'postUserVoteCount' + post.user.id.to_s %>
+
+	
+	<div id=<%= postID %>>
+
 	<div class="panel panel-default">
 	<div class="panel-heading">
 	
@@ -8,13 +15,18 @@
 		<span class="badge"><%= post.user.karma %></span>
 
 	</div><!-- panel-heading -->
+	<%= link_to render_post_post_path(post), :remote => true do %>
 	<div class="panel-body">
 		
 		<% if post.photo %>	
 		<div><%= image_tag(post.photo.image.url(:full), :class => "img-responsive img-rounded") unless post.photo.image.url.empty? %></div>
 		<% end %>
 		<div><%= post.body %></div>
-	
 	</div><!-- panel=body -->
+	<% end %><!-- /render post link wrapper -->
 
 </div><!--panel panel-default -->
+
+</div><!-- item -->
+
+<% end %><!-- /posts.each -->

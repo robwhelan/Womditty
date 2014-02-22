@@ -1,0 +1,7 @@
+<div class="btn-group-vertical">
+<% @groups.each do |group| %>
+	<% if can? :read, group %>
+		<p><%= link_to group.name, update_posts_by_group_group_path(group), :remote => true, :type => 'button', :role => 'button', :class => 'btn btn-default' %></p>
+	<% end %>
+<% end %>
+</div>

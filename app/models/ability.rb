@@ -11,7 +11,8 @@ class Ability
             can [:manage], [Vote, Follow]
             can [:create, :read], [Neighborhood, DutyStation, Place]
             can [:read, :index, :vote_up, :vote_down], MilitaryDiscount
-            can [:create, :read, :index, :vote_up, :vote_down], [Post, Photo, NeighborhoodThought, Answer, Comment]
+            can [:create, :read, :index, :vote_up, :vote_down], Post
+            can [:create, :read, :index, :vote_up, :vote_down], [Photo, NeighborhoodThought, Answer, Comment] 
             can [:manage], [User, Photo], :id => user.id
             can [:index, :show], User
             can [:read], NeighborhoodTopic

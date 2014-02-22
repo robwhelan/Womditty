@@ -11,6 +11,11 @@ Womditty::Application.configure do
     }
   }
 
+  require 'pusher'
+  Pusher.app_id = '66665'
+  Pusher.key = '5cbb754b69a8b915cea3'
+  Pusher.secret = '5aa7bae91bb0b951f520'
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # In the development environment your application's code is reloaded on

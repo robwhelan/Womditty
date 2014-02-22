@@ -68,16 +68,13 @@
 	   }());
 	</script>
 	<!-- end facebook SDK -->
-	<% unless params[:controller] == "pages" and params[:action] = "pcs_move_to_charleston" %>
-	<%= render 'layouts/fixedTopNavBar' %>
-	<% end %>
-	
+
     <%= yield %>
 
-	<%= render 'layouts/fixedBottomNavBar' if params[:controller] == "posts" %>
+	<%= render 'layouts/bottom_menu' if params[:action] == "chat" %>
 
     <footer>
-        <p>&copy; Womditty 2013</p>
+        <p>&copy; Womditty 2014</p>
     </footer>
 
     <!-- Javascripts

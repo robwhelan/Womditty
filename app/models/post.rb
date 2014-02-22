@@ -8,8 +8,9 @@ class Post < ActiveRecord::Base
   belongs_to :place
   belongs_to :neighborhood
   belongs_to :neighborhood_topic
+  belongs_to :group
   
-  attr_accessible :body, :likes, :title, :user_id, :tag_list, :place_id, :photo_attributes
+  attr_accessible :body, :likes, :title, :user_id, :tag_list, :place_id, :photo_attributes, :group_id
 
   acts_as_followable
   acts_as_taggable

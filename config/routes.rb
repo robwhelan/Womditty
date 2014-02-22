@@ -1,8 +1,13 @@
 Womditty::Application.routes.draw do
 
+  resources :groups do
+    member do
+      get :update_posts_by_group
+    end
+  end
+  
+  resources :forums
   resources :inquiries
-
-
   devise_for :vendors
 
   resources :hosts
@@ -18,6 +23,7 @@ Womditty::Application.routes.draw do
   get "pages/email_signup"
   get "pages/email_signup_var1"
   get "pages/home"
+  get "pages/chat"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -44,6 +50,7 @@ Womditty::Application.routes.draw do
       post :vote_up
       post :vote_down
       get :hide_answers
+      get :render_post
     end
   end
 

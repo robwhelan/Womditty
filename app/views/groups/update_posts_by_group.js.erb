@@ -1,0 +1,2 @@
+$('#postList').empty();
+$("#postList").append("<%= escape_javascript(render '/posts/post_list', :posts => @posts) %>");
