@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
 			<% @groups.each do |group| %>
-				<%= link_to group.name, pages_chat_path(:group => group, :forum => group.forum), :class => "btn btn-primary btn-lg btn-block" %>
+				<%= link_to group.name, pages_chat_path(:group => group, :forum => group.forum, :page => '1'), :class => "btn btn-primary btn-lg btn-block" %>
 			<% end %>
       </div><!-- /modal body -->
     </div><!-- /modal content -->

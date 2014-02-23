@@ -28,7 +28,8 @@ class PagesController < ApplicationController
     end
     
     @groups = @forum.groups
-
+    @posts = @group.posts.page(params[:page]).per(10)
+    
   end
   
   def home
