@@ -15,19 +15,57 @@ class PagesController < ApplicationController
   
   def chat
 
-    if params[:forum]
+    if params[:initiator]
+      @initiator = User.find(params[:initiator])
+      @receiver = User.find(params[:receiver])
       @forum = Forum.find(params[:forum])
+
+      # check to see if group with identifier initiatorid-receiver id OR receiver-initiator
+      # if yes, set @group to it
+      # if not, create that group, create the group memberships, and set group to it
+      name_1 = "user" + @initiator.id.to_s + "user" + @receiver.id.to_s
+      name_2 = "user" + @receiver.id.to_s + "user" + @initiator.id.to_s
+      final_name = @initiator.name.to_s + " - " + @receiver.name.to_s
+      
+      if @forum.groups.exists?(:unique_identifier => name_1)
+        @group = @forum.groups.find_by_unique_identifier(name_1)
+      elsif @forum.groups.exists?(:unique_identifier => name_2)
+        @group = @forum.groups.find_by_unique_identifier(name_2)
+      else
+        @group = Group.create( :name => final_name, 
+                      :unique_identifier => name_1,
+                      :private_group => true,
+                      :forum_id => @forum.id )
+                      
+        # subscribe the receiver to the group
+        @receiver.groups << @group
+      end
+        
     else
-      @forum = Forum.first
+      if params[:forum]
+        @forum = Forum.find(params[:forum])
+      else
+        @forum = Forum.first
+      end
+    
+      if params[:group]
+        @group = Group.find(params[:group])
+      else
+        @group = Group.first
+      end
     end
     
-    if params[:group]
-      @group = Group.find(params[:group])
-    else
-      @group = Group.first
+    #subscribe to a chat group
+    unless GroupMembership.exists?({:user_id => current_user.id, :group_id => @group.id})
+      current_user.groups << @group
     end
     
-    @groups = @forum.groups
+    @public_groups = @forum.groups.where(:private_group => false)
+    @private_groups = current_user.groups.where(:private_group => true).where(:forum_id => @forum.id)
+    
+    @users_in_group = @group.users.uniq
+    @number_of_users_in_group = @users_in_group.count
+    
     @posts = @group.posts.page(params[:page]).per(10)
     
   end

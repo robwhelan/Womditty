@@ -1,0 +1,33 @@
+<div class="modal fade" id="userMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<p><%= @forum.name %></p>
+       <h4 class="modal-title" id="myModalLabel"><%= @group.name %></h4>
+      </div>
+      <div class="modal-body">
+			<% @users_in_group.each do |user| %>
+			<div class="row">
+				<div class="col-xs-2">
+					<h3><img src="<%= user.profile_image %>" width="40" /></h3>
+					</div>
+				<div class="col-xs-6">
+					<h3><%= user.name %></h3>
+					<p><%= user.city %></p>
+					</div>
+				<div class="col-xs-2">
+					<h3><%= link_to 'Chat', pages_chat_path(:initiator => current_user, :receiver => user, :forum => @forum ), :class => "btn btn-primary btn-lg" %></h3>
+					</div>
+				</div><!-- /row -->
+			<% end %>
+      </div><!-- /modal body -->
+    </div><!-- /modal content -->
+  </div><!-- /modal dialog -->
+</div><!-- /modal -->
+
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+	//close the modal?
+	</script>
+	<% end %>
