@@ -13,15 +13,15 @@
 	//alert(data.message);
 	
 	$('#chat').append(
-		'<div class="panel panel-default">' +
-		'<div class="panel-heading">' +
-		'<img width=30 src=' + data.user_image + ' class="img-rounded" />' +
-		'<span>' + data.user_name + '</span>' +
-		'</div>' +
-		'<div class="panel-body">' +
-		'<div>' + data.message + '</div>' +
-		'</div>' +
-		'</div>')
+	'<div class="row">' +
+	'<div class="col-xs-2">' +
+	'<img width=40 src=' + data.user_image + ' class="img-rounded" />' +
+	'<p style="font-size:75%;">' + data.user_name + '</p>' +
+	'</div>' +
+	'<div class="col-xs-10">' +
+	'<p>' + data.message + '</p>' +
+	'</div>' +
+	'</div>')
 	});
 
 </script>
