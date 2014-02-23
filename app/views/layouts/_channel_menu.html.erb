@@ -6,11 +6,9 @@
         <h4 class="modal-title" id="myModalLabel">Pick a Channel</h4>
       </div>
       <div class="modal-body">
-		<div class="btn-group btn-group-lg btn-group-vertical">
 			<% @groups.each do |group| %>
-		  	<button type="button" id="group<%= group.id %>" data-identifier="<%= group.unique_identifier %>" class="btn btn-default group-selector"><%= group.name %></button>
+				<%= link_to group.name, pages_chat_path(:group => group, :forum => group.forum), :class => "btn btn-primary btn-lg btn-block" %>
 			<% end %>
-		</div><!-- /vertical button group -->
       </div><!-- /modal body -->
     </div><!-- /modal content -->
   </div><!-- /modal dialog -->
@@ -18,29 +16,6 @@
 
 <%= content_for :javascript do %>
 	<script type="text/javascript">
-		<% @groups.each do |group| %>
-		$('#group<%= group.id %>').click(function(){
-			var newChannel = $('#group<%= group.id %>').attr('data-identifier');
-			channel = pusher.subscribe(newChannel);
-			$('#post_group_id').attr('value', <%= group.id %>) // update hidden field for the group
-			$('#chat').empty();
-			$('#channelMenu').modal('hide')// close modal
-			channel.bind('new-post', function(data) {
-			//alert(data.message);
-
-			$('#chat').append(
-				'<div class="panel panel-default">' +
-				'<div class="panel-heading">' +
-				'<img width=30 src=' + data.user_image + ' class="img-rounded" />' +
-				'<span>' + data.user_name + '</span>' +
-				'</div>' +
-				'<div class="panel-body">' +
-				'<div>' + data.message + '</div>' +
-				'</div>' +
-				'</div>')
-			});
-		});
-		<% end %>
-	//update the channel
+	//close the modal?
 	</script>
 	<% end %>

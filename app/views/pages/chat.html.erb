@@ -8,7 +8,7 @@
     }
   };
 
-  var channel = pusher.subscribe('charleston-kings-bay-officers-and-spouses');
+  var channel = pusher.subscribe('<%= @group.unique_identifier %>');
   channel.bind('new-post', function(data) {
 	//alert(data.message);
 	

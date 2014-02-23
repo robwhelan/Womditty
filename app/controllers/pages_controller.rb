@@ -14,8 +14,21 @@ class PagesController < ApplicationController
   end
   
   def chat
-    @forum = Forum.first
-    @groups = Group.all
+
+    if params[:forum]
+      @forum = Forum.find(params[:forum])
+    else
+      @forum = Forum.first
+    end
+    
+    if params[:group]
+      @group = Group.find(params[:group])
+    else
+      @group = Group.first
+    end
+    
+    @groups = @forum.groups
+
   end
   
   def home
