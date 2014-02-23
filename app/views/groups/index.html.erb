@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Channel Identifier</th>
+    <th>Forum</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= group.name %></td>
     <td><%= group.unique_identifier %></td>
+	<td><%= group.forum.name %></td>
     <td><%= link_to 'Show', group %></td>
     <td><%= link_to 'Edit', edit_group_path(group) %></td>
     <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
