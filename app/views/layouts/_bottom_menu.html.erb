@@ -2,14 +2,27 @@
 
 <div id="footer" class="container">
     <nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="row">
+			<div id="postForm">
+			<%= form_for Post.new, :html => { class: 'form-inline', remote: true } do |f| %>
+				<div class="form-group">
+				<%= f.text_field :body, :class => 'form-control' %>
+				</div>
+				<%= f.hidden_field :group_id, :value => 1 %>
+				<%= f.hidden_field :user_id, :value => current_user.id %>
+				<%= f.submit "Send" %>
+				<% end %>
+				</div><!-- /postForm -->
+		</div><!-- /row -->
+		<div class="row">
 		<div class="btn-group btn-group-lg btn-group-justified">
-			<a class="btn btn-default" role="button" href="#">One</a>
-			<a class="btn btn-default" role="button" href="#">Two</a>
+			<a class="btn btn-default" role="button" href="#"><span class="glyphicon glyphicon-user"></span></a>
 			<a class="btn btn-default" role="button" data-toggle="modal" data-target="#channelMenu" href="#"><span class="glyphicon glyphicon-comment"></span></a>
-			<a class="btn btn-default" role="button" href="#">Four</a>
-			<a class="btn btn-default" role="button" href="#">Five</a>
+			<a class="btn btn-default" role="button" href="#"><span class="glyphicon glyphicon-edit"></span></a>
+			<a class="btn btn-default" role="button" href="#"><span class="glyphicon glyphicon-news"></span></a>
+			<a class="btn btn-default" role="button" href="#"><span class="glyphicon glyphicon-list"></span></a>
 		</div><!-- /btn group justified -->
-
+		</div>
     </nav>
 	</div><!-- /footer -->
 	

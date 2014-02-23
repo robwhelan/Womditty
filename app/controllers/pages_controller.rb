@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-#  before_filter :authenticate_user!
-#  load_and_authorize_resource
+  before_filter :authenticate_user!
+  #load_and_authorize_resource
 
   def google_map
     authenticate_user!
@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   end
   
   def chat
+    @forum = Forum.first
     @groups = Group.all
   end
   

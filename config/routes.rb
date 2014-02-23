@@ -83,7 +83,7 @@ Womditty::Application.routes.draw do
 
   get 'tags/:tag', to: 'places#index', as: :tag
 
-  root :to => "neighborhoods#index"
+  root :to => "pages#chat"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -8,7 +8,7 @@
     }
   };
 
-  var channel = pusher.subscribe('charleston-general');
+  var channel = pusher.subscribe('charleston-kings-bay-officers-and-spouses');
   channel.bind('new-post', function(data) {
 	//alert(data.message);
 	
@@ -26,13 +26,3 @@
 
 </script>
 <div id="chat"></div>
-
-<div id="postForm">
-<%= form_for Post.new, remote: true do |f| %>
-	<p>Say something</p>
-	<%= f.text_field :body %>
-	<%= f.hidden_field :group_id, :value => 1 %>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<%= f.submit "Send" %>
-	<% end %>
-	</div>
