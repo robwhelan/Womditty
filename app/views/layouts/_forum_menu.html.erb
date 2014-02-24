@@ -1,0 +1,29 @@
+<div class="modal fade" id="forumMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Change Forums</h4>
+      </div>
+      <div class="modal-body">
+		<h4>I live here:</h4>
+		<%= collection_select(:city, :city_id, City.all, :id, :name, {}, {:id => "city1", :class => "form-control" } ) %>
+		<h4>I'm moving here:</h4>
+		<%= collection_select(:city, :city_id, City.all, :id, :name, {}, {:id => "city2", :class => "form-control" } ) %>
+      </div><!-- /modal body -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="forumSubmit">Go</button>
+      </div>    </div><!-- /modal content -->
+  </div><!-- /modal dialog -->
+</div><!-- /modal -->
+
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+		$('#forumSubmit').click(function(){
+			var city1 = $('#city1').val();
+			var city2 = $('#city2').val();
+			var url = '/pages/chat?changeForum=true&city1=' + city1 + '&city2=' + city2;
+			window.location = url;
+		});
+	</script>
+	<% end %>

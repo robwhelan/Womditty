@@ -41,6 +41,20 @@ class PagesController < ApplicationController
         @receiver.groups << @group
       end
         
+    elsif params[:changeForum]
+      @city1 = City.find(params[:city1])
+      @city2 = City.find(params[:city2])
+      name_1 = "city" + @city1.id.to_s + "city" + @city2.id.to_s
+      name_2 = "city" + @city2.id.to_s + "city" + @city1.id.to_s
+
+      if Forum.exists?(:unique_identifier => name_1)
+        @forum = Forum.find_by_unique_identifier(name_1)
+      else Forum.exists?(:unique_identifier => name_2)
+        @forum = Forum.find_by_unique_identifier(name_2)
+      end
+      
+      @group = @forum.groups.first
+      
     else
       if params[:forum]
         @forum = Forum.find(params[:forum])
