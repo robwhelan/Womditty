@@ -8,6 +8,8 @@ $('#nextPageLink').attr('href', url);
 <% @posts.each do |post| %>
 $('#oldPosts').prepend(
 	'<div class="row">' +
+	'<div class="panel panel-default">' +
+	'<div class="panel-body">' +
 	'<div class="col-xs-2">' +
 	'<img width=40 src=<%= post.user.profile_image %> class="img-rounded" />' +
 	'<p style="font-size:70%;margin:0;line-height:10px;"><%= post.user.name %></p>' +
@@ -15,6 +17,8 @@ $('#oldPosts').prepend(
 	'</div>' +
 	'<div class="col-xs-10">' +
 	'<p><%= post.body %></p>' +
+	'</div>' +
+	'</div>' +
 	'</div>' +
 	'</div>'
 	);

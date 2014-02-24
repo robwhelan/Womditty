@@ -69,6 +69,13 @@ class PagesController < ApplicationController
       end
     end
     
+    #update profile image because I couldn't figure out how to do it anywhere else
+    unless current_user.provider == "facebook"
+      if current_user.avatar.exists?
+        current_user.update_attributes(:profile_image => current_user.avatar.url)
+      end
+    end    
+    
     #subscribe to a chat group
     unless GroupMembership.exists?({:user_id => current_user.id, :group_id => @group.id})
       current_user.groups << @group

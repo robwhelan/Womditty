@@ -1,26 +1,31 @@
-<p>Create an account here:</p>
+<%= render 'layouts/about_menu' %>
+<%= image_tag('Womditty_final_logo.png', :width => '300') %>
+
+<div class="pull-right"><span style="margin-right:10px;"><a data-toggle="modal" data-target="#aboutMenu" href="#">About</a></span><span><%= link_to "Sign in", new_session_path(resource_name), :class => 'btn btn-primary' %></span></div><br/>
+
+<p>Create an account:</p>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :multipart => true) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="form-group">  
 	<div class="input-group input-group-lg"><span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-  	<%= f.text_field :name, :class => 'form-control', :placeholder => 'Enter first and last name', :class => 'form-control' %></div>
+  	<%= f.text_field :name, :class => 'form-control', :placeholder => 'Enter first and last name', :class => 'form-control', :required => 'required' %></div>
 	</div>
 	
   <div class="form-group">
 	<div class="input-group input-group-lg"><span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-  <%= f.email_field :email, :class => 'form-control', :placeholder => 'Enter email', :class => 'form-control' %></div>
+  <%= f.email_field :email, :class => 'form-control', :placeholder => 'Enter email', :class => 'form-control', :required => 'required' %></div>
 	</div>
 
   <div class="form-group">
   	<div class="input-group input-group-lg"><span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Create password', :class => 'form-control' %></div>
+  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Create password', :class => 'form-control', :required => 'required' %></div>
 	</div>
 	
   <div class="form-group input-group-lg"><%= f.label 'Where I live (helps connect you with people where you are moving)' %>
   <%= f.collection_select(:city_id, City.all, :id, :name, {}, {:class => 'form-control'} )%></div>
 
-	<%= f.file_field :avatar, :class => "hidden" %>
+	<%= f.file_field :avatar, :class => "hidden", :required => 'required' %>
 	<button id="browse-click" type="button" class="btn btn-default btn-lg btn-block">
 		<span class="glyphicon glyphicon-camera"></span> Add a photo (required)
 	</button>			
@@ -39,6 +44,19 @@ $(window).load(function () {
         setInterval(intervalFunc, 1);
         return false;
     });
+});
+
+$("#new_user").validate({
+	ignore: [],
+	rules: {
+    	user_avatar: {
+      		required: true,
+      		extension: "jpg"
+    	}
+  	},
+	messages: {
+		user_avatar: "Please upload a photo." // this is not working
+	}
 });
 
 function readURL(input, element) {
@@ -60,10 +78,6 @@ function readURL(input, element) {
 
 $('#user_avatar').change(function(){
     readURL(this, '#browse-click');
-});
-
-$('#inlinePostSubmit').on('click', function() {
-	$('#inlinePostSubmit').val('Loading...');
 });
 
 </script>

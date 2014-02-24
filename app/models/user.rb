@@ -50,7 +50,8 @@ class User < ActiveRecord::Base
                             :convert_options => {:all => '-auto-orient'}, :default_url => ""
                             
   validates_attachment :avatar, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
-
+  validates :name, presence: true
+  
   def self.roles
     ['Member of the military', 'Spouse', 'Significant Other', 'Family member', 'Admin']
   end

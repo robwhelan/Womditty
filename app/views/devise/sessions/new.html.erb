@@ -1,4 +1,4 @@
-<h2>There's way more insider knowledge behind the curtain.</h2>
+<%= image_tag('Womditty_final_logo.png', :width => '300') %>
 <p>Easiest! Log in to Womditty with Facebook:</p>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
@@ -7,7 +7,7 @@
 <% end -%>
 <hr/>
 
-<h2>Or, sign in with your email:</h2>
+<p>Or, sign in with your email:</p>
 	<%= form_for(resource, :as => resource_name, :url => new_session_path(resource_name)) do |f| %>
 	  <%= devise_error_messages! %>
 	  <div><%= f.label :email %><br />
@@ -15,10 +15,8 @@
 
 	  <div><%= f.label :password %><br />
 	  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Enter password' %></div>
+		<%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+	  
 
-	  <div><%= f.submit "Sign in", :class => 'btn btn-block btn-primary' %></div>
+	  <div><%= f.submit "Sign in", :class => 'btn btn-block btn-primary btn-lg' %></div>
 	<% end %>
-	<hr/>
-
-<h2>Actually, I'm new here!</h2>
-<%= link_to 'Sign up now', new_registration_path(resource_name), :class => 'btn btn-primary btn-block' %>
