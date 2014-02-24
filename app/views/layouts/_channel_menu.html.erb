@@ -8,11 +8,11 @@
       <div class="modal-body">
 			<p><%= @forum.name %> Public</p>
 			<% @public_groups.each do |the_group| %>
-				<%= link_to the_group.name, pages_chat_path(:group => the_group, :forum => the_group.forum, :page => '1'), :class => "btn btn-primary btn-lg btn-block" %>
+				<%= link_to the_group.name, pages_chat_path(:group => the_group, :forum => the_group.forum, :page => '1'), :class => "btn btn-primary btn-lg btn-block active" %>
 			<% end %>
 			<p><%= @forum.name %> Private</p>
 			<% @private_groups.each do |the_group| %>
-				<%= link_to the_group.name, pages_chat_path(:group => the_group, :forum => the_group.forum, :page => '1'), :class => "btn btn-primary btn-lg btn-block" %>
+				<%= link_to the_group.name, pages_chat_path(:group => the_group, :forum => the_group.forum, :page => '1'), :class => "btn btn-primary btn-lg btn-block active" %>
 			<% end %>
       </div><!-- /modal body -->
     </div><!-- /modal content -->
