@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
                   :lastname, :member_rank, :number_of_invites, :profile_image_url, 
                   :role, :location, :birthday, :gender, :profile_image, :drive_time,
-                  :neighborhood_id, :duty_station_id, :move_status, :avatar
+                  :neighborhood_id, :duty_station_id, :move_status, :avatar, :city_id
 
   belongs_to :city
   belongs_to :career_specialty 

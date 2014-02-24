@@ -14,7 +14,7 @@
 					</div>
 				<div class="col-xs-6">
 					<h3><%= user.name %></h3>
-					<p><%= user.city %></p>
+					<p><%= user.city.name if user.city %></p>
 					</div>
 				<div class="col-xs-2">
 					<h3><%= link_to 'Chat', pages_chat_path(:initiator => current_user, :receiver => user, :forum => @forum ), :class => "btn btn-primary btn-lg" %></h3>
