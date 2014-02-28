@@ -102,14 +102,28 @@ class PagesController < ApplicationController
       current_user.groups << @group
     end
     
-    @public_groups = @forum.groups.where(:private_group => false)
-    @private_groups = current_user.groups.where(:private_group => true)
-    
     @users_in_group = @group.users.uniq
     @number_of_users_in_group = @users_in_group.count
     
     @posts = @group.posts.page(params[:page]).per(10)
-    
+      @posts.each do |post|
+        post.mark_as_read! :for => current_user
+      end
+      
+      @public_groups = @forum.groups.where(:private_group => false)
+
+
+
+      @private_groups = current_user.groups.where(:private_group => true)
+        private_group_array = []
+        @private_groups.each do |group|
+          private_group_array << group.id
+        end
+        if Post.where(:group_id => private_group_array).unread_by(current_user).any?
+          @private_notification = true
+        end
+
+
     @myForums = []
     current_user.groups.each do |group|
       @myForums << group.forum
