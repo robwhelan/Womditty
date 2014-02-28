@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   has_many :neighborhood_thoughts
   has_many :inquiries
   
+  acts_as_reader
   acts_as_follower
   acts_as_followable
   acts_as_voter

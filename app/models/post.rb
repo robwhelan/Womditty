@@ -15,6 +15,7 @@ class Post < ActiveRecord::Base
   acts_as_followable
   acts_as_taggable
   acts_as_voteable
+  acts_as_readable :on => :created_at
 
   accepts_nested_attributes_for :photo
 
