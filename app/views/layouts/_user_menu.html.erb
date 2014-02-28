@@ -17,7 +17,9 @@
 					<p style="font-size:80%;"><%= user.city.name if user.city %></p>
 					</div>
 				<div class="col-xs-2">
-					<p><%= link_to 'Private Chat', pages_chat_path(:initiator => current_user, :receiver => user, :forum => @forum ), :class => "btn btn-primary btn-lg" %></p>
+					<%= link_to pages_chat_path(:initiator => current_user, :receiver => user, :forum => @forum ), :class => "btn btn-primary btn-lg" do %>
+					<i class="fa fa-comment"></i>
+					<% end %>
 					</div>
 				</div><!-- /row -->
 			<% end %>

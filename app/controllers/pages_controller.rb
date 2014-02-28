@@ -7,10 +7,31 @@ class PagesController < ApplicationController
     @coordinates = Coordinate.where(:neighborhood_id => 4).order(:coordinate_number)
   end
   
+  def map
+  end
+  
   def census
   end
   
   def about
+  end
+  
+  def fetch_groups
+    if params[:city1]
+      @city1 = City.find(params[:city1])
+      @city2 = City.find(params[:city2])
+      name_1 = "city" + @city1.id.to_s + "city" + @city2.id.to_s
+      name_2 = "city" + @city2.id.to_s + "city" + @city1.id.to_s
+
+      if Forum.exists?(:unique_identifier => name_1)
+        @forum = Forum.find_by_unique_identifier(name_1)
+      else Forum.exists?(:unique_identifier => name_2)
+        @forum = Forum.find_by_unique_identifier(name_2)
+      end      
+    else
+      @forum = Forum.find(params[:forum])
+    end
+    @groups = @forum.groups.where(:private_group => false)
   end
   
   def chat
@@ -82,12 +103,17 @@ class PagesController < ApplicationController
     end
     
     @public_groups = @forum.groups.where(:private_group => false)
-    @private_groups = current_user.groups.where(:private_group => true).where(:forum_id => @forum.id)
+    @private_groups = current_user.groups.where(:private_group => true)
     
     @users_in_group = @group.users.uniq
     @number_of_users_in_group = @users_in_group.count
     
     @posts = @group.posts.page(params[:page]).per(10)
+    
+    @myForums = []
+    current_user.groups.each do |group|
+      @myForums << group.forum
+    end
     
   end
   
