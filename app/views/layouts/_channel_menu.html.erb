@@ -9,7 +9,7 @@
 		<div id="myForums">
 			<h4>My Forums:</h4>
 				<% @myForums.uniq.each do |forum| %>
-				<%= link_to forum.name, pages_fetch_groups_path(:forum => forum), :remote => true, :class => "btn btn-primary btn-lg btn-block active myForumsButton" %>
+				<p><%= link_to forum.name, pages_fetch_groups_path(:forum => forum), :remote => true, :class => "btn btn-primary btn-lg btn-block active myForumsButton" %></p>
 				<% end %>
 				</div><!-- /myForums -->
 				
