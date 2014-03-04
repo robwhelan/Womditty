@@ -14,7 +14,7 @@
 					</div>
 				<div class="col-xs-6">
 					<h4><%= user.name %></h4>
-					<p style="font-size:80%;"><%= user.city.name if user.city %></p>
+					<p style="font-size:80%;"><%= user.city.name if user.city %> <%= user.karma %></p>
 					</div>
 				<div class="col-xs-2">
 					<%= link_to pages_chat_path(:initiator => current_user, :receiver => user, :forum => @forum ), :class => "btn btn-primary btn-lg" do %>

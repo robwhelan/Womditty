@@ -10,7 +10,7 @@
 <%= content_for :head do %>
 <style type="text/css">
       html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
+      body { height: 100%; margin: 0; padding: 0; }
       /* #mapCanvas { height: 500px; width:500px; } */
 
 		#pac-input {
@@ -154,7 +154,7 @@ function callbackSingle(result, status) {
       function initialize() {
 		var mapOptions = {
 			center: new google.maps.LatLng(32.8409143,-79.9827432),
-			zoom: 12
+			zoom: 10
 		}
 
 		map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
