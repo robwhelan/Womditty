@@ -24,20 +24,20 @@ class PagesController < ApplicationController
   end
   
   def fetch_groups
-    if params[:city1]
-      @city1 = City.find(params[:city1])
-      @city2 = City.find(params[:city2])
-      name_1 = "city" + @city1.id.to_s + "city" + @city2.id.to_s
-      name_2 = "city" + @city2.id.to_s + "city" + @city1.id.to_s
+    #if params[:city1]
+    #  @city1 = City.find(params[:city1])
+    #  @city2 = City.find(params[:city2])
+    #  name_1 = "city" + @city1.id.to_s + "city" + @city2.id.to_s
+    #  name_2 = "city" + @city2.id.to_s + "city" + @city1.id.to_s
 
-      if Forum.exists?(:unique_identifier => name_1)
-        @forum = Forum.find_by_unique_identifier(name_1)
-      else Forum.exists?(:unique_identifier => name_2)
-        @forum = Forum.find_by_unique_identifier(name_2)
-      end      
-    else
-      @forum = Forum.find(params[:forum])
-    end
+    #  if Forum.exists?(:unique_identifier => name_1)
+    #    @forum = Forum.find_by_unique_identifier(name_1)
+    #  else Forum.exists?(:unique_identifier => name_2)
+    #    @forum = Forum.find_by_unique_identifier(name_2)
+    #  end      
+    #else
+    #end
+    @forum = Forum.find(params[:forum])
     @groups = @forum.groups.where(:private_group => false)
   end
   
@@ -46,7 +46,7 @@ class PagesController < ApplicationController
     if params[:initiator]
       @initiator = User.find(params[:initiator])
       @receiver = User.find(params[:receiver])
-      @forum = Forum.find(params[:forum])
+      #@forum = Forum.find(params[:forum])
 
       # check to see if group with identifier initiatorid-receiver id OR receiver-initiator
       # if yes, set @group to it
@@ -55,48 +55,53 @@ class PagesController < ApplicationController
       name_2 = "user" + @receiver.id.to_s + "user" + @initiator.id.to_s
       final_name = @initiator.name.to_s + " - " + @receiver.name.to_s
       
-      if @forum.groups.exists?(:unique_identifier => name_1)
-        @group = @forum.groups.find_by_unique_identifier(name_1)
-      elsif @forum.groups.exists?(:unique_identifier => name_2)
-        @group = @forum.groups.find_by_unique_identifier(name_2)
+      if Group.exists?(:unique_identifier => name_1)
+        @group = Group.find_by_unique_identifier(name_1)
+      elsif Group.exists?(:unique_identifier => name_2)
+        @group = Group.find_by_unique_identifier(name_2)
       else
         @group = Group.create( :name => final_name, 
                       :unique_identifier => name_1,
                       :private_group => true,
-                      :forum_id => @forum.id )
+                      :forum_id => 6 )
                       
         # subscribe the receiver to the group
         @receiver.groups << @group
       end
-        
-    elsif params[:changeForum]
-      @city1 = City.find(params[:city1])
-      @city2 = City.find(params[:city2])
-      name_1 = "city" + @city1.id.to_s + "city" + @city2.id.to_s
-      name_2 = "city" + @city2.id.to_s + "city" + @city1.id.to_s
-
-      if Forum.exists?(:unique_identifier => name_1)
-        @forum = Forum.find_by_unique_identifier(name_1)
-      else Forum.exists?(:unique_identifier => name_2)
-        @forum = Forum.find_by_unique_identifier(name_2)
-      end
-      
-      @group = @forum.groups.first
-      
+    elsif params[:forum].nil?
+      @forum = Forum.find(6)
+      @group = Group.find(32)
     else
-      if params[:forum]
-        @forum = Forum.find(params[:forum])
-      else
-        @forum = Forum.first
-      end
-    
-      if params[:group]
-        @group = Group.find(params[:group])
-      else
-        @group = Group.first
-      end
+      @forum = Forum.find(params[:forum])
+      @group = Group.find(params[:group])
     end
+    #elsif params[:changeForum]
+    #  @city1 = City.find(params[:city1])
+    #  @city2 = City.find(params[:city2])
+    #  name_1 = "city" + @city1.id.to_s + "city" + @city2.id.to_s
+    #  name_2 = "city" + @city2.id.to_s + "city" + @city1.id.to_s
+
+    #  if Forum.exists?(:unique_identifier => name_1)
+    #    @forum = Forum.find_by_unique_identifier(name_1)
+    #  else Forum.exists?(:unique_identifier => name_2)
+    #    @forum = Forum.find_by_unique_identifier(name_2)
+    #  end
+      
+    #  @group = @forum.groups.first
+      
+    #else
+    #  if params[:forum]
+    #    @forum = Forum.find(params[:forum])
+    #  else
+    #    @forum = Forum.first
+    #  end
     
+    #  if params[:group]
+    #    @group = Group.find(params[:group])
+    #  else
+    #    @group = Group.first
+    #  end
+    # end    
     #update profile image because I couldn't figure out how to do it anywhere else
     unless current_user.provider == "facebook"
       if current_user.avatar.exists?
@@ -117,11 +122,8 @@ class PagesController < ApplicationController
         post.mark_as_read! :for => current_user
       end
       
-      @public_groups = @forum.groups.where(:private_group => false)
-
-
-
-      @private_groups = current_user.groups.where(:private_group => true)
+    #@public_groups = @forum.groups.where(:private_group => false)
+    @private_groups = current_user.groups.where(:private_group => true)
         private_group_array = []
         @private_groups.each do |group|
           private_group_array << group.id
@@ -130,11 +132,10 @@ class PagesController < ApplicationController
           @private_notification = true
         end
 
-
-    @myForums = []
-    current_user.groups.each do |group|
-      @myForums << group.forum
-    end
+    #@myForums = []
+    #current_user.groups.each do |group|
+    #  @myForums << group.forum
+    #end
     
   end
   
