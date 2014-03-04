@@ -8,6 +8,13 @@ class PagesController < ApplicationController
   end
   
   def map
+    if params[:query]
+      @query = params[:query]
+    elsif params[:reference]
+      @reference = params[:reference]
+    end
+    @group = params[:group]
+    
   end
   
   def census
@@ -160,6 +167,11 @@ class PagesController < ApplicationController
       	@section4 = "Over 50 local residents have signed on to help military families moving to Charleston. Don't learn it the hard way-- ask your questions now and you'll be a lot happier."
     end
 
+  end
+  
+  def attach_map_item
+    @post = Post.create(params[:post])
+    redirect_to pages_chat_url(:group => @post.group, :forum => @post.group.forum)
   end
       
 end

@@ -1,0 +1,7 @@
+<%= form_tag '/pages/map', :method => 'get' do %>
+<div class="form-group">
+<%= text_field_tag 'query', nil, :class => "form-control" %>
+</div>
+<%= hidden_field_tag 'group', group.id %>
+<%= submit_tag 'Go', {:class => 'form-control'} %>
+<% end %>

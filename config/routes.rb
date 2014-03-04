@@ -26,6 +26,7 @@ Womditty::Application.routes.draw do
   get "pages/map"
   get "pages/fetch_groups"
   get "pages/chat"
+  post "pages/attach_map_item"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

@@ -43,7 +43,13 @@
 <p style="font-size:50%;margin:0 0 5 0;line-height:8px;"><%= distance_of_time_in_words_to_now(post.created_at.time) %> ago</p>
 </div>
 <div class="col-xs-10">
-<p><%= post.body %></p>
+	<% if post.post_type == "location" %>
+	<%= link_to pages_map_path(:reference => post.place_reference, :group => post.group) do %>
+		<h4><span class="glyphicon glyphicon-map-marker"></span> <%= post.body %></h4>
+		<% end %>
+	<% else %>
+	<p><%= post.body %></p>
+	<% end %>
 </div>
 </div><!-- / panel-body -->
 </div><!-- /panel -->

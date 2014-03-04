@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   belongs_to :neighborhood_topic
   belongs_to :group
   
-  attr_accessible :body, :likes, :title, :user_id, :tag_list, :place_id, :photo_attributes, :group_id
+  attr_accessible :body, :likes, :title, :user_id, :tag_list, :place_id, :photo_attributes, :group_id, :post_type, :place_reference
 
   acts_as_followable
   acts_as_taggable
