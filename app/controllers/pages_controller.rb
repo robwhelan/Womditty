@@ -176,7 +176,7 @@ class PagesController < ApplicationController
   end
   
   def attach_item
-    @post = Post.new(params[:post])
+    @post = Post.create(params[:post])
     if @post.post_type == "location"
       Pusher[@post.group.unique_identifier].trigger('new-post', {
         message: @post.body,
@@ -196,11 +196,11 @@ class PagesController < ApplicationController
         user_image: @post.user.profile_image,
         time: @post.created_at,
         post_type: @post.post_type,
-        image_url: @post.photo.image.url
+        image_url: @post.photo.image.url(:medium)
       })
     end
     GoogleAnalyticsApi.new.pageview('/post/create', cookies[:clientId])
-    @post.save
+    #@post.save
     redirect_to pages_chat_url(:group => @post.group, :forum => @post.group.forum)
   end
       
