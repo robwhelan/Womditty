@@ -15,3 +15,5 @@
 
 #mapCanvas label { width: auto; display:inline; }
 #mapCanvas img { max-width: none; }
+
+input[type='text'],input[type='number'],textarea {font-size:16px;}
