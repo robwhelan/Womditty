@@ -39,8 +39,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 <div class="col-xs-2">
-<img width=40 src=<%= post.user.profile_image %> class="img-rounded" />
-<%= image_tag(post.user.profile_image, :width => '40', :class => 'img-rounded img-responsive') %>
+<%= image_tag(post.user.profile_image, :class => 'img-rounded img-responsive') %>
 <p style="font-size:70%;margin:0;line-height:10px;"><%= post.user.name %></p>
 <p style="font-size:50%;margin:0 0 5 0;line-height:8px;"><%= distance_of_time_in_words_to_now(post.created_at.time) %> ago</p>
 </div>

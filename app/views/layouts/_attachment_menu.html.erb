@@ -39,7 +39,7 @@
 		            $(element).append(
 						'<img src=' +
 							e.target.result +
-						 	' width="300" />'
+						 	' width="250" />'
 						);
 					$('#myPhotoButton, #myMapButton').addClass('hidden');
 					$('#photoSubmit').removeClass('hidden');
@@ -70,7 +70,7 @@
 		});
 
 		$('#photoSubmit').click(function() {
-			$('#modalBodyDiv').html('<img src="/assets/spinning.gif" />');
+			$('#modalBodyDiv').html('<h4>Loading...  </h4><img src="/assets/spinning.gif" />');
 		});
 
 
