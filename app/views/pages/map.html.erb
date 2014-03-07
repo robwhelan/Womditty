@@ -69,7 +69,7 @@ function attachInfoWindowSingle(marker) {
 	var body = encodeURI(marker.name);
 	var token = $('#csrf_token').html();
 	var reference = escape(marker.reference);
-	var action = '/pages/attach_map_item?post[body]=' + body + '&post[group_id]=' + group + 
+	var action = '/pages/attach_item?post[body]=' + body + '&post[group_id]=' + group + 
 				 '&post[user_id]=' + user + '&post[post_type]=location' + '&post[place_reference]=' + reference; 
 	
   google.maps.event.addListener(marker, 'click', function() {
@@ -96,7 +96,7 @@ function attachInfoWindow(marker, markers, num) {
 	var body = encodeURI(markers[num].name);
 	var token = $('#csrf_token').html();
 	var reference = escape(markers[num].reference);
-	var action = '/pages/attach_map_item?post[body]=' + body + '&post[group_id]=' + group + 
+	var action = '/pages/attach_item?post[body]=' + body + '&post[group_id]=' + group + 
 				 '&post[user_id]=' + user + '&post[post_type]=location' + '&post[place_reference]=' + reference; 
 	
   google.maps.event.addListener(marker, 'click', function() {

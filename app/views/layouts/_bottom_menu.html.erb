@@ -23,8 +23,8 @@
 		</div><!-- /row -->
 		<div class="row">
 		<div class="btn-group btn-group-lg btn-group-justified">
-			<a class="btn btn-primary active" role="button" data-toggle="modal" data-target="#userMenu" href="#"><span class="glyphicon glyphicon-user"></span>(<%= @number_of_users_in_group %>)</a>
-			<a class="btn btn-primary active" role="button" data-toggle="modal" data-target="#privateChatMenu" href="#">
+			<a class="btn btn-primary active" id="userButton" role="button" data-toggle="modal" data-target="#userMenu" href="#"><span class="glyphicon glyphicon-user"></span>(<%= @number_of_users_in_group %>)</a>
+			<a class="btn btn-primary active" id="privateChatButton" role="button" data-toggle="modal" data-target="#privateChatMenu" href="#">
 				<% if @private_notification %>
 				<i class="fa fa-comment" style="color:orange;"></i>
 				<% else %>

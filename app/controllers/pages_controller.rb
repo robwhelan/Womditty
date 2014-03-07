@@ -69,8 +69,13 @@ class PagesController < ApplicationController
         @receiver.groups << @group
       end
     elsif params[:forum].nil?
-      @forum = Forum.find(6)
-      @group = Group.find(32)
+      if Rails.env == "production"
+        @forum = Forum.find(6)
+        @group = Group.find(32)
+      else
+        @forum = Forum.find(1)
+        @group = Group.find(1)
+      end
     else
       @forum = Forum.find(params[:forum])
       @group = Group.find(params[:group])
@@ -170,7 +175,7 @@ class PagesController < ApplicationController
 
   end
   
-  def attach_map_item
+  def attach_item
     @post = Post.create(params[:post])
     redirect_to pages_chat_url(:group => @post.group, :forum => @post.group.forum)
   end

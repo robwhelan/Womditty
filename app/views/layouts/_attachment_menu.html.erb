@@ -6,19 +6,73 @@
         <h4 class="modal-title" id="myModalLabel">Attach Something</h4>
       </div>
       <div id="modalBodyDiv" class="modal-body">
-			<button id="myMapButton" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-map-marker"> Place</span></button>
+			<div id="photoPreview"></div>
+			<button id="myMapButton" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-map-marker"></span> Place</button>
+			<%= form_tag(pages_attach_item_path, :multipart => true, :class => 'form-inline' ) do %>
+
+			<%= fields_for "post[]", :photo_attributes do |post_photo| %>
+					<button id="myPhotoButton" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-camera"></span> Photo</button>			
+					<%= post_photo.file_field :image, :class => "hidden" %>
+					<%= post_photo.hidden_field :user_id, :value => current_user.id %>
+			<% end %>
+			<%= hidden_field(:post, :user_id, :value => current_user.id ) %>
+			<%= hidden_field(:post, :group_id, :value => @group.id ) %>
+			<%= hidden_field(:post, :post_type, :value => "photo" ) %>
+			<%= submit_tag 'Post', :class => 'btn btn-success hidden btn-block btn-lg', :id => 'photoSubmit' %>
+			<% end %>
+			
       </div><!-- /modal body -->
-      <div class="modal-footer">
+      <div class="modal-footer" id="modalFooterDiv">
       </div>    </div><!-- /modal content -->
   </div><!-- /modal dialog -->
 </div><!-- /modal -->
 
 <%= content_for :javascript do %>
 	<script type="text/javascript">
+
+		function readURL(input, element) {
+
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+
+		        reader.onload = function (e) {
+		            $(element).append(
+						'<img src=' +
+							e.target.result +
+						 	' width="300" />'
+						);
+					$('#myPhotoButton, #myMapButton').addClass('hidden');
+					$('#photoSubmit').removeClass('hidden');
+		        }
+
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+	    var intervalFunc = function () {
+	        $('#file-name').html($('#post_photo_attributes_image').val());
+	    };
+
 		$('#myMapButton').click(function(){
 			$('#modalBodyDiv').html("<%= j render 'layouts/map_query', :group => @group %>");
 			$('input#query').focus();
 			$('h4#myModalLabel').html("Search For a Place");
 		});
+
+		$('#myPhotoButton').click(function(){
+		    $('#post_photo_attributes_image').click();
+		    setInterval(intervalFunc, 1);
+		    return false;
+		});
+
+		$('#post_photo_attributes_image').change(function(){
+		    readURL(this, '#photoPreview');
+		});
+
+		$('#photoSubmit').click(function() {
+			$('#modalBodyDiv').html('<img src="/assets/spinning.gif" />');
+		});
+
+
 	</script>
 	<% end %>

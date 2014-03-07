@@ -1,3 +1,85 @@
+
+var tour = new Tour({
+	backdrop: false,
+	template: "<div class='popover tour'>" +
+	  "<div class='arrow'></div>" +
+	  "<h3 class='popover-title' style='background-color:#3333CC;color:#FFF;'></h3>" +
+	  "<div class='popover-content'></div>" +
+	  "<div class='popover-navigation'>" +
+	    "<button class='btn btn-default' data-role='prev'>« Prev</button>" +
+	    "<span data-role='separator'> </span>" +
+	    "<button class='btn btn-default' data-role='next'>Next »</button>" +
+	    "<button class='btn btn-default' data-role='end'>End tour</button>" +
+	  "</div>" +
+	"</div>"
+});
+
+var thumbsUpElement = "#" + $('i')[0].id;
+
+tour.addSteps([
+  {
+    element: "input#post_body", // string (jQuery selector) - html element next to which the step popover should be shown
+    title: "Say or Ask Anything", // string - title of the popover
+	placement: "top",
+    content: "Schools, commutes, restaurants, grocery stores, neighborhoods? Local or newbie, start the conversation here. (1 of 5)", // string - content of the popover
+	onShow: function(tour) {
+		ga('send', 'event', 'Tour', 'Start');
+	},
+  	onNext: function(tour) {
+		ga('send', 'event', 'Tour', 'Next Button Pressed', 'From Step 1');
+	},
+  },
+  {
+    element: "#attachmentButton",
+    title: "Attachments",
+	placement: "bottom",
+    content: "Share photos and locations of your favorite places. (2 of 5)",
+  	onNext: function(tour) {
+		ga('send', 'event', 'Tour', 'Next Button Pressed', 'From Step 2');
+	},
+  	onPrev: function(tour) {
+		ga('send', 'event', 'Tour', 'Prev Button Pressed', 'From Step 2');
+	}
+  },
+  {
+    element: "#userButton",
+    title: "People in the Room",
+	placement: "top",
+    content: "Counts how many people are in the forum; click to start a private chat with one of them. (3 of 5)",
+  	onPrev: function(tour) {
+		ga('send', 'event', 'Tour', 'Prev Button Pressed', 'From Step 3');
+	},
+	onNext: function(tour) {
+		ga('send', 'event', 'Tour', 'Next Button Pressed', 'From Step 3');
+	}
+  },
+  {
+    element: "#privateChatButton",
+    title: "My Private Chats",
+	placement: "top",
+    content: "Click here to get to your private conversations. (4 of 5)",
+  	onNext: function(tour) {
+		ga('send', 'event', 'Tour', 'Next Button Pressed', 'From Step 4');
+	},
+  	onPrev: function(tour) {
+		ga('send', 'event', 'Tour', 'Prev Button Pressed', 'From Step 4');
+	}
+  },
+  {
+    element: "#forumTitle",
+    title: "Change Forums",
+	placement: "bottom",
+    content: "You can enter any forum based on the area and type of people you're interested in. Click here to change. (5 of 5)",
+  	onPrev: function(tour) {
+		ga('send', 'event', 'Tour', 'Prev Button Pressed', 'From Step 5');
+	},
+	onHide: function(tour) {
+		ga('send', 'event', 'Tour', 'Ended', 'At Completion');
+	}
+  },
+]);
+
+
 var censusData;
 
 
