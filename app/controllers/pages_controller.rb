@@ -119,7 +119,7 @@ class PagesController < ApplicationController
       current_user.groups << @group
     end
     
-    @users_in_group = @group.users.uniq
+    @users_in_group = @group.users.order(:name).uniq
     @number_of_users_in_group = @users_in_group.count
     
     @posts = @group.posts.page(params[:page]).per(10)
