@@ -185,7 +185,7 @@ class PagesController < ApplicationController
         user_image: @post.user.profile_image,
         time: @post.created_at,
         post_type: @post.post_type,
-        reference: @post.post_reference,
+        reference: @post.place_reference,
         group: @post.group_id
       })
     elsif @post.post_type == "photo"
