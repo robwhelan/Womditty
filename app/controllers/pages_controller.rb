@@ -176,7 +176,31 @@ class PagesController < ApplicationController
   end
   
   def attach_item
-    @post = Post.create(params[:post])
+    @post = Post.new(params[:post])
+    if @post.post_type == "location"
+      Pusher[@post.group.unique_identifier].trigger('new-post', {
+        message: @post.body,
+        user_id: @post.user.id,
+        user_name: @post.user.name,
+        user_image: @post.user.profile_image,
+        time: @post.created_at,
+        post_type: @post.post_type,
+        reference: @post.post_reference,
+        group: @post.group_id
+      })
+    elsif @post.post_type == "photo"
+      Pusher[@post.group.unique_identifier].trigger('new-post', {
+        message: @post.body,
+        user_id: @post.user.id,
+        user_name: @post.user.name,
+        user_image: @post.user.profile_image,
+        time: @post.created_at,
+        post_type: @post.post_type,
+        image_url: @post.photo.image.url
+      })
+    end
+    GoogleAnalyticsApi.new.pageview('/post/create', cookies[:clientId])
+    @post.save
     redirect_to pages_chat_url(:group => @post.group, :forum => @post.group.forum)
   end
       

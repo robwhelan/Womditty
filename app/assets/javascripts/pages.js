@@ -80,9 +80,6 @@ tour.addSteps([
 ]);
 
 
-var censusData;
-
-
 function clearForm(form) {
   // iterate over all of the inputs for the form
   // element that was passed in
@@ -199,3 +196,66 @@ function printCensusData(){
 	}
 
 }
+
+function renderPost(data){
+	
+	$('#chat').append(
+	'<div class="row">' +
+	'<div class="panel panel-default">' +
+	'<div class="panel-body">' +
+	'<div class="col-xs-2">' +
+	'<img width=40 src=' + data.user_image + ' class="img-rounded" />' +
+	'<p style="font-size:70%;margin:0;line-height:10px;">' + data.user_name + '</p>' +
+	'</div>' +
+	'<div class="col-xs-10">' +
+	'<p>' + data.message + '</p>' +
+	'</div>' +
+	'</div>' +
+	'</div>' +
+	'</div>')
+
+}
+
+function renderPhoto(data){
+	
+	$('#chat').append(
+	'<div class="row">' +
+	'<div class="panel panel-default">' +
+	'<div class="panel-body">' +
+	'<div class="col-xs-2">' +
+	'<img width=40 src=' + data.user_image + ' class="img-rounded" />' +
+	'<p style="font-size:70%;margin:0;line-height:10px;">' + data.user_name + '</p>' +
+	'</div>' +
+	'<div class="col-xs-10">' +
+	'<img src=' + data.image_url + ' class="img-responsive" />' +
+	'</div>' +
+	'</div>' +
+	'</div>' +
+	'</div>')
+
+};
+
+function renderLocation(data){
+	var base = '/pages/map';
+	var group = 'group=' + data.group;
+	var reference = 'reference=' + data.reference;
+	var url = base + '?' + group + '&' + reference;
+	
+	$('#chat').append(
+	'<div class="row">' +
+	'<div class="panel panel-default">' +
+	'<div class="panel-body">' +
+	'<div class="col-xs-2">' +
+	'<img width=40 src=' + data.user_image + ' class="img-rounded" />' +
+	'<p style="font-size:70%;margin:0;line-height:10px;">' + data.user_name + '</p>' +
+	'</div>' +
+	'<div class="col-xs-10">' +
+	'<a href=' + url + '><h4><span class="glyphicon glyphicon-map-marker"></span>' +
+	data.message +
+	'</h4></a>'+
+	'</div>' +
+	'</div>' +
+	'</div>' +
+	'</div>')
+	
+};

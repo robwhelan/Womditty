@@ -13,22 +13,19 @@
   channel.bind('new-post', function(data) {
 	//alert(data.message);
 
-	$('#chat').append(
-	'<div class="row">' +
-	'<div class="panel panel-default">' +
-	'<div class="panel-body">' +
-	'<div class="col-xs-2">' +
-	'<img width=40 src=' + data.user_image + ' class="img-rounded" />' +
-	'<p style="font-size:70%;margin:0;line-height:10px;">' + data.user_name + '</p>' +
-	'</div>' +
-	'<div class="col-xs-10">' +
-	'<p>' + data.message + '</p>' +
-	'</div>' +
-	'</div>' +
-	'</div>' +
-	'</div>')
+	if (data.post_type == 'location')
+	  {
+		renderLocation(data);
+	  }
+	else if (data.post_type == 'photo')
+	  {
+		renderPhoto(data);
+	  }
+	else
+	  {
+		renderPost(data);
+	  }
 	});
-
 </script>
 
 <%= link_to_next_page @posts, 'Load Older Posts', :params => { :forum => @forum, :group => @group }, :remote => true, :id => 'nextPageLink', :class => 'btn btn-default btn-block' %>
@@ -38,8 +35,8 @@
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-body">
-<div class="col-xs-2">
-<%= image_tag(post.user.profile_image, :class => 'img-rounded img-responsive') %>
+<div class="col-xs-2" style="padding-left:5px;padding-right:5px;">
+<%= image_tag(post.user.profile_image, :width => '50', :class => 'img-rounded img-responsive') %>
 <p style="font-size:70%;margin:0;line-height:10px;"><%= post.user.name %></p>
 <p style="font-size:50%;margin:0 0 5 0;line-height:8px;"><%= distance_of_time_in_words_to_now(post.created_at.time) %> ago</p>
 </div>

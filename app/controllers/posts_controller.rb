@@ -81,7 +81,8 @@ class PostsController < ApplicationController
       user_id: @post.user.id,
       user_name: @post.user.name,
       user_image: @post.user.profile_image,
-      time: @post.created_at
+      time: @post.created_at,
+      post_type: @post.post_type
     })
     GoogleAnalyticsApi.new.pageview('/post/create', cookies[:clientId])
     @post.save
