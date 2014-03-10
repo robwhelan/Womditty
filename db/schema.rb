@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140307193845) do
+ActiveRecord::Schema.define(:version => 20140309161702) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -428,34 +428,79 @@ ActiveRecord::Schema.define(:version => 20140307193845) do
     t.integer  "duty_station_id"
     t.integer  "military_branch_id"
     t.integer  "neighborhood_id"
-    t.datetime "created_at",                                                                                        :null => false
-    t.datetime "updated_at",                                                                                        :null => false
-    t.string   "email",                  :default => "",                                                            :null => false
-    t.string   "encrypted_password",     :default => "",                                                            :null => false
+    t.datetime "created_at",                                                                                               :null => false
+    t.datetime "updated_at",                                                                                               :null => false
+    t.string   "email",                         :default => "",                                                            :null => false
+    t.string   "encrypted_password",            :default => "",                                                            :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                 :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
-    t.string   "name",                   :default => ""
+    t.string   "name",                          :default => ""
     t.string   "location"
     t.date     "birthday"
-    t.string   "profile_image",          :default => "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+    t.string   "profile_image",                 :default => "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
     t.string   "gender"
     t.integer  "drive_time"
-    t.integer  "reputation",             :default => 0
-    t.text     "biography",              :default => ""
-    t.string   "airbnb_link",            :default => ""
+    t.integer  "reputation",                    :default => 0
+    t.text     "biography",                     :default => ""
+    t.string   "airbnb_link",                   :default => ""
     t.boolean  "move_status"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "price_range",                   :default => ""
+    t.string   "address_line_1",                :default => ""
+    t.string   "address_line_2",                :default => ""
+    t.string   "zip_code",                      :default => ""
+    t.string   "vendor_type",                   :default => ""
+    t.string   "special_photo_01_file_name"
+    t.string   "special_photo_01_content_type"
+    t.integer  "special_photo_01_file_size"
+    t.datetime "special_photo_01_updated_at"
+    t.string   "special_photo_02_file_name"
+    t.string   "special_photo_02_content_type"
+    t.integer  "special_photo_02_file_size"
+    t.datetime "special_photo_02_updated_at"
+    t.string   "special_photo_03_file_name"
+    t.string   "special_photo_03_content_type"
+    t.integer  "special_photo_03_file_size"
+    t.datetime "special_photo_03_updated_at"
+    t.string   "special_photo_04_file_name"
+    t.string   "special_photo_04_content_type"
+    t.integer  "special_photo_04_file_size"
+    t.datetime "special_photo_04_updated_at"
+    t.string   "special_photo_05_file_name"
+    t.string   "special_photo_05_content_type"
+    t.integer  "special_photo_05_file_size"
+    t.datetime "special_photo_05_updated_at"
+    t.string   "special_photo_06_file_name"
+    t.string   "special_photo_06_content_type"
+    t.integer  "special_photo_06_file_size"
+    t.datetime "special_photo_06_updated_at"
+    t.string   "special_photo_07_file_name"
+    t.string   "special_photo_07_content_type"
+    t.integer  "special_photo_07_file_size"
+    t.datetime "special_photo_07_updated_at"
+    t.string   "special_photo_08_file_name"
+    t.string   "special_photo_08_content_type"
+    t.integer  "special_photo_08_file_size"
+    t.datetime "special_photo_08_updated_at"
+    t.string   "special_photo_09_file_name"
+    t.string   "special_photo_09_content_type"
+    t.integer  "special_photo_09_file_size"
+    t.datetime "special_photo_09_updated_at"
+    t.string   "special_photo_10_file_name"
+    t.string   "special_photo_10_content_type"
+    t.integer  "special_photo_10_file_size"
+    t.datetime "special_photo_10_updated_at"
   end
 
   add_index "users", ["career_specialty_id"], :name => "index_users_on_career_specialty_id"

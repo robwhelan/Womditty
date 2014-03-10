@@ -17,7 +17,9 @@ class User < ActiveRecord::Base
   attr_accessible :duty_station, :firstname, :has_kids, :invited_by_user_id, 
                   :lastname, :member_rank, :number_of_invites, :profile_image_url, 
                   :role, :location, :birthday, :gender, :profile_image, :drive_time,
-                  :neighborhood_id, :duty_station_id, :move_status, :avatar, :city_id
+                  :neighborhood_id, :duty_station_id, :move_status, :avatar, :city_id,
+                  :special_photo_01, :special_photo_02, :special_photo_03, :special_photo_04, :special_photo_05, :special_photo_06, :special_photo_07, :special_photo_08, :special_photo_09, :special_photo_10,
+                  :biography, :price_range, :address_line_1, :address_line_2, :zip_code, :vendor_type
 
   belongs_to :city
   belongs_to :career_specialty 
@@ -41,22 +43,62 @@ class User < ActiveRecord::Base
   acts_as_follower
   acts_as_followable
   acts_as_voter
-  #acts_as_voteable
-    # The following line is optional, and tracks karma (up votes) for questions this user has submitted.
-    # Each question has a submitter_id column that tracks the user who submitted it.
-    # The option :weight value will be multiplied to any karma from that voteable model (defaults to 1).
-    # You can track any voteable model.
   has_karma :posts
   has_karma :answers
+
+  validates :name, presence: true
 
   has_attached_file :avatar, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
                             :convert_options => {:all => '-auto-orient'}, :default_url => ""
                             
   validates_attachment :avatar, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
-  validates :name, presence: true
+  validates_attachment :special_photo_01, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_02, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_03, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_04, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_05, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_06, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_07, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_08, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_09, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+  validates_attachment :special_photo_10, :content_type => { :content_type => "image/jpeg" }, :size => { :in => 0..3000.kilobytes }
+
+  has_attached_file :special_photo_01, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_02, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_03, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_04, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_05, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_06, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_07, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_08, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_09, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
+
+  has_attached_file :special_photo_10, :styles => { :full => "500x500>", :medium => "300x300>", :thumb => "100x100>" }, 
+                            :convert_options => {:all => '-auto-orient'}, :default_url => ""
   
   def self.roles
-    ['Member of the military', 'Spouse', 'Significant Other', 'Family member', 'Admin']
+    ['Member of the military', 'Spouse', 'Significant Other', 'Family member', 'Admin', 'Vendor']
+  end
+  
+  def self.vendor_types
+    ['Apartments']
   end
 
   def self.ranks
@@ -103,11 +145,25 @@ class User < ActiveRecord::Base
      else
        group = "Moving to Charleston"
      end
+
+     begin
+       @mc.lists.subscribe(list_id, {'email' => email},
+              {'groupings' => [{'id'=>6837, 'name'=>"Charleston", 'groups' =>[group]}]},
+              nil, false)
+
+       puts "#{email} subscribed successfully"
+     rescue Mailchimp::ListAlreadySubscribedError
+       puts "#{email} is already subscribed to the list"
+     rescue Mailchimp::ListDoesNotExistError
+       puts "The list could not be found"
+     rescue Mailchimp::Error => ex
+       if ex.message
+         puts ex.message
+       else
+         puts "An unknown error occurred"
+       end
+     end
    
-     @mc.lists.subscribe(list_id, {'email' => email},
-            {'groupings' => [{'id'=>6837, 'name'=>"Charleston", 'groups' =>[group]}]},
-            nil, false)
-    
       self.get_welcome_email
    end
    

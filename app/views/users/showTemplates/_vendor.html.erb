@@ -1,0 +1,76 @@
+<div class="container">
+	<div class="row">
+		<h1><%= @user.name %></h1>
+		<% if can? :edit, @user %>
+			<%= link_to 'Edit', edit_user_path(@user) %>
+			<% end %>
+		</div><!-- /row -->
+	<div class="row">
+		<%= image_tag(@user.profile_image, :class => 'img-responsive' ) %>
+		</div><!-- /row -->
+	<div class="row">
+		<h4><%= @user.vendor_type %></h4>
+		<div class="col-xs-8">
+			<%= render 'users/showTemplates/vendorMapLink' %>
+			</div><!-- / col 8 -->
+		<div class="col-xs-3">
+			<%= link_to pages_chat_path(:initiator => current_user, :receiver => @user), :class => "btn btn-primary btn-lg active" do %>
+			<i class="fa fa-comment"></i>
+			<% end %>
+			<p><%= @user.karma %> reputation</p>
+			</div><!-- /col 3-->
+		</div><!-- / row -->
+	<div class="row">
+		<p><%= @user.biography %></p>
+		</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_01.exists? %>
+		<%= image_tag( @user.special_photo_01(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_02.exists? %>
+		<%= image_tag( @user.special_photo_02(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_03.exists? %>
+		<%= image_tag( @user.special_photo_03(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_04.exists? %>
+		<%= image_tag( @user.special_photo_04(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_05.exists? %>
+		<%= image_tag( @user.special_photo_05(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_06.exists? %>
+		<%= image_tag( @user.special_photo_06(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_07.exists? %>
+		<%= image_tag( @user.special_photo_07(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_08.exists? %>
+		<%= image_tag( @user.special_photo_08(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_09.exists? %>
+		<%= image_tag( @user.special_photo_09(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	<div class="row">
+		<% if @user.special_photo_10.exists? %>
+		<%= image_tag( @user.special_photo_10(:medium), :class => 'img-responsive' ) %>
+		<% end %>
+	</div><!-- /row -->
+	</div><!-- /container -->

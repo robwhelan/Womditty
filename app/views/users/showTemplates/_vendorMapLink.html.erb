@@ -1,0 +1,10 @@
+<% query = @user.name + ' ' + @user.address_line_1 + ' ' + @user.zip_code + ' ' + @user.vendor_type %>
+<%= link_to pages_map_path(:query => query, :group => @user.groups.first.id) do %>
+	<div class="col-xs-3"><h1><span class="glyphicon glyphicon-map-marker"></span></h1></div>
+	<div class="col-xs-7">
+			<p><%= @user.address_line_1 %></p>
+			<p><%= @user.address_line_2 %></p>
+			<p><%= @user.city.name %></p>
+			<p><%= @user.zip_code %></p>
+			</div>
+<% end %>

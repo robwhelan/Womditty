@@ -12,7 +12,9 @@
 			<% @users_in_group.each do |user| %>
 			<div class="row">
 				<div class="col-xs-2" style="padding-left:5px;padding-right:5px;">
+					<%= link_to user_path(user) do %>
 					<h4><%= image_tag(user.profile_image, :width => '50', :class => 'img-rounded img-responsive') %></h4>
+					<% end %>
 					</div>
 				<div class="col-xs-6">
 					<h4><%= user.name %></h4>

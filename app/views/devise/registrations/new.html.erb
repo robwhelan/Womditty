@@ -8,17 +8,17 @@
 
   <div class="form-group">  
 	<div class="input-group input-group-lg"><span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-  	<%= f.text_field :name, :class => 'form-control', :placeholder => 'Enter first and last name', :class => 'form-control', :required => 'required' %></div>
+  	<%= f.text_field :name, :placeholder => 'Enter first and last name', :class => 'form-control', :required => 'required' %></div>
 	</div>
 	
   <div class="form-group">
 	<div class="input-group input-group-lg"><span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-  <%= f.email_field :email, :class => 'form-control', :placeholder => 'Enter email', :class => 'form-control', :required => 'required' %></div>
+  <%= f.email_field :email, :placeholder => 'Enter email', :class => 'form-control', :required => 'required' %></div>
 	</div>
 
   <div class="form-group">
   	<div class="input-group input-group-lg"><span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Create password', :class => 'form-control', :required => 'required' %></div>
+  <%= f.password_field :password, :placeholder => 'Create password', :class => 'form-control', :required => 'required' %></div>
 	</div>
 	
   <div class="form-group input-group-lg"><%= f.label 'Where I live (helps connect you with people where you are moving)' %>
@@ -29,7 +29,40 @@
 		<span class="glyphicon glyphicon-camera"></span> Add a photo (required)
 	</button>			
 <hr/>
+
+<div class="hidden" id="vendorFields">
+	<div class="form-group">
+		<%= f.label 'Type of Business' %>
+		<%= f.collection_select(:vendor_type, User.vendor_types, :to_s, :to_s, {:class => 'form-control input-lg'} ) %>
+		</div>
+
+	<div class="form-group">
+		<%= f.text_area :biography, :placeholder => 'Bio', :class => 'form-control', :required => 'required' %>
+		</div>
+
+	<div class="form-group">
+		<%= f.text_field :address_line_1, :placeholder => 'Address Line 1', :class => 'form-control', :required => 'required' %>
+		</div>
+	<div class="form-group">
+		<%= f.text_field :address_line_2, :placeholder => 'Address Line 2', :class => 'form-control' %>
+		</div>
+	<div class="form-group">
+		<%= f.number_field :zip_code, :placeholder => 'ZIP', :class => 'form-control' %>
+		</div>
+		<%= f.hidden_field :role, :value => 'vendor' %>
+		
+</div><!-- /vendorfields -->
+
   <div class="form-group input-group-lg"><%= f.submit "Sign up", :class => 'btn btn-block btn-lg btn-primary' %></div>
+
+	<div class="checkbox">
+	  <label>
+	    <input type="checkbox" value="" id="vendorCheckBox">
+	    I'm a business
+	  </label>
+	</div>
+
+
 <% end %>
 
 <% content_for :javascript do %>
@@ -77,6 +110,11 @@ function readURL(input, element) {
 
 $('#user_avatar').change(function(){
     readURL(this, '#browse-click');
+});
+
+$('#vendorCheckBox').click(function(){
+	$('#vendorFields').removeClass('hidden');
+	$('#user_name').attr('placeholder', 'Business Name');
 });
 
 </script>
