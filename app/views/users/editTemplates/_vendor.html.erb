@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
 
 		<%= f.label 'Business Name', :class => 'control-label' %>
@@ -20,22 +21,88 @@
 		<% end %>
 		<%= f.file_field :avatar %>
 		
-		<%= f.label 'Extra images' %>
-		<% if @user.special_photo_01.exists? %>
-			<%= image_tag @user.special_photo_01(:thumb) %>
-		<% end %>
+		<%= f.label 'Profile page images' %>
+		<div class="row">
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto1" class="thumbnail">
+				<% if @user.special_photo_01.exists? %>
+					<%= image_tag @user.special_photo_01(:medium) %>
+				<% end %>
+		    </a>
+			</div>
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto2" class="thumbnail">
+				<% if @user.special_photo_02.exists? %>
+					<%= image_tag @user.special_photo_02(:medium) %>
+				<% end %>
+		    </a>
+			</div>
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto3" class="thumbnail">
+				<% if @user.special_photo_03.exists? %>
+					<%= image_tag @user.special_photo_03(:medium) %>
+				<% end %>
+		    </a>
+		  </div>
+		</div><!-- /row -->
 
+		<div class="row">
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto4" class="thumbnail">
+				<% if @user.special_photo_04.exists? %>
+					<%= image_tag @user.special_photo_04(:medium) %>
+				<% end %>
+		    </a>
+			</div>
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto5" class="thumbnail">
+				<% if @user.special_photo_05.exists? %>
+					<%= image_tag @user.special_photo_05(:medium) %>
+				<% end %>
+		    </a>
+		</div>
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto6" class="thumbnail">
+				<% if @user.special_photo_06.exists? %>
+					<%= image_tag @user.special_photo_06(:medium) %>
+				<% end %>
+		    </a>
+		  </div>
+		</div><!-- /row -->
 
-		<%= f.file_field :special_photo_01 %>
-		<%= f.file_field :special_photo_02 %>
-		<%= f.file_field :special_photo_03 %>
-		<%= f.file_field :special_photo_04 %>
-		<%= f.file_field :special_photo_05 %>
-		<%= f.file_field :special_photo_06 %>
-		<%= f.file_field :special_photo_07 %>
-		<%= f.file_field :special_photo_08 %>
-		<%= f.file_field :special_photo_09 %>
-		<%= f.file_field :special_photo_10 %>
+		<div class="row">
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto7" class="thumbnail">
+				<% if @user.special_photo_07.exists? %>
+					<%= image_tag @user.special_photo_07(:medium) %>
+				<% end %>
+		    </a>
+			</div>
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto8" class="thumbnail">
+				<% if @user.special_photo_08.exists? %>
+					<%= image_tag @user.special_photo_08(:medium) %>
+				<% end %>
+		    </a>
+		</div>
+		  <div class="col-xs-12 col-md-6 col-lg-4">
+		    <a href="#" id="specialPhoto9" class="thumbnail">
+				<% if @user.special_photo_09.exists? %>
+					<%= image_tag @user.special_photo_09(:medium) %>
+				<% end %>
+		    </a>
+		  </div>
+		</div><!-- /row -->
+		
+		<%= f.file_field :special_photo_01, :class => 'hidden' %>
+		<%= f.file_field :special_photo_02, :class => 'hidden' %>
+		<%= f.file_field :special_photo_03, :class => 'hidden' %>
+		<%= f.file_field :special_photo_04, :class => 'hidden' %>
+		<%= f.file_field :special_photo_05, :class => 'hidden' %>
+		<%= f.file_field :special_photo_06, :class => 'hidden' %>
+		<%= f.file_field :special_photo_07, :class => 'hidden' %>
+		<%= f.file_field :special_photo_08, :class => 'hidden' %>
+		<%= f.file_field :special_photo_09, :class => 'hidden' %>
 		
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
@@ -43,3 +110,110 @@
                 users_path, :class => 'btn' %>
   </div>
 <% end %>
+</div><!-- / container -->
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+
+	$(window).load(function () {
+	    var intervalFunc = function () {
+	        $('#file-name').html($('#user_avatar').val());
+	    };
+	    $('#specialPhoto1').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_01').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto2').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_02').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto3').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_03').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto4').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_04').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto5').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_05').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto6').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_06').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto7').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_07').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto8').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_08').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	    $('#specialPhoto9').on('click', function () { // use .live() for older versions of jQuery
+	        $('#user_special_photo_09').click();
+	        setInterval(intervalFunc, 1);
+	        return false;
+	    });
+	});
+	
+	
+	function readURL(input, element) {
+
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+
+	        reader.onload = function (e) {
+	            $(element).html(
+					'<img src=' +
+						e.target.result +
+					 	' width="250" />'
+					)
+	        }
+
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	$('#user_special_photo_01').change(function(){
+	    readURL(this, '#specialPhoto1');
+	});
+	$('#user_special_photo_02').change(function(){
+	    readURL(this, '#specialPhoto2');
+	});
+	$('#user_special_photo_03').change(function(){
+	    readURL(this, '#specialPhoto3');
+	});
+	$('#user_special_photo_04').change(function(){
+	    readURL(this, '#specialPhoto4');
+	});
+	$('#user_special_photo_05').change(function(){
+	    readURL(this, '#specialPhoto5');
+	});
+	$('#user_special_photo_06').change(function(){
+	    readURL(this, '#specialPhoto6');
+	});
+	$('#user_special_photo_07').change(function(){
+	    readURL(this, '#specialPhoto7');
+	});
+	$('#user_special_photo_08').change(function(){
+	    readURL(this, '#specialPhoto8');
+	});
+	$('#user_special_photo_09').change(function(){
+	    readURL(this, '#specialPhoto9');
+	});
+	
+	
+	
+		
+
+	</script>
+	<% end %>

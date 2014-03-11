@@ -45,6 +45,10 @@
 	<%= link_to pages_map_path(:reference => post.place_reference, :group => post.group) do %>
 		<h4><span class="glyphicon glyphicon-map-marker"></span> <%= post.body %></h4>
 		<% end %>
+	<% elsif post.post_type == "vendor" %>
+	<%= link_to user_path(:id => post.place_reference) do %>
+		<h4><i class="fa fa-building-o"></i> <%= post.body %></h4>
+		<% end %>
 	<% elsif post.post_type == "photo" %>
 		<%= image_tag(post.photo.image.url(:medium), :class => 'img-responsive') %>
 	<% else %>

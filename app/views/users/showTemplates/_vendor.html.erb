@@ -24,53 +24,54 @@
 		<p><%= @user.biography %></p>
 		</div><!-- /row -->
 	<div class="row">
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_01.exists? %>
-		<%= image_tag( @user.special_photo_01(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_01(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
-	</div><!-- /row -->
-	<div class="row">
+		</div><!-- /col -->
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_02.exists? %>
-		<%= image_tag( @user.special_photo_02(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_02(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
-	</div><!-- /row -->
-	<div class="row">
+		</div><!-- /col -->
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_03.exists? %>
-		<%= image_tag( @user.special_photo_03(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_03(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
+		</div><!-- /col -->
 	</div><!-- /row -->
 	<div class="row">
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_04.exists? %>
-		<%= image_tag( @user.special_photo_04(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_04(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
-	</div><!-- /row -->
-	<div class="row">
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_05.exists? %>
-		<%= image_tag( @user.special_photo_05(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_05(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
-	</div><!-- /row -->
-	<div class="row">
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_06.exists? %>
-		<%= image_tag( @user.special_photo_06(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_06(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
+		</div><!-- /col -->
 	</div><!-- /row -->
 	<div class="row">
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_07.exists? %>
-		<%= image_tag( @user.special_photo_07(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_07(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
-	</div><!-- /row -->
-	<div class="row">
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_08.exists? %>
-		<%= image_tag( @user.special_photo_08(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_08(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
-	</div><!-- /row -->
-	<div class="row">
+		</div>
+		<div class="col-xs-12 col-md-6 col-lg-4">
 		<% if @user.special_photo_09.exists? %>
-		<%= image_tag( @user.special_photo_09(:medium), :class => 'img-responsive' ) %>
+		<%= image_tag( @user.special_photo_09(:medium), :class => 'img-responsive img-thumbnail', :style => 'display:inherit;' ) %>
 		<% end %>
-	</div><!-- /row -->
-	<div class="row">
-		<% if @user.special_photo_10.exists? %>
-		<%= image_tag( @user.special_photo_10(:medium), :class => 'img-responsive' ) %>
-		<% end %>
+		</div><!-- /col -->
 	</div><!-- /row -->
 	</div><!-- /container -->

@@ -1,0 +1,26 @@
+var group = '<%= @group.id %>';
+var user = '<%= current_user.id %>';
+var token = $('#csrf_token').html();
+$('h4#myModalLabel').html('<h4><%= @vendor_type %></h4>');
+
+$('#modalBodyDiv').html("");
+
+<% @vendors.each do |vendor| %>
+	var body = encodeURI('<%= vendor.name %>');
+	var reference = '<%= vendor.id %>';
+	var action = '/pages/attach_item?post[body]=' + body + '&post[group_id]=' + group + 
+			 '&post[user_id]=' + user + '&post[post_type]=vendor' + '&post[place_reference]=' + reference;
+
+	$('#modalBodyDiv').append(
+		'<div class="row">' +
+		'<div class="col-xs-8">' +
+		'<h4><%= vendor.name %></4>' +
+		'</div>' +
+		'<div class="col-xs-2">' +
+		'<form action=' + action + ' class="button_to" method="post"><div>' +
+		'<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-paperclip"></span></button>' +
+		'<input name="authenticity_token" type="hidden" value=' + token + '></div></form>' +
+		'</div>' +
+		'</div>' );
+	
+<% end %>

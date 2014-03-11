@@ -80,34 +80,7 @@ class PagesController < ApplicationController
       @forum = Forum.find(params[:forum])
       @group = Group.find(params[:group])
     end
-    #elsif params[:changeForum]
-    #  @city1 = City.find(params[:city1])
-    #  @city2 = City.find(params[:city2])
-    #  name_1 = "city" + @city1.id.to_s + "city" + @city2.id.to_s
-    #  name_2 = "city" + @city2.id.to_s + "city" + @city1.id.to_s
 
-    #  if Forum.exists?(:unique_identifier => name_1)
-    #    @forum = Forum.find_by_unique_identifier(name_1)
-    #  else Forum.exists?(:unique_identifier => name_2)
-    #    @forum = Forum.find_by_unique_identifier(name_2)
-    #  end
-      
-    #  @group = @forum.groups.first
-      
-    #else
-    #  if params[:forum]
-    #    @forum = Forum.find(params[:forum])
-    #  else
-    #    @forum = Forum.first
-    #  end
-    
-    #  if params[:group]
-    #    @group = Group.find(params[:group])
-    #  else
-    #    @group = Group.first
-    #  end
-    # end    
-    #update profile image because I couldn't figure out how to do it anywhere else
     unless current_user.provider == "facebook"
       if current_user.avatar.exists?
         current_user.update_attributes(:profile_image => current_user.avatar.url)
@@ -127,7 +100,6 @@ class PagesController < ApplicationController
         post.mark_as_read! :for => current_user
       end
       
-    #@public_groups = @forum.groups.where(:private_group => false)
     @private_groups = current_user.groups.where(:private_group => true)
         private_group_array = []
         @private_groups.each do |group|
@@ -136,11 +108,8 @@ class PagesController < ApplicationController
         if Post.where(:group_id => private_group_array).unread_by(current_user).any?
           @private_notification = true
         end
-
-    #@myForums = []
-    #current_user.groups.each do |group|
-    #  @myForums << group.forum
-    #end
+    
+    @vendor_types = User.where(:role => 'vendor').pluck(:vendor_type).uniq
     
   end
   
@@ -173,6 +142,12 @@ class PagesController < ApplicationController
       	@section4 = "Over 50 local residents have signed on to help military families moving to Charleston. Don't learn it the hard way-- ask your questions now and you'll be a lot happier."
     end
 
+  end
+  
+  def fetch_vendors
+    @vendor_type = params[:vendor_type]
+    @group = Group.find(params[:group])
+    @vendors = User.where(:role => 'vendor').where(:vendor_type => @vendor_type)
   end
   
   def attach_item

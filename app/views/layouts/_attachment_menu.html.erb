@@ -4,9 +4,16 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Attach Something</h4>
+		<p id="csrf_token" class="hidden"><%= form_authenticity_token %></p>
       </div>
       <div id="modalBodyDiv" class="modal-body">
 			<div id="photoPreview"></div>
+			<% @vendor_types.each do |vendor_type| %>
+				<%= link_to pages_fetch_vendors_path(:vendor_type => vendor_type, :group => @group, :forum => @forum), :class => 'btn btn-primary btn-block btn-lg vendor-button', :id => 'vendor-' + vendor_type, :remote => true do %>
+				<i class="fa fa-building-o"></i> <%= vendor_type %>
+				<% end %>
+				<br/>
+				<% end %>
 			<button id="myMapButton" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-map-marker"></span> Place</button>
 			<br/>
 			<%= form_tag(pages_attach_item_path, :multipart => true, :class => 'form-inline' ) do %>
@@ -59,6 +66,10 @@
 			$('input#query').focus();
 			$('h4#myModalLabel').html("Search For a Place");
 		});
+
+		$('.vendor-button').click(function(){
+			$('#modalBodyDiv').html('<img src="/assets/spinning.gif" />');			
+		})
 
 		$('#myPhotoButton').click(function(){
 		    $('#post_photo_attributes_image').click();

@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
   end
   
   def self.vendor_types
-    ['Apartments']
+    ['', 'Apartments']
   end
 
   def self.ranks

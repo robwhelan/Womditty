@@ -25,6 +25,7 @@ Womditty::Application.routes.draw do
   get "pages/home"
   get "pages/map"
   get "pages/fetch_groups"
+  get "pages/fetch_vendors"
   get "pages/chat"
   post "pages/attach_item"
   
