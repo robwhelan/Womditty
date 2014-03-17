@@ -1,5 +1,7 @@
 Womditty::Application.routes.draw do
 
+  mount Surveyor::Engine => "/surveys", :as => "surveyor"
+
   resources :groups do
     member do
       get :update_posts_by_group

@@ -33,6 +33,7 @@ gem "rest-client", "~> 1.6.7"
 gem 'phone'
 gem 'pusher'
 gem 'unread'
+gem 'surveyor'
 
 # Gems used only for assets and not required
 # in production environments by default.
