@@ -1,0 +1,60 @@
+#surveyor
+  - unless (types = flash.keys.select{|k| [:notice, :error, :warning].include?(k)}).blank?
+    .surveyor_flash
+      = flash_messages(types)
+      .close
+  = semantic_form_for(@response_set, :as => :r, :url => surveyor.update_my_survey_path, :html => {:method => :put, :id => "survey_form", :class => @survey.custom_class}) do |f|
+
+    = hidden_field_tag :surveyor_javascript_enabled, false
+
+    = render 'partials/dependents' unless @dependents.empty?
+    - if false #@response_set.no_responses_for_section?(@section) # cache if response_set has no responses for current section
+      = cache("section_#{@section.id}"){ render "/partials/section", :f => f }
+    - else # no cache
+      = render "/partials/section", :f => f
+    #submitButton.next_section= next_section
+  %br
+#footer.container
+  %nav.navbar.navbar-default.navbar-fixed-bottom
+    .row{style: "margin:0px;"}
+      %button#funButton.btn.btn-primary Fun Stuff
+      %button#familyButton.btn.btn-default Family and Kids
+      %button#communityButton.btn.btn-default Community
+      %button#practicalButton.btn.btn-default Practical Stuff
+      %button#demographicsButton.btn.btn-default Demographics
+    
+:javascript
+  $(document).ready(function() {
+    $("input#surveyor_javascript_enabled").val(true);
+    $('#submitButton').addClass('hidden');
+    $('#funButton').click(function(){
+      $('#funButton').addClass('btn-primary');
+      $('#familyButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+      $('#g_117').addClass('show').removeClass('hidden');
+      $('#g_118,#g_119,#g_120,#g_121').addClass('hidden');
+    });
+    $('#familyButton').click(function(){
+      $('#familyButton').addClass('btn-primary');
+      $('#funButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+      $('#g_118').addClass('show').removeClass('hidden');
+      $('#g_117,#g_119,#g_120,#g_121').addClass('hidden');
+    });
+    $('#communityButton').click(function(){
+      $('#communityButton').addClass('btn-primary');
+      $('#funButton,#familyButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+      $('#g_119').addClass('show').removeClass('hidden');
+      $('#g_118,#g_117,#g_120,#g_121').addClass('hidden');
+    });
+    $('#practicalButton').click(function(){
+      $('#practicalButton').addClass('btn-primary');
+      $('#funButton,#communityButton,#communityButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+      $('#g_120').addClass('show').removeClass('hidden');
+      $('#g_118,#g_119,#g_117,#g_121').addClass('hidden');
+    });
+    $('#demographicsButton').click(function(){
+      $('#demographicsButton').addClass('btn-primary');
+      $('#funButton,#communityButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
+      $('#g_121,#submitButton').addClass('show').removeClass('hidden');
+      $('#g_118,#g_119,#g_120,#g_117').addClass('hidden');
+    });
+  });

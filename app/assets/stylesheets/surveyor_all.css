@@ -7,3 +7,7 @@
 *= require surveyor
 *= require custom
 */
+
+#submitButton {
+	margin-bottom: 60px;
+}

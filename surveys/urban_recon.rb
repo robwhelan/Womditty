@@ -4,10 +4,10 @@
 survey "Urban Recon", :default_mandatory => false do
 
   section "Urban Recon" do
-    label "Answer these questions based on where you currently live."
+    label "Answer based on where you currently live."
 
     group "Fun stuff" do
-      q "What's your favorite restaurant for a date?", :custom_class => 'question_class'
+      q "What's your favorite restaurant for a date?"
       a :string
 
       q "What's your favorite restaurant for a quick lunch?"
@@ -34,7 +34,7 @@ survey "Urban Recon", :default_mandatory => false do
       a_3 :string
     end
 
-    group "Family and Kids" do
+    group "Family and Kids", :custom_class => "hidden" do
 
       q "Can you recommend a few good doctors?"
       a_1 "|OB-GYN", :string
@@ -102,7 +102,7 @@ survey "Urban Recon", :default_mandatory => false do
       
     end
 
-    group "Community" do
+    group "Community", :custom_class => 'hidden' do
 
       q "Can you recommend a good gym?"
       a :string
@@ -164,7 +164,7 @@ survey "Urban Recon", :default_mandatory => false do
       
     end
     
-    group "Practical Stuff" do
+    group "Practical Stuff", :custom_class => 'hidden' do
       
       q "Please recommend a..."
       a_1 "|Grocery store", :string
@@ -217,7 +217,7 @@ survey "Urban Recon", :default_mandatory => false do
       
     end
     
-    group "Demographic Info" do
+    group "Demographic Info", :custom_class => 'hidden' do
       label "This info will not be linked to you. It is used when sorting survey responses."
       
       q "Zip code:"
@@ -241,7 +241,7 @@ survey "Urban Recon", :default_mandatory => false do
       a_2 "Reserves"
       a_3 "Civilian contractor"
       a_4 "None of the above"
-            
+
       q_selfmilitarya "Which branch?", :pick => :one
       a "Air Force"
       a "Army"
@@ -252,33 +252,33 @@ survey "Urban Recon", :default_mandatory => false do
       condition_A :q_selfmilitary, "==", :a_1
       condition_B :q_selfmilitary, "==", :a_2
       condition_C :q_selfmilitary, "==", :a_3
-      
+
       q_selfmilitaryb "Which command or base do you work at most days?"
       a :string
       dependency :rule => "A or B or C"
       condition_A :q_selfmilitary, "==", :a_1
       condition_B :q_selfmilitary, "==", :a_2
       condition_C :q_selfmilitary, "==", :a_3
-      
+
       q_selfmilitaryc "How long is your commute?"
       a "|minutes", :integer
       dependency :rule => "A or B or C"
       condition_A :q_selfmilitary, "==", :a_1
       condition_B :q_selfmilitary, "==", :a_2
       condition_C :q_selfmilitary, "==", :a_3
-      
+
       q_selfmilitaryRank "What's your rank?", :pick => :one, :display_type => :dropdown
       ["E1", "E2", "E3", "E4","E5","E6","E7","E8","E9",
         "O1","O2","O3","O4","O5","O6","O7","O8","O9",
         "W1","W2","W3","W4","W5"].each{ |rank| a rank}
       dependency :rule => "A or B"
       condition_A :q_selfmilitary, "==", :a_1
-      condition_A :q_selfmilitary, "==", :a_2
-            
+      condition_B :q_selfmilitary, "==", :a_2
+
       q_marital "Marital status", :pick => :one
       a_1 "Married"
       a_2 "Unmarried"
-      
+
       q_maritala "Is your spouse employed by the military?", :pick => :one
       a_1 "Active duty"
       a_2 "Reserves"
@@ -286,7 +286,7 @@ survey "Urban Recon", :default_mandatory => false do
       a_4 "None of the above"
       dependency :rule => "A"
       condition_A :q_marital, "==", :a_1
-      
+
       q_spousemilitarya "Which branch?", :pick => :one
       a "Air Force"
       a "Army"
@@ -297,14 +297,14 @@ survey "Urban Recon", :default_mandatory => false do
       condition_A :q_maritala, "==", :a_1
       condition_B :q_maritala, "==", :a_2
       condition_C :q_maritala, "==", :a_3
-      
+
       q_spousemilitaryb "Which command or base does he/she work at most days?"
       a :string
       dependency :rule => "A or B or C"
       condition_A :q_maritala, "==", :a_1
       condition_B :q_maritala, "==", :a_2
       condition_C :q_maritala, "==", :a_3
-      
+
       q_spousemilitaryc "How long is his/her commute?"
       a "|minutes", :integer
       dependency :rule => "A or B or C"
@@ -320,6 +320,7 @@ survey "Urban Recon", :default_mandatory => false do
       condition_A :q_maritala, "==", :a_1
       condition_B :q_maritala, "==", :a_2
 
+      
       q "Approximate annual household income:", :pick => :one
       a "$30K or less"
       a "$40K"

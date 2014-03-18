@@ -35,7 +35,6 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :photos
   has_many :posts
-  has_many :answers
   has_many :neighborhood_thoughts
   has_many :inquiries
   
@@ -44,7 +43,6 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_voter
   has_karma :posts
-  has_karma :answers
 
   validates :name, presence: true
 
