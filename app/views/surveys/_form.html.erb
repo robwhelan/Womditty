@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@survey) do |f| %>
   <% if @survey.errors.any? %>
     <div id="error_explanation">
@@ -11,9 +12,434 @@
     </div>
   <% end %>
 
+	<div id="categoryFun">
+		<div class="form-group">
+	    <%= f.label 'Date restaurants' %>
+	    <%= f.text_field :date_restaurant_1, :class => 'form-control', :placeholder => 'A date restaurant' %>
+	  	</div>
+	  	<div class="form-group">
+	    <%= f.text_field :date_restaurant_2, :class => 'form-control', :placeholder => 'Another date restaurant' %>
+	  	</div>
+		<div class="form-group">
+	    <%= f.text_field :date_restaurant_3, :class => 'form-control', :placeholder => 'Yet another date restaurant' %>
+	  	</div>
 
+		<div class="form-group">
+	    <%= f.label 'Lunch restaurants' %>
+	    <%= f.text_field :lunch_restaurant_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+	  	</div>
+	  	<div class="form-group">
+	    <%= f.text_field :lunch_restaurant_2, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+		<div class="form-group">
+	    <%= f.text_field :lunch_restaurant_3, :class => 'form-control', :placeholder => '' %>
+	  	</div>
 
+		<div class="form-group">
+	    <%= f.label 'Date nights' %>
+	    <%= f.text_field :date_night_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+	  	</div>
+	  	<div class="form-group">
+	    <%= f.text_field :date_night_2, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+		<div class="form-group">
+	    <%= f.text_field :date_night_3, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+
+		<div class="form-group">
+	    <%= f.label 'Public places' %>
+	    <%= f.text_field :public_place_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+	  	</div>
+	  	<div class="form-group">
+	    <%= f.text_field :public_place_2, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+		<div class="form-group">
+	    <%= f.text_field :public_place_3, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+
+		<div class="form-group">
+	    <%= f.label 'Do for fun' %>
+	    <%= f.text_field :do_for_fun_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+	  	</div>
+	  	<div class="form-group">
+	    <%= f.text_field :do_for_fun_2, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+		<div class="form-group">
+	    <%= f.text_field :do_for_fun_3, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+
+		<div class="form-group">
+	    <%= f.label :cultural_things_1 %>
+	    <%= f.text_field :cultural_things_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+	  	</div>
+	  	<div class="form-group">
+	    <%= f.text_field :cultural_things_2, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+		<div class="form-group">
+	    <%= f.text_field :cultural_things_3, :class => 'form-control', :placeholder => '' %>
+	  	</div>
+		</div><!-- /categoryFun -->
+
+		<div id="categoryFamily" class="hidden">
+			<div class="form-group">
+		    <%= f.label :doctor_obgyn %>
+		    <%= f.text_field :doctor_obgyn, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :doctor_pediatrician %>
+		    <%= f.text_field :doctor_pediatrician, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :doctor_general %>
+		    <%= f.text_field :doctor_general, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :doctor_chiropractor %>
+		    <%= f.text_field :doctor_chiropractor, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :doctor_earnosethroat %>
+		    <%= f.text_field :doctor_earnosethroat, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :doctor_vet %>
+		    <%= f.text_field :doctor_vet, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :doctor_other %>
+		    <%= f.text_field :doctor_other, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		
+		   	<div class="form-group">
+		    <%= f.label :deliver_baby_1 %>
+		    <%= f.text_field :deliver_baby_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :deliver_baby_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :deliver_baby_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+		   	<div class="form-group">
+		    <%= f.label :childcare_1 %>
+		    <%= f.text_field :childcare_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :childcare_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :childcare_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :babysitter_pay %>
+		    $<%= f.number_field :babysitter_pay, :class => 'form-control' %>
+		  	</div>
+
+		   	<div class="form-group">
+		    <%= f.label :family_restaurant_1 %>
+		    <%= f.text_field :family_restaurant_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :family_restaurant_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :family_restaurant_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :family_restaurant_4, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :family_restaurant_5, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+		   	<div class="form-group">
+		    <%= f.label :kid_activity_1 %>
+		    <%= f.text_field :kid_activity_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :kid_activity_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :kid_activity_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :kid_activity_4, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :kid_activity_5, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+		   	<div class="form-group">
+		    <%= f.label :good_school_1 %>
+		    <%= f.text_field :good_school_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :good_school_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :good_school_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+		   	<div class="form-group">
+		    <%= f.label :bad_school_1 %>
+		    <%= f.text_field :bad_school_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :bad_school_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :bad_school_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :contact_gymnastics %>
+		    <%= f.text_field :contact_gymnastics, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_dance %>
+		    <%= f.text_field :contact_dance, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_karate %>
+		    <%= f.text_field :contact_karate, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_ballet %>
+		    <%= f.text_field :contact_ballet, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_baseball %>
+		    <%= f.text_field :contact_baseball, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_basketball %>
+		    <%= f.text_field :contact_basketball, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_soccer %>
+		    <%= f.text_field :contact_soccer, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_football %>
+		    <%= f.text_field :contact_football, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_lacrosse %>
+		    <%= f.text_field :contact_lacrosse, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_music %>
+		    <%= f.text_field :contact_music, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_art %>
+		    <%= f.text_field :contact_art, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_swimming %>
+		    <%= f.text_field :contact_swimming, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :contact_any_other_kid_stuff %>
+		    <%= f.text_field :contact_any_other_kid_stuff, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+
+		</div><!-- /categoryFamily -->
+
+		<div id="categoryCommunity" class='hidden'>
+			<div class="form-group">
+		    <%= f.label :gym_1 %>
+		    <%= f.text_field :gym_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :gym_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :gym_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :religious_1 %>
+		    <%= f.text_field :religious_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :religious_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :religious_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :bad_area_1 %>
+		    <%= f.text_field :bad_area_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :bad_area_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :bad_area_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :good_area_1 %>
+		    <%= f.text_field :good_area_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :good_area_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :good_area_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :bad_traffic_1 %>
+		    <%= f.text_field :bad_traffic_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :bad_traffic_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :bad_traffic_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :good_commute_1 %>
+		    <%= f.text_field :good_commute_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :good_commute_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :good_commute_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :apt_complex_1 %>
+		    <%= f.text_field :apt_complex_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :apt_complex_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :apt_complex_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :cost_of_living %>
+		    <%= f.text_field :cost_of_living, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :employers_military_1 %>
+		    <%= f.text_field :employers_military_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :employers_military_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :employers_military_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :schools_military_1 %>
+		    <%= f.text_field :schools_military_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+		  	<div class="form-group">
+		    <%= f.text_field :schools_military_2, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.text_field :schools_military_3, :class => 'form-control', :placeholder => '' %>
+		  	</div>
+
+			<div class="form-group">
+		    <%= f.label :involved_strollers %>
+		    <%= f.text_field :involved_strollers, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :involved_mops %>
+		    <%= f.text_field :involved_mops, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :involved_volunteering %>
+		    <%= f.text_field :involved_volunteering, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :involved_breastfeeding %>
+		    <%= f.text_field :involved_breastfeeding, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :involved_cooking_class %>
+		    <%= f.text_field :involved_cooking_class, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :involved_group_fitness %>
+		    <%= f.text_field :involved_group_fitness, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :involved_political %>
+		    <%= f.text_field :involved_political, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+			<div class="form-group">
+		    <%= f.label :involved_base_or_command %>
+		    <%= f.text_field :involved_base_or_command, :class => 'form-control', :placeholder => 'A restaurant' %>
+		  	</div>
+
+			</div><!-- /community -->
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div><!-- /container -->
+<div id='footer' class='container'>
+	<nav class='nav navbar navbar-default navbar-fixed-bottom'>
+		<div class='row' style='margin:0px;'>
+      		<button id='funButton' class='btn btn-primary'>Fun Stuff</button>
+      		<button id='familyButton' class='btn btn-default'>Family and Kids</button>
+      		<button id='communityButton' class='btn btn-default'>Community</button>
+      		<button id='practicalButton' class='btn btn-default'>Practical Stuff</button>
+      		<button id='demographicsButton' class='btn btn-default'>Demographics</button>
+			</div><!--/row -->
+		</nav>
+	</div><!-- /footer container -->
+		
+
+<%= content_for :javascript do %>
+
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	    $('#submitButton').addClass('hidden');
+	    $('#funButton').click(function(){
+	      $('#funButton').addClass('btn-primary');
+	      $('#familyButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryFun').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#familyButton').click(function(){
+	      $('#familyButton').addClass('btn-primary');
+	      $('#funButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryFamily').addClass('show').removeClass('hidden');
+	      $('#categoryFun,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#communityButton').click(function(){
+	      $('#communityButton').addClass('btn-primary');
+	      $('#funButton,#familyButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryCommunity').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryFun,#categoryPractical,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#practicalButton').click(function(){
+	      $('#practicalButton').addClass('btn-primary');
+	      $('#funButton,#communityButton,#communityButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryPractical').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryCommunity,#categoryFun,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#demographicsButton').click(function(){
+	      $('#demographicsButton').addClass('btn-primary');
+	      $('#funButton,#communityButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryDemographics,#submit').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryFun').addClass('hidden');
+	    });
+	  });
+	</script>
+	<% end %>
