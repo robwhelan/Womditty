@@ -1,5 +1,8 @@
 Womditty::Application.routes.draw do
 
+  resources :surveys
+
+
   resources :groups do
     member do
       get :update_posts_by_group
