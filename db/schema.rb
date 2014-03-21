@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140320221825) do
+ActiveRecord::Schema.define(:version => 20140321021713) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -565,6 +565,10 @@ ActiveRecord::Schema.define(:version => 20140320221825) do
     t.string   "subdivision"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+    t.string   "car_gas_expense"
+    t.datetime "survey_start_at"
+    t.datetime "survey_complete_at"
+    t.time     "survey_duration"
   end
 
   add_index "surveys", ["user_id"], :name => "index_surveys_on_user_id"
