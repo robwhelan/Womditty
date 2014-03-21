@@ -1,0 +1,241 @@
+		<div id="categoryFamily" class="hidden">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					Doctors
+					<div class="form-group">
+				    <%= @form.label :doctor_obgyn %>
+				    <%= @form.text_field :doctor_obgyn, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :doctor_pediatrician %>
+				    <%= @form.text_field :doctor_pediatrician, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :doctor_general %>
+				    <%= @form.text_field :doctor_general, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :doctor_chiropractor %>
+				    <%= @form.text_field :doctor_chiropractor, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :doctor_earnosethroat %>
+				    <%= @form.text_field :doctor_earnosethroat, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :doctor_vet %>
+				    <%= @form.text_field :doctor_vet, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :doctor_other %>
+				    <%= @form.text_field :doctor_other, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				</div>
+			</div>
+					
+			<div class="panel panel-default">
+				<div class="panel-body">
+				   	<div class="form-group">
+				    <%= @form.label :deliver_baby_1 %>
+				    <%= @form.text_field :deliver_baby_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :deliver_baby_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :deliver_baby_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+
+				   	<div class="form-group">
+				    <%= @form.label :childcare_1 %>
+				    <%= @form.text_field :childcare_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :childcare_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :childcare_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+			<p>What's a good hourly rate for a babysitter for two kids?</p>
+		  	<%= @form.radio_button :babysitter_pay, '6' %>
+			<%= @form.label :babysitter_pay, '$6' %>
+		  	<%= @form.radio_button :babysitter_pay, '7' %>
+			<%= @form.label :babysitter_pay, '$7' %>
+		  	<%= @form.radio_button :babysitter_pay, '8' %>
+			<%= @form.label :babysitter_pay, '$8' %>
+		  	<%= @form.radio_button :babysitter_pay, '9' %>
+			<%= @form.label :babysitter_pay, '$9' %>
+		  	<%= @form.radio_button :babysitter_pay, '10' %>
+			<%= @form.label :babysitter_pay, '$10' %>
+		  	<%= @form.radio_button :babysitter_pay, '11' %>
+			<%= @form.label :babysitter_pay, '$11' %>
+		  	<%= @form.radio_button :babysitter_pay, '12' %>
+			<%= @form.label :babysitter_pay, '$12' %>
+		  	<%= @form.radio_button :babysitter_pay, '13' %>
+			<%= @form.label :babysitter_pay, '$13' %>
+		  	<%= @form.radio_button :babysitter_pay, '14' %>
+			<%= @form.label :babysitter_pay, '$14' %>
+		  	<%= @form.radio_button :babysitter_pay, '15' %>
+			<%= @form.label :babysitter_pay, '$15' %>
+		  	<%= @form.radio_button :babysitter_pay, '16' %>
+			<%= @form.label :babysitter_pay, '$16' %>
+		  	</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+				   	<div class="form-group">
+				    <%= @form.label :family_restaurant_1 %>
+				    <%= @form.text_field :family_restaurant_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :family_restaurant_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :family_restaurant_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :family_restaurant_4, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :family_restaurant_5, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+				   	<div class="form-group">
+				    <%= @form.label :kid_activity_1 %>
+				    <%= @form.text_field :kid_activity_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :kid_activity_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :kid_activity_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :kid_activity_4, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :kid_activity_5, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-body">
+				   	<div class="form-group">
+				    <%= @form.label :good_school_1 %>
+				    <%= @form.text_field :good_school_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :good_school_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :good_school_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+
+				   	<div class="form-group">
+				    <%= @form.label :bad_school_1 %>
+				    <%= @form.text_field :bad_school_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :bad_school_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :bad_school_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :contact_gymnastics %>
+				    <%= @form.text_field :contact_gymnastics, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_dance %>
+				    <%= @form.text_field :contact_dance, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_karate %>
+				    <%= @form.text_field :contact_karate, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_ballet %>
+				    <%= @form.text_field :contact_ballet, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_baseball %>
+				    <%= @form.text_field :contact_baseball, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_basketball %>
+				    <%= @form.text_field :contact_basketball, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_soccer %>
+				    <%= @form.text_field :contact_soccer, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_football %>
+				    <%= @form.text_field :contact_football, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_lacrosse %>
+				    <%= @form.text_field :contact_lacrosse, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_music %>
+				    <%= @form.text_field :contact_music, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_art %>
+				    <%= @form.text_field :contact_art, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_swimming %>
+				    <%= @form.text_field :contact_swimming, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :contact_any_other_kid_stuff %>
+				    <%= @form.text_field :contact_any_other_kid_stuff, :class => 'form-control', :placeholder => 'A restaurant' %>
+			  		</div>
+				</div>
+			</div>
+
+			<div class='form-group'>
+				<%= @form.text_area :whats_missing_family, :class => 'form-control' %>
+			</div>
+
+		</div><!-- /categoryFamily -->
+		
+		<%= content_for :javascript do %>
+			<script type='text/javascript'>
+			$(document).ready(function(){
+				renderNewInput('#survey_deliver_baby_1', '#survey_deliver_baby_2');
+				renderNewInput('#survey_deliver_baby_2', '#survey_deliver_baby_3');
+				renderNewInput('#survey_childcare_1', '#survey_childcare_2');
+				renderNewInput('#survey_childcare_2', '#survey_childcare_3');
+				renderNewInput('#survey_kid_activity_1', '#survey_kid_activity_2');
+				renderNewInput('#survey_kid_activity_2', '#survey_kid_activity_3');
+				renderNewInput('#survey_kid_activity_3', '#survey_kid_activity_4');
+				renderNewInput('#survey_kid_activity_4', '#survey_kid_activity_5');
+				renderNewInput('#survey_family_restaurant_1', '#survey_family_restaurant_2');
+				renderNewInput('#survey_family_restaurant_2', '#survey_family_restaurant_3');
+				renderNewInput('#survey_family_restaurant_3', '#survey_family_restaurant_4');
+				renderNewInput('#survey_family_restaurant_4', '#survey_family_restaurant_5');
+				renderNewInput('#survey_good_school_1', '#survey_good_school_2');
+				renderNewInput('#survey_good_school_2', '#survey_good_school_3');
+				renderNewInput('#survey_bad_school_1', '#survey_bad_school_2');
+				renderNewInput('#survey_bad_school_2', '#survey_bad_school_3');
+			});
+			</script>
+		<% end %>
+		

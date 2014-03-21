@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140321021713) do
+ActiveRecord::Schema.define(:version => 20140321205936) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -569,8 +569,18 @@ ActiveRecord::Schema.define(:version => 20140321021713) do
     t.datetime "survey_start_at"
     t.datetime "survey_complete_at"
     t.time     "survey_duration"
+    t.string   "self_rank_class"
+    t.string   "spouse_rank_class"
+    t.text     "whats_missing_fun"
+    t.text     "whats_missing_family"
+    t.text     "whats_missing_community"
+    t.text     "whats_missing_practical"
+    t.text     "whats_missing_demographics"
+    t.string   "new_city_name"
+    t.string   "cell_phone_reception"
   end
 
+  add_index "surveys", ["city_id"], :name => "index_surveys_on_city_id"
   add_index "surveys", ["user_id"], :name => "index_surveys_on_user_id"
 
   create_table "taggings", :force => true do |t|

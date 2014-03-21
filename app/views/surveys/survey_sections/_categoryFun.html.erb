@@ -1,0 +1,114 @@
+	<div id="categoryFun">
+		<div class="panel panel-default">
+			  <div class="panel-body">
+				<div class="form-group">
+			    <%= @form.label 'Date restaurants' %>
+			    <%= @form.text_field :date_restaurant_1, :class => 'form-control', :placeholder => 'A date restaurant' %>
+			  	</div>
+			  	<div class="form-group">
+			    <%= @form.text_field :date_restaurant_2, :class => 'hidden form-control', :placeholder => 'Another date restaurant' %>
+			  	</div>
+				<div class="form-group">
+			    <%= @form.text_field :date_restaurant_3, :class => 'hidden form-control', :placeholder => 'Yet another date restaurant' %>
+			  	</div>
+				</div>
+			</div>
+
+		<div class="panel panel-default">
+			  <div class="panel-body">
+				<div class="form-group">
+			    <%= @form.label 'Lunch restaurants' %>
+			    <%= @form.text_field :lunch_restaurant_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+			  	</div>
+			  	<div class="form-group">
+			    <%= @form.text_field :lunch_restaurant_2, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+				<div class="form-group">
+			    <%= @form.text_field :lunch_restaurant_3, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+				</div>
+			</div>
+
+		<div class="panel panel-default">
+			  <div class="panel-body">
+				<div class="form-group">
+			    <%= @form.label 'Date nights' %>
+			    <%= @form.text_field :date_night_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+			  	</div>
+			  	<div class="form-group">
+			    <%= @form.text_field :date_night_2, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+				<div class="form-group">
+			    <%= @form.text_field :date_night_3, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			  <div class="panel-body">
+				<div class="form-group">
+			    <%= @form.label 'Public places' %>
+			    <%= @form.text_field :public_place_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+			  	</div>
+			  	<div class="form-group">
+			    <%= @form.text_field :public_place_2, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+				<div class="form-group">
+			    <%= @form.text_field :public_place_3, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			  <div class="panel-body">
+				<div class="form-group">
+			    <%= @form.label 'Do for fun' %>
+			    <%= @form.text_field :do_for_fun_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+			  	</div>
+			  	<div class="form-group">
+			    <%= @form.text_field :do_for_fun_2, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+				<div class="form-group">
+			    <%= @form.text_field :do_for_fun_3, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+			  <div class="panel-body">
+				<div class="form-group">
+			    <%= @form.label :cultural_things_1 %>
+			    <%= @form.text_field :cultural_things_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+			  	</div>
+			  	<div class="form-group">
+			    <%= @form.text_field :cultural_things_2, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+				<div class="form-group">
+			    <%= @form.text_field :cultural_things_3, :class => 'hidden form-control', :placeholder => '' %>
+			  	</div>
+			</div>
+		</div>
+
+		<div class='form-group'>
+			<%= @form.text_area :whats_missing_fun, :class => 'form-control' %>
+		</div>
+		</div><!-- /categoryFun -->
+		
+		<%= content_for :javascript do %>
+			<script type='text/javascript'>
+			$(document).ready(function(){
+				renderNewInput('#survey_date_restaurant_1', '#survey_date_restaurant_2');
+				renderNewInput('#survey_date_restaurant_2', '#survey_date_restaurant_3');
+				renderNewInput('#survey_lunch_restaurant_1', '#survey_lunch_restaurant_2');
+				renderNewInput('#survey_lunch_restaurant_2', '#survey_lunch_restaurant_3');
+				renderNewInput('#survey_date_night_1', '#survey_date_night_2');
+				renderNewInput('#survey_date_night_2', '#survey_date_night_3');
+				renderNewInput('#survey_public_place_1', '#survey_public_place_2');
+				renderNewInput('#survey_public_place_2', '#survey_public_place_3');
+				renderNewInput('#survey_do_for_fun_1', '#survey_do_for_fun_2');
+				renderNewInput('#survey_do_for_fun_2', '#survey_do_for_fun_3');
+				renderNewInput('#survey_cultural_things_1', '#survey_cultural_things_2');
+				renderNewInput('#survey_cultural_things_2', '#survey_cultural_things_3');
+			});
+			</script>
+		<% end %>

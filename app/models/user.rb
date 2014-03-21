@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :neighborhood_thoughts
   has_many :inquiries
-  
+  has_many :surveys
+    
   acts_as_reader
   acts_as_follower
   acts_as_followable

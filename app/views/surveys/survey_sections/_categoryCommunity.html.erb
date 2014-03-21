@@ -1,0 +1,202 @@
+		<div id="categoryCommunity" class='hidden'>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :gym_1 %>
+				    <%= @form.text_field :gym_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :gym_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :gym_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :religious_1 %>
+				    <%= @form.text_field :religious_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :religious_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :religious_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :good_area_1 %>
+				    <%= @form.text_field :good_area_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :good_area_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :good_area_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :bad_area_1 %>
+				    <%= @form.text_field :bad_area_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :bad_area_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :bad_area_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :bad_traffic_1 %>
+				    <%= @form.text_field :bad_traffic_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :bad_traffic_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :bad_traffic_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+
+					<div class="form-group">
+				    <%= @form.label :good_commute_1 %>
+				    <%= @form.text_field :good_commute_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :good_commute_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :good_commute_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :apt_complex_1 %>
+				    <%= @form.text_field :apt_complex_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :apt_complex_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :apt_complex_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+		  	<%= @form.radio_button :cost_of_living, 'Very low' %>
+			<%= @form.label :cost_of_living, 'Very low' %>
+		  	<%= @form.radio_button :cost_of_living, 'Low' %>
+			<%= @form.label :cost_of_living, 'Low' %>
+		  	<%= @form.radio_button :cost_of_living, 'Average' %>
+			<%= @form.label :cost_of_living, 'Average' %>
+		  	<%= @form.radio_button :cost_of_living, 'High' %>
+			<%= @form.label :cost_of_living, 'High' %>
+		  	<%= @form.radio_button :cost_of_living, 'Outrageous' %>
+			<%= @form.label :cost_of_living, 'Outrageous' %>
+
+		  	</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :employers_military_1 %>
+				    <%= @form.text_field :employers_military_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :employers_military_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :employers_military_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+
+					<div class="form-group">
+				    <%= @form.label :schools_military_1 %>
+				    <%= @form.text_field :schools_military_1, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				  	<div class="form-group">
+				    <%= @form.text_field :schools_military_2, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.text_field :schools_military_3, :class => 'hidden form-control', :placeholder => '' %>
+				  	</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :involved_strollers %>
+				    <%= @form.text_field :involved_strollers, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :involved_mops %>
+				    <%= @form.text_field :involved_mops, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :involved_volunteering %>
+				    <%= @form.text_field :involved_volunteering, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :involved_breastfeeding %>
+				    <%= @form.text_field :involved_breastfeeding, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :involved_cooking_class %>
+				    <%= @form.text_field :involved_cooking_class, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :involved_group_fitness %>
+				    <%= @form.text_field :involved_group_fitness, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :involved_political %>
+				    <%= @form.text_field :involved_political, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :involved_base_or_command %>
+				    <%= @form.text_field :involved_base_or_command, :class => 'form-control', :placeholder => 'A restaurant' %>
+				  	</div>
+				</div>
+			</div>
+			<div class='form-group'>
+				<%= @form.text_area :whats_missing_community, :class => 'form-control' %>
+			</div>
+
+			</div><!-- /community -->
+			<%= content_for :javascript do %>
+				<script type='text/javascript'>
+				$(document).ready(function(){
+					renderNewInput('#survey_religious_1', '#survey_religious_2');
+					renderNewInput('#survey_religious_2', '#survey_religious_3');
+					renderNewInput('#survey_gym_1', '#survey_gym_2');
+					renderNewInput('#survey_gym_2', '#survey_gym_3');
+					renderNewInput('#survey_bad_area_1', '#survey_bad_area_2');
+					renderNewInput('#survey_bad_area_2', '#survey_bad_area_3');
+					renderNewInput('#survey_good_area_1', '#survey_good_area_2');
+					renderNewInput('#survey_good_area_2', '#survey_good_area_3');
+					renderNewInput('#survey_bad_traffic_1', '#survey_bad_traffic_2');
+					renderNewInput('#survey_bad_traffic_2', '#survey_bad_traffic_3');
+					renderNewInput('#survey_good_commute_1', '#survey_good_commute_2');
+					renderNewInput('#survey_good_commute_2', '#survey_good_commute_3');
+					renderNewInput('#survey_apt_complex_1', '#survey_apt_complex_2');
+					renderNewInput('#survey_apt_complex_2', '#survey_apt_complex_3');
+					renderNewInput('#survey_employers_military_1', '#survey_employers_military_2');
+					renderNewInput('#survey_employers_military_2', '#survey_employers_military_3');
+					renderNewInput('#survey_schools_military_1', '#survey_schools_military_2');
+					renderNewInput('#survey_schools_military_2', '#survey_schools_military_3');
+				});
+				</script>
+			<% end %>
