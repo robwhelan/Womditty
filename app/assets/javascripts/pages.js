@@ -14,7 +14,7 @@ var tour = new Tour({
 	"</div>"
 });
 
-var thumbsUpElement = "#" + $('i')[0].id;
+//var thumbsUpElement = "#" + $('i')[0].id;
 
 tour.addSteps([
   {

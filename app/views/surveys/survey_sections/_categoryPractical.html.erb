@@ -1,129 +1,138 @@
-		<div id="categoryPractical" class='hidden'>
+<div id="categoryPractical" class='hidden'>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+		<%= render 'surveys/survey_sections/triple_string', 
+		 			:form => @form, 
+					:label => 'Good grocery stores in the area:',
+					:placeholder => 'Grocery store', 
+					:field_1 => :grocery_store_1, 
+					:field_2 => :grocery_store_2,
+					:field_3 => :grocery_store_3,
+					:div_2 => 'grocery_store_div_2', 
+					:div_3 => 'grocery_store_div_3', 
+					:button_1 => 'survey_grocery_store_button_1',
+					:button_2 => 'survey_grocery_store_button_2' %>
+
+		<%= render 'surveys/survey_sections/triple_string', 
+		 			:form => @form, 
+					:label => 'Drug stores that you use',
+					:placeholder => 'Drug store', 
+					:field_1 => :drug_store_1, 
+					:field_2 => :drug_store_2,
+					:field_3 => :drug_store_3,
+					:div_2 => 'drug_store_div_2', 
+					:div_3 => 'drug_store_div_3', 
+					:button_1 => 'survey_drug_store_button_1',
+					:button_2 => 'survey_drug_store_button_2' %>
+
+		<%= render 'surveys/survey_sections/triple_string', 
+		 			:form => @form, 
+					:label => 'Big general stores you like', 
+					:placeholder => 'Walmart, Target, Kmart, etc',
+					:field_1 => :walmart_1, 
+					:field_2 => :walmart_2,
+					:field_3 => :walmart_3,
+					:div_2 => 'walmart_div_2', 
+					:div_3 => 'walmart_div_3', 
+					:button_1 => 'survey_walmart_button_1',
+					:button_2 => 'survey_walmart_button_2' %>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+		<%= render 'surveys/survey_sections/triple_string', 
+		 			:form => @form, 
+					:label => 'Can you recommend some good hairdressers?',
+					:placeholder => 'Hairdresser', 
+					:field_1 => :hairdresser_1, 
+					:field_2 => :hairdresser_2,
+					:field_3 => :hairdresser_3,
+					:div_2 => 'hairdresser_div_2', 
+					:div_3 => 'hairdresser_div_3', 
+					:button_1 => 'survey_hairdresser_button_1',
+					:button_2 => 'survey_hairdresser_button_2' %>
+
+		<%= render 'surveys/survey_sections/triple_string', 
+		 			:form => @form, 
+					:label => 'How about a good spa?', 
+					:placeholder => 'Spa', 
+					:field_1 => :spa_1, 
+					:field_2 => :spa_2,
+					:field_3 => :spa_3,
+					:div_2 => 'spa_div_2', 
+					:div_3 => 'spa_div_3', 
+					:button_1 => 'survey_spa_button_1',
+					:button_2 => 'survey_spa_button_2' %>
+
+		<%= render 'surveys/survey_sections/triple_string', 
+		 			:form => @form, 
+					:label => 'A good nail place or somewhere to get a wax?',
+					:placeholder => 'Nail place',
+					:field_1 => :nail_place_1, 
+					:field_2 => :nail_place_2,
+					:field_3 => :nail_place_3,
+					:div_2 => 'nail_place_div_2', 
+					:div_3 => 'nail_place_div_3', 
+					:button_1 => 'survey_nail_place_button_1',
+					:button_2 => 'survey_nail_place_button_2' %>
+		</div>
+	</div>
+
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="form-group">
-				    <%= @form.label :grocery_store_1 %>
-				    <%= @form.text_field :grocery_store_1, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				  	<div class="form-group">
-				    <%= @form.text_field :grocery_store_2, :class => 'hidden form-control', :placeholder => '' %>
+				    <%= @form.label 'Favorite coffee shop?' %>
+				    <%= @form.text_field :coffee, :class => 'form-control countable', :placeholder => 'Coffee shop' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.text_field :grocery_store_3, :class => 'hidden form-control', :placeholder => '' %>
-				  	</div>
-
-					<div class="form-group">
-				    <%= @form.label :drug_store_1 %>
-				    <%= @form.text_field :drug_store_1, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				  	<div class="form-group">
-				    <%= @form.text_field :drug_store_2, :class => 'hidden form-control', :placeholder => '' %>
-				  	</div>
-					<div class="form-group">
-				    <%= @form.text_field :drug_store_3, :class => 'hidden form-control', :placeholder => '' %>
-				  	</div>
-
-					<div class="form-group">
-				    <%= @form.label :walmart_1 %>
-				    <%= @form.text_field :walmart_1, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				  	<div class="form-group">
-				    <%= @form.text_field :walmart_2, :class => 'hidden form-control', :placeholder => '' %>
-				  	</div>
-					<div class="form-group">
-				    <%= @form.text_field :walmart_3, :class => 'hidden form-control', :placeholder => '' %>
+				    <%= @form.label 'Go-to fast food place?' %>
+				    <%= @form.text_field :fast_food, :class => 'form-control countable', :placeholder => 'Fast food' %>
 				  	</div>
 				</div>
 			</div>
 
 			<div class="panel panel-default">
 				<div class="panel-body">
+					<p>Can you recommend a...</p>
 					<div class="form-group">
-				    <%= @form.label :hairdresser_1 %>
-				    <%= @form.text_field :hairdresser_1, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				  	<div class="form-group">
-				    <%= @form.text_field :hairdresser_2, :class => 'hidden form-control', :placeholder => '' %>
+				    <%= @form.label 'Dry cleaner' %>
+				    <%= @form.text_field :dry_cleaner, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.text_field :hairdresser_3, :class => 'hidden form-control', :placeholder => '' %>
-				  	</div>
-
-					<div class="form-group">
-				    <%= @form.label :spa_1 %>
-				    <%= @form.text_field :spa_1, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				  	<div class="form-group">
-				    <%= @form.text_field :spa_2, :class => 'hidden form-control', :placeholder => '' %>
+				    <%= @form.label 'Hardware store' %>
+				    <%= @form.text_field :hardware, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.text_field :spa_3, :class => 'hidden form-control', :placeholder => '' %>
-				  	</div>
-
-					<div class="form-group">
-				    <%= @form.label :nail_place_1 %>
-				    <%= @form.text_field :nail_place_1, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				  	<div class="form-group">
-				    <%= @form.text_field :nail_place_2, :class => 'hidden form-control', :placeholder => '' %>
+				    <%= @form.label 'Handyman' %>
+				    <%= @form.text_field :handyman, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.text_field :nail_place_3, :class => 'hidden form-control', :placeholder => '' %>
+				    <%= @form.label 'Craft store' %>
+				    <%= @form.text_field :craft, :class => 'form-control countable' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Office supply store' %>
+				    <%= @form.text_field :office, :class => 'form-control countable' %>
 				  	</div>
 				</div>
 			</div>
 
 			<div class="panel panel-default">
 				<div class="panel-body">
+					<p>Where do you like to shop for:
 					<div class="form-group">
-				    <%= @form.label :coffee %>
-				    <%= @form.text_field :coffee, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'Clothing' %>
+				    <%= @form.text_field :clothing, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.label :fast_food %>
-				    <%= @form.text_field :fast_food, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div class="form-group">
-				    <%= @form.label :dry_cleaner %>
-				    <%= @form.text_field :dry_cleaner, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'Shoes' %>
+				    <%= @form.text_field :shoe, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.label :hardware %>
-				    <%= @form.text_field :hardware, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-					<div class="form-group">
-				    <%= @form.label :handyman %>
-				    <%= @form.text_field :handyman, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-					<div class="form-group">
-				    <%= @form.label :craft %>
-				    <%= @form.text_field :craft, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-					<div class="form-group">
-				    <%= @form.label :office %>
-				    <%= @form.text_field :office, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div class="form-group">
-				    <%= @form.label :clothing %>
-				    <%= @form.text_field :clothing, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-					<div class="form-group">
-				    <%= @form.label :shoe %>
-				    <%= @form.text_field :shoe, :class => 'form-control', :placeholder => 'A restaurant' %>
-				  	</div>
-					<div class="form-group">
-				    <%= @form.label :pet %>
-				    <%= @form.text_field :pet, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'Your pet' %>
+				    <%= @form.text_field :pet, :class => 'form-control countable' %>
 				  	</div>
 				</div>
 			</div>
@@ -133,48 +142,51 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="form-group">
-						    <%= @form.label :cable_provider %>
-						    <%= @form.text_field :cable_provider, :class => 'form-control', :placeholder => 'A restaurant' %>
+						    <%= @form.label 'Who is your cable provider?' %>
+						    <%= @form.text_field :cable_provider, :class => 'form-control countable' %>
 						  	</div>
 							<div class="form-group">
-						    <%= @form.label :monthly_cable_bill %>
-						    <%= @form.number_field :monthly_cable_bill, :class => 'form-control', :placeholder => 'A restaurant' %>
+						    <%= @form.label 'Monthly cable bill' %>
+						    <%= @form.number_field :monthly_cable_bill, :class => 'form-control countable' %>
 						  	</div>
 						</div>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="form-group">
-						    <%= @form.label :electric_company %>
-						    <%= @form.text_field :electric_company, :class => 'form-control', :placeholder => 'A restaurant' %>
+						    <%= @form.label 'Electric company' %>
+						    <%= @form.text_field :electric_company, :class => 'form-control countable' %>
 						  	</div>
 							<div class="form-group">
-						    <%= @form.label :monthly_electrical_bill %>
-						    <%= @form.number_field :monthly_electrical_bill, :class => 'form-control', :placeholder => 'A restaurant' %>
-						  	</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<div class="form-group">
-						    <%= @form.label :gas_company %>
-						    <%= @form.text_field :gas_company, :class => 'form-control', :placeholder => 'A restaurant' %>
-						  	</div>
-							<div class="form-group">
-						    <%= @form.label :monthly_gas_bill %>
-						    <%= @form.number_field :monthly_gas_bill, :class => 'form-control', :placeholder => 'A restaurant' %>
+						    <%= @form.label 'Monthly electrical bill' %>
+						    <%= @form.number_field :monthly_electrical_bill, :class => 'form-control countable' %>
 						  	</div>
 						</div>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="form-group">
-						    <%= @form.label :cell_phone_provider %>
-						    <%= @form.text_field :cell_phone_provider, :class => 'form-control', :placeholder => 'A restaurant' %>
+						    <%= @form.label 'Gas company' %>
+						    <%= @form.text_field :gas_company, :class => 'form-control countable' %>
 						  	</div>
 							<div class="form-group">
-						    <%= @form.label :cell_phone_reception %>
-						    <%= @form.text_field :cell_phone_reception, :class => 'form-control', :placeholder => 'need to make radio buttons' %>
+						    <%= @form.label 'Monthly gas bill' %>
+						    <%= @form.number_field :monthly_gas_bill, :class => 'form-control countable' %>
+						  	</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="form-group">
+						    <%= @form.label 'Cell phone provider' %>
+						    <%= @form.text_field :cell_phone_provider, :class => 'form-control countable' %>
+						  	</div>
+							<div class="form-group">
+								<p>How's the cell coverage?</p>
+							<%= @form.text_field :cell_phone_reception, :class => 'hidden countable' %>
+							<button type="button" class="clickable reception-btn btn btn-default btn-lg">Bad</button>
+							<button type="button" class="clickable reception-btn btn btn-default btn-lg">Just fine</button>
+							<button type="button" class="clickable reception-btn btn btn-default btn-lg">Great!</button>
 						  	</div>
 						</div>
 					</div>
@@ -184,38 +196,39 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="form-group">
-				    <%= @form.label :hows_the_traffic %>
-				    <%= @form.number_field :hows_the_traffic, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'How is the traffic around town?' %>
+				    <%= @form.number_field :hows_the_traffic, :class => 'form-control countable', :placeholder => 'Say anything you need to say!' %>
 				  	</div>
 
 					<div class="form-group">
-				    <%= @form.label :hows_the_drivers %>
-				    <%= @form.text_field :hows_the_drivers, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'How are the drivers?' %>
+				    <%= @form.text_field :hows_the_drivers, :class => 'form-control countable', :placeholder => 'Feel free to vent...' %>
 				  	</div>
 				</div>
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-body">
+					<p>Please describe the weather in...</p>
 					<div class="form-group">
-				    <%= @form.label :weather_winter %>
-				    <%= @form.text_field :weather_winter, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'Winter' %>
+				    <%= @form.text_field :weather_winter, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.label :weather_spring %>
-				    <%= @form.text_field :weather_spring, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'Spring' %>
+				    <%= @form.text_field :weather_spring, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.label :weather_summer %>
-				    <%= @form.text_field :weather_summer, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'Summer' %>
+				    <%= @form.text_field :weather_summer, :class => 'form-control countable' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.label :weather_fall %>
-				    <%= @form.text_field :weather_fall, :class => 'form-control', :placeholder => 'A restaurant' %>
+				    <%= @form.label 'Fall' %>
+				    <%= @form.text_field :weather_fall, :class => 'form-control countable' %>
 				  	</div>
 				</div>
 			</div>
 			<div class='form-group'>
-				<%= @form.text_area :whats_missing_practical, :class => 'form-control' %>
+				<%= @form.text_area :whats_missing_practical, :class => 'form-control', :placeholder => 'What is missing from this page?' %>
 			</div>
 
 			</div><!-- /practical -->
@@ -223,20 +236,25 @@
 			<%= content_for :javascript do %>
 				<script type='text/javascript'>
 				$(document).ready(function(){
-					renderNewInput('#survey_grocery_store_1', '#survey_grocery_store_2');
-					renderNewInput('#survey_grocery_store_2', '#survey_grocery_store_3');
-					renderNewInput('#survey_drug_store_1', '#survey_drug_store_2');
-					renderNewInput('#survey_drug_store_2', '#survey_drug_store_3');
-					renderNewInput('#survey_walmart_1', '#survey_walmart_2');
-					renderNewInput('#survey_walmart_2', '#survey_walmart_3');
-					renderNewInput('#survey_hairdresser_1', '#survey_hairdresser_2');
-					renderNewInput('#survey_hairdresser_2', '#survey_hairdresser_3');
-					renderNewInput('#survey_hairdresser_1', '#survey_hairdresser_2');
-					renderNewInput('#survey_hairdresser_2', '#survey_hairdresser_3');
-					renderNewInput('#survey_spa_1', '#survey_spa_2');
-					renderNewInput('#survey_spa_2', '#survey_spa_3');
-					renderNewInput('#survey_nail_place_1', '#survey_nail_place_2');
-					renderNewInput('#survey_nail_place_2', '#survey_nail_place_3');
+					renderNewInput('#survey_grocery_store_1', '#grocery_store_div_2', '#survey_grocery_store_2', '#survey_grocery_store_button_1');
+					renderNewInput('#survey_grocery_store_2', '#grocery_store_div_3', '#survey_grocery_store_3', '#survey_grocery_store_button_2');
+					renderNewInput('#survey_drug_store_1', '#drug_store_div_2', '#survey_drug_store_2', '#survey_drug_store_button_1');
+					renderNewInput('#survey_drug_store_2', '#drug_store_div_3', '#survey_drug_store_3', '#survey_drug_store_button_2');
+					renderNewInput('#survey_walmart_1', '#walmart_div_2', '#survey_walmart_2', '#survey_walmart_button_1');
+					renderNewInput('#survey_walmart_2', '#walmart_div_3', '#survey_walmart_3', '#survey_walmart_button_2');
+					renderNewInput('#survey_hairdresser_1', '#hairdresser_div_2', '#survey_hairdresser_2', '#survey_hairdresser_button_1');
+					renderNewInput('#survey_hairdresser_2', '#hairdresser_div_3', '#survey_hairdresser_3', '#survey_hairdresser_button_2');
+					renderNewInput('#survey_spa_1', '#spa_div_2', '#survey_spa_2', '#survey_spa_button_1');
+					renderNewInput('#survey_spa_2', '#spa_div_3', '#survey_spa_3', '#survey_spa_button_2');
+					renderNewInput('#survey_nail_place_1', '#nail_place_div_2', '#survey_nail_place_2', '#survey_nail_place_button_1');
+					renderNewInput('#survey_nail_place_2', '#nail_place_div_3', '#survey_nail_place_3', '#survey_nail_place_button_2');
+
+					$('.reception-btn').click(function(){ 
+						$('.reception-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_cell_phone_reception').val($(this).html());
+				   });
+
 				});
 				</script>
 			<% end %>

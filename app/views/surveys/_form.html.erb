@@ -25,11 +25,12 @@
 <div id='footer' class='container'>
 	<nav class='nav navbar navbar-default navbar-fixed-bottom'>
 		<div class='row' style='margin:0px;'>
-      		<button id='funButton' class='btn btn-primary'>Fun Stuff</button>
-      		<button id='familyButton' class='btn btn-default'>Family and Kids</button>
+      		<button id='funButton' class='btn btn-primary'>Fun</button>
+      		<button id='familyButton' class='btn btn-default'>Family / Kids</button>
       		<button id='communityButton' class='btn btn-default'>Community</button>
-      		<button id='practicalButton' class='btn btn-default'>Practical Stuff</button>
-      		<button id='demographicsButton' class='btn btn-default'>Demographics</button>
+      		<button id='practicalButton' class='btn btn-default'>Practical</button>
+      		<button id='demographicsButton' class='btn btn-default'>Personal</button>
+			<span class='pull-right' style='margin-right:10px;margin-top:-10px;'><span><h3 id='answerCount'>0</h3></span></span>
 			</div><!--/row -->
 		</nav>
 	</div><!-- /footer container -->
@@ -67,9 +68,20 @@
 	    $('#demographicsButton').click(function(){
 	      $('#demographicsButton').addClass('btn-primary');
 	      $('#funButton,#communityButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
-	      $('#categoryDemographics,#submit').addClass('show').removeClass('hidden');
+	      $('#categoryDemographics,#submitButton').addClass('show').removeClass('hidden');
 	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryFun').addClass('hidden');
 	    });
+		
+		$('.countable').blur(function(){
+			countValidAnswers();
+		});
+
+		$('.clickable').click(function(){
+			countValidAnswers();	
+		});
+		
 	  });
+	
+	
 	</script>
 	<% end %>
