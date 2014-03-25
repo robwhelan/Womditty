@@ -1,4 +1,7 @@
 class SurveysController < ApplicationController
+
+  autocomplete :survey, :date_restaurant_1
+
   # GET /surveys
   # GET /surveys.json
   def index

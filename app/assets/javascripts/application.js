@@ -18,3 +18,5 @@
 //= require_tree .
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require autocomplete-rails
+//= require jquery.geocomplete.min.js

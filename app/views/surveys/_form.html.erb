@@ -38,6 +38,9 @@
 
 <%= content_for :javascript do %>
 
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    
+
 	<script type="text/javascript">
 	  $(document).ready(function() {
 	    $('#submitButton').addClass('hidden');
@@ -79,7 +82,14 @@
 		$('.clickable').click(function(){
 			countValidAnswers();	
 		});
-		
+
+      $(function(){
+        $(".countable")
+			.geocomplete({
+	          	types: ["geocode", "establishment"]
+        	})
+      });
+	
 	  });
 	
 	

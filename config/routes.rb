@@ -1,8 +1,9 @@
 Womditty::Application.routes.draw do
 
-  resources :surveys
-
-
+  resources :surveys do
+    get :autocomplete_survey_date_restaurant_1, :on => :collection
+  end
+  
   resources :groups do
     member do
       get :update_posts_by_group
