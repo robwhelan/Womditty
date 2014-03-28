@@ -1,0 +1,60 @@
+	<div class="container">
+
+		<%= render 'surveys/results/resultsFun' %>
+		<%= render 'surveys/results/resultsFamily' %>
+		<%= render 'surveys/results/resultsCommunity' %>
+		<%= render 'surveys/results/resultsPractical' %>
+
+	</div><!-- /container -->
+	<div id='footer' class='container'>
+		<nav class='nav navbar navbar-default navbar-fixed-bottom'>
+			<div class='row' style='margin:0px;'>
+	      		<button id='funButton' class='btn btn-primary'>Fun</button>
+	      		<button id='familyButton' class='btn btn-default'>Family / Kids</button>
+	      		<button id='communityButton' class='btn btn-default'>Community</button>
+	      		<button id='practicalButton' class='btn btn-default'>Practical</button>
+				</div><!--/row -->
+			</nav>
+		</div><!-- /footer container -->
+
+
+	<%= content_for :javascript do %>
+
+		<script type="text/javascript">
+		  $(document).ready(function() {
+		    $('#submitButton').addClass('hidden');
+		    $('#funButton').click(function(){
+		      $('#funButton').addClass('btn-primary');
+		      $('#familyButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+		      $('#categoryFun').addClass('show').removeClass('hidden');
+		      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+		    });
+		    $('#familyButton').click(function(){
+		      $('#familyButton').addClass('btn-primary');
+		      $('#funButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+		      $('#categoryFamily').addClass('show').removeClass('hidden');
+		      $('#categoryFun,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+		    });
+		    $('#communityButton').click(function(){
+		      $('#communityButton').addClass('btn-primary');
+		      $('#funButton,#familyButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+		      $('#categoryCommunity').addClass('show').removeClass('hidden');
+		      $('#categoryFamily,#categoryFun,#categoryPractical,#categoryDemographics').addClass('hidden');
+		    });
+		    $('#practicalButton').click(function(){
+		      $('#practicalButton').addClass('btn-primary');
+		      $('#funButton,#communityButton,#communityButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+		      $('#categoryPractical').addClass('show').removeClass('hidden');
+		      $('#categoryFamily,#categoryCommunity,#categoryFun,#categoryDemographics').addClass('hidden');
+		    });
+		    $('#demographicsButton').click(function(){
+		      $('#demographicsButton').addClass('btn-primary');
+		      $('#funButton,#familyButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
+		      $('#categoryDemographics,#submitButton').addClass('show').removeClass('hidden');
+		      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryFun').addClass('hidden');
+		    });
+
+		  });
+
+		</script>
+		<% end %>

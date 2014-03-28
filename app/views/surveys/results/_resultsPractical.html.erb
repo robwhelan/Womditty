@@ -1,0 +1,86 @@
+<div id="categoryPractical" class="hidden">
+
+	<div class="page-header">
+	  <h1>Charleston <small>Practical Stuff</small></h1>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Essentials</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => 'Grocery Stores', :hash => @grocery_stores %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Drug Stores', :hash => @drug_stores %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Big General Stores', :hash => @walmarts %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Getting Pampered</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => 'Hairdressers', :hash => @hairdressers %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Spas', :hash => @spas %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Nail Places', :hash => @nail_places %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Errands</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => 'Coffee Shops', :hash => @coffee %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Fast Food', :hash => @fast_food %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Dry Cleaners', :hash => @dry_cleaner %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Hardware Stores', :hash => @hardware %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Handymen', :hash => @handyman %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Craft Stores', :hash => @craft %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Office Stores', :hash => @office %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Clothes Shopping', :hash => @clothing %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Shoe Shopping', :hash => @shoe %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Pet Needs', :hash => @pet %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Utilities</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => 'Cable', :hash => @cable_provider %>
+			<%= render 'surveys/results/results_number', :category_name => 'Average Cable Bill', :value => @cable_bill %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Electric Companies', :hash => @electric_company %>
+			<%= render 'surveys/results/results_number', :category_name => 'Average Electrical Bill', :value => @electric_bill %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Gas Companies', :hash => @gas_company %>
+			<%= render 'surveys/results/results_number', :category_name => 'Average Gas (Heating) Bill', :value => @gas_bill %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Cell Phone Providers', :hash => @cell_phone_provider %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Cell Reception', :hash => @cell_phone_reception %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Our Fine Roads</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => "How's the Traffic?", :hash => @hows_the_traffic %>
+			<%= render 'surveys/results/results_hash', :category_name => "...And the Drivers?", :hash => @hows_the_drivers %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Our Fine Weather</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => 'Winter', :hash => @weather_winter %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Spring', :hash => @weather_spring %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Summer', :hash => @weather_summer %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Fall', :hash => @weather_fall %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+
+</div>

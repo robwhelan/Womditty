@@ -1,0 +1,11 @@
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title"><%= category_name %><small> by popularity</small></h3>
+	  	</div>
+		<div class="panel-body">
+			<% hash.each do |pair| %>
+				<p><%= pair[0] %></p>
+				<% end %>
+
+		</div><!-- /panel body -->
+	</div><!-- /panel -->

@@ -1,0 +1,7 @@
+<p>Easiest! Log in to Womditty with Facebook:</p>
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+	<%= link_to image_tag('facebook-login-button.png'), omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+<% end -%>
+<hr/>

@@ -1,0 +1,106 @@
+<div class="container">
+<%= form_for(@survey) do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+      <% @survey.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<% @form = f %>
+	<%= render 'surveys/survey_sections/categoryFun' %>
+	<%= render 'surveys/survey_sections/categoryFamily' %>
+	<%= render 'surveys/survey_sections/categoryCommunity' %>
+	<%= render 'surveys/survey_sections/categoryPractical' %>
+	<%= render 'surveys/survey_sections/categoryDemographics' %>
+
+	<%= f.hidden_field :user_id, :value => 1 %>
+<% end %>
+</div><!-- /container -->
+<div id='footer' class='container'>
+	<nav class='nav navbar navbar-default navbar-fixed-bottom'>
+		<div class='row' style='margin:0px;'>
+      		<button id='funButton' class='btn btn-primary'>Fun</button>
+      		<button id='familyButton' class='btn btn-default'>Family</button>
+      		<button id='communityButton' class='btn btn-default'>Community</button>
+      		<button id='practicalButton' class='btn btn-default'>Practical</button>
+      		<button id='demographicsButton' class='btn btn-default'>Personal</button>
+			<span class='pull-right' style='margin-right:10px;margin-top:-10px;'><span><h3 id='answerCount'>0 Points</h3></span></span>
+			</div><!--/row -->
+		</nav>
+	</div><!-- /footer container -->
+		
+
+<%= content_for :javascript do %>
+
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    
+
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	    $('#submitButton').addClass('hidden');
+	    $('#funButton').click(function(){
+	      $('#funButton').addClass('btn-primary');
+	      $('#familyButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryFun').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#familyButton').click(function(){
+	      $('#familyButton').addClass('btn-primary');
+	      $('#funButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryFamily').addClass('show').removeClass('hidden');
+	      $('#categoryFun,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#communityButton').click(function(){
+	      $('#communityButton').addClass('btn-primary');
+	      $('#funButton,#familyButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryCommunity').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryFun,#categoryPractical,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#practicalButton').click(function(){
+	      $('#practicalButton').addClass('btn-primary');
+	      $('#funButton,#communityButton,#communityButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryPractical').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryCommunity,#categoryFun,#categoryDemographics').addClass('hidden');
+	    });
+	    $('#demographicsButton').click(function(){
+	      $('#demographicsButton').addClass('btn-primary');
+	      $('#funButton,#familyButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#categoryDemographics,#submitButton').addClass('show').removeClass('hidden');
+	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryFun').addClass('hidden');
+	    });
+		
+		$('.countable').blur(function(){
+			countValidAnswers();
+		});
+
+		$('.clickable').click(function(){
+			countValidAnswers();	
+		});
+
+	      $(function(){
+	        $(".placeable")
+				.geocomplete({
+		          	types: ["geocode", "establishment"],
+	        	})
+	      });
+
+		$('#survey_email').blur(function(){
+			var url = '/surveys/pre_save_email?email=' + $(this).val();
+			$.get(url);
+		});
+	
+		$('#new_survey').validate({
+	        ignore: [],
+		});
+	
+	  });
+	
+	
+	</script>
+	<% end %>

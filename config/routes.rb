@@ -1,7 +1,11 @@
 Womditty::Application.routes.draw do
 
-  mount Surveyor::Engine => "/surveys", :as => "surveyor"
-
+  resources :surveys do
+    collection do
+      get :pre_save_email
+    end
+  end
+  
   resources :groups do
     member do
       get :update_posts_by_group
@@ -89,7 +93,7 @@ Womditty::Application.routes.draw do
 
   get 'tags/:tag', to: 'places#index', as: :tag
 
-  root :to => "pages#chat"
+  root :to => "surveys#new"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140317145567) do
+ActiveRecord::Schema.define(:version => 20140328151304) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -29,33 +29,6 @@ ActiveRecord::Schema.define(:version => 20140317145567) do
   add_index "activities", ["owner_id", "owner_type"], :name => "index_activities_on_owner_id_and_owner_type"
   add_index "activities", ["recipient_id", "recipient_type"], :name => "index_activities_on_recipient_id_and_recipient_type"
   add_index "activities", ["trackable_id", "trackable_type"], :name => "index_activities_on_trackable_id_and_trackable_type"
-
-  create_table "answers", :force => true do |t|
-    t.integer  "question_id"
-    t.text     "text"
-    t.text     "short_text"
-    t.text     "help_text"
-    t.integer  "weight"
-    t.string   "response_class"
-    t.string   "reference_identifier"
-    t.string   "data_export_identifier"
-    t.string   "common_namespace"
-    t.string   "common_identifier"
-    t.integer  "display_order"
-    t.boolean  "is_exclusive"
-    t.integer  "display_length"
-    t.string   "custom_class"
-    t.string   "custom_renderer"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.string   "default_value"
-    t.string   "api_id"
-    t.string   "display_type"
-    t.string   "input_mask"
-    t.string   "input_mask_placeholder"
-  end
-
-  add_index "answers", ["api_id"], :name => "uq_answers_api_id", :unique => true
 
   create_table "career_specialties", :force => true do |t|
     t.string   "name"
@@ -125,31 +98,6 @@ ActiveRecord::Schema.define(:version => 20140317145567) do
   add_index "coordinates", ["duty_station_id"], :name => "index_coordinates_on_duty_station_id"
   add_index "coordinates", ["neighborhood_id"], :name => "index_coordinates_on_neighborhood_id"
   add_index "coordinates", ["place_id"], :name => "index_coordinates_on_place_id"
-
-  create_table "dependencies", :force => true do |t|
-    t.integer  "question_id"
-    t.integer  "question_group_id"
-    t.string   "rule"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
-
-  create_table "dependency_conditions", :force => true do |t|
-    t.integer  "dependency_id"
-    t.string   "rule_key"
-    t.integer  "question_id"
-    t.string   "operator"
-    t.integer  "answer_id"
-    t.datetime "datetime_value"
-    t.integer  "integer_value"
-    t.float    "float_value"
-    t.string   "unit"
-    t.text     "text_value"
-    t.string   "string_value"
-    t.string   "response_other"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
 
   create_table "duty_stations", :force => true do |t|
     t.string   "name"
@@ -414,47 +362,11 @@ ActiveRecord::Schema.define(:version => 20140317145567) do
   add_index "posts", ["place_id"], :name => "index_posts_on_place_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
-  create_table "question_groups", :force => true do |t|
-    t.text     "text"
-    t.text     "help_text"
-    t.string   "reference_identifier"
-    t.string   "data_export_identifier"
-    t.string   "common_namespace"
-    t.string   "common_identifier"
-    t.string   "display_type"
-    t.string   "custom_class"
-    t.string   "custom_renderer"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.string   "api_id"
+  create_table "pre_emails", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "question_groups", ["api_id"], :name => "uq_question_groups_api_id", :unique => true
-
-  create_table "questions", :force => true do |t|
-    t.integer  "survey_section_id"
-    t.integer  "question_group_id"
-    t.text     "text"
-    t.text     "short_text"
-    t.text     "help_text"
-    t.string   "pick"
-    t.string   "reference_identifier"
-    t.string   "data_export_identifier"
-    t.string   "common_namespace"
-    t.string   "common_identifier"
-    t.integer  "display_order"
-    t.string   "display_type"
-    t.boolean  "is_mandatory"
-    t.integer  "display_width"
-    t.string   "custom_class"
-    t.string   "custom_renderer"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.integer  "correct_answer_id"
-    t.string   "api_id"
-  end
-
-  add_index "questions", ["api_id"], :name => "uq_questions_api_id", :unique => true
 
   create_table "read_marks", :force => true do |t|
     t.integer  "readable_id"
@@ -464,41 +376,6 @@ ActiveRecord::Schema.define(:version => 20140317145567) do
   end
 
   add_index "read_marks", ["user_id", "readable_type", "readable_id"], :name => "index_read_marks_on_user_id_and_readable_type_and_readable_id"
-
-  create_table "response_sets", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "survey_id"
-    t.string   "access_code"
-    t.datetime "started_at"
-    t.datetime "completed_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.string   "api_id"
-  end
-
-  add_index "response_sets", ["access_code"], :name => "response_sets_ac_idx", :unique => true
-  add_index "response_sets", ["api_id"], :name => "uq_response_sets_api_id", :unique => true
-
-  create_table "responses", :force => true do |t|
-    t.integer  "response_set_id"
-    t.integer  "question_id"
-    t.integer  "answer_id"
-    t.datetime "datetime_value"
-    t.integer  "integer_value"
-    t.float    "float_value"
-    t.string   "unit"
-    t.text     "text_value"
-    t.string   "string_value"
-    t.string   "response_other"
-    t.string   "response_group"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "survey_section_id"
-    t.string   "api_id"
-  end
-
-  add_index "responses", ["api_id"], :name => "uq_responses_api_id", :unique => true
-  add_index "responses", ["survey_section_id"], :name => "index_responses_on_survey_section_id"
 
   create_table "reviews", :force => true do |t|
     t.text     "body"
@@ -514,20 +391,6 @@ ActiveRecord::Schema.define(:version => 20140317145567) do
   add_index "reviews", ["place_id"], :name => "index_reviews_on_place_id"
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
-  create_table "survey_sections", :force => true do |t|
-    t.integer  "survey_id"
-    t.string   "title"
-    t.text     "description"
-    t.string   "reference_identifier"
-    t.string   "data_export_identifier"
-    t.string   "common_namespace"
-    t.string   "common_identifier"
-    t.integer  "display_order"
-    t.string   "custom_class"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-  end
-
   create_table "survey_translations", :force => true do |t|
     t.integer  "survey_id"
     t.string   "locale"
@@ -537,26 +400,197 @@ ActiveRecord::Schema.define(:version => 20140317145567) do
   end
 
   create_table "surveys", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "access_code"
-    t.string   "reference_identifier"
-    t.string   "data_export_identifier"
-    t.string   "common_namespace"
-    t.string   "common_identifier"
-    t.datetime "active_at"
-    t.datetime "inactive_at"
-    t.string   "css_url"
-    t.string   "custom_class"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.integer  "display_order"
-    t.string   "api_id"
-    t.integer  "survey_version",         :default => 0
+    t.integer  "user_id"
+    t.string   "date_restaurant_1"
+    t.string   "date_restaurant_2"
+    t.string   "date_restaurant_3"
+    t.string   "lunch_restaurant_1"
+    t.string   "lunch_restaurant_2"
+    t.string   "lunch_restaurant_3"
+    t.string   "date_night_1"
+    t.string   "date_night_2"
+    t.string   "date_night_3"
+    t.string   "public_place_1"
+    t.string   "public_place_2"
+    t.string   "public_place_3"
+    t.string   "do_for_fun_1"
+    t.string   "do_for_fun_2"
+    t.string   "do_for_fun_3"
+    t.string   "cultural_things_1"
+    t.string   "cultural_things_2"
+    t.string   "cultural_things_3"
+    t.string   "doctor_obgyn"
+    t.string   "doctor_pediatrician"
+    t.string   "doctor_general"
+    t.string   "doctor_chiropractor"
+    t.string   "doctor_earnosethroat"
+    t.string   "doctor_vet"
+    t.string   "doctor_other"
+    t.string   "deliver_baby_1"
+    t.string   "deliver_baby_2"
+    t.string   "deliver_baby_3"
+    t.string   "childcare_1"
+    t.string   "childcare_2"
+    t.string   "childcare_3"
+    t.string   "babysitter_pay"
+    t.string   "family_restaurant_1"
+    t.string   "family_restaurant_2"
+    t.string   "family_restaurant_3"
+    t.string   "family_restaurant_4"
+    t.string   "family_restaurant_5"
+    t.string   "kid_activity_1"
+    t.string   "kid_activity_2"
+    t.string   "kid_activity_3"
+    t.string   "kid_activity_4"
+    t.string   "kid_activity_5"
+    t.string   "good_school_1"
+    t.string   "good_school_2"
+    t.string   "good_school_3"
+    t.string   "bad_school_1"
+    t.string   "bad_school_2"
+    t.string   "bad_school_3"
+    t.string   "contact_gymnastics"
+    t.string   "contact_dance"
+    t.string   "contact_karate"
+    t.string   "contact_ballet"
+    t.string   "contact_baseball"
+    t.string   "contact_basketball"
+    t.string   "contact_soccer"
+    t.string   "contact_football"
+    t.string   "contact_lacrosse"
+    t.string   "contact_music"
+    t.string   "contact_art"
+    t.string   "contact_swimming"
+    t.string   "contact_any_other_kid_stuff"
+    t.string   "gym_1"
+    t.string   "gym_2"
+    t.string   "gym_3"
+    t.string   "religious_1"
+    t.string   "religious_2"
+    t.string   "religious_3"
+    t.string   "bad_area_1"
+    t.string   "bad_area_2"
+    t.string   "bad_area_3"
+    t.string   "good_area_1"
+    t.string   "good_area_2"
+    t.string   "good_area_3"
+    t.string   "bad_traffic_1"
+    t.string   "bad_traffic_2"
+    t.string   "bad_traffic_3"
+    t.string   "good_commute_1"
+    t.string   "good_commute_2"
+    t.string   "good_commute_3"
+    t.string   "apt_complex_1"
+    t.string   "apt_complex_2"
+    t.string   "apt_complex_3"
+    t.string   "cost_of_living"
+    t.string   "employers_military_1"
+    t.string   "employers_military_2"
+    t.string   "employers_military_3"
+    t.string   "schools_military_1"
+    t.string   "schools_military_2"
+    t.string   "schools_military_3"
+    t.string   "involved_strollers"
+    t.string   "involved_mops"
+    t.string   "involved_volunteering"
+    t.string   "involved_breastfeeding"
+    t.string   "involved_cooking_class"
+    t.string   "involved_group_fitness"
+    t.string   "involved_political"
+    t.string   "involved_base_or_command"
+    t.string   "grocery_store_1"
+    t.string   "grocery_store_2"
+    t.string   "grocery_store_3"
+    t.string   "drug_store_1"
+    t.string   "drug_store_2"
+    t.string   "drug_store_3"
+    t.string   "walmart_1"
+    t.string   "walmart_2"
+    t.string   "walmart_3"
+    t.string   "hairdresser_1"
+    t.string   "hairdresser_2"
+    t.string   "hairdresser_3"
+    t.string   "spa_1"
+    t.string   "spa_2"
+    t.string   "spa_3"
+    t.string   "nail_place_1"
+    t.string   "nail_place_2"
+    t.string   "nail_place_3"
+    t.string   "coffee"
+    t.string   "dry_cleaner"
+    t.string   "fast_food"
+    t.string   "hardware"
+    t.string   "craft"
+    t.string   "office"
+    t.string   "clothing"
+    t.string   "shoe"
+    t.string   "pet"
+    t.string   "handyman"
+    t.string   "cell_phone_provider"
+    t.string   "cable_provider"
+    t.integer  "monthly_cable_bill"
+    t.string   "electric_company"
+    t.integer  "monthly_electrical_bill"
+    t.string   "gas_company"
+    t.integer  "monthly_gas_bill"
+    t.string   "hows_the_traffic"
+    t.string   "hows_the_drivers"
+    t.string   "weather_winter"
+    t.string   "weather_spring"
+    t.string   "weather_summer"
+    t.string   "weather_fall"
+    t.integer  "city_id"
+    t.string   "neighborhood"
+    t.integer  "zipcode"
+    t.string   "education_level"
+    t.string   "gender"
+    t.string   "self_military_employment"
+    t.string   "self_branch"
+    t.string   "self_command"
+    t.integer  "self_commute"
+    t.string   "self_rank"
+    t.boolean  "self_marital_status"
+    t.string   "spouse_military_employment"
+    t.string   "spouse_branch"
+    t.string   "spouse_command"
+    t.integer  "spouse_commute"
+    t.string   "spouse_rank"
+    t.string   "annual_household_income"
+    t.boolean  "kid_status"
+    t.integer  "kid_number"
+    t.string   "own_or_rent"
+    t.integer  "square_feet_rental"
+    t.integer  "square_feet_house"
+    t.integer  "mothly_rent"
+    t.string   "recommend_rent_or_buy"
+    t.string   "nearby_home_value"
+    t.string   "age_of_homes"
+    t.string   "yard_size"
+    t.boolean  "is_there_POA"
+    t.string   "POA_behavior"
+    t.string   "subdivision"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "car_gas_expense"
+    t.datetime "survey_start_at"
+    t.datetime "survey_complete_at"
+    t.time     "survey_duration"
+    t.string   "self_rank_class"
+    t.string   "spouse_rank_class"
+    t.text     "whats_missing_fun"
+    t.text     "whats_missing_family"
+    t.text     "whats_missing_community"
+    t.text     "whats_missing_practical"
+    t.text     "whats_missing_demographics"
+    t.string   "new_city_name"
+    t.string   "cell_phone_reception"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
-  add_index "surveys", ["access_code", "survey_version"], :name => "surveys_access_code_version_idx", :unique => true
-  add_index "surveys", ["api_id"], :name => "uq_surveys_api_id", :unique => true
+  add_index "surveys", ["city_id"], :name => "index_surveys_on_city_id"
+  add_index "surveys", ["user_id"], :name => "index_surveys_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -671,32 +705,6 @@ ActiveRecord::Schema.define(:version => 20140317145567) do
   add_index "users", ["military_branch_id"], :name => "index_users_on_military_branch_id"
   add_index "users", ["neighborhood_id"], :name => "index_users_on_neighborhood_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "validation_conditions", :force => true do |t|
-    t.integer  "validation_id"
-    t.string   "rule_key"
-    t.string   "operator"
-    t.integer  "question_id"
-    t.integer  "answer_id"
-    t.datetime "datetime_value"
-    t.integer  "integer_value"
-    t.float    "float_value"
-    t.string   "unit"
-    t.text     "text_value"
-    t.string   "string_value"
-    t.string   "response_other"
-    t.string   "regexp"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  create_table "validations", :force => true do |t|
-    t.integer  "answer_id"
-    t.string   "rule"
-    t.string   "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "vendors", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
