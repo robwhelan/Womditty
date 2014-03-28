@@ -26,11 +26,11 @@
 	<nav class='nav navbar navbar-default navbar-fixed-bottom'>
 		<div class='row' style='margin:0px;'>
       		<button id='funButton' class='btn btn-primary'>Fun</button>
-      		<button id='familyButton' class='btn btn-default'>Family / Kids</button>
+      		<button id='familyButton' class='btn btn-default'>Family</button>
       		<button id='communityButton' class='btn btn-default'>Community</button>
       		<button id='practicalButton' class='btn btn-default'>Practical</button>
       		<button id='demographicsButton' class='btn btn-default'>Personal</button>
-			<span class='pull-right' style='margin-right:10px;margin-top:-10px;'><span><h3 id='answerCount'>0</h3></span></span>
+			<span class='pull-right' style='margin-right:10px;margin-top:-10px;'><span><h3 id='answerCount'>0 Points</h3></span></span>
 			</div><!--/row -->
 		</nav>
 	</div><!-- /footer container -->
@@ -70,7 +70,7 @@
 	    });
 	    $('#demographicsButton').click(function(){
 	      $('#demographicsButton').addClass('btn-primary');
-	      $('#funButton,#communityButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
+	      $('#funButton,#familyButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
 	      $('#categoryDemographics,#submitButton').addClass('show').removeClass('hidden');
 	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryFun').addClass('hidden');
 	    });
@@ -83,12 +83,21 @@
 			countValidAnswers();	
 		});
 
-      $(function(){
-        $(".countable")
-			.geocomplete({
-	          	types: ["geocode", "establishment"]
-        	})
-      });
+	      $(function(){
+	        $(".placeable")
+				.geocomplete({
+		          	types: ["geocode", "establishment"],
+	        	})
+	      });
+
+		$('#survey_email').blur(function(){
+			var url = '/surveys/pre_save_email?email=' + $(this).val();
+			$.get(url);
+		});
+	
+		$('#new_survey').validate({
+	        ignore: [],
+		});
 	
 	  });
 	

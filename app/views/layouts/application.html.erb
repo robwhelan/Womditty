@@ -69,13 +69,11 @@
 	   }());
 	</script>
 	<!-- end facebook SDK -->
-<div class="container">
 	<%= render 'layouts/top_menu' if params[:action] == "chat" %>
 
     <%= yield %>
 
 	<%= render 'layouts/bottom_menu' if params[:action] == "chat" %>
-</div>
 
     <!-- Javascripts
     ================================================== -->

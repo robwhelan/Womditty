@@ -1,7 +1,9 @@
 Womditty::Application.routes.draw do
 
   resources :surveys do
-    get :autocomplete_survey_date_restaurant_1, :on => :collection
+    collection do
+      get :pre_save_email
+    end
   end
   
   resources :groups do
@@ -91,7 +93,7 @@ Womditty::Application.routes.draw do
 
   get 'tags/:tag', to: 'places#index', as: :tag
 
-  root :to => "pages#chat"
+  root :to => "surveys#new"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

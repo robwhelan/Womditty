@@ -84,11 +84,11 @@
 				<div class="panel-body">
 					<div class="form-group">
 				    <%= @form.label 'Favorite coffee shop?' %>
-				    <%= @form.text_field :coffee, :class => 'form-control countable', :placeholder => 'Coffee shop' %>
+				    <%= @form.text_field :coffee, :class => 'form-control countable placeable', :placeholder => 'Coffee shop' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Go-to fast food place?' %>
-				    <%= @form.text_field :fast_food, :class => 'form-control countable', :placeholder => 'Fast food' %>
+				    <%= @form.text_field :fast_food, :class => 'form-control countable placeable', :placeholder => 'Fast food' %>
 				  	</div>
 				</div>
 			</div>
@@ -98,23 +98,23 @@
 					<p>Can you recommend a...</p>
 					<div class="form-group">
 				    <%= @form.label 'Dry cleaner' %>
-				    <%= @form.text_field :dry_cleaner, :class => 'form-control countable' %>
+				    <%= @form.text_field :dry_cleaner, :class => 'form-control countable placeable' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Hardware store' %>
-				    <%= @form.text_field :hardware, :class => 'form-control countable' %>
+				    <%= @form.text_field :hardware, :class => 'form-control countable placeable' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Handyman' %>
-				    <%= @form.text_field :handyman, :class => 'form-control countable' %>
+				    <%= @form.text_field :handyman, :class => 'form-control countable placeable' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Craft store' %>
-				    <%= @form.text_field :craft, :class => 'form-control countable' %>
+				    <%= @form.text_field :craft, :class => 'form-control countable placeable' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Office supply store' %>
-				    <%= @form.text_field :office, :class => 'form-control countable' %>
+				    <%= @form.text_field :office, :class => 'form-control countable placeable' %>
 				  	</div>
 				</div>
 			</div>
@@ -124,15 +124,15 @@
 					<p>Where do you like to shop for:
 					<div class="form-group">
 				    <%= @form.label 'Clothing' %>
-				    <%= @form.text_field :clothing, :class => 'form-control countable' %>
+				    <%= @form.text_field :clothing, :class => 'form-control countable placeable' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Shoes' %>
-				    <%= @form.text_field :shoe, :class => 'form-control countable' %>
+				    <%= @form.text_field :shoe, :class => 'form-control countable placeable' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Your pet' %>
-				    <%= @form.text_field :pet, :class => 'form-control countable' %>
+				    <%= @form.text_field :pet, :class => 'form-control countable placeable' %>
 				  	</div>
 				</div>
 			</div>
@@ -143,7 +143,7 @@
 						<div class="panel-body">
 							<div class="form-group">
 						    <%= @form.label 'Who is your cable provider?' %>
-						    <%= @form.text_field :cable_provider, :class => 'form-control countable' %>
+						    <%= @form.text_field :cable_provider, :class => 'form-control countable placeable' %>
 						  	</div>
 							<div class="form-group">
 						    <%= @form.label 'Monthly cable bill' %>
@@ -155,7 +155,7 @@
 						<div class="panel-body">
 							<div class="form-group">
 						    <%= @form.label 'Electric company' %>
-						    <%= @form.text_field :electric_company, :class => 'form-control countable' %>
+						    <%= @form.text_field :electric_company, :class => 'form-control countable placeable' %>
 						  	</div>
 							<div class="form-group">
 						    <%= @form.label 'Monthly electrical bill' %>
@@ -167,7 +167,7 @@
 						<div class="panel-body">
 							<div class="form-group">
 						    <%= @form.label 'Gas company' %>
-						    <%= @form.text_field :gas_company, :class => 'form-control countable' %>
+						    <%= @form.text_field :gas_company, :class => 'form-control countable placeable' %>
 						  	</div>
 							<div class="form-group">
 						    <%= @form.label 'Monthly gas bill' %>
@@ -179,7 +179,7 @@
 						<div class="panel-body">
 							<div class="form-group">
 						    <%= @form.label 'Cell phone provider' %>
-						    <%= @form.text_field :cell_phone_provider, :class => 'form-control countable' %>
+						    <%= @form.text_field :cell_phone_provider, :class => 'form-control countable placeable' %>
 						  	</div>
 							<div class="form-group">
 								<p>How's the cell coverage?</p>
@@ -228,7 +228,7 @@
 				</div>
 			</div>
 			<div class='form-group'>
-				<%= @form.text_area :whats_missing_practical, :class => 'form-control', :placeholder => 'What is missing from this page?' %>
+				<%= @form.text_area :whats_missing_practical, :class => 'form-control', :style => 'height:34px;', :placeholder => 'What is missing from this page?' %>
 			</div>
 
 			</div><!-- /practical -->

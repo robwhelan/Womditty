@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140321205936) do
+ActiveRecord::Schema.define(:version => 20140328151304) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -362,6 +362,12 @@ ActiveRecord::Schema.define(:version => 20140321205936) do
   add_index "posts", ["place_id"], :name => "index_posts_on_place_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
+  create_table "pre_emails", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "read_marks", :force => true do |t|
     t.integer  "readable_id"
     t.integer  "user_id",                     :null => false
@@ -426,7 +432,7 @@ ActiveRecord::Schema.define(:version => 20140321205936) do
     t.string   "childcare_1"
     t.string   "childcare_2"
     t.string   "childcare_3"
-    t.integer  "babysitter_pay"
+    t.string   "babysitter_pay"
     t.string   "family_restaurant_1"
     t.string   "family_restaurant_2"
     t.string   "family_restaurant_3"
@@ -578,6 +584,9 @@ ActiveRecord::Schema.define(:version => 20140321205936) do
     t.text     "whats_missing_demographics"
     t.string   "new_city_name"
     t.string   "cell_phone_reception"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "surveys", ["city_id"], :name => "index_surveys_on_city_id"

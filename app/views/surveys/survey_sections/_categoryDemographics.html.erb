@@ -1,4 +1,10 @@
 		<div id='categoryDemographics' class='hidden' style='margin-bottom:35px;'>
+			<div class="panel panel-default">
+				  <div class="panel-body">
+					<p><strong>As a reminder, your Personal data will not be displayed with your responses. It is only used to segment survey responses after many people have responded. Thank you for taking the survey!</strong></p>
+				</div>
+			</div>
+
 			<div id="cityQuestion" class="panel panel-default">
 				  <div class="panel-body">
 					<div class="form-group">
@@ -12,12 +18,12 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="form-group">
-				    <%= @form.label :neighborhood %>
-				    <%= @form.text_field :neighborhood, :class => 'form-control', :placeholder => 'Neighborhood' %>
+				    <%= @form.label "Neighborhood*" %>
+				    <%= @form.text_field :neighborhood, :class => 'form-control', :placeholder => 'Neighborhood', :required => 'required' %>
 				  	</div>
 					<div class="form-group">
-				    <%= @form.label :zipcode %>
-				    <%= @form.number_field :zipcode, :class => 'form-control', :placeholder => 'Zipcode' %>
+				    <%= @form.label "Zip Code*" %>
+				    <%= @form.number_field :zipcode, :class => 'form-control', :placeholder => 'Zipcode', :required => 'required' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label :subdivision %>
@@ -28,22 +34,22 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="form-group">
-						<p>Gender:</p>
-						<%= @form.text_field :gender, :class => 'hidden' %>
+						<p>Gender*:</p>
 						<button type="button" class="gender-btn btn btn-default btn-lg">Male</button>
 						<button type="button" class="gender-btn btn btn-default btn-lg">Female</button>
+						<%= @form.text_field :gender, :class => 'hidden', :required => 'required' %>
 				  	</div>
 				</div>
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="form-group">
-						<p>Your employment with the military:</p>
-						<%= @form.text_field :self_military_employment, :class => 'hidden' %>
+						<p>Your employment with the military*:</p>
 						<button type="button" id="survey_self_military_employment_active_duty" class="self-mil-employment-btn btn btn-default btn-lg">Active Duty</button>
 						<button type="button" id="survey_self_military_employment_reserves" class="self-mil-employment-btn btn btn-default btn-lg">Reserves</button>
 						<button type="button" id="survey_self_military_employment_civilian_contractor" class="self-mil-employment-btn btn btn-default btn-lg">Civilian Contractor</button>
 						<button type="button" id="survey_self_military_employment_none_of_the_above" class="self-mil-employment-btn btn btn-default btn-lg">None of the Above</button>
+						<%= @form.text_field :self_military_employment, :class => 'hidden', :required => 'required' %>
 				  	</div>
 				<div id="selfMilitaryQuestions" class="hidden panel panel-default">
 					  <div class="panel-body">
@@ -111,11 +117,15 @@
 					$('.self-mil-employment-btn').removeClass('btn-primary').addClass('btn-default');
 					$(this).removeClass('btn-default').addClass('btn-primary');
 			       	$('#survey_self_military_employment').val($(this).html());
+					$('#survey_self_military_employment').removeAttr('required'); // validation
+					$('#new_survey label[for="survey_self_military_employment"]').addClass("hidden"); //validation
 			   	});
 				$('.gender-btn').click(function(){ 
 					$('.gender-btn').removeClass('btn-primary').addClass('btn-default');
 					$(this).removeClass('btn-default').addClass('btn-primary');
 			       	$('#survey_gender').val($(this).html());
+					$('#survey_gender').removeAttr('required'); // validation
+					$('#new_survey label[for="survey_gender"]').addClass("hidden"); //validation
 			   	});
 				$('.self-branch-btn').click(function(){ 
 					$('.self-branch-btn').removeClass('btn-primary').addClass('btn-default');
@@ -153,10 +163,10 @@
 		<div id="marriageStatus" class="panel panel-default">
 			  <div class="panel-body">
 				<div class="form-group">
-					<p>Marital Status:</p>
-					<%= @form.text_field :self_marital_status, :class => 'hidden' %>
+					<p>Marital Status*:</p>
 					<button type="button" id="survey_self_marital_status_married" class="self-marital-status-btn btn btn-default btn-lg">Married</button>
 					<button type="button" id="survey_self_marital_status_not_married" class="self-marital-status-btn btn btn-default btn-lg">Not Married</button>
+					<%= @form.text_field :self_marital_status, :class => 'hidden', :required => 'required' %>
 			  	</div>
 
 			<div id='spouseMilitaryStatus' class="hidden panel panel-default">
@@ -244,7 +254,9 @@
 					$('.self-marital-status-btn').click(function(){ 
 						$('.self-marital-status-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
-				       	$('#survey_marital_status').val($(this).html());
+				       	$('#survey_self_marital_status').val($(this).html());
+						$('#survey_self_marital_status').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_self_marital_status"]').addClass("hidden"); //validation
 				   	});
 					$('.spouse-mil-employment-btn').click(function(){ 
 						$('.spouse-mil-employment-btn').removeClass('btn-primary').addClass('btn-default');
@@ -287,16 +299,15 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="form-group">
-						<p>Your level of education:</p>
-						<%= @form.text_field :education_level, :class => 'hidden' %>
+						<p>Your level of education*:</p>
 						<button type="button" class="education-btn btn btn-default btn-lg">High School</button>
 						<button type="button" class="education-btn btn btn-default btn-lg">College Degree</button>
 						<button type="button" class="education-btn btn btn-default btn-lg">Masters or Professional Degree</button>
 						<button type="button" class="education-btn btn btn-default btn-lg">Doctorate</button>
+						<%= @form.text_field :education_level, :class => 'hidden', :required => 'required' %>
 				  	</div>
 					<div class="form-group">
-						<p>Annual household income:</p>
-						<%= @form.text_field :annual_household_income, :class => 'hidden' %>
+						<p>Annual household income*:</p>
 						<button type="button" class="income-btn btn btn-default btn-lg">$30K or less</button>
 						<button type="button" class="income-btn btn btn-default btn-lg">$40K</button>
 						<button type="button" class="income-btn btn btn-default btn-lg">$50K</button>
@@ -311,6 +322,7 @@
 						<button type="button" class="income-btn btn btn-default btn-lg">$140K</button>
 						<button type="button" class="income-btn btn btn-default btn-lg">$150K</button>
 						<button type="button" class="income-btn btn btn-default btn-lg">More than $150K</button>
+						<%= @form.text_field :annual_household_income, :class => 'hidden', :required => 'required' %>
 				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'What do you spend on gas every month? ($)' %>
@@ -321,10 +333,10 @@
 			<div class="panel panel-default">
 				  <div class="panel-body">
 					<div class="form-group">
-						<p>Do you have any kids?</p>
-						<%= @form.text_field :kid_status, :class => 'hidden' %>
+						<p>Do you have any kids*?</p>
 						<button type="button" id="survey_kid_status_yes" class="kid-btn btn btn-default btn-lg">Yes</button>
 						<button type="button" id="survey_kid_status_no" class="kid-btn btn btn-default btn-lg">No</button>
+						<%= @form.text_field :kid_status, :class => 'hidden', :required => 'required' %>
 				  	</div>
 
 					<div id="kidQuestions" class="hidden panel panel-default">
@@ -357,16 +369,22 @@
 						$('.education-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
 				       	$('#survey_education_level').val($(this).html());
+						$('#survey_education_level').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_education_level"]').addClass("hidden"); //validation
 				   	});					
 					$('.income-btn').click(function(){ 
 						$('.income-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
 				       	$('#survey_annual_household_income').val($(this).html());
+						$('#survey_annual_household_income').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_annual_household_income"]').addClass("hidden"); //validation
 				   	});					
 					$('.kid-btn').click(function(){ 
 						$('.kid-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
 				       	$('#survey_kid_status').val($(this).html());
+						$('#survey_kid_status').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_kid_status"]').addClass("hidden"); //validation
 				   	});					
 					$('.kid-number-btn').click(function(){ 
 						$('.kid-number-btn').removeClass('btn-primary').addClass('btn-default');
@@ -381,11 +399,11 @@
 			<div class="panel panel-default">
 				  <div class="panel-body">
 					<div class="form-group">
-						<p>For housing, do you:</p>
-						<%= @form.text_field :own_or_rent, :class => 'hidden' %>
+						<p>For housing, do you*:</p>
 						<button type="button" id="survey_own_or_rent_own" class="own-btn btn btn-default btn-lg">Own</button>
 						<button type="button" id="survey_own_or_rent_rent" class="own-btn btn btn-default btn-lg">Rent</button>
 						<button type="button" id="survey_own_or_rent_base_housing" class="own-btn btn btn-default btn-lg">Base Housing</button>
+						<%= @form.text_field :own_or_rent, :class => 'hidden', :required => 'required' %>
 				  	</div>
 
 					<div id="rentQuestions" class="hidden panel panel-default">
@@ -476,6 +494,8 @@
 						$('.own-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
 				       	$('#survey_own_or_rent').val($(this).html());
+						$('#survey_own_or_rent').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_own_or_rent"]').addClass("hidden"); //validation
 				   	});					
 					$('.age-of-homes-btn').click(function(){ 
 						$('.age-of-homes-btn').removeClass('btn-primary').addClass('btn-default');
@@ -521,10 +541,10 @@
 			</div>
 
 			<div class='form-group'>
-				<%= @form.text_area :whats_missing_demographics, :class => 'form-control' %>
+				<%= @form.text_area :whats_missing_demographics, :style => 'height:34px;', :placeholder => 'What is missing from this page?', :class => 'form-control' %>
 			</div>
 			<div class="actions">
-		    <%= @form.submit 'You need 50 points', :id => 'submitButton', :class => 'btn btn-large btn-success disabled' %>
+		    <%= @form.submit 'You need 15 points', :id => 'submitButton', :class => 'btn btn-large btn-success disabled' %>
 		  </div>
 		  
 		</div><!-- /demographics -->			
