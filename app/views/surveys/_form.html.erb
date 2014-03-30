@@ -83,13 +83,6 @@
 			countValidAnswers();	
 		});
 
-	      $(function(){
-	        $(".placeable")
-				.geocomplete({
-		          	types: ["geocode", "establishment"],
-	        	})
-	      });
-
 		$('#survey_email').blur(function(){
 			var url = '/surveys/pre_save_email?email=' + $(this).val();
 			$.get(url);
