@@ -63,6 +63,11 @@
 	  });
 	});
 	
+	// for faster tap events on mobile
+	$(function() {
+	    FastClick.attach(document.body);
+	});
+	
 	</script>
 	<%= yield :javascript %>
 	<!-- Google Code for Remarketing Tag -->

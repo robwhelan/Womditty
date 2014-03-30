@@ -20,3 +20,4 @@
 //= require jquery.remotipart
 //= require autocomplete-rails
 //= require jquery.geocomplete.min.js
+//= require fastclick.js
