@@ -394,7 +394,14 @@
 					$('.kid-btn').click(function(){ 
 						$('.kid-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
-				       	$('#survey_kid_status').val($(this).html());
+						if ($(this).html() == "Yes")
+						{
+					       	$('#survey_kid_status').val('1');				
+						}
+						else
+						{
+					       	$('#survey_kid_status').val('0');							
+						}
 						$('#survey_kid_status').removeAttr('required'); // validation
 						$('#new_survey label[for="survey_kid_status"]').addClass("hidden"); //validation
 				   	});					

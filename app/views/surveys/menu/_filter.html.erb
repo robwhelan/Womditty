@@ -1,0 +1,15 @@
+<div class="modal fade" id="filterMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       <h4 class="modal-title" id="myModalLabel">Filter Survey Results</h4>
+      </div>
+      <div class="modal-body">
+			<p>Show results from people...
+				<%= link_to 'With Kids', surveys_path(:kids => true), :class => 'btn btn-block btn-primary' %>
+				<%= link_to 'Without Kids', surveys_path(:kids => false), :class => 'btn btn-block btn-primary' %>
+      </div><!-- /modal body -->
+    </div><!-- /modal content -->
+  </div><!-- /modal dialog -->
+</div><!-- /modal -->

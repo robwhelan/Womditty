@@ -8,8 +8,12 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
   def index
-    @surveys = Survey.all
-
+    if params[:kids]
+      @surveys = Survey.where(:kid_status => params[:kids])
+    else
+      @surveys = Survey.all
+    end
+    
     #fun
     @date_restaurants = Survey.rank_responses(@surveys, "date_restaurant_1", "date_restaurant_2", "date_restaurant_3")
     @lunch_restaurants = Survey.rank_responses(@surveys, "lunch_restaurant_1", "lunch_restaurant_2", "lunch_restaurant_3")

@@ -1,3 +1,5 @@
+<%= render 'surveys/menu/filter' %>
+
 	<div class="container" style='margin-bottom:75px;'>
 
 		<%= render 'surveys/results/resultsFun' %>
@@ -13,6 +15,7 @@
 	      		<button id='familyButton' class='btn btn-default'>Family / Kids</button>
 	      		<button id='communityButton' class='btn btn-default'>Community</button>
 	      		<button id='practicalButton' class='btn btn-default'>Practical</button>
+				<button class="btn btn-success active pull-right" id="filterButton" role="button" data-toggle="modal" data-target="#filterMenu" href="#"><span class="glyphicon glyphicon-filter"></span> Filter</button>
 				</div><!--/row -->
 			</nav>
 		</div><!-- /footer container -->
