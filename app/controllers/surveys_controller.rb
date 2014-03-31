@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:new, :create, :show]  
+  before_filter :authenticate_user!, :except => [:new, :create, :show, :pre_save_email]  
 
   # GET /surveys
   # GET /surveys.json
