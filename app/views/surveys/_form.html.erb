@@ -49,30 +49,35 @@
 	      $('#familyButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
 	      $('#categoryFun').addClass('show').removeClass('hidden');
 	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+		  ga('send', 'pageview', '/survey/fun');
 	    });
 	    $('#familyButton').click(function(){
 	      $('#familyButton').addClass('btn-primary');
 	      $('#funButton,#communityButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
 	      $('#categoryFamily').addClass('show').removeClass('hidden');
 	      $('#categoryFun,#categoryCommunity,#categoryPractical,#categoryDemographics').addClass('hidden');
+		  ga('send', 'pageview', '/survey/family');
 	    });
 	    $('#communityButton').click(function(){
 	      $('#communityButton').addClass('btn-primary');
 	      $('#funButton,#familyButton,#practicalButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
 	      $('#categoryCommunity').addClass('show').removeClass('hidden');
 	      $('#categoryFamily,#categoryFun,#categoryPractical,#categoryDemographics').addClass('hidden');
+		  ga('send', 'pageview', '/survey/community');
 	    });
 	    $('#practicalButton').click(function(){
 	      $('#practicalButton').addClass('btn-primary');
 	      $('#funButton,#communityButton,#communityButton,#demographicsButton').addClass('btn-default').removeClass('btn-primary');
 	      $('#categoryPractical').addClass('show').removeClass('hidden');
 	      $('#categoryFamily,#categoryCommunity,#categoryFun,#categoryDemographics').addClass('hidden');
+		  ga('send', 'pageview', '/survey/practical');
 	    });
 	    $('#demographicsButton').click(function(){
 	      $('#demographicsButton').addClass('btn-primary');
 	      $('#funButton,#familyButton,#communityButton,#practicalButton').addClass('btn-default').removeClass('btn-primary');
 	      $('#categoryDemographics,#submitButton').addClass('show').removeClass('hidden');
 	      $('#categoryFamily,#categoryCommunity,#categoryPractical,#categoryFun').addClass('hidden');
+		  ga('send', 'pageview', '/survey/demographics');
 	    });
 		
 		$('.countable').blur(function(){
