@@ -69,28 +69,34 @@
 					  	</div>
 						<div class="form-group">
 							<%= @form.text_field :self_rank, :class => 'hidden' %>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-1</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-2</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-3</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-4</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-5</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-6</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-7</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-8</button>
-							<button type="button" class="hidden enlisted self-rank-btn btn btn-default btn-lg">E-9</button>
-							<button type="button" class="hidden warrant self-rank-btn btn btn-default btn-lg">W-1</button>
-							<button type="button" class="hidden warrant self-rank-btn btn btn-default btn-lg">W-2</button>
-							<button type="button" class="hidden warrant self-rank-btn btn btn-default btn-lg">W-3</button>
-							<button type="button" class="hidden warrant self-rank-btn btn btn-default btn-lg">W-4</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-1</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-2</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-3</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-4</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-5</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-6</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-7</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-8</button>
-							<button type="button" class="hidden officer self-rank-btn btn btn-default btn-lg">O-9</button>
+							<div id="enlistedDiv" class="hidden">
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-1</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-2</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-3</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-4</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-5</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-6</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-7</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-8</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-9</button>
+							</div>
+							<div id="warrantDiv" class="hidden">
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-1</button>
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-2</button>
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-3</button>
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-4</button>
+							</div>
+							<div id="officerDiv" class="hidden">
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-1</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-2</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-3</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-4</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-5</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-6</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-7</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-8</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-9</button>
+							</div>
 					  	</div>
 						<div class="form-group">
 					    <%= @form.label 'What is the name of your command?' %>
@@ -138,18 +144,18 @@
 			       	$('#survey_self_rank_class').val($(this).html());
 					if ($('#survey_self_rank_class').val() == "Enlisted")
 					{
-						$('.enlisted').removeClass('hidden');
-						$('.warrant,.officer').addClass('hidden');
+						$('#enlistedDiv').removeClass('hidden');
+						$('#warrantDiv,#officerDiv').addClass('hidden');
 					}
 					if ($('#survey_self_rank_class').val() == "Warrant Officer")
 					{
-						$('.warrant').removeClass('hidden');
-						$('.enlisted,.officer').addClass('hidden');
+						$('#warrantDiv').removeClass('hidden');
+						$('#enlistedDiv,#officerDiv').addClass('hidden');
 					}
 					if ($('#survey_self_rank_class').val() == "Officer")
 					{
-						$('.officer').removeClass('hidden');
-						$('.warrant,.enlisted').addClass('hidden');
+						$('#officer').removeClass('hidden');
+						$('#warrantDiv,#enlistedDiv').addClass('hidden');
 					}
 			   	});
 				$('.self-rank-btn').click(function(){ 
@@ -198,28 +204,34 @@
 						  	</div>
 							<div class="form-group">
 								<%= @form.text_field :spouse_rank, :class => 'hidden' %>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-1</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-2</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-3</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-4</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-5</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-6</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-7</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-8</button>
-								<button type="button" class="hidden spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-9</button>
-								<button type="button" class="hidden spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-1</button>
-								<button type="button" class="hidden spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-2</button>
-								<button type="button" class="hidden spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-3</button>
-								<button type="button" class="hidden spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-4</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-1</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-2</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-3</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-4</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-5</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-6</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-7</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-8</button>
-								<button type="button" class="hidden spouse-officer spouse-rank-btn btn btn-default btn-lg">O-9</button>
+								<div id="#spouse-enlistedDiv" class="hidden">
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-1</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-2</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-3</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-4</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-5</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-6</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-7</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-8</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-9</button>
+								</div>
+								<div id="#spouse-warrantDiv" class="hidden">
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-1</button>
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-2</button>
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-3</button>
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-4</button>
+								</div>
+								<div id="#spouse-officerDiv" class="hidden">
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-1</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-2</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-3</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-4</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-5</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-6</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-7</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-8</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-9</button>
+								</div>
 						  	</div>
 							<div class="form-group">
 						    <%= @form.label "Name of your spouse's command" %>
@@ -274,18 +286,18 @@
 				       	$('#survey_spouse_rank_class').val($(this).html());
 						if ($('#survey_spouse_rank_class').val() == "Enlisted")
 						{
-							$('.spouse-enlisted').removeClass('hidden');
-							$('.spouse-warrant,.spouse-officer').addClass('hidden');
+							$('#spouse-enlistedDiv').removeClass('hidden');
+							$('#spouse-warrantDiv,#spouse-officerDiv').addClass('hidden');
 						}
 						if ($('#survey_spouse_rank_class').val() == "Warrant Officer")
 						{
-							$('.spouse-warrant').removeClass('hidden');
-							$('.spouse-enlisted,.spouse-officer').addClass('hidden');
+							$('#spouse-warrantDiv').removeClass('hidden');
+							$('#spouse-enlistedDiv,#spouse-officerDiv').addClass('hidden');
 						}
 						if ($('#survey_spouse_rank_class').val() == "Officer")
 						{
-							$('.spouse-officer').removeClass('hidden');
-							$('.spouse-warrant,.spouse-enlisted').addClass('hidden');
+							$('#spouse-officerDiv').removeClass('hidden');
+							$('#spouse-warrantDiv,#spouse-enlistedDiv').addClass('hidden');
 						}
 				   	});
 					$('.spouse-rank-btn').click(function(){ 
@@ -541,7 +553,7 @@
 			</div>
 
 			<div class='form-group'>
-				<%= @form.text_area :whats_missing_demographics, :style => 'height:34px;', :placeholder => 'What is missing from this page?', :class => 'form-control' %>
+				<%= @form.text_area :whats_missing_demographics, :style => 'height:34px;', :placeholder => 'Feedback for this page', :class => 'form-control' %>
 			</div>
 			<div class="actions">
 		    <%= @form.submit 'You need 15 points', :id => 'submitButton', :class => 'btn btn-large btn-success disabled' %>
