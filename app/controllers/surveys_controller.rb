@@ -1,3 +1,5 @@
+require 'google_analytics_api'
+
 class SurveysController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:new, :create, :show, :pre_save_email]  
@@ -142,6 +144,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
+        GoogleAnalyticsApi.new.pageview('/survey/complete', cookies[:clientId])
         format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
         format.json { render json: @survey, status: :created, location: @survey }
       else
