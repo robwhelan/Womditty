@@ -7,8 +7,8 @@
       </div>
       <div class="modal-body">
 			<p>Show results from people...
-				<%= link_to 'With Kids', surveys_path(:kids => true), :class => 'btn btn-block btn-primary' %>
-				<%= link_to 'Without Kids', surveys_path(:kids => false), :class => 'btn btn-block btn-primary' %>
+				<%= link_to 'With Kids', surveys_path(:kids => true), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+				<%= link_to 'Without Kids', surveys_path(:kids => false), :id => 'withoutKids', :class => 'btn btn-block btn-primary' %>
       </div><!-- /modal body -->
     </div><!-- /modal content -->
   </div><!-- /modal dialog -->
