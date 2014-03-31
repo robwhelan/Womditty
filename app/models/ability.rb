@@ -9,7 +9,7 @@ class Ability
             can :manage, :all
           else
             can [:manage], [Vote, Follow]
-            can [:create, :read], [Neighborhood, DutyStation, Place]
+            can [:create, :read], [Neighborhood, DutyStation, Place, Survey]
             can [:read, :index, :vote_up, :vote_down], MilitaryDiscount
             can [:create, :read, :index, :vote_up, :vote_down], Post
             can [:create, :read, :index, :vote_up, :vote_down], [Photo, NeighborhoodThought, Answer, Comment] 
@@ -19,6 +19,7 @@ class Ability
             cannot [:destroy], User
             cannot [:create, :update, :destroy], [MilitaryDiscount, NeighborhoodTopic]
             cannot [:show, :index], WaitList
+            cannot [:edit], Survey
           end
        
     # The first argument to `can` is the action you are giving the user 

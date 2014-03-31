@@ -3,7 +3,8 @@ require 'google_analytics_api'
 class SurveysController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:new, :create, :show, :pre_save_email]  
-
+  load_and_authorize_resource
+  
   # GET /surveys
   # GET /surveys.json
   def index
