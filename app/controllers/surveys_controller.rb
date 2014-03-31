@@ -8,10 +8,15 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
   def index
-    if params[:kids]
-      @surveys = Survey.where(:kid_status => params[:kids])
+    if params[:kids] == 'true'
+      @surveys = Survey.where(:kid_status => 'true')
+      @kid_status = "With Kids"
+    elsif params[:kids] == 'false'
+      @surveys = Survey.where(:kid_status => 'false')
+      @kid_status = "Without Kids"
     else
       @surveys = Survey.all
+      @kid_status = ""
     end
     
     #fun

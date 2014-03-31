@@ -1,7 +1,7 @@
 <div id="categoryFun">
 
 	<div class="page-header">
-	  <h1>Charleston <small>Fun Stuff</small></h1>
+	  <h1>Charleston <%= @kid_status %>:<small>Fun Stuff</small></h1>
 	</div>
 	
 <%= render 'surveys/results/results_hash', :category_name => 'Date Restaurants', :hash => @date_restaurants %>
