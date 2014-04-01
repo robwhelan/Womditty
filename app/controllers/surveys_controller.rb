@@ -3,7 +3,7 @@ require 'google_analytics_api'
 class SurveysController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:new, :create, :show, :pre_save_email]  
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:pre_save_email]
   
   # GET /surveys
   # GET /surveys.json
@@ -194,6 +194,7 @@ class SurveysController < ApplicationController
   
   def pre_save_email
     PreEmail.create(:email => params[:email])
+    GoogleAnalyticsApi.new.pageview('/survey/captureEmail', cookies[:clientId])
     render :nothing => true
   end
   
