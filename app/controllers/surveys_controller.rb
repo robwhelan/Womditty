@@ -10,13 +10,19 @@ class SurveysController < ApplicationController
   def index
     if params[:kids] == 'true'
       @surveys = Survey.where(:kid_status => 'true')
-      @kid_status = "With Kids"
+      @filter = "With Kids"
     elsif params[:kids] == 'false'
       @surveys = Survey.where(:kid_status => 'false')
-      @kid_status = "Without Kids"
+      @filter = "Without Kids"
+    elsif params[:married] == 'true'
+      @surveys = Survey.where(:self_marital_status => 'true')
+      @filter = "Married"
+    elsif params[:married] == 'false'
+      @surveys = Survey.where(:self_marital_status => 'false')
+      @filter = "Singles"
     else
       @surveys = Survey.all
-      @kid_status = ""
+      @filter = ""
     end
     
     #fun

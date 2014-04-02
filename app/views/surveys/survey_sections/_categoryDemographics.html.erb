@@ -263,13 +263,23 @@
 					$('#survey_self_marital_status_not_married').click(function(){
 						$('#spouseMilitaryStatus').addClass('hidden');
 					});
+
 					$('.self-marital-status-btn').click(function(){ 
 						$('.self-marital-status-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
-				       	$('#survey_self_marital_status').val($(this).html());
+						if ($(this).html() == "Married")
+						{
+					       	$('#survey_self_marital_status').val('1');				
+						}
+						else
+						{
+					       	$('#survey_self_marital_status').val('0');							
+						}
 						$('#survey_self_marital_status').removeAttr('required'); // validation
 						$('#new_survey label[for="survey_self_marital_status"]').addClass("hidden"); //validation
-				   	});
+				   	});					
+
+
 					$('.spouse-mil-employment-btn').click(function(){ 
 						$('.spouse-mil-employment-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
@@ -526,11 +536,22 @@
 						$(this).removeClass('btn-default').addClass('btn-primary');
 				       	$('#survey_yard_size').val($(this).html());
 				   	});					
+
 					$('.poa-btn').click(function(){ 
 						$('.poa-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');
-				       	$('#survey_is_there_POA').val($(this).html());
+						if ($(this).html() == "Yes")
+						{
+					       	$('#survey_is_there_POA').val('1');				
+						}
+						else
+						{
+					       	$('#survey_is_there_POA').val('0');							
+						}
+						$('#survey_is_there_POA').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_is_there_POA"]').addClass("hidden"); //validation
 				   	});					
+
 					$('.poa-behavior-btn').click(function(){ 
 						$('.poa-behavior-btn').removeClass('btn-primary').addClass('btn-default');
 						$(this).removeClass('btn-default').addClass('btn-primary');

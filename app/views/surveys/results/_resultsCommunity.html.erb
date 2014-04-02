@@ -1,7 +1,7 @@
 <div id="categoryCommunity" class="hidden">
 
 	<div class="page-header">
-	  <h1>Charleston <small>Community</small></h1>
+	  <h1>Charleston | <%= @filter %><small>Community</small></h1>
 	</div>
 	
 <%= render 'surveys/results/results_hash', :category_name => 'Gyms', :hash => @gyms %>

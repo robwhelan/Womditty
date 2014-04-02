@@ -6,10 +6,36 @@
        <h4 class="modal-title" id="myModalLabel">Filter Survey Results</h4>
       </div>
       <div class="modal-body">
-			<p>Show results from people...
-				<%= link_to 'With Kids', surveys_path(:kids => true), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
-				<%= link_to 'Without Kids', surveys_path(:kids => false), :id => 'withoutKids', :class => 'btn btn-block btn-primary' %>
+				<div class="panel panel-default">
+				  	<div class="panel-body">
+						<%= link_to 'Kids', surveys_path(:kids => true), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'No Kids', surveys_path(:kids => false), :id => 'withoutKids', :class => 'btn btn-block btn-primary' %>
+					</div>
+				</div>
+				<div class="panel panel-default">
+				  	<div class="panel-body">
+						<%= link_to 'Married', surveys_path(:married => true), :id => 'married', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Single', surveys_path(:married => false), :id => 'single', :class => 'btn btn-block btn-primary' %>
+					</div>
+				</div>
       </div><!-- /modal body -->
     </div><!-- /modal content -->
   </div><!-- /modal dialog -->
 </div><!-- /modal -->
+
+<%= content_for :javascript do %>
+	<script type='text/javascript'>
+	$('#married').click(function(){
+  		ga('send', 'pageview', '/survey/filtered/married');
+	});
+    $('#single').click(function(){
+  		ga('send', 'pageview', '/survey/filtered/single');
+	});
+	$('#withKids').click(function(){
+  		ga('send', 'pageview', '/survey/filtered/withKids');
+	});
+    $('#withoutKids').click(function(){
+  		ga('send', 'pageview', '/survey/filtered/withoutKids');
+	});
+    </script>
+<% end %>
