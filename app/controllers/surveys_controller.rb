@@ -20,6 +20,12 @@ class SurveysController < ApplicationController
     elsif params[:married] == 'false'
       @surveys = Survey.where(:self_marital_status => 'false')
       @filter = "Singles"
+    elsif params[:branch] == 'navy'
+      @surveys = Survey.where("self_branch = ? OR spouse_branch = ?", 'Navy', 'Navy')
+      @filter = "Navy"
+    elsif params[:branch] == 'airForce'
+      @surveys = Survey.where("self_branch = ? OR spouse_branch = ?", 'Air Force', 'Air Force')
+      @filter = "Air Force"
     else
       @surveys = Survey.all
       @filter = ""
