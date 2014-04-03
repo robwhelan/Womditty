@@ -13,10 +13,10 @@
   <% end %>
 
 	<% @form = f %>
+	<%= render 'surveys/survey_sections/categoryPractical' %>
 	<%= render 'surveys/survey_sections/categoryFun' %>
 	<%= render 'surveys/survey_sections/categoryFamily' %>
 	<%= render 'surveys/survey_sections/categoryCommunity' %>
-	<%= render 'surveys/survey_sections/categoryPractical' %>
 	<%= render 'surveys/survey_sections/categoryDemographics' %>
 
 	<%= f.hidden_field :user_id, :value => 1 %>
@@ -25,10 +25,10 @@
 <div id='footer' class='container'>
 	<nav class='nav navbar navbar-default navbar-fixed-bottom'>
 		<div class='row' style='margin:0px;'>
-      		<button id='funButton' class='btn btn-primary'>Fun</button>
+      		<button id='practicalButton' class='btn btn-primary'>Practical</button>
+      		<button id='funButton' class='btn btn-default'>Fun</button>
       		<button id='familyButton' class='btn btn-default'>Family</button>
       		<button id='communityButton' class='btn btn-default'>Community</button>
-      		<button id='practicalButton' class='btn btn-default'>Practical</button>
       		<button id='demographicsButton' class='btn btn-default'>Personal</button>
 			<span class='pull-right' style='margin-right:10px;margin-top:-10px;'><span><h3 id='answerCount'>0 Points</h3></span></span>
 			</div><!--/row -->

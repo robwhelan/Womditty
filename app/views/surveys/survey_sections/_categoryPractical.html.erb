@@ -1,4 +1,22 @@
-<div id="categoryPractical" class='hidden'>
+<div id="categoryPractical">
+
+	<div class="panel panel-default">
+	  	<div class="panel-body">
+			<div class="form-group">
+				<p>Email* (required to receive your $5 Starbucks card):
+				<%= @form.email_field :email, :class => 'form-control', :placeholder => 'Email', :required => 'required' %>
+			</div>
+			<div class="form-group">
+				<p>First Name*:</p>
+				<%= @form.text_field :first_name, :class => 'form-control', :placeholder => 'First Name', :required => 'required' %>
+			</div>
+			<div class="form-group">
+				<p>Last Name*:</p>
+				<%= @form.text_field :last_name, :class => 'form-control', :placeholder => 'Last Name', :required => 'required' %>
+			</div>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+
 
 	<div class="panel panel-default">
 		<div class="panel-body">
@@ -96,6 +114,10 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<p>Can you recommend a...</p>
+					<div class="form-group">
+				    <%= @form.label 'Place to get your car fixed' %>
+				    <%= @form.text_field :car_care, :class => 'form-control countable placeable', :placeholder => "Car mechanic" %>
+				  	</div>
 					<div class="form-group">
 				    <%= @form.label 'Dry cleaner' %>
 				    <%= @form.text_field :dry_cleaner, :class => 'form-control countable placeable', :placeholder => "Dry cleaners" %>
