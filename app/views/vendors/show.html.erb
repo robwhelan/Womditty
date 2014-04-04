@@ -1,0 +1,90 @@
+<div class="container">
+
+<div class="panel panel-default">
+  	<div class="panel-body">
+		<h1><%= @vendor.business_name %></h1>
+	</div>
+</div>
+
+<div class="panel panel-default">
+  	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-12">
+				<%= image_tag(@vendor.main_image.url(:full), :class => "img-responsive img-rounded") %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+  	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-3">
+				<%= image_tag(@vendor.logo_image.url(:thumb), :class => 'img-responsive img-rounded') %>
+			</div>
+			<div class='col-xs-6'>
+				<%= link_to @vendor_map_url, :target => 'blank' do %>
+					<p><%= @vendor.address_line_1 %></p>
+					<p><%= @vendor.address_line_2 %></p>
+					<p><%= @vendor.city.name %></p>
+					<p><%= @vendor.zip_code %></p>
+				<% end %>
+			</div>
+			<div class="col-xs-3">
+				<button id='couponButton' class='btn btn-primary btn-block btn-lg'><span class="glyphicon glyphicon-usd"></span></button>
+			</div>	
+		</div><!-- / row -->
+	</div>
+</div>
+
+<div id='couponDiv' class="panel panel-default" style="display:none;">
+  	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-12">
+				<%= image_tag @vendor.promotion_image.url(:full), :class => 'img-responsive' %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+  	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-4">
+				<%= link_to 'mailto:' + @vendor.contact_email, :class => 'btn btn-primary btn-block btn-lg' do %>
+					<span class="glyphicon glyphicon-envelope"></span>
+				<% end %>
+			</div>
+			<div class="col-xs-4">
+				<%= link_to 'tel://' + @vendor.phone_number, :class => 'btn btn-primary btn-block btn-lg' do %>
+					<span class="glyphicon glyphicon-earphone"></span>
+				<% end %>
+			</div>
+			<div class="col-xs-4">
+				<button class='btn btn-primary btn-block btn-lg'><i class="fa fa-comment"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+  	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-12">
+				<p><%= @vendor.site_url %></p>
+				<p><%= @vendor.biography %></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div><!-- /container -->
+<%= render 'vendors/shared/registration_items' %>
+
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+		$('#couponButton').click(function(){
+			$('#couponDiv').toggle();
+		})
+	</script>
+<% end %>

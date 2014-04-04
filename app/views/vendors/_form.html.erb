@@ -1,0 +1,119 @@
+<%= form_for(@vendor) do |f| %>
+  <% if @vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% @vendor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+	<%= f.label :business_name %>
+	<%= f.text_field :business_name, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.label :email %>
+	<%= f.text_field :email, :class => 'form-control' %>
+</div>
+<div class="form-group">
+	<%= f.label :password %>
+	<%= f.text_field :password, :class => 'form-control' %>
+</div>
+
+
+<div class="form-group">
+	<%= f.label :address_line_1 %>
+	<%= f.text_field :address_line_1, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.label :address_line_2 %>
+	<%= f.text_field :address_line_2, :class => 'form-control' %>
+</div>
+
+<div class="form-group">City
+	<%= f.collection_select(:city_id, City.all, :id, :name, {}, {:class => 'form-control'} )%>
+</div>
+
+<div class="form-group">
+	<%= f.label :zip_code %>
+	<%= f.text_field :zip_code, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.label :phone_number %>
+	<%= f.telephone_field :phone_number, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.label :contact_email %>
+	<%= f.email_field :contact_email, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.label :site_url %>
+	<%= f.url_field :site_url, :class => 'form-control' %>
+</div>
+
+<p>Business point of contact</p>
+<div class="form-group">
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name, :class => 'form-control' %>
+</div>
+
+
+<%= f.label :main_image %>
+	<%= f.file_field :main_image %>
+	<% if @vendor.main_image.url %>
+		<%= image_tag @vendor.main_image.url(:thumb) %>
+	<% end %>
+	<br/>
+
+<%= f.label :logo_image %>
+	<%= f.file_field :logo_image %>
+	<% if @vendor.logo_image.url %>
+		<%= image_tag @vendor.logo_image.url(:thumb) %>
+	<% end %>
+	<br/>
+
+<%= f.label :promotion_image %>
+	<%= f.file_field :promotion_image %>
+	<% if @vendor.promotion_image.url %>
+		<%= image_tag @vendor.promotion_image.url(:thumb) %>
+	<% end %>
+	<br/>
+
+<%= f.label :extra_image_1 %>
+	<%= f.file_field :extra_image_1 %>
+	<% if @vendor.extra_image_1.url %>
+		<%= image_tag @vendor.extra_image_1.url(:thumb) %>
+	<% end %>
+	<br/>
+
+<%= f.label :extra_image_2 %>
+	<%= f.file_field :extra_image_2 %>
+	<% if @vendor.extra_image_2.url %>
+		<%= image_tag @vendor.extra_image_2.url(:thumb) %>
+	<% end %>
+	<br/>
+
+<%= f.label :extra_image_3 %>
+	<%= f.file_field :extra_image_3 %>
+	<% if @vendor.extra_image_3.url %>
+		<%= image_tag @vendor.extra_image_3.url(:thumb) %>
+	<% end %>
+	<br/>
+  <div class="actions form-group">
+    <%= f.submit :class => 'btn btn-lg' %>
+  </div>
+<% end %>
