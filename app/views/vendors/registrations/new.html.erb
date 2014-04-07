@@ -73,46 +73,28 @@
 </div>
 
 
-<%= f.label :main_image %>
+	<%= f.label :main_image %>
 	<%= f.file_field :main_image %>
-	<% if @vendor.main_image.url %>
-		<%= image_tag @vendor.main_image.url(:thumb) %>
-	<% end %>
 	<br/>
 
 <%= f.label :logo_image %>
 	<%= f.file_field :logo_image %>
-	<% if @vendor.logo_image.url %>
-		<%= image_tag @vendor.logo_image.url(:thumb) %>
-	<% end %>
 	<br/>
 
 <%= f.label :promotion_image %>
 	<%= f.file_field :promotion_image %>
-	<% if @vendor.promotion_image.url %>
-		<%= image_tag @vendor.promotion_image.url(:thumb) %>
-	<% end %>
 	<br/>
 
 <%= f.label :extra_image_1 %>
 	<%= f.file_field :extra_image_1 %>
-	<% if @vendor.extra_image_1.url %>
-		<%= image_tag @vendor.extra_image_1.url(:thumb) %>
-	<% end %>
 	<br/>
 
 <%= f.label :extra_image_2 %>
 	<%= f.file_field :extra_image_2 %>
-	<% if @vendor.extra_image_2.url %>
-		<%= image_tag @vendor.extra_image_2.url(:thumb) %>
-	<% end %>
 	<br/>
 
 <%= f.label :extra_image_3 %>
 	<%= f.file_field :extra_image_3 %>
-	<% if @vendor.extra_image_3.url %>
-		<%= image_tag @vendor.extra_image_3.url(:thumb) %>
-	<% end %>
 	<br/>
   <div class="actions form-group">
     <%= f.submit :class => 'btn btn-lg' %>
