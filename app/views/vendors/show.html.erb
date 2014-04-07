@@ -83,6 +83,12 @@
 	</div>
 </div>
 
+<% if Rails.env == "production" %>
+<%= render 'posts/post', :post => Post.find(391) %>
+<%= render 'posts/post', :post => Post.find(392) %>
+<% else %>
+<%= render 'posts/post', :post => Post.find(233) %>
+<% end %>
 </div><!-- /container -->
 <%= render 'vendors/shared/registration_items' %>
 
