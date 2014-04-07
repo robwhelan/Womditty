@@ -30,6 +30,8 @@
 	<%= f.label :address_line_2 %>
 	<%= f.text_field :address_line_2, :class => 'form-control' %>
 </div>
+<div class="form-group"><%= f.label 'City' %>
+<%= f.collection_select(:city_id, City.all, :id, :name, {}, {:class => 'form-control'} )%></div>
 
 <div class="form-group">City
 	<%= f.collection_select(:city_id, City.all, :id, :name, {}, {:class => 'form-control'} )%>
@@ -53,6 +55,11 @@
 <div class="form-group">
 	<%= f.label :site_url %>
 	<%= f.url_field :site_url, :class => 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.label :biography %>
+	<%= f.text_area :biography, :class => 'form-control' %>
 </div>
 
 <p>Business point of contact</p>
