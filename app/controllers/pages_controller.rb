@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :recommended
   #load_and_authorize_resource
 
+  def recommended
+  end
+  
   def google_map
     authenticate_user!
     @coordinates = Coordinate.where(:neighborhood_id => 4).order(:coordinate_number)
