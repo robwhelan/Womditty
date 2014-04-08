@@ -31,6 +31,7 @@ Womditty::Application.routes.draw do
   get "pages/email_signup_var1"
   get "pages/home"
   get "pages/map"
+  get "pages/recommended"
   get "pages/fetch_groups"
   get "pages/fetch_vendors"
   get "pages/chat"

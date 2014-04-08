@@ -21,3 +21,8 @@
 //= require autocomplete-rails
 //= require jquery.geocomplete.min.js
 //= require fastclick.js
+//= require custom.js
+//= require jquery.dlmenu.js
+//= require jquery.smooth-scroll.min.js
+//= require modernizr.custom.js
+//= require wow.min.js
