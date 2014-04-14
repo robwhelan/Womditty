@@ -2,7 +2,7 @@ require 'google_analytics_api'
 
 class ApplicationController < ActionController::Base
 
-  protect_from_forgery
+  #protect_from_forgery
   after_filter :set_access_control_headers
   
   include PublicActivity::StoreController
