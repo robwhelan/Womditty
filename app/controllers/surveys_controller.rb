@@ -126,13 +126,13 @@ class SurveysController < ApplicationController
     @weather_summer = Survey.rank_responses(@surveys, "weather_summer")
     @weather_fall = Survey.rank_responses(@surveys, "weather_fall")
     
-    render json: {
-      :date_restaurants => @date_restaurants,
-      :lunch_restaurants => @lunch_restaurants }
-    
-    #respond_to do |format|
-    #  format.html # index.html.erb
-    #end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: {
+        :date_restaurants => @date_restaurants,
+        :lunch_restaurants => @lunch_restaurants }
+         }
+    end
   end
 
   # GET /surveys/1
