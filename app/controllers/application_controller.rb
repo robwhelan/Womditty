@@ -3,7 +3,7 @@ require 'google_analytics_api'
 class ApplicationController < ActionController::Base
 
   #protect_from_forgery
-  after_filter :set_access_control_headers
+  #after_filter :set_access_control_headers
   
   include PublicActivity::StoreController
 
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
     surveys_path
   end
   
-  def set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = "*"
-    headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
-  end
+#  def set_access_control_headers
+#    headers['Access-Control-Allow-Origin'] = "*"
+#    headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
+#  end
   
 end

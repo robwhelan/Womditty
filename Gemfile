@@ -36,6 +36,7 @@ gem 'unread'
 gem 'surveyor'
 gem 'rails3-jquery-autocomplete'
 gem 'active_model_serializers'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Gems used only for assets and not required
 # in production environments by default.
