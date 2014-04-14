@@ -2,8 +2,8 @@ require 'google_analytics_api'
 
 class SurveysController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:new, :create, :show, :pre_save_email]  
-  load_and_authorize_resource :except => [:pre_save_email]
+  #before_filter :authenticate_user!, :except => [:new, :create, :show, :pre_save_email]  
+  #load_and_authorize_resource :except => [:pre_save_email]
   
   # GET /surveys
   # GET /surveys.json
@@ -126,10 +126,13 @@ class SurveysController < ApplicationController
     @weather_summer = Survey.rank_responses(@surveys, "weather_summer")
     @weather_fall = Survey.rank_responses(@surveys, "weather_fall")
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @surveys }
-    end
+    render json: {
+      :date_restaurants => @date_restaurants,
+      :lunch_restaurants => @lunch_restaurants }
+    
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #end
   end
 
   # GET /surveys/1
