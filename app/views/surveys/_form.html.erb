@@ -38,7 +38,7 @@
 
 <%= content_for :javascript do %>
 
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
     
 
 	<script type="text/javascript">
@@ -88,12 +88,12 @@
 			countValidAnswers();	
 		});
 
-	      $(function(){
-	        $(".placeable")
-				.geocomplete({
-		          	types: ["geocode", "establishment"],
-	        	})
-	      });
+		$(function(){
+		$(".placeable")
+			.geocomplete({
+		      	types: ["geocode", "establishment"],
+			})
+		});
 
 		$('#survey_email').blur(function(){
 			var url = '/surveys/pre_save_email?email=' + $(this).val();
