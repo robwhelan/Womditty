@@ -19,7 +19,6 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require autocomplete-rails
-//= require jquery.geocomplete.min.js
 //= require fastclick.js
 //= require custom.js
 //= require jquery.dlmenu.js
