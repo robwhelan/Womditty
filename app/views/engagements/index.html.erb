@@ -27,7 +27,8 @@
 
 <%= content_for :javascript do %>
 	<script type="text/javascript">
-	
+	window.onload = function(){
+		
 		var ctx = document.getElementById("myChart").getContext("2d");
 		//var myNewChart = new Chart(ctx).PolarArea(data);
 		var options = {
@@ -48,6 +49,7 @@
 		}
 		
 		var myNewChart = new Chart(ctx).Bar(data,options);
+	};
 		
 	</script>
 <% end %>
