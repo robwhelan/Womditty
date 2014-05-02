@@ -1,0 +1,25 @@
+<%= form_for(@engagement) do |f| %>
+  <% if @engagement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@engagement.errors.count, "error") %> prohibited this engagement from being saved:</h2>
+
+      <ul>
+      <% @engagement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :vendor %><br />
+    <%= f.text_field :vendor %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

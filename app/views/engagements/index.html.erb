@@ -1,0 +1,52 @@
+<h1>Urban Recon Vendor Analytics</h1>
+<div class="container">
+	
+	<table class="table">
+	  <tr>
+	    <th>Bio Views</th>
+	    <th>Emails</th>
+	    <th>Chats</th>
+	    <th>Phone Calls</th>
+	    <th>Coupons</th>
+	    <th>Site Visits</th>
+	    <th>Address Lookups</th>
+	  </tr>
+
+	  <tr>
+	    <td><%= @bio_views %></td>
+	    <td><%= @emails %></td>
+	    <td><%= @chats %></td>
+	    <td><%= @phone_calls %></td>
+	    <td><%= @coupons %></td>
+	    <td><%= @site_visits %></td>
+	    <td><%= @map_visits %></td>
+	  </tr>
+	</table>
+	<canvas id="myChart" width="1000" height="200"></canvas>
+</div>
+
+<%= content_for :javascript do %>
+	<script type="text/javascript">
+		var ctx = document.getElementById("myChart").getContext("2d");
+		//var myNewChart = new Chart(ctx).PolarArea(data);
+		var options = {
+			scaleOverride : true,
+			scaleStepWidth : '1',
+			scaleSteps : Math.max.apply(null, [<%=@bio_views%>, <%=@emails%>, <%=@chats%>, <%=@phone_calls%>, <%=@coupons%>, <%=@site_visits%>, <%=@map_visits%>]),
+			scaleStartValue: 0
+			};
+		var data = {
+			labels : ["Bio Views", "Emails", "Chats", "Phone Calls", "Coupons", "Site Visits", "Address Lookups"],
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					data : [<%=@bio_views%>, <%=@emails%>, <%=@chats%>, <%=@phone_calls%>, <%=@coupons%>, <%=@site_visits%>, <%=@map_visits%>]
+				}
+			]
+		}
+		
+		var myNewChart = new Chart(ctx).Bar(data,options);
+		
+	</script>
+<% end %>

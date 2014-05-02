@@ -1,5 +1,8 @@
 Womditty::Application.routes.draw do
 
+  resources :engagements
+
+
   resources :surveys do
     collection do
       get :pre_save_email

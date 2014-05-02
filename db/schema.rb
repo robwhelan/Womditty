@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140404004215) do
+ActiveRecord::Schema.define(:version => 20140502003904) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -115,6 +115,15 @@ ActiveRecord::Schema.define(:version => 20140404004215) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "engagements", :force => true do |t|
+    t.integer  "vendor_id"
+    t.string   "engagement_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "engagements", ["vendor_id"], :name => "index_engagements_on_vendor_id"
 
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false

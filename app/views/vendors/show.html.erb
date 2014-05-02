@@ -23,7 +23,7 @@
 				<%= image_tag(@vendor.logo_image.url(:thumb), :class => 'img-responsive img-rounded') %>
 			</div>
 			<div class='col-xs-6'>
-				<%= link_to @vendor_map_url, :target => 'blank' do %>
+				<%= link_to @vendor_map_url, :target => 'blank', :id => 'mapButton' do %>
 					<p><%= @vendor.address_line_1 %></p>
 					<p><%= @vendor.address_line_2 %></p>
 					<p><%= @vendor.city.name %></p>
@@ -53,17 +53,17 @@
   	<div class="panel-body">
 		<div class="row">
 			<div class="col-xs-4">
-				<%= link_to 'mailto:' + @vendor.contact_email, :class => 'btn btn-primary btn-block btn-lg' do %>
+				<%= link_to 'mailto:' + @vendor.contact_email, :class => 'btn btn-primary btn-block btn-lg', :id => 'emailButton' do %>
 					<span class="glyphicon glyphicon-envelope"></span>
 				<% end %>
 			</div>
 			<div class="col-xs-4">
-				<%= link_to 'tel://' + @vendor.phone_number, :class => 'btn btn-primary btn-block btn-lg' do %>
+				<%= link_to 'tel://' + @vendor.phone_number, :class => 'btn btn-primary btn-block btn-lg', :id => 'phoneButton' do %>
 					<span class="glyphicon glyphicon-earphone"></span>
 				<% end %>
 			</div>
 			<div class="col-xs-4">
-				<button class='btn btn-primary btn-block btn-lg'><i class="fa fa-comment"></i></button>
+				<button id ='chatButton' class='btn btn-primary btn-block btn-lg'><i class="fa fa-comment"></i></button>
 			</div>
 		</div>
 	</div>
@@ -73,7 +73,7 @@
   	<div class="panel-body">
 		<div class="row">
 			<div class="col-xs-12">
-				<p><%= link_to @vendor.site_url, :target => 'blank' do %>
+				<p><%= link_to @vendor.site_url, :target => 'blank', :id => 'siteButton' do %>
 					<%= @vendor.site_url %>
 					<% end %>
 					</p>
@@ -96,6 +96,22 @@
 	<script type="text/javascript">
 		$('#couponButton').click(function(){
 			$('#couponDiv').toggle();
+			$.post('/engagements?engagement_type=coupon&vendor_id=1');
+		})
+		$('#emailButton').click(function(){
+			$.post('/engagements?engagement_type=email&vendor_id=1');
+		})
+		$('#phoneButton').click(function(){
+			$.post('/engagements?engagement_type=phone&vendor_id=1');
+		})
+		$('#chatButton').click(function(){
+			$.post('/engagements?engagement_type=chat&vendor_id=1');
+		})
+		$('#siteButton').click(function(){
+			$.post('/engagements?engagement_type=site&vendor_id=1');
+		})
+		$('#mapButton').click(function(){
+			$.post('/engagements?engagement_type=map&vendor_id=1');
 		})
 	</script>
 <% end %>

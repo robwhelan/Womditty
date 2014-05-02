@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @engagement.vendor %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @engagement.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_engagement_path(@engagement) %> |
+<%= link_to 'Back', engagements_path %>

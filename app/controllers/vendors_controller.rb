@@ -17,6 +17,7 @@ class VendorsController < ApplicationController
   def show
     @vendor = Vendor.find(params[:id])
 		@vendor_map_url = 'http://maps.google.com/maps?q=' + @vendor.address_line_1 + ',' + @vendor.address_line_2 + ',' + @vendor.city.name + ',' + @vendor.zip_code
+    Engagement.create(:vendor_id => @vendor.id, :engagement_type => 'view')
 
     respond_to do |format|
       format.html # show.html.erb
