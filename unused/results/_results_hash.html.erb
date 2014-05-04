@@ -1,0 +1,16 @@
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title"><%= category_name %><small> by popularity</small></h3>
+	  	</div>
+		<div class="panel-body">
+			<% hash.each do |pair| %>
+				<% vendor = Vendor.find_by_business_name(pair[0]) %>
+				<% unless vendor.nil? %>
+					<%= render 'surveys/results/vendor', :vendor => vendor %>
+				<% else %>
+					<p><%= pair[0] %></p>
+				<% end %>
+			<% end %>
+
+		</div><!-- /panel body -->
+	</div><!-- /panel -->

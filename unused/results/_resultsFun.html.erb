@@ -1,0 +1,14 @@
+<div id="categoryFun">
+
+	<div class="page-header">
+	  <h1>Charleston | <%= @filter %><small>Fun Stuff</small></h1>
+	</div>
+	
+<%= render 'surveys/results/results_hash', :category_name => 'Date Restaurants', :hash => @date_restaurants %>
+<%= render 'surveys/results/results_hash', :category_name => 'Lunch Restaurants', :hash => @lunch_restaurants %>
+<%= render 'surveys/results/results_hash', :category_name => 'Great Date Nights', :hash => @date_nights %>
+<%= render 'surveys/results/results_hash', :category_name => 'Public Places', :hash => @public_places %>
+<%= render 'surveys/results/results_hash', :category_name => 'Stuff To Do For Fun', :hash => @do_for_funs %>
+<%= render 'surveys/results/results_hash', :category_name => 'Cultural To Experience', :hash => @cultural_things %>
+
+</div><!-- /categoryFun -->

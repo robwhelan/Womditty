@@ -1,0 +1,51 @@
+<div id="categoryCommunity" class="hidden">
+
+	<div class="page-header">
+	  <h1>Charleston | <%= @filter %><small>Community</small></h1>
+	</div>
+	
+<%= render 'surveys/results/results_hash', :category_name => 'Gyms', :hash => @gyms %>
+<%= render 'surveys/results/results_hash', :category_name => 'Churches', :hash => @religious %>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+    	<h3 class="panel-title">Parts of Town</h3>
+  	</div>
+	<div class="panel-body">
+		<%= render 'surveys/results/results_hash', :category_name => 'The Good Areas', :hash => @good_areas %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Pleasant Commutes', :hash => @good_commutes %>
+		<%= render 'surveys/results/results_hash', :category_name => 'The Not-So-Good Areas', :hash => @bad_areas %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Bad Traffic', :hash => @bad_traffic %>
+	</div><!-- /panel body -->
+</div><!-- /panel -->
+
+<%= render 'surveys/results/results_hash', :category_name => 'Apartment Complexes', :hash => @apt_complexes %>
+<%= render 'surveys/results/results_hash', :category_name => 'Cost of Living', :hash => @cost_of_livings %>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+    	<h3 class="panel-title">Perks for Military Spouses</h3>
+  	</div>
+	<div class="panel-body">
+		<%= render 'surveys/results/results_hash', :category_name => 'Military-friendly Employers', :hash => @employers_military %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Military-friendly Schools and Colleges', :hash => @schools_military %>
+	</div><!-- /panel body -->
+</div><!-- /panel -->
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+    	<h3 class="panel-title">How to Get Involved In...</h3>
+  	</div>
+	<div class="panel-body">
+		<%= render 'surveys/results/results_hash', :category_name => 'Mom Stroller Groups', :hash => @involved_strollers %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Mothers of Preschoolers (MOPS)', :hash => @involved_mops %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Volunteer Opportunities', :hash => @involved_volunteering %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Breastfeeding Groups', :hash => @involved_breastfeeding %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Cooking Classes', :hash => @involved_cooking_class %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Group Fitness Classes', :hash => @involved_group_fitness %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Politics', :hash => @involved_political %>
+		<%= render 'surveys/results/results_hash', :category_name => 'Base or Command Activities', :hash => @involved_base_or_command %>
+	</div><!-- /panel body -->
+</div><!-- /panel -->
+
+</div><!-- /categoryFun -->

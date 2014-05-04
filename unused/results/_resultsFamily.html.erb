@@ -1,0 +1,51 @@
+<div id="categoryFamily" class="">
+
+	<div class="page-header">
+	  <h1>Charleston | <%= @filter %><small>Kids Activities</small></h1>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Doctors</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => 'OB-GYNs', :hash => @doctor_obgyns %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Pediatricians', :hash => @doctor_pediatricians %>
+			<%= render 'surveys/results/results_hash', :category_name => 'General Practitioners', :hash => @doctor_generals %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Chiropractors', :hash => @doctor_chiropractors %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Ear, Nose, Throat', :hash => @doctor_earnosethroats %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Veterinarians', :hash => @doctor_vets %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Other', :hash => @doctor_others %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+
+	<%= render 'surveys/results/results_hash', :category_name => 'Where to Deliver a Baby', :hash => @deliver_babies %>
+	<%= render 'surveys/results/results_hash', :category_name => 'Childcare Facilities', :hash => @childcares %>
+	<%= render 'surveys/results/results_hash', :category_name => 'What to Pay a Babysitter per Hour', :hash => @babysitter_pays %>
+
+	<%= render 'surveys/results/results_hash', :category_name => 'Family Restaurants', :hash => @family_restaurants %>
+	<%= render 'surveys/results/results_hash', :category_name => 'Kids Activities', :hash => @kid_activities %>
+	<%= render 'surveys/results/results_hash', :category_name => 'Good Schools', :hash => @good_schools %>
+	<%= render 'surveys/results/results_hash', :category_name => 'Not-so-good Schools', :hash => @bad_schools %>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">How to get your kid into...</h3>
+	  	</div>
+		<div class="panel-body">
+			<%= render 'surveys/results/results_hash', :category_name => 'Gymnastics', :hash => @contact_gymnastics %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Dance', :hash => @contact_dance %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Karate', :hash => @contact_karate %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Ballet', :hash => @contact_ballet %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Baseball', :hash => @contact_baseball %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Basketball', :hash => @contact_basketball %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Soccer', :hash => @contact_soccer %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Football', :hash => @contact_football %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Lacrosse', :hash => @contact_lacrosse %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Music', :hash => @contact_music %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Art', :hash => @contact_art %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Swimming', :hash => @contact_swimming %>
+			<%= render 'surveys/results/results_hash', :category_name => 'Anything Else', :hash => @contact_any_other_kid_stuff %>
+		</div><!-- /panel body -->
+	</div><!-- /panel -->
+</div><!-- /categoryFun -->

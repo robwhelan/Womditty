@@ -1,20 +1,18 @@
 <%= render 'surveys/menu/filter' %>
 
 	<div class="container" style='margin-bottom:75px;'>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
 
-		<%= render 'surveys/results/resultsFun' %>
 		<%= render 'surveys/results/resultsFamily' %>
-		<%= render 'surveys/results/resultsCommunity' %>
-		<%= render 'surveys/results/resultsPractical' %>
 
 	</div><!-- /container -->
 	<div id='footer' class='container'>
 		<nav class='nav navbar navbar-default navbar-fixed-bottom'>
 			<div class='row' style='margin:0px;'>
-	      		<button id='funButton' class='btn btn-primary'>Fun</button>
-	      		<button id='familyButton' class='btn btn-default'>Family / Kids</button>
-	      		<button id='communityButton' class='btn btn-default'>Community</button>
-	      		<button id='practicalButton' class='btn btn-default'>Practical</button>
+	      		<!-- ><button id='funButton' class='btn btn-primary'>Fun</button> -->
+	      		<!-- ><button id='familyButton' class='btn btn-default'>Kids Activities</button> -->
+	      		<!-- <button id='communityButton' class='btn btn-default'>Community</button> -->
+	      		<!-- <button id='practicalButton' class='btn btn-default'>Practical</button> -->
 				<button class="btn btn-success active pull-right" id="filterButton" role="button" data-toggle="modal" data-target="#filterMenu" href="#"><span class="glyphicon glyphicon-filter"></span> Filter</button>
 				</div><!--/row -->
 			</nav>
@@ -22,7 +20,6 @@
 
 
 	<%= content_for :javascript do %>
-
 		<script type="text/javascript">
 		  $(document).ready(function() {
 		    $('#submitButton').addClass('hidden');
