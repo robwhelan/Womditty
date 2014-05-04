@@ -19,28 +19,28 @@
 						<p>Last Name*:</p>
 						<%= @form.text_field :last_name, :class => 'form-control', :placeholder => 'Last Name', :required => 'required' %>
 					</div>
-				</div><!-- /panel body -->
-			</div><!-- /panel -->
-		
 
-			<div id="cityQuestion" class="panel panel-default">
-				  <div class="panel-body">
 					<div class="form-group">
-				    <%= @form.label :city_id %>
-				  	<%= @form.collection_select(:city_id, City.all, :id, :name, {}, {:class => 'form-control'} )%>
-					Or add a new one:
-					<%= @form.text_field :new_city_name, :class => 'form-control' %>
-				  	</div>
-				</div><!-- /panel -->
-			</div><!-- /city -->
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div class="form-group">
-				    <%= @form.label "Neighborhood*" %>
-				    <%= @form.text_field :neighborhood, :class => 'form-control', :placeholder => 'Neighborhood', :required => 'required' %>
+						<p>Your neighborhood*:</p>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Mt Pleasant</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">North Charleston</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Daniel Island</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Hanahan</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Goose Creek</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Summerville</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Ladson</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">West Ashley</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Downtown Charleston</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Isle of Palms</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Sullivans Island</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">James Island</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Johns Island</button>
+						<button type="button" class="neighborhood-btn btn btn-default btn-lg">Other</button>
+						<%= @form.text_field :neighborhood, :class => 'hidden', :required => 'required' %>
 				  	</div>
 				</div>
 			</div>
+			
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="form-group">
@@ -54,55 +54,18 @@
 		
 		<%= content_for :javascript do %>
 			<script type='text/javascript'>
-				$('#survey_self_military_employment_active_duty,#survey_self_military_employment_civilian_contractor,#survey_self_military_employment_reserves').click(function(){
-					$('#selfMilitaryQuestions').removeClass('hidden');
-				});
-				$('#survey_self_military_employment_none_of_the_above').click(function(){
-					$('#selfMilitaryQuestions').addClass('hidden');					
-				})
-				$('.self-mil-employment-btn').click(function(){ 
-					$('.self-mil-employment-btn').removeClass('btn-primary').addClass('btn-default');
+				$('.neighborhood-btn').click(function(){ 
+					$('.neighborhood-btn').removeClass('btn-primary').addClass('btn-default');
 					$(this).removeClass('btn-default').addClass('btn-primary');
-			       	$('#survey_self_military_employment').val($(this).html());
-					$('#survey_self_military_employment').removeAttr('required'); // validation
-					$('#new_survey label[for="survey_self_military_employment"]').addClass("hidden"); //validation
+			       	$('#survey_neighborhood').val($(this).html());
 			   	});
+
 				$('.gender-btn').click(function(){ 
 					$('.gender-btn').removeClass('btn-primary').addClass('btn-default');
 					$(this).removeClass('btn-default').addClass('btn-primary');
 			       	$('#survey_gender').val($(this).html());
 					$('#survey_gender').removeAttr('required'); // validation
 					$('#new_survey label[for="survey_gender"]').addClass("hidden"); //validation
-			   	});
-				$('.self-branch-btn').click(function(){ 
-					$('.self-branch-btn').removeClass('btn-primary').addClass('btn-default');
-					$(this).removeClass('btn-default').addClass('btn-primary');
-			       	$('#survey_self_branch').val($(this).html());
-			   	});
-				$('.self-rank-class-btn').click(function(){ 
-					$('.self-rank-class-btn').removeClass('btn-primary').addClass('btn-default');
-					$(this).removeClass('btn-default').addClass('btn-primary');
-			       	$('#survey_self_rank_class').val($(this).html());
-					if ($('#survey_self_rank_class').val() == "Enlisted")
-					{
-						$('#enlistedDiv').removeClass('hidden');
-						$('#warrantDiv,#officerDiv').addClass('hidden');
-					}
-					if ($('#survey_self_rank_class').val() == "Warrant Officer")
-					{
-						$('#warrantDiv').removeClass('hidden');
-						$('#enlistedDiv,#officerDiv').addClass('hidden');
-					}
-					if ($('#survey_self_rank_class').val() == "Officer")
-					{
-						$('#officer').removeClass('hidden');
-						$('#warrantDiv,#enlistedDiv').addClass('hidden');
-					}
-			   	});
-				$('.self-rank-btn').click(function(){ 
-					$('.self-rank-btn').removeClass('btn-primary').addClass('btn-default');
-					$(this).removeClass('btn-default').addClass('btn-primary');
-			       	$('#survey_self_rank').val($(this).html());
 			   	});
 			</script>
 		<% end %>
@@ -216,7 +179,7 @@
 				<%= @form.text_area :whats_missing_demographics, :style => 'height:34px;', :placeholder => 'Feedback for this page', :class => 'form-control' %>
 			</div>
 			<div class="actions">
-		    <%= @form.submit 'You need 5 points', :id => 'submitButton', :class => 'btn btn-large btn-success disabled' %>
+		    <%= @form.submit 'You need 2 points', :id => 'submitButton', :class => 'btn btn-large btn-success disabled' %>
 		  </div>
 		  
 		</div><!-- /demographics -->			

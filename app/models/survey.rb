@@ -2,7 +2,7 @@ class Survey < ActiveRecord::Base
 
 belongs_to :city
 belongs_to :user
-before_save :create_city_from_name
+#before_save :create_city_from_name
 before_save :trim_place_names
 
 def create_city_from_name
@@ -45,53 +45,6 @@ end
     
 
 def trim_place_names
-  self.date_restaurant_1 = self.date_restaurant_1.partition(',').first
-  self.date_restaurant_2 = self.date_restaurant_2.partition(',').first
-  self.date_restaurant_3 = self.date_restaurant_3.partition(',').first
-  self.lunch_restaurant_1 = self.lunch_restaurant_1.partition(',').first
-  self.lunch_restaurant_2 = self.lunch_restaurant_2.partition(',').first
-  self.lunch_restaurant_3 = self.lunch_restaurant_3.partition(',').first
-  self.date_night_1 = self.date_night_1.partition(',').first
-  self.date_night_2 = self.date_night_2.partition(',').first
-  self.date_night_3 = self.date_night_3.partition(',').first
-  self.public_place_1 = self.public_place_1.partition(',').first
-  self.public_place_2 = self.public_place_2.partition(',').first
-  self.public_place_3 = self.public_place_3.partition(',').first
-  self.do_for_fun_1 = self.do_for_fun_1.partition(',').first
-  self.do_for_fun_2 = self.do_for_fun_2.partition(',').first
-  self.do_for_fun_3 = self.do_for_fun_3.partition(',').first
-  self.cultural_things_1 = self.cultural_things_1.partition(',').first
-  self.cultural_things_2 = self.cultural_things_2.partition(',').first
-  self.cultural_things_3 = self.cultural_things_3.partition(',').first
-  self.doctor_obgyn = self.doctor_obgyn.partition(',').first
-  self.doctor_pediatrician = self.doctor_pediatrician.partition(',').first
-  self.doctor_general = self.doctor_general.partition(',').first
-  self.doctor_chiropractor = self.doctor_chiropractor.partition(',').first
-  self.doctor_earnosethroat = self.doctor_earnosethroat.partition(',').first
-  self.doctor_vet = self.doctor_vet.partition(',').first
-  self.doctor_other = self.doctor_other.partition(',').first
-  self.deliver_baby_1 = self.deliver_baby_1.partition(',').first
-  self.deliver_baby_2 = self.deliver_baby_2.partition(',').first
-  self.deliver_baby_3 = self.deliver_baby_3.partition(',').first
-  self.childcare_1 = self.childcare_1.partition(',').first
-  self.childcare_2 = self.childcare_2.partition(',').first
-  self.childcare_3 = self.childcare_3.partition(',').first
-  self.family_restaurant_1 = self.family_restaurant_1.partition(',').first
-  self.family_restaurant_2 = self.family_restaurant_2.partition(',').first
-  self.family_restaurant_3 = self.family_restaurant_3.partition(',').first
-  self.family_restaurant_4 = self.family_restaurant_4.partition(',').first
-  self.family_restaurant_5 = self.family_restaurant_5.partition(',').first
-  self.kid_activity_1 = self.kid_activity_1.partition(',').first
-  self.kid_activity_2 = self.kid_activity_2.partition(',').first
-  self.kid_activity_3 = self.kid_activity_3.partition(',').first
-  self.kid_activity_4 = self.kid_activity_4.partition(',').first
-  self.kid_activity_5 = self.kid_activity_5.partition(',').first
-  self.good_school_1 = self.good_school_1.partition(',').first
-  self.good_school_2 = self.good_school_2.partition(',').first
-  self.good_school_3 = self.good_school_3.partition(',').first
-  self.bad_school_1 = self.bad_school_1.partition(',').first
-  self.bad_school_2 = self.bad_school_2.partition(',').first
-  self.bad_school_3 = self.bad_school_3.partition(',').first
 
   self.contact_gymnastics = self.contact_gymnastics.partition(',').first
   self.contact_dance = self.contact_dance.partition(',').first
@@ -106,73 +59,6 @@ def trim_place_names
   self.contact_art = self.contact_art.partition(',').first
   self.contact_swimming = self.contact_swimming.partition(',').first
   self.contact_any_other_kid_stuff = self.contact_any_other_kid_stuff.partition(',').first
-  self.gym_1 = self.gym_1.partition(',').first
-  self.gym_2 = self.gym_2.partition(',').first
-  self.gym_3 = self.gym_3.partition(',').first
-  self.religious_1 = self.religious_1.partition(',').first
-  self.religious_2 = self.religious_2.partition(',').first
-  self.religious_3 = self.religious_3.partition(',').first
-  self.bad_area_1 = self.bad_area_1.partition(',').first
-  self.bad_area_2 = self.bad_area_2.partition(',').first
-  self.bad_area_3 = self.bad_area_3.partition(',').first
-  self.good_area_1 = self.good_area_1.partition(',').first
-  self.good_area_2 = self.good_area_2.partition(',').first
-  self.good_area_3 = self.good_area_3.partition(',').first
-  self.bad_traffic_1 = self.bad_traffic_1.partition(',').first
-  self.bad_traffic_2 = self.bad_traffic_2.partition(',').first
-  self.bad_traffic_3 = self.bad_traffic_3.partition(',').first
-  self.good_commute_1 = self.good_commute_1.partition(',').first
-  self.good_commute_2 = self.good_commute_2.partition(',').first
-  self.good_commute_3 = self.good_commute_3.partition(',').first
-  self.apt_complex_1 = self.apt_complex_1.partition(',').first
-  self.apt_complex_2 = self.apt_complex_2.partition(',').first
-  self.apt_complex_3 = self.apt_complex_3.partition(',').first
-  self.employers_military_1 = self.employers_military_1.partition(',').first
-  self.employers_military_2 = self.employers_military_2.partition(',').first
-  self.employers_military_3 = self.employers_military_3.partition(',').first
-  self.schools_military_1 = self.schools_military_1.partition(',').first
-  self.schools_military_2 = self.schools_military_2.partition(',').first
-  self.schools_military_3 = self.schools_military_3.partition(',').first
-
-  self.grocery_store_1 = self.grocery_store_1.partition(',').first
-  self.grocery_store_2 = self.grocery_store_2.partition(',').first
-  self.grocery_store_3 = self.grocery_store_3.partition(',').first
-  self.drug_store_1 = self.drug_store_1.partition(',').first
-  self.drug_store_2 = self.drug_store_2.partition(',').first
-  self.drug_store_3 = self.drug_store_3.partition(',').first
-  self.walmart_1 = self.walmart_1.partition(',').first
-  self.walmart_2 = self.walmart_2.partition(',').first
-  self.walmart_3 = self.walmart_3.partition(',').first
-  self.hairdresser_1 = self.hairdresser_1.partition(',').first
-  self.hairdresser_2 = self.hairdresser_2.partition(',').first
-  self.hairdresser_3 = self.hairdresser_3.partition(',').first
-  self.spa_1 = self.spa_1.partition(',').first
-  self.spa_2 = self.spa_2.partition(',').first
-  self.spa_3 = self.spa_3.partition(',').first
-  self.nail_place_1 = self.nail_place_1.partition(',').first
-  self.nail_place_2 = self.nail_place_2.partition(',').first
-  self.nail_place_3 = self.nail_place_3.partition(',').first
-
-  self.coffee = self.coffee.partition(',').first
-  self.dry_cleaner = self.dry_cleaner.partition(',').first
-  self.fast_food = self.fast_food.partition(',').first
-  self.hardware = self.hardware.partition(',').first
-  self.craft = self.craft.partition(',').first
-  self.office = self.office.partition(',').first
-
-  self.clothing = self.clothing.partition(',').first
-  self.shoe = self.shoe.partition(',').first
-  self.pet = self.pet.partition(',').first
-  self.handyman = self.handyman.partition(',').first
-  self.cell_phone_provider = self.cell_phone_provider.partition(',').first
-  self.cable_provider = self.cable_provider.partition(',').first
-
-  self.electric_company = self.electric_company.partition(',').first
-  self.gas_company = self.gas_company.partition(',').first
-  self.cable_provider = self.cable_provider.partition(',').first
-  self.cable_provider = self.cable_provider.partition(',').first
-  self.cable_provider = self.cable_provider.partition(',').first
-  self.cable_provider = self.cable_provider.partition(',').first
 
 end
 
