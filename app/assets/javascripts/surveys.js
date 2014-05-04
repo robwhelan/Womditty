@@ -26,7 +26,7 @@ function countValidAnswers(){
 			}
 		});
 		$('#answerCount').html(answerCount + ' Points');
-		if (answerCount > 19)
+		if (answerCount > 4)
 		{
 			$('#submitButton').val('All Done!').removeClass('disabled');
 		}
