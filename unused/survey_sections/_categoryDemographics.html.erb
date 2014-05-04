@@ -1,0 +1,590 @@
+		<div id='categoryDemographics' class='hidden' style='margin-bottom:75px;'>
+			<div class="panel panel-default">
+				  <div class="panel-body">
+					<p><strong>As a reminder, your Personal data will not be displayed with your responses. It is only used to segment survey responses after many people have responded. Thank you for taking the survey!</strong></p>
+				</div>
+			</div>
+
+			<div id="cityQuestion" class="panel panel-default">
+				  <div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label :city_id %>
+				  	<%= @form.collection_select(:city_id, City.all, :id, :name, {}, {:class => 'form-control'} )%>
+					Or add a new one:
+					<%= @form.text_field :new_city_name, :class => 'form-control' %>
+				  	</div>
+				</div><!-- /panel -->
+			</div><!-- /city -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+				    <%= @form.label "Neighborhood*" %>
+				    <%= @form.text_field :neighborhood, :class => 'form-control', :placeholder => 'Neighborhood', :required => 'required' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label "Zip Code*" %>
+				    <%= @form.number_field :zipcode, :class => 'form-control', :placeholder => 'Zipcode', :required => 'required' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label :subdivision %>
+				    <%= @form.text_field :subdivision, :class => 'form-control', :placeholder => 'Subdivision' %>
+				  	</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+						<p>Gender*:</p>
+						<button type="button" class="gender-btn btn btn-default btn-lg">Male</button>
+						<button type="button" class="gender-btn btn btn-default btn-lg">Female</button>
+						<%= @form.text_field :gender, :class => 'hidden', :required => 'required' %>
+				  	</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+						<p>Your employment with the military*:</p>
+						<button type="button" id="survey_self_military_employment_active_duty" class="self-mil-employment-btn btn btn-default btn-lg">Active Duty</button>
+						<button type="button" id="survey_self_military_employment_reserves" class="self-mil-employment-btn btn btn-default btn-lg">Reserves</button>
+						<button type="button" id="survey_self_military_employment_civilian_contractor" class="self-mil-employment-btn btn btn-default btn-lg">Civilian Contractor</button>
+						<button type="button" id="survey_self_military_employment_none_of_the_above" class="self-mil-employment-btn btn btn-default btn-lg">None of the Above</button>
+						<%= @form.text_field :self_military_employment, :class => 'hidden', :required => 'required' %>
+				  	</div>
+				<div id="selfMilitaryQuestions" class="hidden panel panel-default">
+					  <div class="panel-body">
+						<div class="form-group">
+							<%= @form.text_field :self_branch, :class => 'hidden' %>
+							<button type="button" class="self-branch-btn btn btn-default btn-lg">Air Force</button>
+							<button type="button" class="self-branch-btn btn btn-default btn-lg">Army</button>
+							<button type="button" class="self-branch-btn btn btn-default btn-lg">Coast Guard</button>
+							<button type="button" class="self-branch-btn btn btn-default btn-lg">Marines</button>
+							<button type="button" class="self-branch-btn btn btn-default btn-lg">Navy</button>
+				  		</div>
+						<div class="form-group">
+							<%= @form.text_field :self_rank_class, :class => 'hidden' %>
+							<button type="button" class="self-rank-class-btn btn btn-default btn-lg">Enlisted</button>
+							<button type="button" class="self-rank-class-btn btn btn-default btn-lg">Warrant Officer</button>
+							<button type="button" class="self-rank-class-btn btn btn-default btn-lg">Officer</button>
+					  	</div>
+						<div class="form-group">
+							<%= @form.text_field :self_rank, :class => 'hidden' %>
+							<div id="enlistedDiv" class="hidden">
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-1</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-2</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-3</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-4</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-5</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-6</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-7</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-8</button>
+								<button type="button" class="enlisted self-rank-btn btn btn-default btn-lg">E-9</button>
+							</div>
+							<div id="warrantDiv" class="hidden">
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-1</button>
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-2</button>
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-3</button>
+								<button type="button" class="warrant self-rank-btn btn btn-default btn-lg">W-4</button>
+							</div>
+							<div id="officerDiv" class="hidden">
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-1</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-2</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-3</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-4</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-5</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-6</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-7</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-8</button>
+								<button type="button" class="officer self-rank-btn btn btn-default btn-lg">O-9</button>
+							</div>
+					  	</div>
+						<div class="form-group">
+					    <%= @form.label 'What is the name of your command?' %>
+					    <%= @form.text_field :self_command, :class => 'form-control' %>
+					  	</div>
+						<div class="form-group">
+					    <%= @form.label 'How long is your commute most days (in minutes)?' %>
+					    <%= @form.number_field :self_commute, :class => 'form-control' %>
+					  	</div>
+					</div><!-- /panel-body -->
+				</div><!-- /selfMilitary Questions -->
+				</div><!-- /panel body -->
+			</div><!-- /panel for self mlitary stuff -->
+		
+		<%= content_for :javascript do %>
+			<script type='text/javascript'>
+				$('#survey_self_military_employment_active_duty,#survey_self_military_employment_civilian_contractor,#survey_self_military_employment_reserves').click(function(){
+					$('#selfMilitaryQuestions').removeClass('hidden');
+				});
+				$('#survey_self_military_employment_none_of_the_above').click(function(){
+					$('#selfMilitaryQuestions').addClass('hidden');					
+				})
+				$('.self-mil-employment-btn').click(function(){ 
+					$('.self-mil-employment-btn').removeClass('btn-primary').addClass('btn-default');
+					$(this).removeClass('btn-default').addClass('btn-primary');
+			       	$('#survey_self_military_employment').val($(this).html());
+					$('#survey_self_military_employment').removeAttr('required'); // validation
+					$('#new_survey label[for="survey_self_military_employment"]').addClass("hidden"); //validation
+			   	});
+				$('.gender-btn').click(function(){ 
+					$('.gender-btn').removeClass('btn-primary').addClass('btn-default');
+					$(this).removeClass('btn-default').addClass('btn-primary');
+			       	$('#survey_gender').val($(this).html());
+					$('#survey_gender').removeAttr('required'); // validation
+					$('#new_survey label[for="survey_gender"]').addClass("hidden"); //validation
+			   	});
+				$('.self-branch-btn').click(function(){ 
+					$('.self-branch-btn').removeClass('btn-primary').addClass('btn-default');
+					$(this).removeClass('btn-default').addClass('btn-primary');
+			       	$('#survey_self_branch').val($(this).html());
+			   	});
+				$('.self-rank-class-btn').click(function(){ 
+					$('.self-rank-class-btn').removeClass('btn-primary').addClass('btn-default');
+					$(this).removeClass('btn-default').addClass('btn-primary');
+			       	$('#survey_self_rank_class').val($(this).html());
+					if ($('#survey_self_rank_class').val() == "Enlisted")
+					{
+						$('#enlistedDiv').removeClass('hidden');
+						$('#warrantDiv,#officerDiv').addClass('hidden');
+					}
+					if ($('#survey_self_rank_class').val() == "Warrant Officer")
+					{
+						$('#warrantDiv').removeClass('hidden');
+						$('#enlistedDiv,#officerDiv').addClass('hidden');
+					}
+					if ($('#survey_self_rank_class').val() == "Officer")
+					{
+						$('#officer').removeClass('hidden');
+						$('#warrantDiv,#enlistedDiv').addClass('hidden');
+					}
+			   	});
+				$('.self-rank-btn').click(function(){ 
+					$('.self-rank-btn').removeClass('btn-primary').addClass('btn-default');
+					$(this).removeClass('btn-default').addClass('btn-primary');
+			       	$('#survey_self_rank').val($(this).html());
+			   	});
+			</script>
+		<% end %>
+		
+		<div id="marriageStatus" class="panel panel-default">
+			  <div class="panel-body">
+				<div class="form-group">
+					<p>Marital Status*:</p>
+					<button type="button" id="survey_self_marital_status_married" class="self-marital-status-btn btn btn-default btn-lg">Married</button>
+					<button type="button" id="survey_self_marital_status_not_married" class="self-marital-status-btn btn btn-default btn-lg">Not Married</button>
+					<%= @form.text_field :self_marital_status, :class => 'hidden', :required => 'required' %>
+			  	</div>
+
+			<div id='spouseMilitaryStatus' class="hidden panel panel-default">
+				<div class="panel-body">
+					<div class='form-group'>
+						<p>Your spouse's military employment:</p>
+						<%= @form.text_field :spouse_military_employment, :class => 'hidden' %>
+						<button type="button" id="survey_spouse_military_employment_active_duty" class="spouse-mil-employment-btn btn btn-default btn-lg">Active Duty</button>
+						<button type="button" id="survey_spouse_military_employment_reserves" class="spouse-mil-employment-btn btn btn-default btn-lg">Reserves</button>
+						<button type="button" id="survey_spouse_military_employment_civilian_contractor" class="spouse-mil-employment-btn btn btn-default btn-lg">Civilian Contractor</button>
+						<button type="button" id="survey_spouse_military_employment_none_of_the_above" class="spouse-mil-employment-btn btn btn-default btn-lg">None of the Above</button>
+		  			</div>
+
+					<div id="spouseMilitaryQuestions" class="hidden panel panel-default">
+						  <div class="panel-body">
+							<div class="form-group">
+								<%= @form.text_field :spouse_branch, :class => 'hidden' %>
+								<button type="button" class="spouse-branch-btn btn btn-default btn-lg">Air Force</button>
+								<button type="button" class="spouse-branch-btn btn btn-default btn-lg">Army</button>
+								<button type="button" class="spouse-branch-btn btn btn-default btn-lg">Coast Guard</button>
+								<button type="button" class="spouse-branch-btn btn btn-default btn-lg">Marines</button>
+								<button type="button" class="spouse-branch-btn btn btn-default btn-lg">Navy</button>
+						  	</div>
+							<div class="form-group">
+								<%= @form.text_field :spouse_rank_class, :class => 'hidden' %>
+								<button type="button" class="spouse-rank-class-btn btn btn-default btn-lg">Enlisted</button>
+								<button type="button" class="spouse-rank-class-btn btn btn-default btn-lg">Warrant Officer</button>
+								<button type="button" class="spouse-rank-class-btn btn btn-default btn-lg">Officer</button>
+						  	</div>
+							<div class="form-group">
+								<%= @form.text_field :spouse_rank, :class => 'hidden' %>
+								<div id="#spouse-enlistedDiv" class="hidden">
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-1</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-2</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-3</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-4</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-5</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-6</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-7</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-8</button>
+									<button type="button" class="spouse-enlisted spouse-rank-btn btn btn-default btn-lg">E-9</button>
+								</div>
+								<div id="#spouse-warrantDiv" class="hidden">
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-1</button>
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-2</button>
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-3</button>
+									<button type="button" class="spouse-warrant spouse-rank-btn btn btn-default btn-lg">W-4</button>
+								</div>
+								<div id="#spouse-officerDiv" class="hidden">
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-1</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-2</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-3</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-4</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-5</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-6</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-7</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-8</button>
+									<button type="button" class="spouse-officer spouse-rank-btn btn btn-default btn-lg">O-9</button>
+								</div>
+						  	</div>
+							<div class="form-group">
+						    <%= @form.label "Name of your spouse's command" %>
+						    <%= @form.text_field :spouse_command, :class => 'form-control' %>
+						  	</div>
+			
+							<div class="form-group">
+						    <%= @form.label "How long is your spouse's commute (in minutes)?" %>
+						    <%= @form.number_field :spouse_commute, :class => 'form-control' %>
+						  	</div>
+						</div>
+					</div><!-- /spousemilitary -->
+					</div><!-- /panel -->
+				</div><!-- /spousemilitarystatus -->
+				</div><!-- / panel -->
+			</div><!-- /marriagestatus -->
+
+			<%= content_for :javascript do %>
+				<script type='text/javascript'>
+					$('#survey_spouse_military_employment_active_duty,#survey_spouse_military_employment_civilian_contractor,#survey_spouse_military_employment_reserves').click(function(){
+						$('#spouseMilitaryQuestions').removeClass('hidden');
+					});
+					$('#survey_spouse_military_employment_none_of_the_above').click(function(){
+						$('#spouseMilitaryQuestions').addClass('hidden');					
+					});
+					$('#survey_self_marital_status_married').click(function(){
+						$('#spouseMilitaryStatus').removeClass('hidden');
+					});
+					$('#survey_self_marital_status_not_married').click(function(){
+						$('#spouseMilitaryStatus').addClass('hidden');
+					});
+
+					$('.self-marital-status-btn').click(function(){ 
+						$('.self-marital-status-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+						if ($(this).html() == "Married")
+						{
+					       	$('#survey_self_marital_status').val('1');				
+						}
+						else
+						{
+					       	$('#survey_self_marital_status').val('0');							
+						}
+						$('#survey_self_marital_status').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_self_marital_status"]').addClass("hidden"); //validation
+				   	});					
+
+
+					$('.spouse-mil-employment-btn').click(function(){ 
+						$('.spouse-mil-employment-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_spouse_military_employment').val($(this).html());
+				   	});
+					$('.spouse-branch-btn').click(function(){ 
+						$('.spouse-branch-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_spouse_branch').val($(this).html());
+				   	});
+					$('.spouse-rank-class-btn').click(function(){ 
+						$('.spouse-rank-class-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_spouse_rank_class').val($(this).html());
+						if ($('#survey_spouse_rank_class').val() == "Enlisted")
+						{
+							$('#spouse-enlistedDiv').removeClass('hidden');
+							$('#spouse-warrantDiv,#spouse-officerDiv').addClass('hidden');
+						}
+						if ($('#survey_spouse_rank_class').val() == "Warrant Officer")
+						{
+							$('#spouse-warrantDiv').removeClass('hidden');
+							$('#spouse-enlistedDiv,#spouse-officerDiv').addClass('hidden');
+						}
+						if ($('#survey_spouse_rank_class').val() == "Officer")
+						{
+							$('#spouse-officerDiv').removeClass('hidden');
+							$('#spouse-warrantDiv,#spouse-enlistedDiv').addClass('hidden');
+						}
+				   	});
+					$('.spouse-rank-btn').click(function(){ 
+						$('.spouse-rank-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_spouse_rank').val($(this).html());
+				   	});					
+				</script>
+			<% end %>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="form-group">
+						<p>Your level of education*:</p>
+						<button type="button" class="education-btn btn btn-default btn-lg">High School</button>
+						<button type="button" class="education-btn btn btn-default btn-lg">College Degree</button>
+						<button type="button" class="education-btn btn btn-default btn-lg">Masters or Professional Degree</button>
+						<button type="button" class="education-btn btn btn-default btn-lg">Doctorate</button>
+						<%= @form.text_field :education_level, :class => 'hidden', :required => 'required' %>
+				  	</div>
+					<div class="form-group">
+						<p>Annual household income*:</p>
+						<button type="button" class="income-btn btn btn-default btn-lg">$30K or less</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$40K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$50K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$60K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$70K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$80K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$90K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$100K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$110K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$120K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$130K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$140K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">$150K</button>
+						<button type="button" class="income-btn btn btn-default btn-lg">More than $150K</button>
+						<%= @form.text_field :annual_household_income, :class => 'hidden', :required => 'required' %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'What do you spend on gas every month? ($)' %>
+				    <%= @form.text_field :car_gas_expense, :class => 'form-control' %>
+				  	</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				  <div class="panel-body">
+					<div class="form-group">
+						<p>Do you have any kids*?</p>
+						<button type="button" id="survey_kid_status_yes" class="kid-btn btn btn-default btn-lg">Yes</button>
+						<button type="button" id="survey_kid_status_no" class="kid-btn btn btn-default btn-lg">No</button>
+						<%= @form.text_field :kid_status, :class => 'hidden', :required => 'required' %>
+				  	</div>
+
+					<div id="kidQuestions" class="hidden panel panel-default">
+						  <div class="panel-body">
+							<div class="form-group">
+								<p>How many?</p>
+								<%= @form.number_field :kid_number, :class => 'hidden' %>
+								<button type="button" class="kid-number-btn btn btn-default btn-lg">1</button>
+								<button type="button" class="kid-number-btn btn btn-default btn-lg">2</button>
+								<button type="button" class="kid-number-btn btn btn-default btn-lg">3</button>
+								<button type="button" class="kid-number-btn btn btn-default btn-lg">4</button>
+								<button type="button" class="kid-number-btn btn btn-default btn-lg">5</button>
+								<button type="button" class="kid-number-btn btn btn-default btn-lg">More than 5</button>
+						  	</div>
+						</div><!-- /panel -->
+					</div><!-- kidquesitons -->
+				</div>
+			</div>
+
+			<%= content_for :javascript do %>
+				<script type='text/javascript'>
+					$('#survey_kid_status_yes').click(function(){
+						$('#kidQuestions').removeClass('hidden');
+					});
+					$('#survey_kid_status_no').click(function(){
+						$('#kidQuestions').addClass('hidden');
+						$('#survey_kid_number').val('0');		       	
+					});
+					$('.education-btn').click(function(){ 
+						$('.education-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_education_level').val($(this).html());
+						$('#survey_education_level').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_education_level"]').addClass("hidden"); //validation
+				   	});					
+					$('.income-btn').click(function(){ 
+						$('.income-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_annual_household_income').val($(this).html());
+						$('#survey_annual_household_income').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_annual_household_income"]').addClass("hidden"); //validation
+				   	});					
+					$('.kid-btn').click(function(){ 
+						$('.kid-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+						if ($(this).html() == "Yes")
+						{
+					       	$('#survey_kid_status').val('1');				
+						}
+						else
+						{
+					       	$('#survey_kid_status').val('0');							
+						}
+						$('#survey_kid_status').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_kid_status"]').addClass("hidden"); //validation
+				   	});					
+					$('.kid-number-btn').click(function(){ 
+						$('.kid-number-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_kid_number').val($(this).html());
+				   	});					
+					
+				</script>
+			<% end %>
+			
+			
+			<div class="panel panel-default">
+				  <div class="panel-body">
+					<div class="form-group">
+						<p>For housing, do you*:</p>
+						<button type="button" id="survey_own_or_rent_own" class="own-btn btn btn-default btn-lg">Own</button>
+						<button type="button" id="survey_own_or_rent_rent" class="own-btn btn btn-default btn-lg">Rent</button>
+						<button type="button" id="survey_own_or_rent_base_housing" class="own-btn btn btn-default btn-lg">Base Housing</button>
+						<%= @form.text_field :own_or_rent, :class => 'hidden', :required => 'required' %>
+				  	</div>
+
+					<div id="rentQuestions" class="hidden panel panel-default">
+						  <div class="panel-body">
+							<div class="form-group">
+						    <%= @form.label 'Monthly rent ($)' %>
+						    <%= @form.number_field :mothly_rent, :class => 'form-control', :placeholder => 'Monthly rent' %>
+						  	</div>
+							<div class="form-group">
+						    <%= @form.label 'How big is your rental in square feet?' %>
+						    <%= @form.number_field :square_feet_rental, :class => 'form-control', :placeholder => 'Rental size in sq feet' %>
+						  	</div>
+						</div><!-- /panel -->
+					</div><!-- /rentQuestions -->
+
+					<div id="ownQuestions" class="hidden panel panel-default">
+						  <div class="panel-body">
+							<div class="form-group">
+								<p>How old are the homes around you?</p>
+								<%= @form.text_field :age_of_homes, :class => 'hidden' %>
+								<button type="button" class="age-of-homes-btn btn btn-default btn-lg">Less than 5 years</button>
+								<button type="button" class="age-of-homes-btn btn btn-default btn-lg">5-10 years old</button>
+								<button type="button" class="age-of-homes-btn btn btn-default btn-lg">10-20 years old</button>
+								<button type="button" class="age-of-homes-btn btn btn-default btn-lg">20-30 years old</button>
+								<button type="button" class="age-of-homes-btn btn btn-default btn-lg">Older than 30 years</button>
+						  	</div>
+							<div class="form-group">
+								<p>How big are the yards in the neighborhood?</p>
+								<%= @form.text_field :yard_size, :class => 'hidden' %>
+								<button type="button" class="yard-btn btn btn-default btn-lg">Tiny!</button>
+								<button type="button" class="yard-btn btn btn-default btn-lg">Small</button>
+								<button type="button" class="yard-btn btn btn-default btn-lg">Average</button>
+								<button type="button" class="yard-btn btn btn-default btn-lg">Large</button>
+								<button type="button" class="yard-btn btn btn-default btn-lg">Huge!</button>
+						  	</div>
+							<div class="form-group">
+								<p>Is there a Property Owners' Association (POA)?</p>
+								<%= @form.text_field :is_there_POA, :class => 'hidden' %>
+								<button type="button" id="survey_is_there_POA_yes" class="poa-btn btn btn-default btn-lg">Yes</button>
+								<button type="button" id="survey_is_there_POA_no" class="poa-btn btn btn-default btn-lg">No</button>
+						  	</div>
+
+							<div id="POAQuestions" class="hidden panel panel-default">
+								  <div class="panel-body">
+									<div class="form-group">
+										<p>The POA is:</p>
+										<%= @form.text_field :POA_behavior, :class => 'hidden' %>
+										<button type="button" class="poa-behavior-btn btn btn-default btn-lg">Too lax</button>
+										<button type="button" class="poa-behavior-btn btn btn-default btn-lg">Reasonable</button>
+										<button type="button" class="poa-behavior-btn btn btn-default btn-lg">Too aggressive</button>
+								  	</div>
+								</div><!-- /panel -->
+							</div><!-- /POA question -->
+							<div class="form-group">
+						    <%= @form.label 'How many square feet is your house?' %>
+						    <%= @form.number_field :square_feet_house, :class => 'form-control' %>
+						  	</div>
+							<div class="form-group">
+						    <%= @form.label 'What is the value of nearby homes? -example: $130,000' %>
+						    <%= @form.text_field :nearby_home_value, :class => 'form-control' %>
+						  	</div>
+					
+						</div><!-- /panel -->
+					</div><!-- /ownQuestions -->
+				</div><!-- /panelbody for own or rent questions -->
+			</div><!-- panelbody for own or rent questions -->
+			<%= content_for :javascript do %>
+				<script type='text/javascript'>
+					$('#survey_own_or_rent_rent').click(function(){
+						$('#rentQuestions').removeClass('hidden');
+						$('#ownQuestions').addClass('hidden');
+					});
+					$('#survey_own_or_rent_own').click(function(){
+						$('#ownQuestions').removeClass('hidden');
+						$('#rentQuestions').addClass('hidden');
+					});
+					$('#survey_own_or_rent_base_housing').click(function(){
+						$('#ownQuestions').addClass('hidden');
+						$('#rentQuestions').addClass('hidden');
+					});
+					$('#survey_is_there_POA_yes').click(function(){
+						$('#POAQuestions').removeClass('hidden');
+					});
+					$('#survey_is_there_POA_no').click(function(){
+						$('#POAQuestions').addClass('hidden');
+					});
+					$('.own-btn').click(function(){ 
+						$('.own-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_own_or_rent').val($(this).html());
+						$('#survey_own_or_rent').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_own_or_rent"]').addClass("hidden"); //validation
+				   	});					
+					$('.age-of-homes-btn').click(function(){ 
+						$('.age-of-homes-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_age_of_homes').val($(this).html());
+				   	});					
+					$('.yard-btn').click(function(){ 
+						$('.yard-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_yard_size').val($(this).html());
+				   	});					
+
+					$('.poa-btn').click(function(){ 
+						$('.poa-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+						if ($(this).html() == "Yes")
+						{
+					       	$('#survey_is_there_POA').val('1');				
+						}
+						else
+						{
+					       	$('#survey_is_there_POA').val('0');							
+						}
+						$('#survey_is_there_POA').removeAttr('required'); // validation
+						$('#new_survey label[for="survey_is_there_POA"]').addClass("hidden"); //validation
+				   	});					
+
+					$('.poa-behavior-btn').click(function(){ 
+						$('.poa-behavior-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_POA_behavior').val($(this).html());
+				   	});					
+					$('.do-again-btn').click(function(){ 
+						$('.do-again-btn').removeClass('btn-primary').addClass('btn-default');
+						$(this).removeClass('btn-default').addClass('btn-primary');
+				       	$('#survey_recommend_rent_or_buy').val($(this).html());
+				   	});					
+					
+
+				</script>
+			<% end %>
+
+
+			<div class="panel panel-default">
+				  <div class="panel-body">
+					<div class="form-group">
+						<p>If you could do it again, you would:</p>
+						<%= @form.text_field :recommend_rent_or_buy, :class => 'hidden' %>
+						<button type="button" class="do-again-btn btn btn-default btn-lg">Own</button>
+						<button type="button" class="do-again-btn btn btn-default btn-lg">Rent</button>
+						<button type="button" class="do-again-btn btn btn-default btn-lg">Base Housing</button>
+				  	</div>
+				</div>
+			</div>
+
+			<div class='form-group'>
+				<%= @form.text_area :whats_missing_demographics, :style => 'height:34px;', :placeholder => 'Feedback for this page', :class => 'form-control' %>
+			</div>
+			<div class="actions">
+		    <%= @form.submit 'You need 20 points', :id => 'submitButton', :class => 'btn btn-large btn-success disabled' %>
+		  </div>
+		  
+		</div><!-- /demographics -->			

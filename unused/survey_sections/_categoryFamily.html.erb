@@ -1,0 +1,254 @@
+		<div id="categoryFamily" class="hidden">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					Can you recommend a few good doctors?
+					<div class="form-group">
+				    <%= @form.label 'OB-GYN' %>
+				    <%= @form.text_field :doctor_obgyn, :class => 'form-control countable placeable', :placeholder => "OB-GYN" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Eye Doctor' %>
+				    <%= @form.text_field :doctor_eye_care, :class => 'form-control countable placeable', :placeholder => "Eye Doctor" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Pediatrician' %>
+				    <%= @form.text_field :doctor_pediatrician, :class => 'form-control countable placeable', :placeholder => "Pediatrician" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'General practitioner' %>
+				    <%= @form.text_field :doctor_general, :class => 'form-control countable placeable', :placeholder => "General Practitioner" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Chiropractor' %>
+				    <%= @form.text_field :doctor_chiropractor, :class => 'form-control countable placeable', :placeholder => "Chiropractor" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Ear, Nose, Throat' %>
+				    <%= @form.text_field :doctor_earnosethroat, :class => 'form-control countable placeable', :placeholder => "Ear, nose throat" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Veterinarian' %>
+				    <%= @form.text_field :doctor_vet, :class => 'form-control countable placeable', :placeholder => "Veterinarian" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Other' %>
+				    <%= @form.text_field :doctor_other, :class => 'form-control countable placeable', :placeholder => "Other" %>
+				  	</div>
+				</div>
+			</div>
+					
+			<div class="panel panel-default">
+				<div class="panel-body">
+				<%= render 'surveys/survey_sections/triple_string', 
+				 			:form => @form, 
+							:label => 'Where would you recommend delivering a baby?', 
+							:placeholder => 'A place to deliver a baby',
+							:field_1 => :deliver_baby_1, 
+							:field_2 => :deliver_baby_2,
+							:field_3 => :deliver_baby_3,
+							:div_2 => 'deliver_baby_div_2', 
+							:div_3 => 'deliver_baby_div_3', 
+							:button_1 => 'survey_deliver_baby_button_1',
+							:button_2 => 'survey_deliver_baby_button_2' %>
+
+				<%= render 'surveys/survey_sections/triple_string', 
+				 			:form => @form, 
+							:label => 'Can you recommend some good childcare facilities?', 
+							:placeholder => 'Childcare',
+							:field_1 => :childcare_1, 
+							:field_2 => :childcare_2,
+							:field_3 => :childcare_3,
+							:div_2 => 'childcare_div_2', 
+							:div_3 => 'childcare_div_3', 
+							:button_1 => 'survey_childcare_button_1',
+							:button_2 => 'survey_childcare_button_2' %>
+				</div>
+			</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="form-group">
+			<p>What's a good hourly rate for a babysitter for two kids? ($ per hour)</p>
+			<%= @form.text_field :babysitter_pay, :class => 'hidden countable' %>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$6/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$7/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$8/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$9/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$10/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$11/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$12/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$13/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$14/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$15/hr</button>
+			<button type="button" class="clickable babysitter-btn btn btn-default btn-lg">$16/hr</button>
+		  	</div>
+		</div>
+	</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<%= render 'surveys/survey_sections/five_string', 
+					 			:form => @form, 
+								:label => 'What are some good family restaurants?', 
+								:placeholder => 'Family restaurant',
+								:field_1 => :family_restaurant_1, 
+								:field_2 => :family_restaurant_2,
+								:field_3 => :family_restaurant_3,
+								:field_4 => :family_restaurant_4,
+								:field_5 => :family_restaurant_5,
+								:div_2 => 'family_restaurant_div_2', 
+								:div_3 => 'family_restaurant_div_3', 
+								:div_4 => 'family_restaurant_div_4', 
+								:div_5 => 'family_restaurant_div_5', 
+								:button_1 => 'survey_family_restaurant_button_1',
+								:button_2 => 'survey_family_restaurant_button_2',
+								:button_3 => 'survey_family_restaurant_button_3',
+								:button_4 => 'survey_family_restaurant_button_4' %>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<%= render 'surveys/survey_sections/five_string', 
+					 			:form => @form, 
+								:label => 'What are some good activities for kids?', 
+								:placeholder => 'Kid activities',
+								:field_1 => :kid_activity_1, 
+								:field_2 => :kid_activity_2,
+								:field_3 => :kid_activity_3,
+								:field_4 => :kid_activity_4,
+								:field_5 => :kid_activity_5,
+								:div_2 => 'kid_activity_div_2', 
+								:div_3 => 'kid_activity_div_3', 
+								:div_4 => 'kid_activity_div_4', 
+								:div_5 => 'kid_activity_div_5', 
+								:button_1 => 'survey_kid_activity_button_1',
+								:button_2 => 'survey_kid_activity_button_2',
+								:button_3 => 'survey_kid_activity_button_3',
+								:button_4 => 'survey_kid_activity_button_4' %>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<%= render 'surveys/survey_sections/triple_string', 
+					 			:form => @form, 
+								:label => 'What are three schools with good reputations?', 
+								:placeholder => 'Good school',
+								:field_1 => :good_school_1, 
+								:field_2 => :good_school_2,
+								:field_3 => :good_school_3,
+								:div_2 => 'good_school_div_2', 
+								:div_3 => 'good_school_div_3', 
+								:button_1 => 'survey_good_school_button_1',
+								:button_2 => 'survey_good_school_button_2' %>
+
+					<%= render 'surveys/survey_sections/triple_string', 
+					 			:form => @form, 
+								:label => 'How about three bad schools?', 
+								:placeholder => 'Bad school',
+								:field_1 => :bad_school_1, 
+								:field_2 => :bad_school_2,
+								:field_3 => :bad_school_3,
+								:div_2 => 'bad_school_div_2', 
+								:div_3 => 'bad_school_div_3', 
+								:button_1 => 'survey_bad_school_button_1',
+								:button_2 => 'survey_bad_school_button_2' %>
+
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p>Who should you contact to get a child signed up for:
+					<div class="form-group">
+				    <%= @form.label 'Gymnastics' %>
+				    <%= @form.text_field :contact_gymnastics, :class => 'form-control countable placeable', :placeholder => "Gymnastics" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Dance' %>
+				    <%= @form.text_field :contact_dance, :class => 'form-control countable placeable', :placeholder => "Dance" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Karate' %>
+				    <%= @form.text_field :contact_karate, :class => 'form-control countable placeable', :placeholder => "Karate" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Ballet' %>
+				    <%= @form.text_field :contact_ballet, :class => 'form-control countable placeable', :placeholder => "Ballet" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Baseball' %>
+				    <%= @form.text_field :contact_baseball, :class => 'form-control countable placeable', :placeholder => "Baseball" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Basketball' %>
+				    <%= @form.text_field :contact_basketball, :class => 'form-control countable placeable', :placeholder => "Basketball" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Soccer' %>
+				    <%= @form.text_field :contact_soccer, :class => 'form-control countable placeable', :placeholder => "Soccer" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Football' %>
+				    <%= @form.text_field :contact_football, :class => 'form-control countable placeable', :placeholder => "Football" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Lacrosse' %>
+				    <%= @form.text_field :contact_lacrosse, :class => 'form-control countable placeable', :placeholder => "Lacrosse" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Music' %>
+				    <%= @form.text_field :contact_music, :class => 'form-control countable placeable', :placeholder => "Music" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Art' %>
+				    <%= @form.text_field :contact_art, :class => 'form-control countable placeable', :placeholder => "Art" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Swimming' %>
+				    <%= @form.text_field :contact_swimming, :class => 'form-control countable placeable', :placeholder => "Swimming" %>
+				  	</div>
+					<div class="form-group">
+				    <%= @form.label 'Any other sport or activity' %>
+				    <%= @form.text_field :contact_any_other_kid_stuff, :class => 'form-control countable placeable', :placeholder => "Anything else" %>
+			  		</div>
+				</div>
+			</div>
+
+			<div class='form-group'>
+				<%= @form.text_area :whats_missing_family, :class => 'form-control', :style => 'height:34px;', :placeholder => 'Feedback for this page' %>
+			</div>
+
+		</div><!-- /categoryFamily -->
+		
+		<%= content_for :javascript do %>
+			<script type='text/javascript'>
+			$(document).ready(function(){
+				renderNewInput('#survey_deliver_baby_1', '#deliver_baby_div_2', '#survey_deliver_baby_2', '#survey_deliver_baby_button_1');
+				renderNewInput('#survey_deliver_baby_2', '#deliver_baby_div_3', '#survey_deliver_baby_3', '#survey_deliver_baby_button_2');
+				renderNewInput('#survey_childcare_1', '#childcare_div_2', '#survey_childcare_2', '#survey_childcare_button_1');
+				renderNewInput('#survey_childcare_2', '#childcare_div_3', '#survey_childcare_3', '#survey_childcare_button_2');
+				renderNewInput('#survey_kid_activity_1', '#kid_activity_div_2', '#survey_kid_activity_2', '#survey_kid_activity_button_1');
+				renderNewInput('#survey_kid_activity_2', '#kid_activity_div_3', '#survey_kid_activity_3', '#survey_kid_activity_button_2');
+				renderNewInput('#survey_kid_activity_3', '#kid_activity_div_4', '#survey_kid_activity_4', '#survey_kid_activity_button_3');
+				renderNewInput('#survey_kid_activity_4', '#kid_activity_div_5', '#survey_kid_activity_5', '#survey_kid_activity_button_4');
+				renderNewInput('#survey_family_restaurant_1', '#family_restaurant_div_2', '#survey_family_restaurant_2', '#survey_family_restaurant_button_1');
+				renderNewInput('#survey_family_restaurant_2', '#family_restaurant_div_3', '#survey_family_restaurant_3', '#survey_family_restaurant_button_2');
+				renderNewInput('#survey_family_restaurant_3', '#family_restaurant_div_4', '#survey_family_restaurant_4', '#survey_family_restaurant_button_3');
+				renderNewInput('#survey_family_restaurant_4', '#family_restaurant_div_5', '#survey_family_restaurant_5', '#survey_family_restaurant_button_4');
+				renderNewInput('#survey_good_school_1', '#good_school_div_2', '#survey_good_school_2', '#survey_good_school_button_1');
+				renderNewInput('#survey_good_school_2', '#good_school_div_3', '#survey_good_school_3', '#survey_good_school_button_2');
+				renderNewInput('#survey_bad_school_1', '#bad_school_div_2', '#survey_bad_school_2', '#survey_bad_school_button_1');
+				renderNewInput('#survey_bad_school_2', '#bad_school_div_3', '#survey_bad_school_3', '#survey_bad_school_button_2');
+
+				$('.babysitter-btn').click(function(){ 
+					$('.babysitter-btn').removeClass('btn-primary').addClass('btn-default');
+					$(this).removeClass('btn-default').addClass('btn-primary');
+			       	$('#survey_babysitter_pay').val($(this).html());
+			   });
+				
+
+			});
+			</script>
+		<% end %>
+		
