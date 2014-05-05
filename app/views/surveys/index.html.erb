@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=117143105159557&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <%= render 'surveys/menu/filter' %>
 
 	<div class="container" style='margin-bottom:75px;'>
@@ -13,7 +22,8 @@
 	      		<!-- ><button id='familyButton' class='btn btn-default'>Kids Activities</button> -->
 	      		<!-- <button id='communityButton' class='btn btn-default'>Community</button> -->
 	      		<!-- <button id='practicalButton' class='btn btn-default'>Practical</button> -->
-				<button class="btn btn-success active pull-right" id="filterButton" role="button" data-toggle="modal" data-target="#filterMenu" href="#"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+				<div style="margin:5px;" class="fb-share-button pull-right" data-href="http://www.urbanrecon.co" data-type="button_count"></div>
+				<button style="margin:5px;" class="btn btn-success active pull-right" id="filterButton" role="button" data-toggle="modal" data-target="#filterMenu" href="#"><span class="glyphicon glyphicon-filter"></span> Filter</button>
 				</div><!--/row -->
 			</nav>
 		</div><!-- /footer container -->

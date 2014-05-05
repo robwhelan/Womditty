@@ -8,7 +8,7 @@
     </div>
     <div id=<%= category_name %> class="panel-collapse collapse">
       <div class="panel-body">
-			<canvas id='<%= "chart" + category_name %>' width="480" height="200"></canvas>
+			<canvas id='<%= "chart" + category_name %>' style="margin-left:-80px;" width="450" height="200"></canvas>
 			<script type="text/javascript">
 		
 				var ctx = document.getElementById('<%= "chart" + category_name %>').getContext("2d");
@@ -28,7 +28,8 @@
 					scaleOverride : true,
 					scaleStepWidth : '1',
 					scaleSteps : Math.max.apply(null, votes),
-					scaleStartValue: 0
+					scaleStartValue: 0,
+					labelAlign: 'center'
 					};
 				var data = {
 					labels : labels,

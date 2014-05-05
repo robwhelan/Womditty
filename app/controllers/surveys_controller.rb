@@ -8,24 +8,18 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
   def index
-    if params[:kids] == 'true'
-      @surveys = Survey.where(:kid_status => 'true')
-      @filter = "With Kids"
-    elsif params[:kids] == 'false'
-      @surveys = Survey.where(:kid_status => 'false')
-      @filter = "Without Kids"
-    elsif params[:married] == 'true'
-      @surveys = Survey.where(:self_marital_status => 'true')
-      @filter = "Married"
-    elsif params[:married] == 'false'
-      @surveys = Survey.where(:self_marital_status => 'false')
-      @filter = "Singles"
-    elsif params[:branch] == 'navy'
-      @surveys = Survey.where("self_branch = ? OR spouse_branch = ?", 'Navy', 'Navy')
-      @filter = "Navy"
-    elsif params[:branch] == 'airForce'
-      @surveys = Survey.where("self_branch = ? OR spouse_branch = ?", 'Air Force', 'Air Force')
-      @filter = "Air Force"
+    if params[:neighborhood]
+      @surveys = Survey.where(:neighborhood => params[:neighborhood])
+      @filter = params[:neighborhood]
+    elsif params[:education_level]
+      @surveys = Survey.where(:education_level => params[:education_level])
+      @filter = params[:education_level]
+      #elsif params[:branch] == 'navy'
+      #@surveys = Survey.where("self_branch = ? OR spouse_branch = ?", 'Navy', 'Navy')
+      #@filter = "Navy"
+      #elsif params[:branch] == 'airForce'
+      #@surveys = Survey.where("self_branch = ? OR spouse_branch = ?", 'Air Force', 'Air Force')
+      #@filter = "Air Force"
     else
       @surveys = Survey.all
       @filter = ""

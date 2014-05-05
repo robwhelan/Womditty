@@ -41,16 +41,6 @@
 				</div>
 			</div>
 			
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div class="form-group">
-						<p>Gender*:</p>
-						<button type="button" class="gender-btn btn btn-default btn-lg">Male</button>
-						<button type="button" class="gender-btn btn btn-default btn-lg">Female</button>
-						<%= @form.text_field :gender, :class => 'hidden', :required => 'required' %>
-				  	</div>
-				</div>
-			</div>
 		
 		<%= content_for :javascript do %>
 			<script type='text/javascript'>
@@ -81,49 +71,6 @@
 						<button type="button" class="education-btn btn btn-default btn-lg">Doctorate</button>
 						<%= @form.text_field :education_level, :class => 'hidden', :required => 'required' %>
 				  	</div>
-					<div class="form-group">
-						<p>Annual household income*:</p>
-						<button type="button" class="income-btn btn btn-default btn-lg">$30K or less</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$40K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$50K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$60K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$70K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$80K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$90K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$100K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$110K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$120K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$130K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$140K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">$150K</button>
-						<button type="button" class="income-btn btn btn-default btn-lg">More than $150K</button>
-						<%= @form.text_field :annual_household_income, :class => 'hidden', :required => 'required' %>
-				  	</div>
-				</div>
-			</div>
-			<div class="panel panel-default">
-				  <div class="panel-body">
-					<div class="form-group">
-						<p>Do you have any kids*?</p>
-						<button type="button" id="survey_kid_status_yes" class="kid-btn btn btn-default btn-lg">Yes</button>
-						<button type="button" id="survey_kid_status_no" class="kid-btn btn btn-default btn-lg">No</button>
-						<%= @form.text_field :kid_status, :class => 'hidden', :required => 'required' %>
-				  	</div>
-
-					<div id="kidQuestions" class="hidden panel panel-default">
-						  <div class="panel-body">
-							<div class="form-group">
-								<p>How many?</p>
-								<%= @form.number_field :kid_number, :class => 'hidden' %>
-								<button type="button" class="kid-number-btn btn btn-default btn-lg">1</button>
-								<button type="button" class="kid-number-btn btn btn-default btn-lg">2</button>
-								<button type="button" class="kid-number-btn btn btn-default btn-lg">3</button>
-								<button type="button" class="kid-number-btn btn btn-default btn-lg">4</button>
-								<button type="button" class="kid-number-btn btn btn-default btn-lg">5</button>
-								<button type="button" class="kid-number-btn btn btn-default btn-lg">More than 5</button>
-						  	</div>
-						</div><!-- /panel -->
-					</div><!-- kidquesitons -->
 				</div>
 			</div>
 
