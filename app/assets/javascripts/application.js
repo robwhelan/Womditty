@@ -25,4 +25,3 @@
 //= require jquery.smooth-scroll.min.js
 //= require modernizr.custom.js
 //= require wow.min.js
-//= require canvasjs.min.js
