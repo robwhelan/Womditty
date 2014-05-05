@@ -35,7 +35,7 @@
 		           type: "bar",
 		           dataPoints: [
 	   				<% hash.each do |pair| %>
-	   					<% unless pair[0].empty? %>
+	   					<% unless pair[0].blank? %>
 	   					{ label: '<%= pair[0] %>', y:<%= pair[1] %> },
 	   					<% end %>
 	   				<% end %>

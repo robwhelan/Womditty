@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502003904) do
+ActiveRecord::Schema.define(:version => 20140505164836) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -601,6 +601,11 @@ ActiveRecord::Schema.define(:version => 20140502003904) do
     t.string   "good_bar_1"
     t.string   "good_bar_2"
     t.string   "good_bar_3"
+    t.string   "contact_tennis"
+    t.string   "contact_golf"
+    t.string   "contact_boyscouts"
+    t.string   "contact_girlscouts"
+    t.string   "contact_language"
   end
 
   add_index "surveys", ["city_id"], :name => "index_surveys_on_city_id"

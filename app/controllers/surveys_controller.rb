@@ -64,6 +64,11 @@ class SurveysController < ApplicationController
     @contact_art = Survey.rank_responses(@surveys, "contact_art")
     @contact_swimming = Survey.rank_responses(@surveys, "contact_swimming")
     @contact_any_other_kid_stuff = Survey.rank_responses(@surveys, "contact_any_other_kid_stuff")
+    @contact_tennis = Survey.rank_responses(@surveys, "contact_tennis")
+    @contact_golf = Survey.rank_responses(@surveys, "contact_golf")
+    @contact_boyscouts = Survey.rank_responses(@surveys, "contact_boyscouts")
+    @contact_girlscouts = Survey.rank_responses(@surveys, "contact_girlscouts")
+    @contact_language = Survey.rank_responses(@surveys, "contact_language")
 
     #community
     @gyms = Survey.rank_responses(@surveys, "gym_1", "gym_2", "gym_3")
