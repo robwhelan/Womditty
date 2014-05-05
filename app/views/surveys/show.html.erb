@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=117143105159557&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <p id="notice"><%= notice %></p>
 <div class="jumbotron">
 	<div class="container">
@@ -8,6 +17,7 @@
 			<form>
 			<input class="form-control" type="text" value="http://www.urbanrecon.co" />
 			</form>
+			<div class="fb-share-button" data-href="http://www.urbanrecon.co" data-type="button_count"></div>
 		<p>3. In the meantime, enjoy this:</p>
 		<%= image_tag 'fox.jpg', :class => 'img-responsive' %>
 		</div>
