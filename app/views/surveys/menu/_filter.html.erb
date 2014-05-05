@@ -8,10 +8,29 @@
       <div class="modal-body">
 				<div class="panel panel-default">
 				  	<div class="panel-body">
+						<p>Recommendations from residents with:</p>
 						<%= link_to 'High School', surveys_path(:education_level => "High School"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
 						<%= link_to 'College Degree', surveys_path(:education_level => "College Degree"), :id => 'withoutKids', :class => 'btn btn-block btn-primary' %>
 						<%= link_to "Masters or Professional Degree", surveys_path(:education_level => "Masters or Professional Degree"), :id => 'withoutKids', :class => 'btn btn-block btn-primary' %>
 						<%= link_to 'Doctorate', surveys_path(:education_level => "Doctorate"), :id => 'withoutKids', :class => 'btn btn-block btn-primary' %>
+					</div>
+				</div>
+				<div class="panel panel-default">
+				  	<div class="panel-body">
+						<p>Recommendations from residents of:</p>
+						<%= link_to 'Mt Pleasant', surveys_path(:neighborhood => "Mt Pleasant"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'North Charleston', surveys_path(:neighborhood => "North Charleston"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Daniel Island', surveys_path(:neighborhood => "Daniel Island"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Hanahan', surveys_path(:neighborhood => "Hanahan"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Goose Creek', surveys_path(:neighborhood => "Goose Creek"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Summerville', surveys_path(:neighborhood => "Summerville"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'West Ashley', surveys_path(:neighborhood => "West Ashley"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Downtown Charleston', surveys_path(:neighborhood => "Downtown Charleston"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Isle of Palms', surveys_path(:neighborhood => "Isle of Palms"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Sullivans Island', surveys_path(:neighborhood => "Sullivans Island"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'James Island', surveys_path(:neighborhood => "James Island"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						<%= link_to 'Johns Island', surveys_path(:neighborhood => "Johns Island"), :id => 'withKids', :class => 'btn btn-block btn-primary' %>
+						
 					</div>
 				</div>
       </div><!-- /modal body -->
