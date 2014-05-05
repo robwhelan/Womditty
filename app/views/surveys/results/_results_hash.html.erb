@@ -8,44 +8,40 @@
     </div>
     <div id=<%= category_name %> class="panel-collapse collapse">
       <div class="panel-body">
-			<canvas id='<%= "chart" + category_name %>' style="margin-left:-80px;" width="450" height="200"></canvas>
-			<script type="text/javascript">
+		  
+		  <div id='<%= "chart" + category_name %>' style="height: 400px; width: 100%;"></div>
 		
-				var ctx = document.getElementById('<%= "chart" + category_name %>').getContext("2d");
-				//var myNewChart = new Chart(ctx).PolarArea(data);
-				var labels = [];
-				var votes = [];
-				
-				<% hash.each do |pair| %>
-				<% unless pair[0].empty? %>
-						labels.push('<%= pair[0] %>');
-						votes.push('<%= pair[1] %>');
-						<% end %>
-				<% end %>
-				
-				
-				var options = {
-					scaleOverride : true,
-					scaleStepWidth : '1',
-					scaleSteps : Math.max.apply(null, votes),
-					scaleStartValue: 0,
-					labelAlign: 'center'
-					};
-				var data = {
-					labels : labels,
-					datasets : [
-						{
-							fillColor : "rgba(220,220,220,0.5)",
-							strokeColor : "rgba(220,220,220,1)",
-							data : votes
-						}
-					]
-				}
-		
-				var myNewChart = new Chart(ctx).Bar(data,options);
-		
-			</script>			
-			
       </div>
     </div>
 </div>
+
+<%= content_for :javascript do %>
+		  <script type="text/javascript">
+		  $(function() {
+			  //var dataPoints = [];
+		
+		      var chart = new CanvasJS.Chart('<%= "chart" + category_name %>', {
+				  
+			    axisX:{
+			         interval: 1
+			       },
+		        data: [//array of dataSeries              
+		          { //dataSeries object
+
+		           /*** Change type "column" to "bar", "area", "line" or "pie"***/
+		           type: "bar",
+		           dataPoints: [
+	   				<% hash.each do |pair| %>
+	   					<% unless pair[0].empty? %>
+	   					{ label: '<%= pair[0] %>', y:<%= pair[1] %> },
+	   					<% end %>
+	   				<% end %>
+					   	]
+		         }
+		         ]
+		       });
+
+		      chart.render();
+		    });
+		    </script>
+<% end %>
