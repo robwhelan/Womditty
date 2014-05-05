@@ -17,10 +17,6 @@
 //= require bootstrap-tour.min.js
 //= require_tree .
 //= require jquery_ujs
-//= require jquery.remotipart
-//= require autocomplete-rails
-//= require fastclick.js
-//= require custom.js
 //= require jquery.dlmenu.js
 //= require jquery.smooth-scroll.min.js
 //= require modernizr.custom.js
